@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  margin: 0;
+}
+
+ul li {
+  list-style: none;
+  padding: 0;
+}
+
+p {
+  margin: 0;
+}
+
+.heading h1 {
+  font-size: 42px;
+  font-weight: bold;
+}
+
+.modified-icon {
+  border: 1px solid #fff;
+  width: 35px;
+  height: 35px;
+  border-radius: 50px;
+}
+
+.modified-icon:hover {
+  background-color: #fff;
+}
+
+.modified-icon .material-symbols-outlined:hover {
+  color: red;
+}
