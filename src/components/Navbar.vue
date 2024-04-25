@@ -238,5 +238,8 @@ export default {
   .v-navigation-drawer {
     width: 320px !important;
   }
+  .logo-img {
+    margin-left: 40px;
+  }
 }
 </style>

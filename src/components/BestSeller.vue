@@ -71,7 +71,7 @@ export default {
 }
 
 .heading h1 {
-  font-size: 42px;
+  font-size: 36px;
   font-weight: bold;
 }
 .prodct-img {
@@ -128,6 +128,7 @@ export default {
   width: 35px;
   height: 35px;
   border-radius: 50px;
+  transition: 0.5 ease-out;
 }
 
 .modified-icon:hover {

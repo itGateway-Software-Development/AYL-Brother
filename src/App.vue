@@ -5,16 +5,20 @@
     <v-main>
       <router-view />
     </v-main>
+
+    <Footer />
   </v-app>
 </template>
 
 <script>
+import Footer from "./components/Footer";
 import HomeView from "./views/HomeView";
 import Navbar from "./components/Navbar";
 // @ is an alias to /src
 
 export default {
   components: {
+    Footer,
     HomeView,
     Navbar,
   },

@@ -108,6 +108,9 @@ export default {};
   .carousel-item .banner {
     height: 650px;
   }
+  .slider {
+    margin: 0;
+  }
 }
 
 @media (max-width: 800px) {
