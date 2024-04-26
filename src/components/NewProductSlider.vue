@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div data-aos="zoom-in" data-aos-duration="2000">
     <div class="container content-wrapper mt-5 d-1">
       <div class="heading">
         <h1>New Product</h1>

@@ -1,11 +1,19 @@
 <template>
   <div class="mt-5">
-    <div class="heading text-center">
+    <div
+      class="heading text-center"
+      data-aos="fade-down"
+      data-aos-duration="2000"
+    >
       <h1>Product Detail</h1>
     </div>
     <div class="d-1 container content-wrapper">
       <div class="row">
-        <div class="col-6 left-section p-5">
+        <div
+          class="col-6 left-section p-5"
+          data-aos="fade-right"
+          data-aos-duration="2000"
+        >
           <div class="row justify-content-center">
             <div class="col-6 left-items d-flex-column">
               <div class="item-1" @click="ChangeContent1">
@@ -34,7 +42,11 @@
             </div>
           </div>
         </div>
-        <div class="col-6 right-section mt-5">
+        <div
+          class="col-6 right-section mt-5"
+          data-aos="fade-left"
+          data-aos-duration="2000"
+        >
           <div class="content-1" v-if="content1">
             <h2 class="text-center product-heading mb-4">
               Bamboo Fiber Series
@@ -86,7 +98,11 @@
         </div>
       </div>
     </div>
-    <div class="d-2 container content-wrapper mt-5">
+    <div
+      class="d-2 container content-wrapper mt-5"
+      data-aos="zoom-in"
+      data-aos-duration="2000"
+    >
       <div class="d-flex-column">
         <div class="p-list">
           <div class="d-flex m-list">

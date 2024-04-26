@@ -3,6 +3,8 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import "./css/style.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 import "vuetify/styles";
 import { createVuetify } from "vuetify";
@@ -14,5 +16,7 @@ const vuetify = createVuetify({
   components,
   directives,
 });
+
+AOS.init();
 
 createApp(App).use(store).use(router).use(vuetify).mount("#app");

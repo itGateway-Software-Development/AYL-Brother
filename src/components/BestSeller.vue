@@ -1,5 +1,9 @@
 <template>
-  <div class="container content-wrapper mt-3">
+  <div
+    class="container content-wrapper mt-3"
+    data-aos="fade-down"
+    data-aos-duration="2000"
+  >
     <div class="heading">
       <h1>Best Seller</h1>
     </div>

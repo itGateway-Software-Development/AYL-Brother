@@ -1,5 +1,9 @@
 <template>
-  <div class="container content-wrapper mt-4">
+  <div
+    class="container content-wrapper mt-4"
+    data-aos="fade-up"
+    data-aos-duration="2000"
+  >
     <div class="heading text-center">
       <h1>Romantic News</h1>
     </div>

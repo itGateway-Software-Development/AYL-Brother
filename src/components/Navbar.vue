@@ -24,15 +24,15 @@
                   /></div
               ></v-list-item>
               <v-divider></v-divider>
-              <v-list-item link><p>New Arrival</p></v-list-item>
-              <v-list-item link><p>Product</p></v-list-item>
-              <v-list-item link><p>Boxer Briefs</p></v-list-item>
-              <v-list-item link><p>Briefs</p></v-list-item>
-              <v-list-item link><p>Promotion</p></v-list-item>
-              <v-list-item link><p>Our Story</p></v-list-item>
+              <v-list-item><p>New Arrival</p></v-list-item>
+              <v-list-item><p>Product</p></v-list-item>
+              <v-list-item><p>Boxer Briefs</p></v-list-item>
+              <v-list-item><p>Briefs</p></v-list-item>
+              <v-list-item><p>Promotion</p></v-list-item>
+              <v-list-item><p>Our Story</p></v-list-item>
               <v-list-item link
                 ><span class="material-symbols-outlined">
-                  account_circle
+                  account_circleoc
                 </span></v-list-item
               >
               <v-list-item link
@@ -65,7 +65,9 @@
           <router-link to="#" class="pe-5 nav-link"
             ><p>New Arrival</p></router-link
           >
-          <router-link to="#" class="pe-5 nav-link"><p>Product</p></router-link>
+          <router-link to="/product" class="pe-5 nav-link"
+            ><p>Product</p></router-link
+          >
           <router-link to="#" class="pe-5 nav-link"
             ><p>Boxer Brief</p></router-link
           >

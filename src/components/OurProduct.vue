@@ -1,10 +1,18 @@
 <template>
   <div class="container content-wrapper mt-2">
-    <div class="heading text-center">
+    <div
+      class="heading text-center mb-3"
+      data-aos="fade-down"
+      data-aos-duration="2000"
+    >
       <h1>Our Product</h1>
     </div>
     <div class="d-flex our-product">
-      <div class="product-1 mb-3">
+      <div
+        class="product-1 mb-3"
+        data-aos="fade-right"
+        data-aos-duration="2000"
+      >
         <div class="product-img-1">
           <img src="" alt="Product Img" />
         </div>
@@ -16,7 +24,7 @@
           </div>
         </div>
       </div>
-      <div class="product-2">
+      <div class="product-2" data-aos="fade-left" data-aos-duration="2000">
         <div class="product-img-2">
           <img src="" alt="Product Img" />
         </div>
