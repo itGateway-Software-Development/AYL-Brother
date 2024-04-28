@@ -1,6 +1,6 @@
 <template>
   <div
-    class="container content-wrapper mt-3"
+    class="container content-wrapper mt-3 best-seller"
     data-aos="fade-down"
     data-aos-duration="2000"
   >

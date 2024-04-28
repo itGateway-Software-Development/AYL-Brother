@@ -1,19 +1,19 @@
 <template>
-  <div class="product">
-    <div class="container content-wrapper d-flex">
-      <div class="left-filter text-left">
-        <p class="mb-5">Product/</p>
-        <h5>Shop by Category</h5>
-        <p class="mb-2"><span class="color-text">Boxer Brief</span></p>
-        <p><span class="color-text">Brief</span></p>
+  <div class="product container content-wrapper">
+    <div class="row">
+      <div class="col-3">
+        <ProductFilter></ProductFilter>
       </div>
-      <div class="right-product"></div>
+      <div class="col-9"></div>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+import ProductFilter from "../components/Product/ProductFilter";
+export default {
+  components: { ProductFilter },
+};
 </script>
 
 <style>

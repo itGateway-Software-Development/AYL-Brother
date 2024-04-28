@@ -15,24 +15,37 @@
               :location="$vuetify.display.mobile ? 'left' : undefined"
               temporary
             >
-              <v-list-item
-                ><div class="logo-img-nav">
-                  <img
-                    src="../assets/romantic-logo.png"
-                    alt=""
-                    class="img-fluid"
-                  /></div
-              ></v-list-item>
+              <router-link to="/">
+                <v-list-item
+                  ><div class="logo-img-nav">
+                    <img
+                      src="../assets/romantic-logo.png"
+                      alt=""
+                      class="img-fluid"
+                    /></div></v-list-item
+              ></router-link>
               <v-divider></v-divider>
-              <v-list-item><p>New Arrival</p></v-list-item>
-              <v-list-item><p>Product</p></v-list-item>
-              <v-list-item><p>Boxer Briefs</p></v-list-item>
-              <v-list-item><p>Briefs</p></v-list-item>
-              <v-list-item><p>Promotion</p></v-list-item>
-              <v-list-item><p>Our Story</p></v-list-item>
+              <router-link to="/" class="nav-link mb-text"
+                ><v-list-item><p>New Arrival</p></v-list-item></router-link
+              >
+              <router-link to="/product" class="nav-link mb-text"
+                ><v-list-item><p>Product</p></v-list-item></router-link
+              >
+              <router-link to="/" class="nav-link mb-text"
+                ><v-list-item><p>Boxer Briefs</p></v-list-item></router-link
+              >
+              <router-link to="/" class="nav-link mb-text"
+                ><v-list-item><p>Briefs</p></v-list-item></router-link
+              >
+              <router-link to="/" class="nav-link mb-text"
+                ><v-list-item><p>Promotion</p></v-list-item></router-link
+              >
+              <router-link to="/" class="nav-link mb-text"
+                ><v-list-item><p>Our Story</p></v-list-item></router-link
+              >
               <v-list-item link
                 ><span class="material-symbols-outlined">
-                  account_circleoc
+                  account_circle
                 </span></v-list-item
               >
               <v-list-item link
@@ -80,7 +93,7 @@
           >
         </div>
         <div class="nav-img">
-          <router-link to="#"
+          <router-link to="/"
             ><img
               src="../assets/romantic-logo.png"
               alt="logo"
@@ -128,7 +141,7 @@ export default {
 
 <style>
 .nav1 {
-  padding: 5;
+  padding: 5px;
   height: 50px;
   display: none;
 }
@@ -139,7 +152,7 @@ export default {
   cursor: pointer;
   background-color: #111111;
   position: fixed;
-  padding: 5px;
+  padding: 5px 20px;
   top: 0;
   left: 0;
   transition: bacground-color 0.4s ease-in-out;
@@ -156,6 +169,10 @@ export default {
 }
 .v-divider {
   margin: 0;
+}
+
+.mb-text {
+  color: #111111 !important;
 }
 
 .v-navigation-drawer {
