@@ -1,5 +1,5 @@
 <template>
-  <div class="footer" data-aos="fade-down" data-aos-duration="2000">
+  <div class="footer">
     <div class="mt-5 container content-wrapper">
       <div class="row footer-group">
         <div class="col-12 col-lg-3 d-flex-column logo-text text-start f-1">
