@@ -16,14 +16,51 @@
       <v-carousel-item>
         <div class="news">
           <div class="row d-flex justify-content-around">
-            <div
-              class="col-4 col-md-6 col-sm-12 video"
-              v-for="text in news"
-              :key="text.id"
-            >
+            <div class="col-4 col-md-6 col-sm-12 video">
               <div class="text-center justify-center align-center">
                 <div class="text-center video-text">
-                  {{ text.text }}
+                  <iframe
+                    width="420"
+                    height="300"
+                    src="https://www.youtube.com/embed/olXYZOsXw_o?si=hU7DgGW7XxmrWbUr"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+              </div>
+            </div>
+            <div class="col-4 col-md-6 col-sm-12 video">
+              <div class="text-center justify-center align-center">
+                <div class="text-center video-text">
+                  <iframe
+                    width="420"
+                    height="300"
+                    src="https://www.youtube.com/embed/olXYZOsXw_o?si=hU7DgGW7XxmrWbUr"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+              </div>
+            </div>
+            <div class="col-4 col-md-6 col-sm-12 video">
+              <div class="text-center justify-center align-center">
+                <div class="text-center video-text">
+                  <iframe
+                    width="420"
+                    height="300"
+                    src="https://www.youtube.com/embed/olXYZOsXw_o?si=hU7DgGW7XxmrWbUr"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen
+                  ></iframe>
                 </div>
               </div>
             </div>
@@ -33,14 +70,51 @@
       <v-carousel-item>
         <div class="news">
           <div class="row d-flex justify-content-around">
-            <div
-              class="col-4 col-md-6 col-sm-12 video-2"
-              v-for="text in news"
-              :key="text.id"
-            >
+            <div class="col-4 col-md-6 col-sm-12 video">
               <div class="text-center justify-center align-center">
                 <div class="text-center video-text">
-                  {{ text.text }}
+                  <iframe
+                    width="420"
+                    height="315"
+                    src="https://www.youtube.com/embed/32RAq6JzY-w?si=mxQL63V1qXrMlzWJ"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+              </div>
+            </div>
+            <div class="col-4 col-md-6 col-sm-12 video">
+              <div class="text-center justify-center align-center">
+                <div class="text-center video-text">
+                  <iframe
+                    width="420"
+                    height="315"
+                    src="https://www.youtube.com/embed/32RAq6JzY-w?si=mxQL63V1qXrMlzWJ"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+              </div>
+            </div>
+            <div class="col-4 col-md-6 col-sm-12 video">
+              <div class="text-center justify-center align-center">
+                <div class="text-center video-text">
+                  <iframe
+                    width="420"
+                    height="315"
+                    src="https://www.youtube.com/embed/32RAq6JzY-w?si=mxQL63V1qXrMlzWJ"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen
+                  ></iframe>
                 </div>
               </div>
             </div>
@@ -50,14 +124,51 @@
       <v-carousel-item>
         <div class="news">
           <div class="row d-flex justify-content-around">
-            <div
-              class="col-4 col-md-6 col-sm-12 video-3"
-              v-for="text in news"
-              :key="text.id"
-            >
+            <div class="col-4 col-md-6 col-sm-12 video">
               <div class="text-center justify-center align-center">
                 <div class="text-center video-text">
-                  {{ text.text }}
+                  <iframe
+                    width="420"
+                    height="315"
+                    src="https://www.youtube.com/embed/lV1OOlGwExM?si=6RgqRhN2aeFHG8fJ"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+              </div>
+            </div>
+            <div class="col-4 col-md-6 col-sm-12 video">
+              <div class="text-center justify-center align-center">
+                <div class="text-center video-text">
+                  <iframe
+                    width="420"
+                    height="315"
+                    src="https://www.youtube.com/embed/lV1OOlGwExM?si=6RgqRhN2aeFHG8fJ"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+              </div>
+            </div>
+            <div class="col-4 col-md-6 col-sm-12 video">
+              <div class="text-center justify-center align-center">
+                <div class="text-center video-text">
+                  <iframe
+                    width="420"
+                    height="315"
+                    src="https://www.youtube.com/embed/lV1OOlGwExM?si=6RgqRhN2aeFHG8fJ"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen
+                  ></iframe>
                 </div>
               </div>
             </div>
@@ -74,12 +185,19 @@
     >
       <v-carousel-item v-for="text in news" :key="text.id">
         <div class="news">
-          <div class="row d-flex justify-content-around">
-            <div class="col-4 col-md-6 col-sm-12 mobile-video">
-              <div class="text-center justify-center align-center">
-                <div class="text-center video-text">
-                  {{ text.text }}
-                </div>
+          <div class="mobile-video jus">
+            <div class="text-center justify-content-center align-center">
+              <div class="text-center video-text">
+                <iframe
+                  width="420"
+                  height="315"
+                  src="https://www.youtube.com/embed/lV1OOlGwExM?si=6RgqRhN2aeFHG8fJ"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                ></iframe>
               </div>
             </div>
           </div>
@@ -96,15 +214,15 @@ export default {
     const news = ref([
       {
         id: 1,
-        text: "Video 1",
+        video: "",
       },
       {
         id: 2,
-        text: "Video 2",
+        video: "",
       },
       {
         id: 3,
-        text: "Video 3",
+        video: "",
       },
     ]);
 
@@ -130,7 +248,11 @@ export default {
   height: 380px !important;
 }
 
-.video {
+.col-md-6 {
+  width: 33%;
+}
+
+/* .video {
   width: 400px;
   height: 300px;
   background: #767676;
@@ -156,33 +278,29 @@ export default {
 .video-text {
   margin-top: 120px;
   font-size: 30px;
-}
+} */
 
 @media (max-width: 1200px) {
-  .video,
-  .video-2,
-  .video-3 {
+  iframe {
     width: 300px;
-    height: 200px;
+    height: 250px;
   }
-  .video-text {
-    margin-top: 70px;
-  }
+
   .desktop {
-    height: 270px !important;
+    height: 320px !important;
+  }
+  .col-md-6 {
+    width: 33%;
   }
 }
 
 @media (max-width: 800px) {
-  .video,
-  .video-2,
-  .video-3 {
-    width: 200px;
+  iframe {
+    width: 220px;
     height: 200px;
   }
-  .video-text {
-    margin-top: 80px;
-    font-size: 24px !important;
+  .desktop {
+    height: 270px !important;
   }
 }
 
@@ -194,11 +312,13 @@ export default {
     display: block;
   }
 
-  .mobile-video {
+  .news {
+    padding: 20px 7px !important;
+  }
+
+  iframe {
     width: 350px;
     height: 200px;
-    background: #111111;
-    color: #ffffff;
   }
 }
 </style>

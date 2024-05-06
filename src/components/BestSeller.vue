@@ -13,11 +13,11 @@
         v-for="product in bestseller"
         :key="product.id"
       >
-        <div class="card">
+        <div class="card best-seller">
           <img
             :src="product.img"
             alt="Product Photo"
-            class="card-img-top product-img img-fluid"
+            class="card-img-top product-img"
           />
           <div class="product-icon">
             <div class="p-icon">
@@ -46,17 +46,17 @@ export default {
   setup() {
     const bestseller = ref([
       {
-        img: require("@/assets/sample.jpg"),
+        img: require("@/assets/product/a.jpg"),
         label: "RO:8011",
         id: 1,
       },
       {
-        img: require("@/assets/sample.jpg"),
+        img: require("@/assets/product/a.jpg"),
         label: "RO:8012",
         id: 2,
       },
       {
-        img: require("@/assets/sample.jpg"),
+        img: require("@/assets/product/a.jpg"),
         label: "RO:8013",
         id: 3,
       },
@@ -84,6 +84,10 @@ export default {
   object-fit: fill;
 }
 
+.best-seller img {
+  height: 400px;
+}
+
 .prodct-img:hover {
   background: black;
 }
@@ -109,7 +113,7 @@ export default {
 
 .p-icon {
   margin-top: 10px;
-  margin-bottom: 160px;
+  margin-bottom: 300px;
   margin-left: 360px;
   cursor: pointer;
 }

@@ -14,7 +14,11 @@
         data-aos-duration="2000"
       >
         <div class="product-img-1">
-          <img src="" alt="Product Img" />
+          <img
+            src="../assets/product/b.jpg"
+            alt="Product Img"
+            class="img-fluid"
+          />
         </div>
         <div class="product-content text-center mt-2">
           <h4>Boxer Brief</h4>
@@ -26,7 +30,11 @@
       </div>
       <div class="product-2" data-aos="fade-left" data-aos-duration="2000">
         <div class="product-img-2">
-          <img src="" alt="Product Img" />
+          <img
+            src="../assets/product/a.jpg"
+            alt="Product Img"
+            class="img-fluid"
+          />
         </div>
         <div class="product-content text-center mt-2">
           <h4>Brief</h4>
@@ -51,15 +59,26 @@ export default {};
 
 .product-img-1 {
   width: 600px;
-  height: 700px;
+  height: auto;
   border: 2px solid #111111;
 }
 
 .product-img-2 {
   width: 600px;
-  height: 700px;
+  height: auto;
   border: 2px solid #ea0a0a;
 }
+
+.product-img-2 img {
+  width: 597px;
+  height: 697px;
+}
+
+.product-img-1 img {
+  width: 597px;
+  height: 697px;
+}
+
 .product-content h4 {
   font-weight: bold;
   text-transform: uppercase;
@@ -77,7 +96,7 @@ export default {};
 @media (max-width: 1200px) {
   .product-img-1 {
     width: 460px;
-    height: 600px;
+    height: auto;
     border: 2px solid #111111;
   }
 
@@ -91,7 +110,7 @@ export default {};
 
   .product-img-2 {
     width: 460px;
-    height: 600px;
+    height: auto;
     border: 2px solid #ea0a0a;
   }
 
@@ -103,7 +122,7 @@ export default {};
 @media (max-width: 800px) {
   .product-img-1 {
     width: 300px;
-    height: 350px;
+    height: auto;
     border: 2px solid #111111;
   }
 
@@ -117,7 +136,7 @@ export default {};
 
   .product-img-2 {
     width: 300px;
-    height: 350px;
+    height: auto;
     border: 2px solid #ea0a0a;
   }
 
@@ -129,7 +148,7 @@ export default {};
 @media (max-width: 500px) {
   .product-img-1 {
     width: 300px;
-    height: 350px;
+    height: auto;
     border: 2px solid #111111;
   }
 
@@ -143,7 +162,7 @@ export default {};
 
   .product-img-2 {
     width: 300px;
-    height: 350px;
+    height: auto;
     border: 2px solid #ea0a0a;
   }
 
