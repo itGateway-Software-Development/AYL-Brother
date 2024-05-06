@@ -1,6 +1,6 @@
 <template>
   <div class="product-filter text-start">
-    <p class="mb-3">Product</p>
+    <p class="mb-3 route-text">Men / {{this.$route.name}}</p>
     <div class="f-1">
       <div class="filter-header">
         <h4 class="mb-2 fw-bold">Filter List</h4>
@@ -34,7 +34,7 @@
                     value=""
                     id="flexCheckDefault"
                   />
-                  <label class="form-check-label" for="flexCheckDefault"
+                  <label class="form-check-label" for="flexCheckDefault" 
                     >10000MMK - 15000MMK
                   </label>
                 </div>
@@ -85,79 +85,79 @@
             data-aos-easing="linear"
             data-aos-duration="8000"
           >
-            <div class="col-3 mb-3">
+            <div class="col-3 col-md-2 mb-3">
               <div class="color">
                 <div class="color-circle red"></div>
                 <p>Red</p>
               </div>
             </div>
-            <div class="col-3 mb-3">
+            <div class="col-3 col-md-2 mb-3">
               <div class="color">
                 <div class="color-circle brown"></div>
                 <p>Brown</p>
               </div>
             </div>
-            <div class="col-3 mb-3">
+            <div class="col-3 col-md-2 mb-3">
               <div class="color">
                 <div class="color-circle grey"></div>
                 <p>Grey</p>
               </div>
             </div>
-            <div class="col-3 mb-3">
+            <div class="col-3 col-md-2 mb-3">
               <div class="color">
                 <div class="color-circle navy"></div>
                 <p>Navy</p>
               </div>
             </div>
-            <div class="col-3 mb-3">
+            <div class="col-3 col-md-2 mb-3">
               <div class="color">
                 <div class="color-circle green"></div>
                 <p>Green</p>
               </div>
             </div>
-            <div class="col-3 mb-3">
+            <div class="col-3 col-md-2 mb-3">
               <div class="color">
                 <div class="color-circle dark-red"></div>
                 <p>Dark</p>
                 <p>Red</p>
               </div>
             </div>
-            <div class="col-3 mb-3">
+            <div class="col-3 col-md-2 mb-3">
               <div class="color">
                 <div class="color-circle white-smoke"></div>
                 <p>White</p>
                 <p>Smoke</p>
               </div>
             </div>
-            <div class="col-3 mb-3">
+            <div class="col-3 col-md-2 mb-3">
               <div class="color">
                 <div class="color-circle light-green"></div>
                 <p>Light</p>
                 <p>Green</p>
               </div>
             </div>
-            <div class="col-3 mb-3">
+            <div class="col-3 col-md-2 mb-3">
               <div class="color">
                 <div class="color-circle dim-grey"></div>
                 <p>Dim</p>
                 <p>Grey</p>
               </div>
             </div>
-            <div class="col-3 mb-3">
+            <div class="col-3 col-md-2 mb-3">
               <div class="color">
                 <div class="color-circle steel-blue"></div>
                 <p>Steel</p>
                 <p>Blue</p>
               </div>
             </div>
-            <div class="col-3 mb-3">
+            <div class="col-3 col-md-2 mb-3">
               <div class="color">
                 <div class="color-circle dark-grey"></div>
                 <p>Dark</p>
                 <p>Grey</p>
               </div>
             </div>
-            <div class="col-3 mb-3">
+            <div class="col-3 col-md-2 mb-3">
               <div class="color">
                 <div class="color-circle royal-blue"></div>
                 <p>Royal</p>
@@ -321,10 +321,12 @@
                     <input
                       class="form-check-input"
                       type="checkbox"
-                      value=""
+                      value="low"
                       id="flexCheckDefault"
+                      v-model="islow"
+                      @change="priceFilter"
                     />
-                    <label class="form-check-label" for="flexCheckDefault"
+                    <label class="form-check-label" for="10000MMK-15000MMK"
                       >10000MMK - 15000MMK
                     </label>
                   </div>
@@ -334,8 +336,10 @@
                     <input
                       class="form-check-input"
                       type="checkbox"
-                      value=""
+                      value="medium"
                       id="flexCheckDefault"
+                      v-model="ismedium"
+                      @change="priceFilter"
                     />
                     <label class="form-check-label" for="flexCheckDefault"
                       >15000MMK - 20000MMK
@@ -347,8 +351,10 @@
                     <input
                       class="form-check-input"
                       type="checkbox"
-                      value=""
+                      value="high"
                       id="flexCheckDefault"
+                      v-model="ishigh"
+                      @change="priceFilter"
                     />
                     <label class="form-check-label" for="flexCheckDefault"
                       >20000MMK - 30000MMK
@@ -372,79 +378,79 @@
               </span>
             </div>
             <div class="row mt-2" v-if="color_show">
-              <div class="col-3 mb-3">
+              <div class="col-3 col-md-2 mb-3">
                 <div class="color">
                   <div class="color-circle red"></div>
                   <p>Red</p>
                 </div>
               </div>
-              <div class="col-3 mb-3">
+              <div class="col-3 col-md-2 mb-3">
                 <div class="color">
                   <div class="color-circle brown"></div>
                   <p>Brown</p>
                 </div>
               </div>
-              <div class="col-3 mb-3">
+              <div class="col-3 col-md-2 mb-3">
                 <div class="color">
                   <div class="color-circle grey"></div>
                   <p>Grey</p>
                 </div>
               </div>
-              <div class="col-3 mb-3">
+              <div class="col-3 col-md-2 mb-3">
                 <div class="color">
                   <div class="color-circle navy"></div>
                   <p>Navy</p>
                 </div>
               </div>
-              <div class="col-3 mb-3">
+              <div class="col-3 col-md-2 mb-3">
                 <div class="color">
                   <div class="color-circle green"></div>
                   <p>Green</p>
                 </div>
               </div>
-              <div class="col-3 mb-3">
+              <div class="col-3 col-md-2 mb-3">
                 <div class="color">
                   <div class="color-circle dark-red"></div>
                   <p>Dark</p>
                   <p>Red</p>
                 </div>
               </div>
-              <div class="col-3 mb-3">
+              <div class="col-3 col-md-2 mb-3">
                 <div class="color">
                   <div class="color-circle white-smoke"></div>
                   <p>White</p>
                   <p>Smoke</p>
                 </div>
               </div>
-              <div class="col-3 mb-3">
+              <div class="col-3 col-md-2 mb-3">
                 <div class="color">
                   <div class="color-circle light-green"></div>
                   <p>Light</p>
                   <p>Green</p>
                 </div>
               </div>
-              <div class="col-3 mb-3">
+              <div class="col-3 col-md-2 mb-3">
                 <div class="color">
                   <div class="color-circle dim-grey"></div>
                   <p>Dim</p>
                   <p>Grey</p>
                 </div>
               </div>
-              <div class="col-3 mb-3">
+              <div class="col-3 col-md-2 mb-3">
                 <div class="color">
                   <div class="color-circle steel-blue"></div>
                   <p>Steel</p>
                   <p>Blue</p>
                 </div>
               </div>
-              <div class="col-3 mb-3">
+              <div class="col-3 col-md-2 mb-3">
                 <div class="color">
                   <div class="color-circle dark-grey"></div>
                   <p>Dark</p>
                   <p>Grey</p>
                 </div>
               </div>
-              <div class="col-3 mb-3">
+              <div class="col-3 col-md-2 mb-3">
                 <div class="color">
                   <div class="color-circle royal-blue"></div>
                   <p>Royal</p>
@@ -468,7 +474,7 @@
             </div>
             <div class="size-filter" v-if="size_show">
               <p>Size of Waist(Inch)</p>
-              <div class="row mt-3 justify-content-between">
+              <div class="row mt-3 all-size justify-content-between">
                 <div class="col-6 mb-3">
                   <div class="size">
                     <p class="text-center">M(28-30)</p>
@@ -559,7 +565,7 @@
 <script>
 import { ref } from "vue";
 export default {
-  setup() {
+  setup(props, context) {
     const drawer = ref(false);
 
     let price_show = ref(false);
@@ -567,7 +573,21 @@ export default {
     let color_show = ref(false);
     let size_show = ref(false);
 
-    return { price_show, fabric_show, color_show, size_show, drawer };
+    let islow = ref(false)
+    let ismedium = ref(false)
+    let ishigh = ref(false)
+    let priceFilter
+      priceFilter = () =>{
+     context.emit("priceFilter", {islow:islow.value,ismedium:ismedium.value,ishigh:ishigh.value} )
+   }
+
+
+
+
+
+    
+
+    return { price_show, fabric_show, color_show, size_show, drawer , priceFilter, islow, ismedium , ishigh };
   },
 };
 </script>
@@ -575,6 +595,10 @@ export default {
 <style scoped>
 .f-2 {
   display: none;
+}
+
+.route-text{
+  text-transform: capitalize;
 }
 
 .color-text {
@@ -696,12 +720,51 @@ export default {
   padding: 9px 0;
 }
 
+
 .size:hover {
   background: red;
-  color: #ffffff;
+  color: #ffffff !important;
 }
 
 @media (max-width: 1200px) {
+ .f-1{
+  display: none;
+ }
+ .f-2{
+  display: block;
+ }
+  .f-2 .filter-price,
+  .filter-fabric,
+  .filter-color,
+  .filter-size {
+    border: 0px;
+  }
+
+ .row{
+  flex-wrap: nowrap;
+  width: 50%;
+ }
+
+ .col-6 {
+  width: 0%;
+ }
+
+  .product-filter {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+  }
+  .app-bar {
+    align-items: center;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+   .v-navigation-drawer {
+    width: 1200px !important;
+    height: 1300px !important;
+    overflow: scroll;
+  }
 }
 
 @media (max-width: 500px) {
@@ -720,13 +783,15 @@ export default {
     overflow: scroll;
   }
 
-  .f-2 .filter-price,
-  .filter-fabric,
-  .filter-color,
-  .filter-size {
-    border: 0px;
-  }
+  .row {
+  flex-wrap:  wrap;
+  width: 100%;
+}
+.col-6{
+  width: 50%;
+}
 
+ 
   .app-bar {
     align-items: center;
     padding: 0 !important;

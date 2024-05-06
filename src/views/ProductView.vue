@@ -2,16 +2,19 @@
   <div class="product container content-wrapper">
     <div class="row">
       <div class="col-12 col-md-3 col-sm-12">
-        <ProductFilter></ProductFilter>
+        <ProductFilter @priceFilter="filterPrice"></ProductFilter>
       </div>
-      <div class="col-12 col-md-9 col-sm-12">
-        <ProductCard></ProductCard>
+      <div class="col-12 col-md-9 col-sm-6">
+        <ProductCard :price="selPrice"></ProductCard>
+        
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { ref } from 'vue';
+import { defineProps } from "vue";
 import ProductCard from "../components/Product/ProductCard";
 import ProductFilter from "../components/Product/ProductFilter";
 export default {
@@ -19,6 +22,25 @@ export default {
     ProductCard,
     ProductFilter,
   },
+setup(){
+
+ 
+
+  let selPrice = ref("")
+
+
+
+  let filterPrice= (selectedPrice)=>{
+     selPrice.value = selectedPrice
+    
+  }
+
+  
+
+return {filterPrice ,selPrice}
+
+}
+
 };
 </script>
 
@@ -32,6 +54,15 @@ export default {
 }
 
 @media (max-width: 1200px) {
+  .col-md-3 {
+    width: 100%;
+  }
+  .col-md-9{
+    width: 100%;
+  }
+    .product {
+    margin: 0 auto;
+  }
 }
 
 @media (max-width: 500px) {

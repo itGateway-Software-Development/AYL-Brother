@@ -2,11 +2,11 @@
   <div class="product-card">
     <div class="row">
       <div
-        class="col-12 col-md-4 col-sm-12 mb-3"
-        v-for="product in data"
+        class="col-6 col-md-4 col-sm-6 mb-3"
+        v-for="product in filteredItems"
         :key="product.id"
       >
-        <div class="p-card">
+        <div class="p-card mb-2">
           <div class="upper-card">
             <div class="img">
               <img :src="product.img" alt="" />
@@ -31,9 +31,9 @@
               </div>
             </div>
           </div>
-          <div class="lower-card text-start">
-            <h5>Romantic Underwear</h5>
-            <div class="color-hover">
+          <div class="mt-4 lower-card text-start">
+            <h5 class="mb-3">Romantic Underwear</h5>
+            <div class="color-hover mb-1">
               <p class="color-hover-text">+4 Color</p>
               <div class="d-flex color-control" id="color">
                 <div class="circle-color color-red"></div>
@@ -57,40 +57,86 @@
 </template>
 
 <script>
+import { computed, defineProps, watch } from "vue";
 export default {
-  setup() {
+props:["price"],
+
+  setup(props, context) {
     const data = [
       {
         id: 1,
         img: require("@/assets/product/b.jpg"),
+        price:"low"
       },
       {
         id: 2,
         img: require("@/assets/product/b.jpg"),
+        price:"low"
       },
       {
         id: 3,
         img: require("@/assets/product/b.jpg"),
+        price:"low"
       },
       {
         id: 4,
         img: require("@/assets/product/b.jpg"),
+        price:"medium"
       },
       {
         id: 5,
         img: require("@/assets/product/b.jpg"),
+        price:"medium"
       },
       {
         id: 6,
         img: require("@/assets/product/b.jpg"),
+        price:"high"
       },
       {
         id: 7,
         img: require("@/assets/product/b.jpg"),
+        price:"high"
       },
     ];
 
-    return { data };
+     function filterLow(data){
+      return data.price === "low";
+     }
+      function filterMedium(data){
+      return data.price === "medium";
+     }
+      function filterHigh(data){
+      return data.price === "high";
+     }
+
+function applyFilters(data, low = true, medium = true, high = true) {
+    const filters = [];
+    if (low) {
+        filters.push(filterLow);
+    }
+    if (medium) {
+        filters.push(filterMedium);
+    }
+    if (high) {
+        filters.push(filterHigh);
+    }
+
+    const filteredData = data.filter(item => filters.some(filter => filter(item)));
+    return filteredData; 
+}
+  let filteredItems = applyFilters(data, true,true,true)
+
+  
+
+   watch(()=> props.price, (newFilter, oldFilter) =>{
+   if(newFilter.islow === true){
+    filteredItems = applyFilters(data, true,false,false)
+    console.log(filteredItems)
+   }
+   })
+  
+    return { filteredItems };
   },
 };
 </script>
@@ -138,8 +184,14 @@ export default {
   position: absolute;
   bottom: 0;
   background: #fff;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
   margin-left: 20px;
   transition: 0.5 ease;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  border-bottom: 1px solid #ffff;
 }
 .modified-text p {
   padding: 3px;
@@ -148,6 +200,7 @@ export default {
   margin-bottom: 5px;
   border: 1px solid #111111;
   transition: 0.5 ease;
+  border-radius: 0px;
 }
 
 .lower-card h5 {
@@ -203,5 +256,84 @@ export default {
 
 .rating .material-symbols-outlined {
   color: gold;
+}
+
+@media (max-width: 1200px) {
+  .img img{
+    width: 300px;
+  }
+  .icon-s {
+  margin-top: 10px;
+  margin-bottom: 290px;
+  margin-left: 240px;
+}
+ .lower-card {
+  margin-left: 20px;
+}
+}
+
+
+@media (max-width: 500px) {
+  .img img {
+  width: 180px;
+  position: relative;
+}
+.icon-s {
+  margin-top: 10px;
+  margin-bottom: 160px;
+  margin-left: 170px;
+}
+.modified-icon .material-symbols-outlined{
+  font-size: 16px !important;
+}
+.heart {
+  padding: 4px 0;
+  color: #fff;
+}
+.bag {
+  padding: 3px 0;
+  color: #fff;
+}
+.modified-text p{
+  font-size: 14px;
+}
+.modified-text{
+  margin-left: 30px;
+}
+
+.circle-color{
+  width: 20px;
+  height: 20px;
+}
+.color-hover-text{
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.modified-icon {
+  width: 25px;
+  height: 25px;
+}
+
+.lower-card {
+  margin-left: 30px;
+}
+
+.lower-card h5 {
+  font-size: 16px;
+
+}
+
+}
+
+@media (max-width: 400px) {
+  .modified-text{
+    margin-left: 20px;
+  }
+  .lower-card {
+  margin-left: 10px;
+}
 }
 </style>
