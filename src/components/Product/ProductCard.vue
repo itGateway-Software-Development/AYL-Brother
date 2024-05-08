@@ -125,16 +125,37 @@ function applyFilters(data, low = true, medium = true, high = true) {
     const filteredData = data.filter(item => filters.some(filter => filter(item)));
     return filteredData; 
 }
-  let filteredItems = applyFilters(data, true,true,true)
+
+
+  let filteredItems
 
   
 
    watch(()=> props.price, (newFilter, oldFilter) =>{
-   if(newFilter.islow === true){
+  
+   if(newFilter.islow === true && newFilter.ismedium === true){
+    filteredItems = applyFilters(data, true,true,false);
+    
+   }else if (newFilter.ismedium === true && newFilter.ishigh === true){
+    filteredItems = applyFilters(data, false, true,true)
+    
+   }else if(newFilter.islow === true && newFilter.ishigh === true){
+    filteredItems = applyFilters(data, true, false,true)
+      
+   }else if(newFilter.ishigh === true){
+    filteredItems = applyFilters(data, false, false, true)
+    
+   }else if(newFilter.ismedium === true){
+    filteredItems = applyFilters(data, false,true,false)
+    
+   }else if(newFilter.islow === true){
     filteredItems = applyFilters(data, true,false,false)
-    console.log(filteredItems)
+    
+   }else{
+    filteredItems = applyFilters(data, true,true,true)
+    
    }
-   })
+  })
   
     return { filteredItems };
   },
