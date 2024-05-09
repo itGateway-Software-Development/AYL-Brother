@@ -127,7 +127,7 @@ function applyFilters(data, low = true, medium = true, high = true) {
 }
 
 
-  let filteredItems
+  let filteredItems = applyFilters(data , true,true,true)
 
   
 
