@@ -1,6 +1,6 @@
 <template>
   <div class="product-filter text-start">
-    <p class="mb-3 route-text">Men / {{this.$route.name}}</p>
+    <p class="mb-3 route-text">Men / {{ this.$route.name }}</p>
     <div class="f-1">
       <div class="filter-header">
         <h4 class="mb-2 fw-bold">Filter List</h4>
@@ -31,10 +31,12 @@
                   <input
                     class="form-check-input"
                     type="checkbox"
-                    value=""
+                    value="low"
                     id="flexCheckDefault"
+                    v-model="islow"
+                    @change="priceFilter"
                   />
-                  <label class="form-check-label" for="flexCheckDefault" 
+                  <label class="form-check-label" for="flexCheckDefault"
                     >10000MMK - 15000MMK
                   </label>
                 </div>
@@ -44,8 +46,10 @@
                   <input
                     class="form-check-input"
                     type="checkbox"
-                    value=""
+                    value="medium"
                     id="flexCheckDefault"
+                    v-model="ismedium"
+                    @change="priceFilter"
                   />
                   <label class="form-check-label" for="flexCheckDefault"
                     >15000MMK - 20000MMK
@@ -57,8 +61,10 @@
                   <input
                     class="form-check-input"
                     type="checkbox"
-                    value=""
+                    value="high"
                     id="flexCheckDefault"
+                    v-model="ishigh"
+                    @change="priceFilter"
                   />
                   <label class="form-check-label" for="flexCheckDefault"
                     >20000MMK - 30000MMK
@@ -573,21 +579,29 @@ export default {
     let color_show = ref(false);
     let size_show = ref(false);
 
-    let islow = ref(false)
-    let ismedium = ref(false)
-    let ishigh = ref(false)
-    let priceFilter
-      priceFilter = () =>{
-     context.emit("priceFilter", {islow:islow.value,ismedium:ismedium.value,ishigh:ishigh.value} )
-   }
+    let islow = ref(false);
+    let ismedium = ref(false);
+    let ishigh = ref(false);
+    let priceFilter;
+    priceFilter = () => {
+      context.emit("priceFilter", {
+        islow: islow.value,
+        ismedium: ismedium.value,
+        ishigh: ishigh.value,
+      });
+    };
 
-
-
-
-
-    
-
-    return { price_show, fabric_show, color_show, size_show, drawer , priceFilter, islow, ismedium , ishigh };
+    return {
+      price_show,
+      fabric_show,
+      color_show,
+      size_show,
+      drawer,
+      priceFilter,
+      islow,
+      ismedium,
+      ishigh,
+    };
   },
 };
 </script>
@@ -597,7 +611,7 @@ export default {
   display: none;
 }
 
-.route-text{
+.route-text {
   text-transform: capitalize;
 }
 
@@ -720,19 +734,18 @@ export default {
   padding: 9px 0;
 }
 
-
 .size:hover {
   background: red;
   color: #ffffff !important;
 }
 
 @media (max-width: 1200px) {
- .f-1{
-  display: none;
- }
- .f-2{
-  display: block;
- }
+  .f-1 {
+    display: none;
+  }
+  .f-2 {
+    display: block;
+  }
   .f-2 .filter-price,
   .filter-fabric,
   .filter-color,
@@ -740,14 +753,14 @@ export default {
     border: 0px;
   }
 
- .row{
-  flex-wrap: nowrap;
-  width: 50%;
- }
+  .row {
+    flex-wrap: nowrap;
+    width: 50%;
+  }
 
- .col-6 {
-  width: 0%;
- }
+  .col-6 {
+    width: 0%;
+  }
 
   .product-filter {
     display: flex;
@@ -760,7 +773,7 @@ export default {
     padding: 0 !important;
     margin: 0 !important;
   }
-   .v-navigation-drawer {
+  .v-navigation-drawer {
     width: 1200px !important;
     height: 1300px !important;
     overflow: scroll;
@@ -784,14 +797,13 @@ export default {
   }
 
   .row {
-  flex-wrap:  wrap;
-  width: 100%;
-}
-.col-6{
-  width: 50%;
-}
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .col-6 {
+    width: 50%;
+  }
 
- 
   .app-bar {
     align-items: center;
     padding: 0 !important;

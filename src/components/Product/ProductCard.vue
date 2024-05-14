@@ -57,106 +57,105 @@
 </template>
 
 <script>
-import { computed, defineProps, watch } from "vue";
+import { computed, defineProps, onMounted, ref, watch } from "vue";
 export default {
-props:["price"],
+  props: ["price"],
 
   setup(props, context) {
     const data = [
       {
         id: 1,
         img: require("@/assets/product/b.jpg"),
-        price:"low"
+        price: "low",
       },
       {
         id: 2,
         img: require("@/assets/product/b.jpg"),
-        price:"low"
+        price: "low",
       },
       {
         id: 3,
         img: require("@/assets/product/b.jpg"),
-        price:"low"
+        price: "low",
       },
       {
         id: 4,
         img: require("@/assets/product/b.jpg"),
-        price:"medium"
+        price: "medium",
       },
       {
         id: 5,
         img: require("@/assets/product/b.jpg"),
-        price:"medium"
+        price: "medium",
       },
       {
         id: 6,
         img: require("@/assets/product/b.jpg"),
-        price:"high"
+        price: "high",
       },
       {
         id: 7,
         img: require("@/assets/product/b.jpg"),
-        price:"high"
+        price: "high",
       },
     ];
 
-     function filterLow(data){
+    let filteredItems = ref([]);
+
+    function filterLow(data) {
       return data.price === "low";
-     }
-      function filterMedium(data){
+    }
+    function filterMedium(data) {
       return data.price === "medium";
-     }
-      function filterHigh(data){
+    }
+    function filterHigh(data) {
       return data.price === "high";
-     }
+    }
 
-function applyFilters(data, low = true, medium = true, high = true) {
-    const filters = [];
-    if (low) {
+    function applyFilters(data, low = true, medium = true, high = true) {
+      const filters = [];
+      if (low) {
         filters.push(filterLow);
-    }
-    if (medium) {
+      }
+      if (medium) {
         filters.push(filterMedium);
-    }
-    if (high) {
+      }
+      if (high) {
         filters.push(filterHigh);
+      }
+
+      const filteredData = data.filter((item) =>
+        filters.some((filter) => filter(item))
+      );
+      return filteredData;
     }
 
-    const filteredData = data.filter(item => filters.some(filter => filter(item)));
-    return filteredData; 
-}
+    watch(
+      () => props.price,
+      (newFilter, oldFilter) => {
+        if (newFilter.islow === true && newFilter.ismedium === true) {
+          filteredItems.value = applyFilters(data, true, true, false);
+        } else if (newFilter.ismedium === true && newFilter.ishigh === true) {
+          filteredItems.value = applyFilters(data, false, true, true);
+        } else if (newFilter.islow === true && newFilter.ishigh === true) {
+          filteredItems.value = applyFilters(data, true, false, true);
+        } else if (newFilter.ishigh === true) {
+          filteredItems.value = applyFilters(data, false, false, true);
+        } else if (newFilter.ismedium === true) {
+          filteredItems.value = applyFilters(data, false, true, false);
+        } else if (newFilter.islow === true) {
+          filteredItems.value = applyFilters(data, true, false, false);
+        } else {
+          filteredItems.value = applyFilters(data, true, true, true);
+        }
+        console.log(filteredItems);
+      },
 
+      onMounted(() => {
+        filteredItems.value = applyFilters(data, true, true, true);
+      })
+    );
 
-  let filteredItems = applyFilters(data , true,true,true)
-
-  
-
-   watch(()=> props.price, (newFilter, oldFilter) =>{
-  
-   if(newFilter.islow === true && newFilter.ismedium === true){
-    filteredItems = applyFilters(data, true,true,false);
-    
-   }else if (newFilter.ismedium === true && newFilter.ishigh === true){
-    filteredItems = applyFilters(data, false, true,true)
-    
-   }else if(newFilter.islow === true && newFilter.ishigh === true){
-    filteredItems = applyFilters(data, true, false,true)
-      
-   }else if(newFilter.ishigh === true){
-    filteredItems = applyFilters(data, false, false, true)
-    
-   }else if(newFilter.ismedium === true){
-    filteredItems = applyFilters(data, false,true,false)
-    
-   }else if(newFilter.islow === true){
-    filteredItems = applyFilters(data, true,false,false)
-    
-   }else{
-    filteredItems = applyFilters(data, true,true,true)
-    
-   }
-  })
-  
     return { filteredItems };
   },
 };
@@ -280,81 +279,78 @@ function applyFilters(data, low = true, medium = true, high = true) {
 }
 
 @media (max-width: 1200px) {
-  .img img{
+  .img img {
     width: 300px;
   }
   .icon-s {
-  margin-top: 10px;
-  margin-bottom: 290px;
-  margin-left: 240px;
+    margin-top: 10px;
+    margin-bottom: 290px;
+    margin-left: 240px;
+  }
+  .lower-card {
+    margin-left: 20px;
+  }
 }
- .lower-card {
-  margin-left: 20px;
-}
-}
-
 
 @media (max-width: 500px) {
   .img img {
-  width: 180px;
-  position: relative;
-}
-.icon-s {
-  margin-top: 10px;
-  margin-bottom: 160px;
-  margin-left: 170px;
-}
-.modified-icon .material-symbols-outlined{
-  font-size: 16px !important;
-}
-.heart {
-  padding: 4px 0;
-  color: #fff;
-}
-.bag {
-  padding: 3px 0;
-  color: #fff;
-}
-.modified-text p{
-  font-size: 14px;
-}
-.modified-text{
-  margin-left: 30px;
-}
+    width: 180px;
+    position: relative;
+  }
+  .icon-s {
+    margin-top: 10px;
+    margin-bottom: 160px;
+    margin-left: 170px;
+  }
+  .modified-icon .material-symbols-outlined {
+    font-size: 16px !important;
+  }
+  .heart {
+    padding: 4px 0;
+    color: #fff;
+  }
+  .bag {
+    padding: 3px 0;
+    color: #fff;
+  }
+  .modified-text p {
+    font-size: 14px;
+  }
+  .modified-text {
+    margin-left: 30px;
+  }
 
-.circle-color{
-  width: 20px;
-  height: 20px;
-}
-.color-hover-text{
-  font-size: 14px;
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-  font-style: italic;
-}
+  .circle-color {
+    width: 20px;
+    height: 20px;
+  }
+  .color-hover-text {
+    font-size: 14px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+  }
 
-.modified-icon {
-  width: 25px;
-  height: 25px;
-}
+  .modified-icon {
+    width: 25px;
+    height: 25px;
+  }
 
-.lower-card {
-  margin-left: 30px;
-}
+  .lower-card {
+    margin-left: 30px;
+  }
 
-.lower-card h5 {
-  font-size: 16px;
-
-}
-
+  .lower-card h5 {
+    font-size: 16px;
+  }
 }
 
 @media (max-width: 400px) {
-  .modified-text{
+  .modified-text {
     margin-left: 20px;
   }
   .lower-card {
-  margin-left: 10px;
-}
+    margin-left: 10px;
+  }
 }
 </style>
