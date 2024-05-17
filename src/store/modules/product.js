@@ -1,6 +1,17 @@
+const CART_STORAGE_KEY = "cart";
+
+const saveCartToLocalStorage = (cart) => {
+  localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart));
+};
+
+const loadCartFromLocalStorage = () => {
+  const cart = localStorage.getItem(CART_STORAGE_KEY);
+  return cart ? JSON.parse(cart) : [];
+};
+
 export default {
   state: {
-    items: [],
+    items: loadCartFromLocalStorage(),
   },
   getters: {
     cartItems: (state) => state.items,
@@ -22,12 +33,14 @@ export default {
       } else {
         state.items.push({ ...item, quantity: item.quantity });
       }
+      saveCartToLocalStorage(state.items);
     },
     increaseQuantity(state, itemid) {
       const item = state.items.find((cartItem) => cartItem.id == itemid);
       if (item && item.quantity <= 10) {
         item.quantity++;
       }
+      saveCartToLocalStorage(state.items);
     },
     decreaseQuantity(state, itemid) {
       const item = state.items.find((cartItem) => cartItem.id == itemid);
@@ -36,6 +49,7 @@ export default {
       } else {
         state.items = state.items.filter((cartItem) => cartItem.id !== itemid);
       }
+      saveCartToLocalStorage(state.items);
     },
   },
   actions: {
@@ -47,7 +61,6 @@ export default {
     },
     decreaseQuantity(context, itemid) {
       context.commit("decreaseQuantity", itemid);
-      console.log(itemid);
     },
   },
 };

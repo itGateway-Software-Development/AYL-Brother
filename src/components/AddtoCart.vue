@@ -60,7 +60,7 @@
               </div>
             </div>
           </div>
-          <div class="final-price row">
+          <div class="final-price-desktop row">
             <div class="col-10 text-start"><p>Total</p></div>
             <div class="col-2">
               <p>{{ cartTotal }} MMK</p>
@@ -71,7 +71,7 @@
           </div>
           <div
             class="cart-card p-3 mobile-card"
-            v-for="item in myCart"
+            v-for="item in cartItems"
             :key="item.id"
           >
             <div class="flex-column justify-content-around align-items-center">
@@ -80,28 +80,27 @@
                   <img :src="item.img" alt="" />
                 </div>
                 <div class="content ps-5 text-start">
-                  <div class="cart-descreption text-start mb-2">
+                  <div class="cart-descreption text-start">
                     <p>
                       {{ item.descreption }}
                     </p>
                   </div>
-                  <div class="input-group cart-plus-minus mb-2">
+                  <div class="input-group cart-plus-minus mb-4">
                     <span class="input-group-prepend">
                       <button
                         type="button"
                         class="btn btn-outline-secondary btn-number"
-                        disabled="disabled"
                         data-type="minus"
                         data-field="quant[1]"
+                        @click="decreaseQuantity(item.id)"
                       >
                         <span class="material-symbols-outlined"> remove </span>
                       </button>
                     </span>
                     <input
                       type="text"
-                      name="quant[1]"
+                      :value="item.quantity"
                       class="form-control input-number text-center"
-                      value="1"
                       min="1"
                       max="10"
                     />
@@ -111,13 +110,14 @@
                         class="btn btn-outline-secondary btn-number"
                         data-type="plus"
                         data-field="quant[1]"
+                        @click="increaseQuantity(item.id)"
                       >
                         <span class="material-symbols-outlined"> add </span>
                       </button>
                     </span>
                   </div>
-                  <div class="total-price mb-2">
-                    <p>{{ item.p }}</p>
+                  <div class="total-price mb-4">
+                    <p>{{ item.p }} MMK</p>
                   </div>
                   <div class="cart-icon d-flex">
                     <span class="material-symbols-outlined pe-3">
@@ -129,7 +129,14 @@
               </div>
             </div>
           </div>
-
+          <div class="final-price-mobile">
+            <div class="row">
+              <div class="col-8 text-start"><p>Total</p></div>
+              <div class="col-4">
+                <p>{{ cartTotal }} MMK</p>
+              </div>
+            </div>
+          </div>
           <div class="text-end mobile-button-group p-3">
             <button class="btn shopnow-button">Buy Now</button>
           </div>
@@ -156,8 +163,6 @@ export default {
     const decreaseQuantity = (itemId) => {
       store.dispatch("decreaseQuantity", itemId);
     };
-
-    console.log(cartItems);
 
     return { cartItems, cartTotal, increaseQuantity, decreaseQuantity };
   },
@@ -229,11 +234,11 @@ export default {
   display: none;
 }
 
-.final-price {
-  border: 1px solid #111;
+.final-price-mobile {
+  display: none;
 }
 
-.final-price {
+.final-price-desktop {
   padding: 20px;
   margin: 0px;
   border: 1px solid #111;
@@ -269,6 +274,24 @@ export default {
   }
   .btn-number .material-symbols-outlined {
     font-size: 16px;
+  }
+
+  .final-price-desktop {
+    display: none;
+  }
+  .final-price-mobile {
+    display: block;
+    padding: 20px;
+    margin: 0;
+    border: 1px solid #111;
+  }
+
+  .col-4 {
+    border-left: 1px solid #111;
+  }
+
+  .col-4 p {
+    font-size: 14px;
   }
 }
 </style>
