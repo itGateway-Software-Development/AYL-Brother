@@ -12,7 +12,7 @@
               <img :src="product.img" alt="" />
             </div>
             <div class="modified-text">
-              <p>12000MMK</p>
+              <p>{{ product.p }} MMK</p>
             </div>
             <div class="img-icon">
               <div class="icon-s">
@@ -23,8 +23,11 @@
                 </p>
               </div>
               <div class="icon-s">
-                <p class="modified-icon">
-                  <span class="material-symbols-outlined bag">
+                <p class="modified-icon" v-if="cartAdd">
+                  <span
+                    class="material-symbols-outlined bag"
+                    @click="getProduct(product)"
+                  >
                     shopping_bag
                   </span>
                 </p>
@@ -57,48 +60,60 @@
 </template>
 
 <script>
-import { computed, defineProps, onMounted, ref, watch } from "vue";
+import { computed, defineProps, inject, onMounted, ref, watch } from "vue";
+import { mapActions, useStore } from "vuex";
+import product from "@/store/modules/product";
 export default {
   props: ["price"],
 
   setup(props, context) {
+    const store = useStore();
     const data = [
       {
         id: 1,
         img: require("@/assets/product/b.jpg"),
         price: "low",
+        p: 12000,
       },
       {
         id: 2,
         img: require("@/assets/product/b.jpg"),
         price: "low",
+        p: 12000,
       },
       {
         id: 3,
         img: require("@/assets/product/b.jpg"),
         price: "low",
+        p: 12000,
       },
       {
         id: 4,
         img: require("@/assets/product/b.jpg"),
         price: "medium",
+        p: 22000,
       },
       {
         id: 5,
         img: require("@/assets/product/b.jpg"),
         price: "medium",
+        p: 22000,
       },
       {
         id: 6,
         img: require("@/assets/product/b.jpg"),
         price: "high",
+        p: 32000,
       },
       {
         id: 7,
         img: require("@/assets/product/b.jpg"),
         price: "high",
+        p: 32000,
       },
     ];
+
+    let cartAdd = ref(true);
 
     let filteredItems = ref([]);
 
@@ -156,7 +171,11 @@ export default {
       })
     );
 
-    return { filteredItems };
+    const getProduct = (product) => {
+      store.dispatch("getProduct", { ...product, quantity: 1 });
+    };
+
+    return { filteredItems, getProduct, cartAdd };
   },
 };
 </script>

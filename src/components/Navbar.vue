@@ -65,14 +65,18 @@
               <span class="material-symbols-outlined"> search </span>
             </li>
             <li class="p-2">
-              <span class="material-symbols-outlined"> shopping_bag </span>
+              <router-link to="/cart" class="nav-link">
+                <span class="material-symbols-outlined">
+                  shopping_bag
+                </span></router-link
+              >
             </li>
           </ul>
         </div>
       </div>
     </div>
 
-    <div class="nav2">
+    <div class="nav2" id="nav2">
       <div class="d-flex justify-content-between align-items-center">
         <div class="nav-text d-flex">
           <router-link to="#" class="pe-5 nav-link"
@@ -116,7 +120,7 @@
               favorite
             </span></router-link
           >
-          <router-link to="#" class="nav-link pe-4"
+          <router-link to="/cart" class="nav-link pe-4"
             ><span class="material-symbols-outlined">
               shopping_bag
             </span></router-link
@@ -134,6 +138,15 @@ export default {
   setup() {
     const drawer = ref(false);
 
+    document.addEventListener("scroll", () => {
+      const header = document.getElementById("nav2");
+      if (window.scrollY > 0) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
+    });
+
     return { drawer };
   },
 };
@@ -150,7 +163,7 @@ export default {
   width: 100%;
   height: 65px;
   cursor: pointer;
-  background-color: #111111;
+  background-color: #fff;
   position: fixed;
   padding: 5px 20px;
   top: 0;
@@ -160,7 +173,7 @@ export default {
 }
 
 .nav2.scrolled {
-  background-color: #ffffff;
+  background-color: #111111;
   opacity: 0.98;
 }
 
@@ -188,14 +201,24 @@ export default {
   font-size: 24px;
 }
 
-.nav-text {
+.nav2 .nav-text {
   padding: 5px;
   font-size: 20px;
+  color: #111111;
+  transition: color 0.4 ease-in-out;
+}
+
+.nav2.scrolled .nav-text {
   color: #fff;
 }
 
-.nav-icon .material-symbols-outlined {
+.nav2 .nav-icon .material-symbols-outlined {
   font-size: 26px;
+  color: #111111;
+  transition: color 0.4 ease-in-out;
+}
+
+.nav2.scrolled .nav-icon .material-symbols-outlined {
   color: #fff;
 }
 
@@ -212,7 +235,7 @@ export default {
 
 .nav-img {
   width: 120px;
-  margin-right: 440px;
+  margin-right: 350px;
 }
 
 .nav-link:hover {
@@ -233,6 +256,10 @@ export default {
 
 .icon-group .material-symbols-outlined:hover {
   color: red;
+}
+
+.nav-text p {
+  font-size: 16px;
 }
 
 @media (max-width: 1200px) {
