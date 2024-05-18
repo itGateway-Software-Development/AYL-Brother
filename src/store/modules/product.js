@@ -51,6 +51,10 @@ export default {
       }
       saveCartToLocalStorage(state.items);
     },
+    removeItem(state, itemid) {
+      state.items = state.items.filter((cartItem) => cartItem.id !== itemid);
+      saveCartToLocalStorage(state.items);
+    },
   },
   actions: {
     getProduct(context, item) {
@@ -61,6 +65,9 @@ export default {
     },
     decreaseQuantity(context, itemid) {
       context.commit("decreaseQuantity", itemid);
+    },
+    removeItem(context, itemid) {
+      context.commit("removeItem", itemid);
     },
   },
 };

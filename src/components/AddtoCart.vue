@@ -13,7 +13,12 @@
           >
             <div class="d-flex justify-content-around align-items-center">
               <div class="cart-icon d-flex">
-                <span class="material-symbols-outlined pe-4"> close </span>
+                <span
+                  class="material-symbols-outlined pe-4"
+                  @click="removeItem(item.id)"
+                >
+                  close
+                </span>
                 <span class="material-symbols-outlined ps-4"> favorite </span>
               </div>
               <div class="cart-img">
@@ -164,7 +169,16 @@ export default {
       store.dispatch("decreaseQuantity", itemId);
     };
 
-    return { cartItems, cartTotal, increaseQuantity, decreaseQuantity };
+    const removeItem = (itemId) => {
+      store.dispatch("removeItem", itemId);
+    };
+    return {
+      cartItems,
+      cartTotal,
+      increaseQuantity,
+      decreaseQuantity,
+      removeItem,
+    };
   },
 };
 </script>
