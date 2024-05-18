@@ -152,6 +152,8 @@
 </template>
 
 <script>
+import { toast } from "vue3-toastify";
+import "vue3-toastify/dist/index.css";
 import { computed, ref } from "vue";
 import { mapGetters, mapMutations, useStore } from "vuex";
 export default {

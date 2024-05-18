@@ -5,6 +5,8 @@ import store from "./store";
 import "./css/style.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Vue3Toastify, { toast } from "vue3-toastify";
+import "vue3-toastify/dist/index.css";
 
 import "vuetify/styles";
 import { createVuetify } from "vuetify";
@@ -19,4 +21,9 @@ const vuetify = createVuetify({
 
 AOS.init();
 
-createApp(App).use(store).use(router).use(vuetify).mount("#app");
+createApp(App)
+  .use(store)
+  .use(router)
+  .use(vuetify)
+  .use(Vue3Toastify, { autoClose: 3000 })
+  .mount("#app");

@@ -71,42 +71,49 @@ export default {
     const data = [
       {
         id: 1,
+        name: "Romantic Underwear",
         img: require("@/assets/product/b.jpg"),
         price: "low",
         p: 12000,
       },
       {
         id: 2,
+        name: "Romantic Underwear",
         img: require("@/assets/product/b.jpg"),
         price: "low",
         p: 12000,
       },
       {
         id: 3,
+        name: "Romantic Underwear",
         img: require("@/assets/product/b.jpg"),
         price: "low",
         p: 12000,
       },
       {
         id: 4,
+        name: "Romantic Underwear",
         img: require("@/assets/product/b.jpg"),
         price: "medium",
         p: 22000,
       },
       {
         id: 5,
+        name: "Romantic Underwear",
         img: require("@/assets/product/b.jpg"),
         price: "medium",
         p: 22000,
       },
       {
         id: 6,
+        name: "Romantic Underwear",
         img: require("@/assets/product/b.jpg"),
         price: "high",
         p: 32000,
       },
       {
         id: 7,
+        name: "Romantic Underwear",
         img: require("@/assets/product/b.jpg"),
         price: "high",
         p: 32000,
@@ -175,7 +182,7 @@ export default {
       store.dispatch("getProduct", { ...product, quantity: 1 });
     };
 
-    return { filteredItems, getProduct, cartAdd };
+    return { filteredItems, getProduct, name: "Romantic Underwear", cartAdd };
   },
 };
 </script>

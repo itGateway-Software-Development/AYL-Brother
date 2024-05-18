@@ -66,9 +66,10 @@
             </li>
             <li class="p-2">
               <router-link to="/cart" class="nav-link">
-                <span class="material-symbols-outlined">
-                  shopping_bag
-                </span></router-link
+                <span class="material-symbols-outlined"> shopping_bag </span>
+                <span v-if="cartItemCount > 0" class="cart-count">{{
+                  cartItemCount
+                }}</span></router-link
               >
             </li>
           </ul>
@@ -121,9 +122,10 @@
             </span></router-link
           >
           <router-link to="/cart" class="nav-link pe-4"
-            ><span class="material-symbols-outlined">
-              shopping_bag
-            </span></router-link
+            ><span class="material-symbols-outlined"> shopping_bag </span>
+            <span v-if="cartItemCount > 0" class="cart-count">{{
+              cartItemCount
+            }}</span></router-link
           >
         </div>
       </div>
@@ -132,11 +134,17 @@
 </template>
 
 <script>
-import { ref } from "vue";
+import { computed, ref } from "vue";
+import { mapGetters, mapMutations, useStore } from "vuex";
 
 export default {
   setup() {
     const drawer = ref(false);
+
+    const store = useStore();
+    const cartItemCount = computed(() => {
+      return store.getters.cartItemCount;
+    });
 
     document.addEventListener("scroll", () => {
       const header = document.getElementById("nav2");
@@ -147,7 +155,7 @@ export default {
       }
     });
 
-    return { drawer };
+    return { drawer, cartItemCount };
   },
 };
 </script>
@@ -157,6 +165,17 @@ export default {
   padding: 5px;
   height: 50px;
   display: none;
+}
+
+.cart-count {
+  position: absolute;
+  right: 20px;
+  top: 2px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 5px 10px;
+  font-size: 12px;
 }
 
 .nav2 {
@@ -199,6 +218,7 @@ export default {
 
 .material-symbols-outlined {
   font-size: 24px;
+  position: relative;
 }
 
 .nav2 .nav-text {

@@ -9,6 +9,8 @@ const loadCartFromLocalStorage = () => {
   return cart ? JSON.parse(cart) : [];
 };
 
+import { toast } from "vue3-toastify";
+
 export default {
   state: {
     items: loadCartFromLocalStorage(),
@@ -20,6 +22,9 @@ export default {
         (total, item) => total + item.p * item.quantity,
         0
       );
+    },
+    cartItemCount: (state) => {
+      return state.items.reduce((count, item) => count + item.quantity, 0);
     },
   },
   mutations: {
@@ -59,6 +64,7 @@ export default {
   actions: {
     getProduct(context, item) {
       context.commit("getData", item);
+      toast.success(`${item.name} added to cart`);
     },
     increaseQuantity(context, itemid) {
       context.commit("increaseQuantity", itemid);
@@ -66,8 +72,12 @@ export default {
     decreaseQuantity(context, itemid) {
       context.commit("decreaseQuantity", itemid);
     },
-    removeItem(context, itemid) {
-      context.commit("removeItem", itemid);
+    removeItem({ commit, state }, itemid) {
+      const item = state.items.find((cartItem) => cartItem.id === itemid);
+      if (item) {
+        commit("removeItem", itemid);
+        toast.error(`${item.name} removed from cart`);
+      }
     },
   },
 };
