@@ -46,17 +46,17 @@ export default {
   setup() {
     const bestseller = ref([
       {
-        img: require("@/assets/product/a.jpg"),
+        img: require("@/assets/product/d.jpg"),
         label: "RO:8011",
         id: 1,
       },
       {
-        img: require("@/assets/product/a.jpg"),
+        img: require("@/assets/product/d.jpg"),
         label: "RO:8012",
         id: 2,
       },
       {
-        img: require("@/assets/product/a.jpg"),
+        img: require("@/assets/product/d.jpg"),
         label: "RO:8013",
         id: 3,
       },
@@ -85,7 +85,7 @@ export default {
 }
 
 .best-seller img {
-  height: 400px;
+  border-radius: 10px;
 }
 
 .prodct-img:hover {
@@ -113,7 +113,7 @@ export default {
 
 .p-icon {
   margin-top: 10px;
-  margin-bottom: 300px;
+  margin-bottom: 450px;
   margin-left: 360px;
   cursor: pointer;
 }

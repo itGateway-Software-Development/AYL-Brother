@@ -26,7 +26,7 @@
               ></router-link>
               <v-divider></v-divider>
               <router-link to="/" class="nav-link mb-text"
-                ><v-list-item><p>New Arrival</p></v-list-item></router-link
+                ><v-list-item><p>Home</p></v-list-item></router-link
               >
               <router-link to="/product" class="nav-link mb-text"
                 ><v-list-item><p>Product</p></v-list-item></router-link
@@ -80,9 +80,7 @@
     <div class="nav2" id="nav2">
       <div class="d-flex justify-content-between align-items-center">
         <div class="nav-text d-flex">
-          <router-link to="#" class="pe-5 nav-link"
-            ><p>New Arrival</p></router-link
-          >
+          <router-link to="/" class="pe-5 nav-link"><p>Home</p></router-link>
           <router-link to="/product" class="pe-5 nav-link"
             ><p>Product</p></router-link
           >
