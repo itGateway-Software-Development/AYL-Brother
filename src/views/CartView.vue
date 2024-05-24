@@ -1,6 +1,8 @@
 <template>
   <div class="cart">
-    <AddtoCart></AddtoCart>
+    <div>
+      <AddtoCart></AddtoCart>
+    </div>
   </div>
 </template>
 
@@ -13,6 +15,9 @@ export default {
 
 <style>
 .cart {
-  margin-top: 100px;
+  margin-top: 70px;
+  width: 100%;
+  height: 100%;
+  background-color: lightgray;
 }
 </style>

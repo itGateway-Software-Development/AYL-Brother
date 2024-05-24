@@ -1,98 +1,29 @@
 <template>
-  <div class="add-to-cart">
-    <div class="container content-wrapper justify-content-center">
-      <div class="_cart mb-4">
-        <div class="cart-heading">
-          <h3 class="fs-4 text-start">Shopping Bag</h3>
+  <div class="addtoCart">
+    <div class="container content-wrapper">
+      <div class="heading">
+        <div class="addtocart-heading align-item-center text-start">
+          <h3 class="pt-8 ps-3">Shopping Bag</h3>
+          <p class="ms-4">{{ cartItemCount }} items</p>
         </div>
-        <div class="flex-coloum">
-          <div
-            class="cart-card p-3 desktop-card"
-            v-for="item in cartItems"
-            :key="item.id"
-          >
-            <div class="d-flex justify-content-around align-items-center">
-              <div class="cart-icon d-flex">
-                <span
-                  class="material-symbols-outlined pe-4"
-                  @click="removeItem(item.id)"
-                >
-                  close
-                </span>
-                <span class="material-symbols-outlined ps-4"> favorite </span>
-              </div>
-              <div class="cart-img">
-                <img :src="item.img" alt="" />
-              </div>
-              <div class="cart-descreption text-start">
-                <p>
-                  {{ item.descreption }}
-                </p>
-              </div>
-              <div class="input-group cart-plus-minus">
-                <span class="input-group-prepend">
-                  <button
-                    type="button"
-                    class="btn btn-outline-secondary btn-number"
-                    data-type="minus"
-                    data-field="quant[1]"
-                    @click="decreaseQuantity(item.id)"
-                  >
-                    <span class="material-symbols-outlined"> remove </span>
-                  </button>
-                </span>
-                <input
-                  type="text"
-                  :value="item.quantity"
-                  class="form-control input-number text-center"
-                  min="1"
-                  max="10"
-                />
-                <span class="input-group-append">
-                  <button
-                    type="button"
-                    class="btn btn-outline-secondary btn-number"
-                    data-type="plus"
-                    data-field="quant[1]"
-                    @click="increaseQuantity(item.id)"
-                  >
-                    <span class="material-symbols-outlined"> add </span>
-                  </button>
-                </span>
-              </div>
-              <div class="total-price">
-                <p>{{ item.p }} MMK</p>
-              </div>
-            </div>
-          </div>
-          <div class="final-price-desktop row">
-            <div class="col-10 text-start"><p>Total</p></div>
-            <div class="col-2">
-              <p>{{ cartTotal }} MMK</p>
-            </div>
-          </div>
-          <div class="text-end desktop-button-group p-3">
-            <button class="btn shopnow-button">Buy Now</button>
-          </div>
-          <div
-            class="cart-card p-3 mobile-card"
-            v-for="item in cartItems"
-            :key="item.id"
-          >
-            <div class="flex-column justify-content-around align-items-center">
-              <div class="d-flex">
-                <div class="cart-img">
-                  <img :src="item.img" alt="" />
+      </div>
+
+      <div class="d-flex">
+        <div class="d-flex cart-item-list">
+          <div class="cart-item mb-3" v-for="item in cartItems" :key="item.id">
+            <div class="d-flex justify-content-between">
+              <div class="left-item d-flex">
+                <div class="product-img me-3 p-3">
+                  <img :src="item.img" alt="Img" />
                 </div>
-                <div class="content ps-5 text-start">
-                  <div class="cart-descreption text-start">
-                    <p>
-                      {{ item.descreption }}
-                    </p>
-                  </div>
-                  <div class="input-group cart-plus-minus mb-4">
-                    <span class="input-group-prepend">
-                      <button
+                <div class="product-detail text-start mt-3">
+                  <h5>Romantic Underwear</h5>
+                  <p>Color:Light Gray, Blue</p>
+                  <p>Size: M</p>
+                  <p>Price: {{ item.p }} MMK</p>
+                  <div class="input-group cart-plus-minus">
+                    <span class="input-group-prepend"
+                      ><button
                         type="button"
                         class="btn btn-outline-secondary btn-number"
                         data-type="minus"
@@ -100,17 +31,15 @@
                         @click="decreaseQuantity(item.id)"
                       >
                         <span class="material-symbols-outlined"> remove </span>
-                      </button>
-                    </span>
-                    <input
+                      </button></span
+                    ><input
                       type="text"
                       :value="item.quantity"
                       class="form-control input-number text-center"
                       min="1"
                       max="10"
-                    />
-                    <span class="input-group-append">
-                      <button
+                    /><span class="input-group-append"
+                      ><button
                         type="button"
                         class="btn btn-outline-secondary btn-number"
                         data-type="plus"
@@ -118,34 +47,24 @@
                         @click="increaseQuantity(item.id)"
                       >
                         <span class="material-symbols-outlined"> add </span>
-                      </button>
-                    </span>
-                  </div>
-                  <div class="total-price mb-4">
-                    <p>{{ item.p }} MMK</p>
-                  </div>
-                  <div class="cart-icon d-flex">
-                    <span class="material-symbols-outlined pe-3">
-                      favorite
-                    </span>
-                    <span class="material-symbols-outlined"> close </span>
+                      </button></span
+                    >
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <div class="final-price-mobile">
-            <div class="row">
-              <div class="col-8 text-start"><p>Total</p></div>
-              <div class="col-4">
-                <p>{{ cartTotal }} MMK</p>
+              <div class="right-icon d-flex align-items-end">
+                <span
+                  class="material-symbols-outlined p-2"
+                  @click="removeItem(item.id)"
+                >
+                  delete
+                </span>
+                <span class="material-symbols-outlined p-2"> favorite </span>
               </div>
             </div>
           </div>
-          <div class="text-end mobile-button-group p-3">
-            <button class="btn shopnow-button">Buy Now</button>
-          </div>
         </div>
+        <div class="check-out"></div>
       </div>
     </div>
   </div>
@@ -162,6 +81,12 @@ export default {
 
     const cartItems = computed(() => store.getters["cartItems"]);
     const cartTotal = computed(() => store.getters["cartTotal"]);
+    const cartItemCount = computed(() => {
+      return store.getters.cartItemCount;
+    });
+    const points = ref(store.getters.discountPoints);
+    const usePoints = ref(store.getters.usePoints);
+    const availablePoints = computed(() => store.getters.totalAvailablePoints);
 
     const increaseQuantity = (itemId) => {
       store.dispatch("increaseQuantity", itemId);
@@ -174,140 +99,86 @@ export default {
     const removeItem = (itemId) => {
       store.dispatch("removeItem", itemId);
     };
+
+    const applyDiscount = () => {
+      store.dispatch("applyDiscountPoints", points.value);
+    };
+
+    console.log(availablePoints);
+
     return {
       cartItems,
       cartTotal,
+      points,
       increaseQuantity,
       decreaseQuantity,
       removeItem,
+      applyDiscount,
+      usePoints,
+      availablePoints,
+      cartItemCount,
     };
   },
 };
 </script>
 
 <style>
-.mobile-card {
-  display: none;
+.content-wrapper {
+  padding: 0px 0px;
 }
 
-._cart {
+.addtoCart {
+  background: lightgray;
   width: 100%;
   height: 100%;
-  border: 1px solid #111;
 }
 
-.cart-card {
-  border: 1px solid #111;
+.heading {
+  padding: 50px 0 10px 0px;
 }
 
-.cart-heading {
-  width: 100%;
-  border: 1px solid #111;
-  padding: 15px;
-  font-family: "Roboto", sans-serif;
-  font-weight: 700;
-  font-style: normal;
+.product-detail p {
+  line-height: 35px;
 }
 
-.cart-descreption {
-  width: 200px;
+.addtocart-heading {
+  height: 130px;
+  background-color: #ffffff;
+  border-radius: 5px;
 }
 
-.cart-descreption p {
-  font-family: "Roboto", sans-serif;
-  font-weight: 500;
-  font-style: normal;
+.cart-item {
+  width: 950px;
+  height: 200px;
+  background-color: #ffffff;
+  border-radius: 5px;
+}
+
+.cart-item-list {
+  flex-direction: column;
+}
+
+.check-out {
+  width: 400px;
+  height: 500px;
+  background-color: #ffffff;
+  margin-left: 10px;
+  border-radius: 5px;
 }
 
 .cart-plus-minus {
   width: 150px;
 }
 
+.product-img img {
+  width: 120px;
+}
+
 .btn-number {
   height: 40px;
 }
 
-.cart-img img {
-  width: 120px;
-}
-
-.total-price p {
-  font-family: "Roboto", sans-serif;
-  font-weight: 500;
-  font-style: normal;
-}
-
-.cart-icon {
+.right-icon {
   cursor: pointer;
-}
-
-.desktop-button-group {
-  border: 1px solid #111;
-}
-
-.mobile-button-group {
-  border: 1px solid #111;
-  display: none;
-}
-
-.final-price-mobile {
-  display: none;
-}
-
-.final-price-desktop {
-  padding: 20px;
-  margin: 0px;
-  border: 1px solid #111;
-}
-
-.col-2 {
-  border-left: 1px solid #111;
-}
-
-@media (max-width: 500px) {
-  .desktop-card {
-    display: none;
-  }
-
-  .desktop-button-group {
-    border: 1px solid #111;
-    display: none;
-  }
-
-  .mobile-button-group {
-    display: block;
-  }
-
-  .mobile-card {
-    display: block;
-  }
-  .cart-plus-minus .form-control {
-    height: 35px;
-  }
-
-  .btn-number {
-    height: 35px;
-  }
-  .btn-number .material-symbols-outlined {
-    font-size: 16px;
-  }
-
-  .final-price-desktop {
-    display: none;
-  }
-  .final-price-mobile {
-    display: block;
-    padding: 20px;
-    margin: 0;
-    border: 1px solid #111;
-  }
-
-  .col-4 {
-    border-left: 1px solid #111;
-  }
-
-  .col-4 p {
-    font-size: 14px;
-  }
 }
 </style>
