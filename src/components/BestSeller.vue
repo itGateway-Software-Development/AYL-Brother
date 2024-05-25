@@ -7,7 +7,7 @@
     <div class="heading">
       <h1>Best Seller</h1>
     </div>
-    <div class="row">
+    <div class="row card-list">
       <div
         class="col-4 aligin-items-center p-2"
         v-for="product in bestseller"
@@ -184,6 +184,10 @@ export default {
   }
   .product-icon {
     display: none;
+  }
+
+  .card-list {
+    margin: 0px auto;
   }
 }
 </style>

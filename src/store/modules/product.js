@@ -1,5 +1,6 @@
 const CART_STORAGE_KEY = "cart";
 const POINTS_STORAGE_KEY = "discountPoints";
+const TOTAL_AVAILABLE_POINTS_KEY = "totalAvailablePoints";
 const POINTS_TO_MMK_CONVERSION_RATE = 10;
 
 const saveCartToLocalStorage = (cart) => {
@@ -20,18 +21,38 @@ const loadPointsFromLocalStorage = () => {
   return points ? parseInt(points, 10) : 0;
 };
 
+const saveTotalAvailablePointsToLocalStorage = (points) => {
+  localStorage.setItem(TOTAL_AVAILABLE_POINTS_KEY, points);
+};
+
+const loadTotalAvailablePointsFromLocalStorage = () => {
+  const points = localStorage.getItem(TOTAL_AVAILABLE_POINTS_KEY);
+  if (points === null) {
+    const initialPoints = 1000; // Initialize to 1000 points if not set
+    localStorage.setItem(TOTAL_AVAILABLE_POINTS_KEY, initialPoints);
+    return initialPoints;
+  }
+  return parseInt(points, 10);
+};
+
 import { toast } from "vue3-toastify";
 
 export default {
   state: {
     items: loadCartFromLocalStorage(),
     discountPoints: loadPointsFromLocalStorage(),
-    totalAvailablePoints: 1000,
-    usePoints: false,
+    totalAvailablePoints: loadTotalAvailablePointsFromLocalStorage(),
+    deliveryPrice: 1500,
   },
   getters: {
     cartItems: (state) => state.items,
     cartTotal: (state) => {
+      return state.items.reduce(
+        (total, item) => total + item.p * item.quantity,
+        0
+      );
+    },
+    cartFinal: (state) => {
       const total = state.items.reduce(
         (total, item) => total + item.p * item.quantity,
         0
@@ -39,17 +60,24 @@ export default {
       const discount = state.discountPoints * POINTS_TO_MMK_CONVERSION_RATE;
       return Math.max(0, total - discount);
     },
+    deliveryPrice: (state) => {
+      return state.deliveryPrice;
+    },
     cartItemCount: (state) => {
       return state.items.reduce((count, item) => count + item.quantity, 0);
     },
     discountPoints: (state) => {
       return state.discountPoints;
     },
-    usePoints: (state) => {
-      return state.usePoints;
-    },
+
     totalAvailablePoints: (state) => {
       return state.totalAvailablePoints;
+    },
+
+    grandTotal: (state, getters) => {
+      const cartTotalvalue = getters.cartFinal;
+      const deliveryCharges = state.items.length > 0 ? state.deliveryPrice : 0;
+      return cartTotalvalue + deliveryCharges;
     },
   },
   mutations: {
@@ -88,10 +116,8 @@ export default {
     APPLY_DISCOUNT_POINTS(state, points) {
       state.discountPoints = points;
       state.totalAvailablePoints -= points;
-      savePointsToLocalStorage(points); // Save discount points to localStorage
-    },
-    SET_USE_POINTS(state, usePoints) {
-      state.usePoints = usePoints;
+      savePointsToLocalStorage(points);
+      saveTotalAvailablePointsToLocalStorage(state.totalAvailablePoints);
     },
   },
   actions: {
@@ -119,9 +145,6 @@ export default {
         commit("APPLY_DISCOUNT_POINTS", points);
         toast.info(`Applied ${points} discount points`);
       }
-    },
-    setUsePoints({ commit }, usePoints) {
-      commit("SET_USE_POINTS", usePoints);
     },
   },
 };

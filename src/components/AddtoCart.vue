@@ -8,10 +8,10 @@
         </div>
       </div>
 
-      <div class="d-flex">
+      <div class="d-flex cart-main">
         <div class="d-flex cart-item-list">
           <div class="cart-item mb-3" v-for="item in cartItems" :key="item.id">
-            <div class="d-flex justify-content-between">
+            <div class="d-flex justify-content-between cart-content">
               <div class="left-item d-flex">
                 <div class="product-img me-3 p-3">
                   <img :src="item.img" alt="Img" />
@@ -20,7 +20,9 @@
                   <h5>Romantic Underwear</h5>
                   <p>Color:Light Gray, Blue</p>
                   <p>Size: M</p>
-                  <p>Price: {{ item.p }} MMK</p>
+                  <p>
+                    Price: <span class="points">{{ item.p }}</span> MMK
+                  </p>
                   <div class="input-group cart-plus-minus">
                     <span class="input-group-prepend"
                       ><button
@@ -64,7 +66,49 @@
             </div>
           </div>
         </div>
-        <div class="check-out"></div>
+        <div class="check-out">
+          <div class="checkout-heading mt-3">
+            <h3>Order Summary</h3>
+          </div>
+          <div class="total-price d-flex justify-content-between">
+            <p>Sub-Total</p>
+            <p>{{ cartTotal }} MMK</p>
+          </div>
+          <div
+            class="delivery d-flex justify-content-between"
+            v-if="cartItems.length > 0"
+          >
+            <p>Delivery Price</p>
+            <p>{{ deliveryPrice }}MMK</p>
+          </div>
+          <div class="promo-point mt-5">
+            <div class="use-point mt-5 d-flex justify-content-between px-2">
+              <input
+                type="number"
+                v-model.number="points"
+                :max="availablePoints"
+                placeholder="Enter discount points"
+                class="point-input"
+              />
+              <button @click="applyDiscount" class="btn promo-btn">
+                Apply Points
+              </button>
+            </div>
+            <p class="m-3">
+              You have <span class="points">{{ availablePoints }}</span> points
+              left
+            </p>
+          </div>
+
+          <div class="total-price d-flex justify-content-between">
+            <p>Total</p>
+            <p>{{ grandTotal }} MMK</p>
+          </div>
+
+          <div class="checkout-button">
+            <button class="btn checkout-btn">Proceed To Checkout</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -81,6 +125,9 @@ export default {
 
     const cartItems = computed(() => store.getters["cartItems"]);
     const cartTotal = computed(() => store.getters["cartTotal"]);
+    const cartFinal = computed(() => store.getters["cartFinal"]);
+    const deliveryPrice = computed(() => store.getters["deliveryPrice"]);
+    const grandTotal = computed(() => store.getters["grandTotal"]);
     const cartItemCount = computed(() => {
       return store.getters.cartItemCount;
     });
@@ -104,12 +151,13 @@ export default {
       store.dispatch("applyDiscountPoints", points.value);
     };
 
-    console.log(availablePoints);
-
     return {
       cartItems,
       cartTotal,
+      cartFinal,
       points,
+      deliveryPrice,
+      grandTotal,
       increaseQuantity,
       decreaseQuantity,
       removeItem,
@@ -160,7 +208,7 @@ export default {
 
 .check-out {
   width: 400px;
-  height: 500px;
+  height: 450px;
   background-color: #ffffff;
   margin-left: 10px;
   border-radius: 5px;
@@ -180,5 +228,119 @@ export default {
 
 .right-icon {
   cursor: pointer;
+}
+
+.points {
+  color: red;
+}
+
+.promo-btn {
+  background: #111;
+  color: #ffffff;
+}
+
+.point-input {
+  width: 180px;
+  border: 1px solid;
+  border-radius: 5px;
+}
+
+.promo-point {
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  margin: 0px 10px;
+}
+
+.checkout-btn {
+  width: 250px;
+  background: #111;
+  color: #ffffff;
+  margin-top: 20px;
+}
+
+@media (max-width: 1200px) {
+  .cart-item {
+    width: 600px;
+  }
+}
+
+@media (max-width: 800px) {
+  .cart-item {
+    width: 510px;
+  }
+  .check-out {
+    width: 200px;
+    height: 413px;
+  }
+
+  .check-out p {
+    font-size: 14px;
+    margin: 10px 0px !important;
+  }
+  .point-input {
+    width: 50px;
+    border: 1px solid;
+    border-radius: 5px;
+  }
+  .promo-btn {
+    font-size: 14px;
+  }
+
+  .checkout-btn {
+    width: 180px;
+    font-size: 14px;
+    margin: 0px;
+  }
+
+  .total-price {
+    margin: 10px auto;
+    padding: 0px 12px;
+  }
+
+  .delivery {
+    margin: 0px;
+    padding: 0px 12px;
+  }
+
+  .total-price {
+    margin: 0px;
+    padding: 0px 12px;
+  }
+}
+
+@media (max-width: 500px) {
+  .cart-item {
+    width: 400px;
+    height: 230px;
+  }
+
+  .check-out {
+    width: 400px;
+    margin: 10px 0px;
+  }
+
+  .point-input {
+    width: 200px;
+    border: 1px solid;
+    border-radius: 5px;
+  }
+
+  .cart-main {
+    flex-direction: column;
+    margin: 0px auto;
+    align-items: center;
+  }
+
+  .heading {
+    padding: 10px 0px;
+  }
+
+  .cart-content {
+    flex-direction: column;
+  }
+
+  .right-icon {
+    margin-left: 150px;
+  }
 }
 </style>

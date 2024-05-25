@@ -146,5 +146,9 @@ export default {};
   .logo-text p {
     font-size: 15px;
   }
+  .footer-group {
+    align-content: center;
+    margin: 0px auto;
+  }
 }
 </style>

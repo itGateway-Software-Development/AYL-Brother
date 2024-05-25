@@ -15,9 +15,15 @@ export default {
 
 <style>
 .cart {
-  margin-top: 70px;
+  margin: 70px 0px;
   width: 100%;
   height: 100%;
   background-color: lightgray;
+}
+
+@media (max-width: 500px) {
+  .cart {
+    margin: 0px;
+  }
 }
 </style>

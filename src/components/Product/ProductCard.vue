@@ -324,9 +324,7 @@ export default {
     position: relative;
   }
   .icon-s {
-    margin-top: 10px;
-    margin-bottom: 160px;
-    margin-left: 170px;
+    display: none;
   }
   .modified-icon .material-symbols-outlined {
     font-size: 16px !important;
