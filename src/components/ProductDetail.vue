@@ -5,95 +5,36 @@
       data-aos="fade-down"
       data-aos-duration="2000"
     >
-      <h1>Product Detail</h1>
+      <div class="row align-items-center justify-content-center">
+        <div class="col-4 line"><hr /></div>
+        <div class="col-3 p-col-2"><h1>Avaliable Fabric</h1></div>
+        <div class="col-4 line"><hr /></div>
+      </div>
     </div>
-    <div class="d-1 container content-wrapper">
+    <div class="d-1 container content-wrapper mt-5">
       <div class="row">
-        <div
-          class="col-6 left-section p-5"
-          data-aos="fade-right"
-          data-aos-duration="2000"
-        >
-          <div class="row justify-content-center">
-            <div class="col-6 left-items d-flex-column">
-              <div class="item-1" @click="ChangeContent1">
-                <img
-                  src="../assets/pdetail/bamboo.jpg"
-                  alt="photo"
-                  class="p-detail-img img-fluid w-100"
-                />
-              </div>
-              <div class="item-2" @click="ChangeContent2">
-                <img
-                  src="../assets/pdetail/spandex.jpg"
-                  alt="photo"
-                  class="p-detail-img img-fluid"
-                />
-              </div>
-            </div>
-            <div class="col-6 right-item">
-              <div class="item-3" @click="ChangeContent3">
-                <img
-                  src="../assets/pdetail/modal.jpg"
-                  alt="photo"
-                  class="p-detail-img img-fluid"
-                />
-              </div>
-            </div>
+        <div class="col-4">
+          <div class="item">
+            <img src="../assets/sample.jpg" class="img-fluid" alt="" />
+          </div>
+          <div class="item-text text-start">
+            <p>Bamboo Fiber Series</p>
           </div>
         </div>
-        <div
-          class="col-6 right-section mt-5"
-          data-aos="fade-left"
-          data-aos-duration="2000"
-        >
-          <div class="content-1" v-if="content1">
-            <h2 class="text-center product-heading mb-4">
-              Bamboo Fiber Series
-            </h2>
-            <p class="text-start mb-4">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              Asperiores rem sit minus necessitatibus dolor ex blanditiis,
-              facere voluptatem sed atque perferendis quis eius vel deserunt
-              explicabo neque. Quae et error deserunt aut laudantium numquam
-              voluptas expedita, tempore provident cum maxime dolor, saepe
-              voluptatibus praesentium vel.
-            </p>
-            <div class="text-start">
-              <button class="btn shopnow-button">SHOP NOW</button>
-            </div>
+        <div class="col-4">
+          <div class="item">
+            <img src="../assets/sample.jpg" class="img-fluid" alt="" />
           </div>
-
-          <div class="content-1" v-if="content2">
-            <h2 class="text-center product-heading mb-4">Lycra Modal Series</h2>
-            <p class="text-start mb-4">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              Asperiores rem sit minus necessitatibus dolor ex blanditiis,
-              facere voluptatem sed atque perferendis quis eius vel deserunt
-              explicabo neque. Quae et error deserunt aut laudantium numquam
-              voluptas expedita, tempore provident cum maxime dolor, saepe
-              voluptatibus praesentium vel.
-            </p>
-            <div class="text-start">
-              <button class="btn shopnow-button">SHOP NOW</button>
-            </div>
+          <div class="item-text text-start">
+            <p>Lycra Modal Series</p>
           </div>
-
-          <div class="content-1" v-if="content3">
-            <h2 class="text-center product-heading mb-4">
-              Lycra Spandex Series
-            </h2>
-            <p class="text-start mb-4">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              Asperiores rem sit minus necessitatibus dolor ex blanditiis,
-              facere voluptatem sed atque perferendis quis eius vel deserunt
-              explicabo neque. Quae et error deserunt aut laudantium numquam
-              voluptas expedita, tempore provident cum maxime dolor, saepe
-              voluptatibus praesentium vel.
-            </p>
-            <div class="text-start">
-              <button class="btn shopnow-button">SHOP NOW</button>
-            </div>
+        </div>
+        <div class="col-4">
+          <div class="item">
+            <img src="../assets/sample.jpg" class="img-fluid" alt="" />
+          </div>
+          <div class="item-text text-start">
+            <p>Spandex Series</p>
           </div>
         </div>
       </div>
@@ -104,80 +45,23 @@
       data-aos-duration="2000"
     >
       <div class="d-flex-column">
-        <div class="p-list">
-          <div class="d-flex m-list">
-            <div class="item-1" @click="ChangeContent1">
-              <img
-                src="../assets/pdetail/bamboo.jpg"
-                alt="photo"
-                class="p-detail-img img-fluid w-100"
-              />
-            </div>
-            <div class="item-2" @click="ChangeContent2">
-              <img
-                src="../assets/pdetail/spandex.jpg"
-                alt="photo"
-                class="p-detail-img img-fluid"
-              />
-            </div>
-            <div class="item-3" @click="ChangeContent3">
-              <img
-                src="../assets/pdetail/modal.jpg"
-                alt="photo"
-                class="p-detail-img img-fluid"
-              />
-            </div>
-          </div>
+        <div class="p-series">
+          <router-link to="#"
+            ><div class="item">
+              <img src="../assets/sample.jpg" class="img-fluid" alt="" /></div
+          ></router-link>
         </div>
-        <div class="contet-list mt-5">
-          <div class="content-1" v-if="content1">
-            <h2 class="text-center product-heading mb-3">
-              Bamboo Fiber Series
-            </h2>
-            <p class="text-center mb-4">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              Asperiores rem sit minus necessitatibus dolor ex blanditiis,
-              facere voluptatem sed atque perferendis quis eius vel deserunt
-              explicabo neque. Quae et error deserunt aut laudantium numquam
-              voluptas expedita, tempore provident cum maxime dolor, saepe
-              voluptatibus praesentium vel.
-            </p>
-            <div class="text-center">
-              <button class="btn shopnow-button">SHOP NOW</button>
-            </div>
-          </div>
-
-          <div class="content-1" v-if="content2">
-            <h2 class="text-center product-heading mb-4">Lycra Modal Series</h2>
-            <p class="text-center mb-4">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              Asperiores rem sit minus necessitatibus dolor ex blanditiis,
-              facere voluptatem sed atque perferendis quis eius vel deserunt
-              explicabo neque. Quae et error deserunt aut laudantium numquam
-              voluptas expedita, tempore provident cum maxime dolor, saepe
-              voluptatibus praesentium vel.
-            </p>
-            <div class="text-center">
-              <button class="btn shopnow-button">SHOP NOW</button>
-            </div>
-          </div>
-
-          <div class="content-1" v-if="content3">
-            <h2 class="text-center product-heading mb-4">
-              Lycra Spandex Series
-            </h2>
-            <p class="text-center mb-4">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              Asperiores rem sit minus necessitatibus dolor ex blanditiis,
-              facere voluptatem sed atque perferendis quis eius vel deserunt
-              explicabo neque. Quae et error deserunt aut laudantium numquam
-              voluptas expedita, tempore provident cum maxime dolor, saepe
-              voluptatibus praesentium vel.
-            </p>
-            <div class="text-center">
-              <button class="btn shopnow-button">SHOP NOW</button>
-            </div>
-          </div>
+        <div class="p-series">
+          <router-link to="#"
+            ><div class="item">
+              <img src="../assets/sample.jpg" class="img-fluid" alt="" /></div
+          ></router-link>
+        </div>
+        <div class="p-series">
+          <router-link to="#"
+            ><div class="item">
+              <img src="../assets/sample.jpg" class="img-fluid" alt="" /></div
+          ></router-link>
         </div>
       </div>
     </div>
@@ -231,41 +115,20 @@ export default {
   display: none;
 }
 
-.item-1,
-.item-2,
-.item-3 {
-  width: 200px;
-  height: 180px;
-  border: 1px solid black;
-  cursor: pointer;
-  overflow: hidden;
-}
-
-.p-detail.img {
+.item img {
+  width: 430px;
+  height: 300px;
   object-fit: cover;
-  width: 100%;
-  height: 180px;
 }
 
-.item-1 {
-  margin-bottom: 100px;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
-  border-top-right-radius: 20px;
+.item-text {
+  margin: 10px 0px;
+  text-decoration: underline;
+  cursor: pointer;
 }
-.item-2 {
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
-}
-.item-3 {
-  margin-top: 120px;
-  border-top-left-radius: 20px;
-  border-bottom-right-radius: 20px;
-  border-top-right-radius: 20px;
-}
-.left-items {
-  padding: 0px 60px;
+
+.item-text:hover {
+  color: red;
 }
 
 .product-heading {
@@ -297,17 +160,24 @@ export default {
 }
 
 @media (max-width: 800px) {
-  .item-1,
-  .item-2,
-  .item-3 {
-    width: 130px;
-    height: 130px;
+  .line {
+    width: 28.5%;
   }
-  .item-3 {
-    margin-top: 100px;
+  .col-3 {
+    width: 33%;
   }
-  .left-items {
-    padding: 0 10px;
+  .d-1 {
+    display: none;
+  }
+  .d-2 {
+    display: block;
+  }
+  .item img {
+    width: max-content;
+  }
+  .p-series {
+    width: max-content;
+    margin: 10px auto;
   }
 }
 
@@ -320,24 +190,16 @@ export default {
     display: block;
   }
 
-  .item-1,
-  .item-2,
-  .item-3 {
-    margin: 0;
-    width: 100px;
-    height: 100px;
-    border-radius: 10px;
+  .item img {
+    width: 380px;
+    height: 250px;
+    object-fit: cover;
   }
-
-  .m-list {
-    justify-content: space-around;
+  .line {
+    width: 18%;
   }
-
-  .shopnow-button {
-    width: 150px !important;
-    height: 40px !important;
-    font-size: 16px;
-    border-radius: 5px !important;
+  .col-3 {
+    width: 55%;
   }
 }
 </style>

@@ -5,7 +5,11 @@
       data-aos="fade-down"
       data-aos-duration="2000"
     >
-      <h1>Our Product</h1>
+      <div class="row align-items-center justify-content-center">
+        <div class="col-5 line"><hr /></div>
+        <div class="col-2 p-col-2"><h1>Our Product</h1></div>
+        <div class="col-5 line"><hr /></div>
+      </div>
     </div>
     <div class="d-flex our-product">
       <div
@@ -169,6 +173,10 @@ export default {};
   .our-product {
     display: flex;
     flex-direction: column;
+  }
+
+  .p-col-2 {
+    width: 100%;
   }
 }
 </style>

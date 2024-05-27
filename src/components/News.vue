@@ -5,7 +5,11 @@
     data-aos-duration="2000"
   >
     <div class="heading text-center">
-      <h1>Romantic News</h1>
+      <div class="row align-items-center justify-content-center">
+        <div class="col-4 line"><hr /></div>
+        <div class="col-3"><h1>Romantic News</h1></div>
+        <div class="col-4 line"><hr /></div>
+      </div>
     </div>
     <v-carousel
       show-arrows="hover"

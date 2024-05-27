@@ -2,7 +2,11 @@
   <div data-aos="zoom-in" data-aos-duration="2000">
     <div class="container content-wrapper mt-5 d-1">
       <div class="heading">
-        <h1>New Product</h1>
+        <div class="row align-items-center justify-content-center">
+          <div class="col-5 line"><hr /></div>
+          <div class="col-2 p-col-2"><h1>New Product</h1></div>
+          <div class="col-5 line"><hr /></div>
+        </div>
       </div>
       <v-carousel cycle hide-delimiter-background class="new-p-slider">
         <v-carousel-item>

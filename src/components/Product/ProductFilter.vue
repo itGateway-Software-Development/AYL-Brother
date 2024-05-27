@@ -3,14 +3,14 @@
     <p class="mb-3 route-text">Men / {{ this.$route.name }}</p>
     <div class="f-1">
       <div class="filter-header">
-        <h4 class="mb-2 fw-bold">Filter List</h4>
-        <p class="mb-2"><span class="color-text">Boxer Briefs</span></p>
-        <p><span class="color-text">Briefs</span></p>
+        <h4 class="fw-bold">Filter Product</h4>
+        <!-- <p class="mb-2"><span class="color-text">Boxer Briefs</span></p>
+        <p><span class="color-text">Briefs</span></p> -->
       </div>
-      <div class="filter-list mt-4">
+      <div class="filter-list">
         <div class="filter-price">
           <div class="d-flex justify-content-between">
-            <h5 class="fw-bold">Price</h5>
+            <h5 class="fw-bold">Category</h5>
             <span
               class="material-symbols-outlined"
               @click="price_show = !price_show"
@@ -37,7 +37,7 @@
                     @change="priceFilter"
                   />
                   <label class="form-check-label" for="flexCheckDefault"
-                    >10000MMK - 15000MMK
+                    >Boxer Brief
                   </label>
                 </div>
               </li>
@@ -51,30 +51,15 @@
                     v-model="ismedium"
                     @change="priceFilter"
                   />
-                  <label class="form-check-label" for="flexCheckDefault"
-                    >15000MMK - 20000MMK
-                  </label>
-                </div>
-              </li>
-              <li>
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    value="high"
-                    id="flexCheckDefault"
-                    v-model="ishigh"
-                    @change="priceFilter"
-                  />
-                  <label class="form-check-label" for="flexCheckDefault"
-                    >20000MMK - 30000MMK
+                  <label class="form-check-label" for="flexCheckDefault">
+                    Briefs
                   </label>
                 </div>
               </li>
             </ul>
           </div>
         </div>
-        <div class="filter-color">
+        <!-- <div class="filter-color">
           <div class="d-flex justify-content-between">
             <h5 class="fw-bold">Color</h5>
             <span
@@ -171,49 +156,7 @@
               </div>
             </div>
           </div>
-        </div>
-        <div class="filter-size">
-          <div class="d-flex justify-content-between">
-            <h5 class="fw-bold">Size</h5>
-            <span
-              class="material-symbols-outlined"
-              @click="size_show = !size_show"
-            >
-              expand_more
-            </span>
-          </div>
-          <div
-            class="size-filter"
-            v-if="size_show"
-            data-aos="fade-down"
-            data-aos-easing="linear"
-            data-aos-duration="8000"
-          >
-            <p>Size of Waist(Inch)</p>
-            <div class="row mt-3 justify-content-between">
-              <div class="col-6 mb-3">
-                <div class="size">
-                  <p class="text-center">M(28-30)</p>
-                </div>
-              </div>
-              <div class="col-6 mb-3">
-                <div class="size">
-                  <p class="text-center">L(31-32)</p>
-                </div>
-              </div>
-              <div class="col-6">
-                <div class="size">
-                  <p class="text-center">XL(33-35)</p>
-                </div>
-              </div>
-              <div class="col-6">
-                <div class="size">
-                  <p class="text-center">XXL(36-38)</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        </div> -->
         <div class="filter-fabric">
           <div class="d-flex justify-content-between">
             <h5 class="fw-bold">Fabric</h5>
@@ -272,6 +215,48 @@
                 </div>
               </li>
             </ul>
+          </div>
+        </div>
+        <div class="filter-size">
+          <div class="d-flex justify-content-between">
+            <h5 class="fw-bold">Size Guide</h5>
+            <span
+              class="material-symbols-outlined"
+              @click="size_show = !size_show"
+            >
+              expand_more
+            </span>
+          </div>
+          <div
+            class="size-filter"
+            v-if="size_show"
+            data-aos="fade-down"
+            data-aos-easing="linear"
+            data-aos-duration="8000"
+          >
+            <p>Size of Waist(Inch)</p>
+            <div class="row mt-3 justify-content-between">
+              <div class="col-6 mb-3">
+                <div class="size">
+                  <p class="text-center">M(28-30)</p>
+                </div>
+              </div>
+              <div class="col-6 mb-3">
+                <div class="size">
+                  <p class="text-center">L(31-32)</p>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="size">
+                  <p class="text-center">XL(33-35)</p>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="size">
+                  <p class="text-center">XXL(36-38)</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -577,7 +562,7 @@ export default {
     let price_show = ref(false);
     let fabric_show = ref(false);
     let color_show = ref(false);
-    let size_show = ref(false);
+    let size_show = ref(true);
 
     let islow = ref(false);
     let ismedium = ref(false);

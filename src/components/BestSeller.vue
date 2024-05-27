@@ -5,36 +5,69 @@
     data-aos-duration="2000"
   >
     <div class="heading">
-      <h1>Best Seller</h1>
+      <div class="row align-items-center justify-content-center">
+        <div class="col-5 line"><hr /></div>
+        <div class="col-2 p-col-2"><h1>Best Seller</h1></div>
+        <div class="col-5 line"><hr /></div>
+      </div>
     </div>
     <div class="row card-list">
-      <div
-        class="col-4 aligin-items-center p-2"
-        v-for="product in bestseller"
-        :key="product.id"
-      >
-        <div class="card best-seller">
-          <img
-            :src="product.img"
-            alt="Product Photo"
-            class="card-img-top product-img"
-          />
-          <div class="product-icon">
-            <div class="p-icon">
-              <p class="modified-icon">
-                <span class="material-symbols-outlined heart"> favorite </span>
-              </p>
-            </div>
-            <div class="p-icon">
-              <p class="modified-icon">
-                <span class="material-symbols-outlined bag">
-                  shopping_bag
-                </span>
-              </p>
-            </div>
+      <div class="col-4">
+        <div class="p-card mb-3">
+          <div class="card-img mb-2">
+            <img src="../assets/product/a.jpg" class="img-fluid" alt="" />
+          </div>
+          <div class="p-color text-center mb-2">
+            <p>Color : RED & White</p>
+          </div>
+          <div class="card-content text-start">
+            <p class="code">Product-code: 5002</p>
+            <p>2PCS in 1 BOX</p>
+            <p>Price: 10700 MMK</p>
+          </div>
+          <div class="card-button-group mt-3">
+            <div class="btn add-btn mb-3">Add to Bag</div>
+            <div class="btn wish-btn">Add to WishList</div>
           </div>
         </div>
-        <p class="text-center label">{{ product.label }}</p>
+      </div>
+      <div class="col-4">
+        <div class="p-card mb-3">
+          <div class="card-img mb-2">
+            <img src="../assets/product/a.jpg" class="img-fluid" alt="" />
+          </div>
+          <div class="p-color text-center mb-2">
+            <p>Color : RED & White</p>
+          </div>
+          <div class="card-content text-start">
+            <p class="code">Product-code: 5002</p>
+            <p>2PCS in 1 BOX</p>
+            <p>Price: 10700 MMK</p>
+          </div>
+          <div class="card-button-group mt-3">
+            <div class="btn add-btn mb-3">Add to Bag</div>
+            <div class="btn wish-btn">Add to WishList</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="p-card mb-3">
+          <div class="card-img mb-2">
+            <img src="../assets/product/a.jpg" class="img-fluid" alt="" />
+          </div>
+          <div class="p-color text-center mb-2">
+            <p>Color : RED & White</p>
+          </div>
+          <div class="card-content text-start">
+            <p class="code">Product-code: 5002</p>
+            <p>2PCS in 1 BOX</p>
+            <p>Price: 10700 MMK</p>
+          </div>
+          <div class="card-button-group mt-3">
+            <div class="btn add-btn mb-3">Add to Bag</div>
+            <div class="btn wish-btn">Add to WishList</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -67,7 +100,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .card {
   width: 26rem;
   border: 1px solid #111111;
@@ -149,7 +182,7 @@ export default {
 
 @media (max-width: 1200px) {
   .card {
-    width: 22rem;
+    width: 20rem;
   }
   .p-icon {
     margin-top: 10px;
@@ -163,11 +196,14 @@ export default {
   .card {
     width: 14rem;
   }
-  .heading h1 {
-    font-size: 30px !important;
-  }
   .product-icon {
     display: none;
+  }
+  .heading h1 {
+    font-size: 24px;
+  }
+  .p-col-2 {
+    width: 100%;
   }
 }
 
@@ -179,15 +215,23 @@ export default {
     font-size: 14px;
     font-weight: 600;
   }
-  .heading h1 {
-    font-size: 26px !important;
-  }
+
   .product-icon {
     display: none;
   }
 
   .card-list {
     margin: 0px auto;
+  }
+
+  .card-content p {
+    font-size: 12px;
+  }
+
+  .wish-btn,
+  .add-btn {
+    width: 120px;
+    font-size: 12px;
   }
 }
 </style>

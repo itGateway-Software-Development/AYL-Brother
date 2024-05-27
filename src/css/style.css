@@ -16,14 +16,21 @@ ul li {
 
 p {
   margin: 0;
-  font-family: "Roboto", sans-serif;
-  font-weight: 500;
+  font-family: "Kanit", sans-serif;
+  font-weight: 300;
   font-style: normal;
 }
 
 .heading h1 {
-  font-family: "Roboto", sans-serif;
-  font-weight: 900;
+  font-family: "Kanit", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 30px;
+}
+
+h2 {
+  font-family: "Kanit", sans-serif;
+  font-weight: 500;
   font-style: normal;
 }
 
@@ -42,4 +49,20 @@ p {
 .shopnow-button:hover {
   background-color: red;
   color: #fff;
+}
+
+@media (max-width: 1200px) {
+  .heading h1 {
+    font-size: 23px;
+  }
+}
+
+@media (max-width: 800px) {
+  .heading h1 {
+    font-size: 24px;
+  }
+
+  .line {
+    display: none;
+  }
 }

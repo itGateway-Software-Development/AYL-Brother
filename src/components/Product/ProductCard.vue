@@ -1,57 +1,26 @@
 <template>
-  <div class="product-card">
-    <div class="row">
+  <div class="product-card container">
+    <div class="row align-content-center">
       <div
-        class="col-6 col-md-4 col-sm-6 mb-3"
+        class="col-6 col-md-4 col-sm-6 mb-3 p-card-col"
         v-for="product in filteredItems"
         :key="product.id"
       >
-        <div class="p-card mb-2">
-          <div class="upper-card">
-            <div class="img">
-              <img :src="product.img" alt="" />
-            </div>
-            <div class="modified-text">
-              <p>{{ product.p }} MMK</p>
-            </div>
-            <div class="img-icon">
-              <div class="icon-s">
-                <p class="modified-icon">
-                  <span class="material-symbols-outlined heart">
-                    favorite
-                  </span>
-                </p>
-              </div>
-              <div class="icon-s">
-                <p class="modified-icon" v-if="cartAdd">
-                  <span
-                    class="material-symbols-outlined bag"
-                    @click="getProduct(product)"
-                  >
-                    shopping_bag
-                  </span>
-                </p>
-              </div>
-            </div>
+        <div class="p-card mb-3">
+          <div class="card-img mb-2">
+            <img :src="product.img" class="img-fluid" alt="" />
           </div>
-          <div class="mt-4 lower-card text-start">
-            <h5 class="mb-3">Romantic Underwear</h5>
-            <div class="color-hover mb-1">
-              <p class="color-hover-text">+4 Color</p>
-              <div class="d-flex color-control" id="color">
-                <div class="circle-color color-red"></div>
-                <div class="circle-color color-green"></div>
-                <div class="circle-color color-royalblue"></div>
-                <div class="circle-color color-dark"></div>
-              </div>
-            </div>
-            <div class="rating d-flex me-1">
-              <span class="material-symbols-outlined"> star_rate </span>
-              <span class="material-symbols-outlined"> star_rate </span>
-              <span class="material-symbols-outlined"> star_rate </span>
-              <span class="material-symbols-outlined"> star_rate </span>
-              <span class="material-symbols-outlined"> star_rate </span>
-            </div>
+          <div class="p-color text-center mb-2">
+            <p>Color : RED & White</p>
+          </div>
+          <div class="card-content text-start">
+            <p class="code">Product-code: 5002</p>
+            <p>2PCS in 1 BOX</p>
+            <p>Price: 10700 MMK</p>
+          </div>
+          <div class="card-button-group mt-3">
+            <div class="btn add-btn mb-3">Add to Bag</div>
+            <div class="btn wish-btn">Add to WishList</div>
           </div>
         </div>
       </div>
@@ -188,193 +157,63 @@ export default {
 </script>
 
 <style>
-.upper-card {
-  position: relative;
+.card-img img {
+  border-radius: 5px;
 }
 
-.img img {
+.card-content {
+  line-height: 35px;
+}
+
+.add-btn {
   width: 300px;
-  position: relative;
-  border-radius: 10px;
-}
-
-.img-icon {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  opacity: 1;
-  transition: 0.6s;
-  overflow: hidden;
-  top: 0;
-}
-
-.icon-s {
-  margin-top: 10px;
-  margin-bottom: 300px;
-  margin-left: 250px;
-  cursor: pointer;
-}
-
-.heart {
-  padding: 5px 0;
-  color: #fff;
-}
-.bag {
-  padding: 4px 0;
+  background: #111;
   color: #fff;
 }
 
-.modified-text {
-  position: absolute;
-  bottom: 0;
-  background: #fff;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  margin-left: 20px;
-  transition: 0.5 ease;
-  font-family: "Roboto", sans-serif;
-  font-weight: 500;
-  font-style: normal;
-  border-bottom: 1px solid #ffff;
-}
-.modified-text p {
-  padding: 3px;
-}
-.upper-card:hover .modified-text {
-  margin-bottom: 5px;
-  border: 1px solid #111111;
-  transition: 0.5 ease;
-  border-radius: 0px;
+.add-btn:hover {
+  background: #b7b7b7;
+  color: #fff;
 }
 
-.lower-card h5 {
-  font-size: 16px;
-  font-family: "Roboto", sans-serif;
-  font-weight: 500;
-  font-style: normal;
+.wish-btn {
+  width: 300px;
+  border: 1px solid #111;
 }
 
-.color-hover {
-  margin-top: -5px;
+.wish-btn:hover {
+  background: #b7b7b7;
+  color: #fff;
 }
 
-.color-hover p {
-  opacity: 1;
-  cursor: pointer;
-  transition: 0.5 ease-in;
+.code {
+  font-weight: 100;
 }
 
-.circle-color {
-  width: 30px;
-  height: 30px;
-  border: 1px solid #111111;
-  border-radius: 50px;
-  cursor: pointer;
-  margin: -25px 4px 0px 0px;
-  opacity: 0;
-  transition: 0.5s ease-out;
-}
-.color-red {
-  background: red;
-}
-
-.color-green {
-  background: #00ff00;
-}
-
-.color-royalblue {
-  background: #4169e1;
-}
-
-.color-dark {
-  background: #111111;
-}
-
-.color-hover:hover .circle-color {
-  opacity: 1;
-}
-
-.color-hover:hover .color-hover-text {
-  opacity: 0;
-}
-
-.rating .material-symbols-outlined {
-  color: gold;
+.card {
+  margin: 0px auto;
 }
 
 @media (max-width: 1200px) {
-  .img img {
-    width: 300px;
+  .p-card-col {
+    width: 33.3333%;
   }
-  .icon-s {
-    margin-top: 10px;
-    margin-bottom: 290px;
-    margin-left: 240px;
-  }
-  .lower-card {
-    margin-left: 20px;
+  .add-btn,
+  .wish-btn {
+    width: 230px;
   }
 }
 
 @media (max-width: 500px) {
-  .img img {
-    width: 180px;
-    position: relative;
-  }
-  .icon-s {
-    display: none;
-  }
-  .modified-icon .material-symbols-outlined {
-    font-size: 16px !important;
-  }
-  .heart {
-    padding: 4px 0;
-    color: #fff;
-  }
-  .bag {
-    padding: 3px 0;
-    color: #fff;
-  }
-  .modified-text p {
-    font-size: 14px;
-  }
-  .modified-text {
-    margin-left: 30px;
-  }
-
-  .circle-color {
-    width: 20px;
-    height: 20px;
-  }
-  .color-hover-text {
-    font-size: 14px;
-    font-family: "Roboto", sans-serif;
-    font-weight: 400;
-    font-style: italic;
-  }
-
-  .modified-icon {
-    width: 25px;
-    height: 25px;
-  }
-
-  .lower-card {
-    margin-left: 30px;
-  }
-
-  .lower-card h5 {
-    font-size: 16px;
+  .p-card-col {
+    width: 50%;
   }
 }
 
-@media (max-width: 400px) {
-  .modified-text {
-    margin-left: 20px;
-  }
-  .lower-card {
-    margin-left: 10px;
+@media (max-width: 450px) {
+  .add-btn,
+  .wish-btn {
+    width: 180px;
   }
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div class="addtoCart">
     <div class="container content-wrapper">
-      <div class="heading">
+      <div class="heading-cart">
         <div class="addtocart-heading align-item-center text-start">
           <h3 class="pt-8 ps-3">Shopping Bag</h3>
           <p class="ms-4">{{ cartItemCount }} items</p>
@@ -74,14 +74,8 @@
             <p>Sub-Total</p>
             <p>{{ cartTotal }} MMK</p>
           </div>
-          <div
-            class="delivery d-flex justify-content-between"
-            v-if="cartItems.length > 0"
-          >
-            <p>Delivery Price</p>
-            <p>{{ deliveryPrice }}MMK</p>
-          </div>
-          <div class="promo-point mt-5">
+
+          <!-- <div class="promo-point mt-5">
             <div class="use-point mt-5 d-flex justify-content-between px-2">
               <input
                 type="number"
@@ -98,13 +92,21 @@
               You have <span class="points">{{ availablePoints }}</span> points
               left
             </p>
-          </div>
+          </div> -->
 
           <div class="total-price d-flex justify-content-between">
-            <p>Total</p>
-            <p>{{ grandTotal }} MMK</p>
+            <p>Total(MMK)</p>
+            <p>{{ cartTotal }} MMK</p>
           </div>
 
+          <div class="delivery-note">
+            <div class="info">
+              <span class="material-symbols-outlined"> info </span>
+              <p>
+                Addational Derivery Charges may be added base on your location
+              </p>
+            </div>
+          </div>
           <div class="checkout-button">
             <button class="btn checkout-btn">Proceed To Checkout</button>
           </div>
@@ -176,13 +178,19 @@ export default {
 }
 
 .addtoCart {
-  background: lightgray;
+  background: #f2f2f2;
   width: 100%;
   height: 100%;
 }
 
-.heading {
+.heading-cart {
   padding: 50px 0 10px 0px;
+}
+
+.heading-cart h3 {
+  font-family: "Kanit", sans-serif;
+  font-weight: 600;
+  font-style: normal;
 }
 
 .product-detail p {
@@ -197,7 +205,7 @@ export default {
 
 .cart-item {
   width: 950px;
-  height: 200px;
+  height: 210px;
   background-color: #ffffff;
   border-radius: 5px;
 }
@@ -208,7 +216,7 @@ export default {
 
 .check-out {
   width: 400px;
-  height: 450px;
+  height: 280px;
   background-color: #ffffff;
   margin-left: 10px;
   border-radius: 5px;
@@ -232,6 +240,7 @@ export default {
 
 .points {
   color: red;
+  font-weight: 300;
 }
 
 .promo-btn {
@@ -252,10 +261,56 @@ export default {
 }
 
 .checkout-btn {
-  width: 250px;
+  width: 300px;
   background: #111;
   color: #ffffff;
-  margin-top: 20px;
+}
+
+.total-price {
+  padding: 10px 30px;
+}
+
+.promo-point {
+  padding: 10px 10px;
+}
+
+.product-detail h5 {
+  font-family: "Kanit", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.product-detail p {
+  font-family: "Kanit", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  padding: 0px 0px 4px 0px;
+}
+
+.checkout-btn:hover {
+  background: #b7b7b7;
+  color: #ffffff;
+}
+
+.delivery-note {
+  width: 300px;
+  background: #e1f4fe;
+  color: #0d3a6f;
+  min-height: 40px;
+  margin: 10px auto;
+  border-radius: 5px;
+}
+
+.info {
+  display: flex;
+  padding: 5px 5px;
+  text-align: center;
+  align-content: center;
+  align-items: center;
+}
+
+.delivery-note p {
+  padding: 0px 10px;
 }
 
 @media (max-width: 1200px) {
@@ -266,16 +321,16 @@ export default {
 
 @media (max-width: 800px) {
   .cart-item {
-    width: 510px;
+    width: 720px;
+    height: 250px;
   }
   .check-out {
-    width: 200px;
-    height: 413px;
+    width: 720px;
+    height: 280px;
   }
 
   .check-out p {
-    font-size: 14px;
-    margin: 10px 0px !important;
+    margin: 15px 30px;
   }
   .point-input {
     width: 50px;
@@ -286,15 +341,9 @@ export default {
     font-size: 14px;
   }
 
-  .checkout-btn {
-    width: 180px;
-    font-size: 14px;
-    margin: 0px;
-  }
-
   .total-price {
     margin: 10px auto;
-    padding: 0px 12px;
+    padding: 0px 30px;
   }
 
   .delivery {
@@ -306,17 +355,47 @@ export default {
     margin: 0px;
     padding: 0px 12px;
   }
+  .cart-content {
+    flex-direction: column;
+  }
+
+  .cart-main {
+    flex-direction: column;
+    margin: 0px auto;
+    align-items: center;
+  }
+  .right-icon {
+    margin-left: 150px;
+    margin-top: 10px;
+  }
+
+  .delivery-note {
+    width: 640px;
+  }
+
+  .checkout-btn {
+    width: 640px;
+  }
+
+  .info {
+    padding: 10px 20px;
+  }
+
+  .info p {
+    margin: 0px 30px;
+  }
 }
 
 @media (max-width: 500px) {
   .cart-item {
     width: 400px;
-    height: 230px;
+    height: 250px;
   }
 
   .check-out {
     width: 400px;
-    margin: 10px 0px;
+    height: 320px;
+    margin: 0px 0px 15px 0px;
   }
 
   .point-input {
@@ -325,22 +404,20 @@ export default {
     border-radius: 5px;
   }
 
-  .cart-main {
-    flex-direction: column;
-    margin: 0px auto;
-    align-items: center;
+  .delivery-note {
+    width: 320px;
+  }
+
+  .checkout-btn {
+    width: 320px;
+  }
+
+  .info p {
+    margin: 0px;
   }
 
   .heading {
     padding: 10px 0px;
-  }
-
-  .cart-content {
-    flex-direction: column;
-  }
-
-  .right-icon {
-    margin-left: 150px;
   }
 }
 </style>

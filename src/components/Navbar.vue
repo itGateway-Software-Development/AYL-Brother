@@ -167,7 +167,7 @@ export default {
 
 .cart-count {
   position: absolute;
-  right: 20px;
+  right: 55px;
   top: 2px;
   background-color: red;
   color: white;
@@ -182,7 +182,7 @@ export default {
   cursor: pointer;
   background-color: #fff;
   position: fixed;
-  padding: 5px 20px;
+  padding: 5px 55px;
   top: 0;
   left: 0;
   transition: bacground-color 0.4s ease-in-out;
@@ -278,11 +278,13 @@ export default {
 
 .nav-text p {
   font-size: 16px;
+  font-weight: 500;
 }
 
 @media (max-width: 1200px) {
   .nav1 {
     display: block;
+    padding: 0px 15px;
   }
   .nav2 {
     display: none;
@@ -290,11 +292,17 @@ export default {
   .v-navigation-drawer {
     width: 500px !important;
   }
+
+  .cart-count {
+    right: 5px;
+    padding: 5px 10px;
+  }
 }
 
 @media (max-width: 500px) {
   .nav1 {
     display: block;
+    padding: 0px;
   }
   .nav2 {
     display: none;
@@ -304,6 +312,11 @@ export default {
   }
   .logo-img {
     margin-left: 40px;
+  }
+
+  .cart-count {
+    right: 0px;
+    padding: 3px 5px;
   }
 }
 </style>
