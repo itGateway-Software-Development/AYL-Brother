@@ -2,6 +2,12 @@
   <div class="addtoCart">
     <div class="container content-wrapper">
       <div class="heading-cart">
+        <router-link
+          class="nav-link text-start mb-3 d-flex align-items-center"
+          to="/product"
+          ><span class="material-symbols-outlined"> arrow_back </span>
+          <p>Continue Shopping</p>
+        </router-link>
         <div class="addtocart-heading align-item-center text-start">
           <h3 class="pt-8 ps-3">Shopping Bag</h3>
           <p class="ms-4" v-if="cartItemCount <= 1">{{ cartItemCount }} item</p>

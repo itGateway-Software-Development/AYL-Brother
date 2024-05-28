@@ -1,8 +1,10 @@
 <template>
   <div class="product-filter text-start">
     <p class="mb-3 route-text">Men / {{ this.$route.name }}</p>
+    <p class="mb-5 res">{{ product.length }} Result</p>
     <div class="f-1">
       <div class="filter-header">
+        <hr />
         <h4 class="fw-bold">Filter Product</h4>
         <!-- <p class="mb-2"><span class="color-text">Boxer Briefs</span></p>
         <p><span class="color-text">Briefs</span></p> -->
@@ -251,11 +253,12 @@
 </template>
 
 <script>
-import { ref, watch } from "vue";
+import { ref, watch, computed } from "vue";
 import { useStore } from "vuex";
 export default {
   setup(props, context) {
     const store = useStore();
+    const product = computed(() => store.getters.filteredProducts);
     const drawer = ref(false);
 
     const fabric = ref([]);
@@ -310,6 +313,7 @@ export default {
       availableSeries,
       selectedCat,
       availableCats,
+      product,
     };
   },
 };
@@ -461,6 +465,10 @@ export default {
 .size:hover {
   background: red;
   color: #ffffff !important;
+}
+
+.product-filter {
+  position: fixed;
 }
 
 @media (max-width: 1200px) {
