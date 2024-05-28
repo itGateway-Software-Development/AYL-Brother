@@ -25,138 +25,15 @@
             data-aos-easing="linear"
             data-aos-duration="8000"
           >
-            <ul>
-              <li>
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    value="low"
-                    id="flexCheckDefault"
-                    v-model="islow"
-                    @change="priceFilter"
-                  />
-                  <label class="form-check-label" for="flexCheckDefault"
-                    >Boxer Brief
-                  </label>
-                </div>
-              </li>
-              <li>
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    value="medium"
-                    id="flexCheckDefault"
-                    v-model="ismedium"
-                    @change="priceFilter"
-                  />
-                  <label class="form-check-label" for="flexCheckDefault">
-                    Briefs
-                  </label>
-                </div>
-              </li>
-            </ul>
+            <div>
+              <label v-for="cat in availableCats" :key="cat" class="filter-cat">
+                <input type="checkbox" :value="cat" v-model="selectedCat" />
+                <p class="ps-2">{{ cat }}</p>
+              </label>
+            </div>
           </div>
         </div>
-        <!-- <div class="filter-color">
-          <div class="d-flex justify-content-between">
-            <h5 class="fw-bold">Color</h5>
-            <span
-              class="material-symbols-outlined"
-              @click="color_show = !color_show"
-            >
-              expand_more
-            </span>
-          </div>
-          <div
-            class="row mt-2"
-            v-if="color_show"
-            data-aos="fade-down"
-            data-aos-easing="linear"
-            data-aos-duration="8000"
-          >
-            <div class="col-3 col-md-2 mb-3">
-              <div class="color">
-                <div class="color-circle red"></div>
-                <p>Red</p>
-              </div>
-            </div>
-            <div class="col-3 col-md-2 mb-3">
-              <div class="color">
-                <div class="color-circle brown"></div>
-                <p>Brown</p>
-              </div>
-            </div>
-            <div class="col-3 col-md-2 mb-3">
-              <div class="color">
-                <div class="color-circle grey"></div>
-                <p>Grey</p>
-              </div>
-            </div>
-            <div class="col-3 col-md-2 mb-3">
-              <div class="color">
-                <div class="color-circle navy"></div>
-                <p>Navy</p>
-              </div>
-            </div>
-            <div class="col-3 col-md-2 mb-3">
-              <div class="color">
-                <div class="color-circle green"></div>
-                <p>Green</p>
-              </div>
-            </div>
-            <div class="col-3 col-md-2 mb-3">
-              <div class="color">
-                <div class="color-circle dark-red"></div>
-                <p>Dark</p>
-                <p>Red</p>
-              </div>
-            </div>
-            <div class="col-3 col-md-2 mb-3">
-              <div class="color">
-                <div class="color-circle white-smoke"></div>
-                <p>White</p>
-                <p>Smoke</p>
-              </div>
-            </div>
-            <div class="col-3 col-md-2 mb-3">
-              <div class="color">
-                <div class="color-circle light-green"></div>
-                <p>Light</p>
-                <p>Green</p>
-              </div>
-            </div>
-            <div class="col-3 col-md-2 mb-3">
-              <div class="color">
-                <div class="color-circle dim-grey"></div>
-                <p>Dim</p>
-                <p>Grey</p>
-              </div>
-            </div>
-            <div class="col-3 col-md-2 mb-3">
-              <div class="color">
-                <div class="color-circle steel-blue"></div>
-                <p>Steel</p>
-                <p>Blue</p>
-              </div>
-            </div>
-            <div class="col-3 col-md-2 mb-3">
-              <div class="color">
-                <div class="color-circle dark-grey"></div>
-                <p>Dark</p>
-                <p>Grey</p>
-              </div>
-            </div>
-            <div class="col-3 col-md-2 mb-3">
-              <div class="color">
-                <div class="color-circle royal-blue"></div>
-                <p>Royal</p>
-                <p>Blue</p>
-              </div>
-            </div>
-          </div>
-        </div> -->
+
         <div class="filter-fabric">
           <div class="d-flex justify-content-between">
             <h5 class="fw-bold">Fabric</h5>
@@ -174,47 +51,14 @@
             data-aos-easing="linear"
             data-aos-duration="8000"
           >
-            <ul>
-              <li>
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    value=""
-                    id="flexCheckDefault"
-                  />
-                  <label class="form-check-label" for="flexCheckDefault"
-                    >Bamboo Fibre
-                  </label>
-                </div>
-              </li>
-              <li>
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    value=""
-                    id="flexCheckDefault"
-                  />
-                  <label class="form-check-label" for="flexCheckDefault"
-                    >Lycra Modal
-                  </label>
-                </div>
-              </li>
-              <li>
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    value=""
-                    id="flexCheckDefault"
-                  />
-                  <label class="form-check-label" for="flexCheckDefault"
-                    >Lycra Spandex
-                  </label>
-                </div>
-              </li>
-            </ul>
+            <label
+              v-for="series in availableSeries"
+              :key="series"
+              class="filter-cat"
+            >
+              <input type="checkbox" :value="series" v-model="selectedSeries" />
+              <p class="ps-2">{{ series }}</p>
+            </label>
           </div>
         </div>
         <div class="filter-size">
@@ -554,10 +398,14 @@
 </template>
 
 <script>
-import { ref } from "vue";
+import { ref, watch } from "vue";
+import { useStore } from "vuex";
 export default {
   setup(props, context) {
+    const store = useStore();
     const drawer = ref(false);
+
+    const fabric = ref([]);
 
     let price_show = ref(false);
     let fabric_show = ref(false);
@@ -576,16 +424,39 @@ export default {
       });
     };
 
+    const selectedSeries = ref([]);
+    const selectedCat = ref([]);
+    const availableSeries = ["bamboo", "lycra", "spandex"]; // Example series, this could be dynamically generated
+    const availableCats = ref(["boxer", "brief"]); // Example categories, can be generated dynamically
+
+    watch(
+      selectedSeries,
+      (newSeries) => {
+        store.dispatch("setSelectedSeries", newSeries);
+      },
+      { immediate: true }
+    );
+
+    watch(
+      selectedCat,
+      (newCat) => {
+        store.dispatch("setSelectedCat", newCat);
+      },
+      { immediate: true }
+    );
+
     return {
+      fabric,
       price_show,
       fabric_show,
       color_show,
       size_show,
       drawer,
       priceFilter,
-      islow,
-      ismedium,
-      ishigh,
+      selectedSeries,
+      availableSeries,
+      selectedCat,
+      availableCats,
     };
   },
 };
@@ -630,6 +501,17 @@ export default {
   padding: 10px;
   margin-left: -10px;
   z-index: 0;
+}
+
+.filter-cat {
+  display: flex;
+  flex-direction: row;
+}
+
+.filter-cat p {
+  text-transform: capitalize;
+  font-size: 20px;
+  font-weight: 400;
 }
 
 .filter-price,

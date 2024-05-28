@@ -12,7 +12,7 @@ const defaultProduct = [
   {
     id: 1,
     series: "bamboo",
-    cat: "boxer  ",
+    cat: "boxer",
     code: 8028,
     color: "Grey & Dark Green",
     price: 11900,
@@ -22,7 +22,7 @@ const defaultProduct = [
   {
     id: 2,
     series: "bamboo",
-    cat: "boxer  ",
+    cat: "boxer",
     code: 8028,
     color: "Blue & Black",
     price: 11900,
@@ -32,7 +32,7 @@ const defaultProduct = [
   {
     id: 3,
     series: "bamboo",
-    cat: "boxer  ",
+    cat: "boxer",
     code: 8028,
     color: "Dark Red & Brown",
     price: 11900,
@@ -42,7 +42,7 @@ const defaultProduct = [
   {
     id: 4,
     series: "bamboo",
-    cat: "boxer  ",
+    cat: "boxer",
     code: 8028,
     color: "Light Steel Blue & Dark Green",
     price: 11900,
@@ -52,7 +52,17 @@ const defaultProduct = [
   {
     id: 5,
     series: "bamboo",
-    cat: "boxer  ",
+    cat: "boxer",
+    code: 8028,
+    color: "Dark Green & Dark Grey",
+    price: 11900,
+    pics: "1 Box in 2 PCS",
+    img: require("@/assets/product/8028/B3.jpg"),
+  },
+  {
+    id: 6,
+    series: "lycra",
+    cat: "boxer",
     code: 8028,
     color: "Dark Green & Dark Grey",
     price: 11900,
@@ -64,7 +74,9 @@ const defaultProduct = [
 export default {
   state: {
     product: defaultProduct,
-    cart: [],
+    cart: loadCartFromLocalStorage(),
+    selectedCat: [],
+    selectedSeries: [],
   },
   getters: {
     product: (state) => {
@@ -81,6 +93,23 @@ export default {
         (total, item) => total + item.price * item.quantity,
         0
       );
+    },
+    filteredProducts: (state) => {
+      let filtered = state.product;
+
+      if (state.selectedSeries.length > 0) {
+        filtered = filtered.filter((product) =>
+          state.selectedSeries.includes(product.series)
+        );
+      }
+
+      if (state.selectedCat.length > 0) {
+        filtered = filtered.filter((product) =>
+          state.selectedCat.includes(product.cat)
+        );
+      }
+
+      return filtered;
     },
   },
   mutations: {
@@ -123,6 +152,12 @@ export default {
       );
       saveCartToLocalStorage(state.cart);
     },
+    setSelectedSeries(state, series) {
+      state.selectedSeries = series;
+    },
+    setSelectedCat(state, cat) {
+      state.selectedCat = cat;
+    },
   },
   actions: {
     addToCart(context, product) {
@@ -136,6 +171,12 @@ export default {
     },
     removeFromCart(context, payload) {
       context.commit("removeFromCart", payload);
+    },
+    setSelectedSeries(context, series) {
+      context.commit("setSelectedSeries", series);
+    },
+    setSelectedCat(context, cat) {
+      context.commit("setSelectedCat", cat);
     },
   },
   modules: {},

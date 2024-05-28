@@ -3,7 +3,7 @@
     <div class="row align-content-center card-list">
       <div
         class="col-6 col-md-4 col-sm-6 mb-3 p-card-col"
-        v-for="product in items"
+        v-for="product in filteredProducts"
         :key="product.id"
       >
         <div class="p-card mb-3">
@@ -50,6 +50,8 @@ import product from "../../store/modules/product";
 export default {
   setup() {
     const store = useStore();
+
+    const filteredProducts = computed(() => store.getters.filteredProducts);
 
     const items = computed(() => store.getters["product"]);
 
@@ -109,6 +111,7 @@ export default {
       selectSize,
       selectedSize,
       addToCart,
+      filteredProducts,
     };
   },
 };
