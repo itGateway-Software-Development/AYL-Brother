@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-5">
+  <div class="mt-5 mb-5">
     <div
       class="heading text-center"
       data-aos="fade-down"
@@ -14,27 +14,47 @@
     <div class="d-1 container content-wrapper mt-5">
       <div class="row">
         <div class="col-4">
-          <div class="item">
-            <img src="../assets/sample.jpg" class="img-fluid" alt="" />
-          </div>
-          <div class="item-text text-start">
-            <p>Bamboo Fiber Series</p>
+          <div class="product-series">
+            <div class="item">
+              <img
+                src="../assets/pdetail/bamboo.jpg"
+                class="img-fluid"
+                alt=""
+              />
+            </div>
+            <div class="item-text text-start">
+              <router-link to="#" class="nav-link"
+                ><p>Bamboo Fiber Series</p></router-link
+              >
+            </div>
           </div>
         </div>
         <div class="col-4">
-          <div class="item">
-            <img src="../assets/sample.jpg" class="img-fluid" alt="" />
-          </div>
-          <div class="item-text text-start">
-            <p>Lycra Modal Series</p>
+          <div class="product-series">
+            <div class="item">
+              <img src="../assets/pdetail/modal.jpg" class="img-fluid" alt="" />
+            </div>
+            <div class="item-text text-start">
+              <router-link to="#" class="nav-link"
+                ><p>Lycra Modal Series</p></router-link
+              >
+            </div>
           </div>
         </div>
         <div class="col-4">
-          <div class="item">
-            <img src="../assets/sample.jpg" class="img-fluid" alt="" />
-          </div>
-          <div class="item-text text-start">
-            <p>Spandex Series</p>
+          <div class="product-series">
+            <div class="item">
+              <img
+                src="../assets/pdetail/spandex.jpg"
+                class="img-fluid"
+                alt=""
+              />
+            </div>
+            <div class="item-text text-start">
+              <router-link to="#" class="nav-link"
+                ><p>Spandex Series</p></router-link
+              >
+            </div>
           </div>
         </div>
       </div>
@@ -48,19 +68,31 @@
         <div class="p-series">
           <router-link to="#"
             ><div class="item">
-              <img src="../assets/sample.jpg" class="img-fluid" alt="" /></div
+              <img
+                src="../assets/pdetail/bamboo.jpg"
+                class="img-fluid"
+                alt=""
+              /></div
           ></router-link>
         </div>
         <div class="p-series">
           <router-link to="#"
             ><div class="item">
-              <img src="../assets/sample.jpg" class="img-fluid" alt="" /></div
+              <img
+                src="../assets/pdetail/modal.jpg"
+                class="img-fluid"
+                alt=""
+              /></div
           ></router-link>
         </div>
         <div class="p-series">
           <router-link to="#"
             ><div class="item">
-              <img src="../assets/sample.jpg" class="img-fluid" alt="" /></div
+              <img
+                src="../assets/pdetail/spandex.jpg"
+                class="img-fluid"
+                alt=""
+              /></div
           ></router-link>
         </div>
       </div>
@@ -116,8 +148,8 @@ export default {
 }
 
 .item img {
-  width: 430px;
-  height: 300px;
+  width: 550px;
+  height: 450px;
   object-fit: cover;
 }
 

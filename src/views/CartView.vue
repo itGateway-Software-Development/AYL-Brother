@@ -21,7 +21,7 @@ export default {
   background-color: #f2f2f2;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 1200px) {
   .cart {
     margin: 0px;
   }

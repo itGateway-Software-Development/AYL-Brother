@@ -6,14 +6,13 @@
       </div>
       <div class="col-12 col-md-9 col-sm-6">
         <ProductCard :price="selPrice"></ProductCard>
-        
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { ref } from 'vue';
+import { ref } from "vue";
 import { defineProps } from "vue";
 import ProductCard from "../components/Product/ProductCard";
 import ProductFilter from "../components/Product/ProductFilter";
@@ -22,25 +21,15 @@ export default {
     ProductCard,
     ProductFilter,
   },
-setup(){
+  setup() {
+    let selPrice = ref("");
 
- 
+    let filterPrice = (selectedPrice) => {
+      selPrice.value = selectedPrice;
+    };
 
-  let selPrice = ref("")
-
-
-
-  let filterPrice= (selectedPrice)=>{
-     selPrice.value = selectedPrice
-    
-  }
-
-  
-
-return {filterPrice ,selPrice}
-
-}
-
+    return { filterPrice, selPrice };
+  },
 };
 </script>
 
@@ -57,10 +46,10 @@ return {filterPrice ,selPrice}
   .col-md-3 {
     width: 100%;
   }
-  .col-md-9{
+  .col-md-9 {
     width: 100%;
   }
-    .product {
+  .product {
     margin: 0 auto;
   }
 }

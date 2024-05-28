@@ -4,7 +4,8 @@
       <div class="heading-cart">
         <div class="addtocart-heading align-item-center text-start">
           <h3 class="pt-8 ps-3">Shopping Bag</h3>
-          <p class="ms-4">{{ cartItemCount }} items</p>
+          <p class="ms-4" v-if="cartItemCount <= 1">{{ cartItemCount }} item</p>
+          <p class="ms-4" v-if="cartItemCount > 1">{{ cartItemCount }} items</p>
         </div>
       </div>
 
@@ -17,11 +18,11 @@
                   <img :src="item.img" alt="Img" />
                 </div>
                 <div class="product-detail text-start mt-3">
-                  <h5>Romantic Underwear</h5>
-                  <p>Color:Light Gray, Blue</p>
-                  <p>Size: M</p>
+                  <p>Product Code: {{ item.code }}</p>
+                  <p>Color: {{ item.color }}</p>
+                  <p>Size: {{ item.size }}</p>
                   <p>
-                    Price: <span class="points">{{ item.p }}</span> MMK
+                    Price: <span class="points">{{ item.price }}</span> MMK
                   </p>
                   <div class="input-group cart-plus-minus">
                     <span class="input-group-prepend"
@@ -30,7 +31,7 @@
                         class="btn btn-outline-secondary btn-number"
                         data-type="minus"
                         data-field="quant[1]"
-                        @click="decreaseQuantity(item.id)"
+                        @click="decreaseQuantity(item)"
                       >
                         <span class="material-symbols-outlined"> remove </span>
                       </button></span
@@ -46,7 +47,7 @@
                         class="btn btn-outline-secondary btn-number"
                         data-type="plus"
                         data-field="quant[1]"
-                        @click="increaseQuantity(item.id)"
+                        @click="increaseQuantity(item)"
                       >
                         <span class="material-symbols-outlined"> add </span>
                       </button></span
@@ -57,7 +58,7 @@
               <div class="right-icon d-flex align-items-end">
                 <span
                   class="material-symbols-outlined p-2"
-                  @click="removeItem(item.id)"
+                  @click="removeFromCart(item)"
                 >
                   delete
                 </span>
@@ -70,9 +71,18 @@
           <div class="checkout-heading mt-3">
             <h3>Order Summary</h3>
           </div>
-          <div class="total-price d-flex justify-content-between">
-            <p>Sub-Total</p>
-            <p>{{ cartTotal }} MMK</p>
+          <div
+            class="total-price d-flex justify-content-between"
+            v-for="itemprice in cartItems"
+            :key="itemprice.id"
+          >
+            <p class="text-start">
+              Product Code:{{ itemprice.code }} <br />
+              Size:{{ itemprice.size }} <br />
+              Color: {{ itemprice.color }} <br />
+              Quantity : {{ itemprice.quantity }}
+            </p>
+            <p>{{ itemprice.price }} MMK</p>
           </div>
 
           <!-- <div class="promo-point mt-5">
@@ -96,7 +106,7 @@
 
           <div class="total-price d-flex justify-content-between">
             <p>Total(MMK)</p>
-            <p>{{ cartTotal }} MMK</p>
+            <p>{{ total }} MMK</p>
           </div>
 
           <div class="delivery-note">
@@ -126,47 +136,25 @@ export default {
     const store = useStore();
 
     const cartItems = computed(() => store.getters["cartItems"]);
-    const cartTotal = computed(() => store.getters["cartTotal"]);
-    const cartFinal = computed(() => store.getters["cartFinal"]);
-    const deliveryPrice = computed(() => store.getters["deliveryPrice"]);
-    const grandTotal = computed(() => store.getters["grandTotal"]);
-    const cartItemCount = computed(() => {
-      return store.getters.cartItemCount;
-    });
-    const points = ref(store.getters.discountPoints);
-    const usePoints = ref(store.getters.usePoints);
-    const availablePoints = computed(() => store.getters.totalAvailablePoints);
+    const cartItemCount = computed(() => store.getters["cartItemCount"]);
+    const total = computed(() => store.getters["totalPrice"]);
 
-    const increaseQuantity = (itemId) => {
-      store.dispatch("increaseQuantity", itemId);
+    const increaseQuantity = (item) => {
+      store.dispatch("increaseQuantity", { id: item.id, size: item.size });
     };
-
-    const decreaseQuantity = (itemId) => {
-      store.dispatch("decreaseQuantity", itemId);
+    const decreaseQuantity = (item) => {
+      store.dispatch("decreaseQuantity", { id: item.id, size: item.size });
     };
-
-    const removeItem = (itemId) => {
-      store.dispatch("removeItem", itemId);
+    const removeFromCart = (item) => {
+      store.dispatch("removeFromCart", { id: item.id, size: item.size });
     };
-
-    const applyDiscount = () => {
-      store.dispatch("applyDiscountPoints", points.value);
-    };
-
     return {
       cartItems,
-      cartTotal,
-      cartFinal,
-      points,
-      deliveryPrice,
-      grandTotal,
+      total,
       increaseQuantity,
       decreaseQuantity,
-      removeItem,
-      applyDiscount,
-      usePoints,
-      availablePoints,
       cartItemCount,
+      removeFromCart,
     };
   },
 };
@@ -181,6 +169,10 @@ export default {
   background: #f2f2f2;
   width: 100%;
   height: 100%;
+}
+
+.container {
+  max-width: 1620px;
 }
 
 .heading-cart {
@@ -204,10 +196,11 @@ export default {
 }
 
 .cart-item {
-  width: 950px;
-  height: 210px;
+  width: 1250px;
+  height: max-content;
   background-color: #ffffff;
   border-radius: 5px;
+  padding: 15px 0px;
 }
 
 .cart-item-list {
@@ -216,8 +209,9 @@ export default {
 
 .check-out {
   width: 400px;
-  height: 280px;
+  height: max-content;
   background-color: #ffffff;
+  padding: 20px 0px;
   margin-left: 10px;
   border-radius: 5px;
 }
@@ -316,6 +310,9 @@ export default {
 @media (max-width: 1200px) {
   .cart-item {
     width: 600px;
+  }
+  .container {
+    width: 950px;
   }
 }
 

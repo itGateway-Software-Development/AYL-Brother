@@ -1,5 +1,5 @@
 <template>
-  <div class="container content-wrapper mt-2">
+  <div class="container content-wrapper mt-5 mb-5">
     <div
       class="heading text-center mb-3"
       data-aos="fade-down"

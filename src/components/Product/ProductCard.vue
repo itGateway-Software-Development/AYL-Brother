@@ -1,9 +1,9 @@
 <template>
   <div class="product-card container">
-    <div class="row align-content-center">
+    <div class="row align-content-center card-list">
       <div
         class="col-6 col-md-4 col-sm-6 mb-3 p-card-col"
-        v-for="product in filteredItems"
+        v-for="product in items"
         :key="product.id"
       >
         <div class="p-card mb-3">
@@ -11,15 +11,29 @@
             <img :src="product.img" class="img-fluid" alt="" />
           </div>
           <div class="p-color text-center mb-2">
-            <p>Color : RED & White</p>
+            <p>Color; {{ product.color }}</p>
           </div>
           <div class="card-content text-start">
-            <p class="code">Product-code: 5002</p>
-            <p>2PCS in 1 BOX</p>
-            <p>Price: 10700 MMK</p>
+            <p class="code">Product-code: {{ product.code }}</p>
+            <p>{{ product.pics }}</p>
+            <p>Price: {{ product.price }} MMK</p>
+            <p v-if="selectedSize">Selected Size: {{ selectedSize }}</p>
+          </div>
+          <div class="row mt-3 justify-content-around">
+            <div
+              class="size col-3 mb-3 size-col"
+              id="size"
+              v-for="size in sizes"
+              :key="size.id"
+              @click="selectSize(size.size)"
+            >
+              <p>{{ size.size }}</p>
+            </div>
           </div>
           <div class="card-button-group mt-3">
-            <div class="btn add-btn mb-3">Add to Bag</div>
+            <div class="btn add-btn mb-3" @click="addToCart(product)">
+              Add to Bag
+            </div>
             <div class="btn wish-btn">Add to WishList</div>
           </div>
         </div>
@@ -31,127 +45,71 @@
 <script>
 import { computed, defineProps, inject, onMounted, ref, watch } from "vue";
 import { mapActions, useStore } from "vuex";
-import product from "@/store/modules/product";
-export default {
-  props: ["price"],
+import product from "../../store/modules/product";
 
-  setup(props, context) {
+export default {
+  setup() {
     const store = useStore();
-    const data = [
+
+    const items = computed(() => store.getters["product"]);
+
+    const sizes = [
       {
         id: 1,
-        name: "Romantic Underwear",
-        img: require("@/assets/product/b.jpg"),
-        price: "low",
-        p: 12000,
+        size: "M",
       },
       {
         id: 2,
-        name: "Romantic Underwear",
-        img: require("@/assets/product/b.jpg"),
-        price: "low",
-        p: 12000,
+        size: "L",
       },
       {
         id: 3,
-        name: "Romantic Underwear",
-        img: require("@/assets/product/b.jpg"),
-        price: "low",
-        p: 12000,
+        size: "XL",
       },
       {
         id: 4,
-        name: "Romantic Underwear",
-        img: require("@/assets/product/b.jpg"),
-        price: "medium",
-        p: 22000,
-      },
-      {
-        id: 5,
-        name: "Romantic Underwear",
-        img: require("@/assets/product/b.jpg"),
-        price: "medium",
-        p: 22000,
-      },
-      {
-        id: 6,
-        name: "Romantic Underwear",
-        img: require("@/assets/product/b.jpg"),
-        price: "high",
-        p: 32000,
-      },
-      {
-        id: 7,
-        name: "Romantic Underwear",
-        img: require("@/assets/product/b.jpg"),
-        price: "high",
-        p: 32000,
+        size: "XXL",
       },
     ];
 
-    let cartAdd = ref(true);
+    const selectedSize = ref(null);
 
-    let filteredItems = ref([]);
+    const quantity = ref(1);
 
-    function filterLow(data) {
-      return data.price === "low";
-    }
-    function filterMedium(data) {
-      return data.price === "medium";
-    }
-    function filterHigh(data) {
-      return data.price === "high";
-    }
-
-    function applyFilters(data, low = true, medium = true, high = true) {
-      const filters = [];
-      if (low) {
-        filters.push(filterLow);
+    const addToCart = (product) => {
+      if (!selectedSize.value) {
+        alert("Please select a size");
+        return;
       }
-      if (medium) {
-        filters.push(filterMedium);
-      }
-      if (high) {
-        filters.push(filterHigh);
-      }
+      const productToAdd = {
+        id: product.id,
+        series: product.series,
+        cat: product.cat,
+        code: product.code,
+        color: product.color,
+        price: product.price,
+        pics: product.pics,
+        img: product.img,
+        quantity: quantity.value,
+        size: selectedSize.value,
+      };
 
-      const filteredData = data.filter((item) =>
-        filters.some((filter) => filter(item))
-      );
-      return filteredData;
-    }
-
-    watch(
-      () => props.price,
-      (newFilter, oldFilter) => {
-        if (newFilter.islow === true && newFilter.ismedium === true) {
-          filteredItems.value = applyFilters(data, true, true, false);
-        } else if (newFilter.ismedium === true && newFilter.ishigh === true) {
-          filteredItems.value = applyFilters(data, false, true, true);
-        } else if (newFilter.islow === true && newFilter.ishigh === true) {
-          filteredItems.value = applyFilters(data, true, false, true);
-        } else if (newFilter.ishigh === true) {
-          filteredItems.value = applyFilters(data, false, false, true);
-        } else if (newFilter.ismedium === true) {
-          filteredItems.value = applyFilters(data, false, true, false);
-        } else if (newFilter.islow === true) {
-          filteredItems.value = applyFilters(data, true, false, false);
-        } else {
-          filteredItems.value = applyFilters(data, true, true, true);
-        }
-        console.log(filteredItems);
-      },
-
-      onMounted(() => {
-        filteredItems.value = applyFilters(data, true, true, true);
-      })
-    );
-
-    const getProduct = (product) => {
-      store.dispatch("getProduct", { ...product, quantity: 1 });
+      store.dispatch("addToCart", productToAdd);
     };
 
-    return { filteredItems, getProduct, name: "Romantic Underwear", cartAdd };
+    const selectSize = (size) => {
+      selectedSize.value = size;
+      let coloradd = document.getElementById("size");
+      coloradd.classList.add("color");
+    };
+
+    return {
+      items,
+      sizes,
+      selectSize,
+      selectedSize,
+      addToCart,
+    };
   },
 };
 </script>
@@ -166,7 +124,7 @@ export default {
 }
 
 .add-btn {
-  width: 300px;
+  width: 350px;
   background: #111;
   color: #fff;
 }
@@ -177,7 +135,7 @@ export default {
 }
 
 .wish-btn {
-  width: 300px;
+  width: 350px;
   border: 1px solid #111;
 }
 
@@ -194,13 +152,53 @@ export default {
   margin: 0px auto;
 }
 
+.size {
+  width: 80px;
+  height: 40px;
+  border: 1px solid #111111;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.size p {
+  font-size: 14px;
+  font-weight: bold;
+  padding: 9px 0;
+}
+
+.size.active {
+  background: red;
+  color: #fff;
+}
+
+.size:hover {
+  background: red;
+  color: #ffffff !important;
+}
+
 @media (max-width: 1200px) {
   .p-card-col {
     width: 33.3333%;
   }
   .add-btn,
   .wish-btn {
-    width: 230px;
+    width: 250px;
+  }
+
+  .size-col {
+    width: 21%;
+  }
+}
+
+@media (max-width: 800px) {
+  .p-card-col {
+    width: 50%;
+  }
+  .p-card {
+    width: 300px;
+  }
+
+  .card-list {
   }
 }
 

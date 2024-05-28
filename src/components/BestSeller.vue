@@ -1,6 +1,6 @@
 <template>
   <div
-    class="container content-wrapper mt-3 best-seller"
+    class="container content-wrapper mt-5 mb-5 best-seller"
     data-aos="fade-down"
     data-aos-duration="2000"
   >
@@ -102,9 +102,20 @@ export default {
 
 <style scoped>
 .card {
-  width: 26rem;
+  width: 400px;
   border: 1px solid #111111;
   border-radius: 10px;
+}
+
+.card-img img {
+  object-fit: cover;
+  height: 400px;
+  width: 500px;
+}
+
+.wish-btn,
+.add-btn {
+  width: 520px;
 }
 
 .heading h1 {
