@@ -76,7 +76,7 @@
             v-for="itemprice in cartItems"
             :key="itemprice.id"
           >
-            <p class="text-start">
+            <p class="text-start sub-product">
               Product Code:{{ itemprice.code }} <br />
               Size:{{ itemprice.size }} <br />
               Color: {{ itemprice.color }} <br />
@@ -262,6 +262,7 @@ export default {
 
 .total-price {
   padding: 10px 30px;
+  border-bottom: 1px solid;
 }
 
 .promo-point {
@@ -305,6 +306,10 @@ export default {
 
 .delivery-note p {
   padding: 0px 10px;
+}
+
+.sub-product {
+  line-height: 30px;
 }
 
 @media (max-width: 1200px) {

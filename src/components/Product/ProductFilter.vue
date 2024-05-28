@@ -8,7 +8,7 @@
         <p><span class="color-text">Briefs</span></p> -->
       </div>
       <div class="filter-list">
-        <div class="filter-price">
+        <div class="filter-category">
           <div class="d-flex justify-content-between">
             <h5 class="fw-bold">Category</h5>
             <span
@@ -36,7 +36,7 @@
 
         <div class="filter-fabric">
           <div class="d-flex justify-content-between">
-            <h5 class="fw-bold">Fabric</h5>
+            <h5 class="fw-bold">Series</h5>
             <span
               class="material-symbols-outlined"
               @click="fabric_show = !fabric_show"
@@ -57,7 +57,7 @@
               class="filter-cat"
             >
               <input type="checkbox" :value="series" v-model="selectedSeries" />
-              <p class="ps-2">{{ series }}</p>
+              <p class="ps-2">{{ series }} Series</p>
             </label>
           </div>
         </div>
@@ -131,17 +131,13 @@
                 </span></v-app-bar-nav-icon
               >
             </div>
-            <div class="d-flex justify-content-between">
-              <p><span class="color-text">Boxer Briefs</span></p>
-              <p><span class="color-text">Briefs</span></p>
-            </div>
           </div></v-list-item
         >
         <v-divider></v-divider>
         <v-list-item>
-          <div class="filter-price">
+          <div class="filter-category">
             <div class="d-flex justify-content-between">
-              <h5 class="fw-bold">Price</h5>
+              <h5 class="fw-bold">Category</h5>
               <span
                 class="material-symbols-outlined"
                 @click="price_show = !price_show"
@@ -149,149 +145,57 @@
                 expand_more
               </span>
             </div>
-            <div class="price mt-2 ms-2" v-if="price_show">
-              <ul>
-                <li>
-                  <div class="form-check">
-                    <input
-                      class="form-check-input"
-                      type="checkbox"
-                      value="low"
-                      id="flexCheckDefault"
-                      v-model="islow"
-                      @change="priceFilter"
-                    />
-                    <label class="form-check-label" for="10000MMK-15000MMK"
-                      >10000MMK - 15000MMK
-                    </label>
-                  </div>
-                </li>
-                <li>
-                  <div class="form-check">
-                    <input
-                      class="form-check-input"
-                      type="checkbox"
-                      value="medium"
-                      id="flexCheckDefault"
-                      v-model="ismedium"
-                      @change="priceFilter"
-                    />
-                    <label class="form-check-label" for="flexCheckDefault"
-                      >15000MMK - 20000MMK
-                    </label>
-                  </div>
-                </li>
-                <li>
-                  <div class="form-check">
-                    <input
-                      class="form-check-input"
-                      type="checkbox"
-                      value="high"
-                      id="flexCheckDefault"
-                      v-model="ishigh"
-                      @change="priceFilter"
-                    />
-                    <label class="form-check-label" for="flexCheckDefault"
-                      >20000MMK - 30000MMK
-                    </label>
-                  </div>
-                </li>
-              </ul>
+            <div
+              class="price mt-2 ms-2"
+              v-if="price_show"
+              data-aos="fade-down"
+              data-aos-easing="linear"
+              data-aos-duration="8000"
+            >
+              <div>
+                <label
+                  v-for="cat in availableCats"
+                  :key="cat"
+                  class="filter-cat"
+                >
+                  <input type="checkbox" :value="cat" v-model="selectedCat" />
+                  <p class="ps-2">{{ cat }}</p>
+                </label>
+              </div>
             </div>
           </div>
         </v-list-item>
         <v-divider></v-divider>
         <v-list-item>
-          <div class="filter-color">
+          <div class="filter-fabric">
             <div class="d-flex justify-content-between">
-              <h5 class="fw-bold">Color</h5>
+              <h5 class="fw-bold">Series</h5>
               <span
                 class="material-symbols-outlined"
-                @click="color_show = !color_show"
+                @click="fabric_show = !fabric_show"
               >
                 expand_more
               </span>
             </div>
-            <div class="row mt-2" v-if="color_show">
-              <div class="col-3 col-md-2 mb-3">
-                <div class="color">
-                  <div class="color-circle red"></div>
-                  <p>Red</p>
-                </div>
-              </div>
-              <div class="col-3 col-md-2 mb-3">
-                <div class="color">
-                  <div class="color-circle brown"></div>
-                  <p>Brown</p>
-                </div>
-              </div>
-              <div class="col-3 col-md-2 mb-3">
-                <div class="color">
-                  <div class="color-circle grey"></div>
-                  <p>Grey</p>
-                </div>
-              </div>
-              <div class="col-3 col-md-2 mb-3">
-                <div class="color">
-                  <div class="color-circle navy"></div>
-                  <p>Navy</p>
-                </div>
-              </div>
-              <div class="col-3 col-md-2 mb-3">
-                <div class="color">
-                  <div class="color-circle green"></div>
-                  <p>Green</p>
-                </div>
-              </div>
-              <div class="col-3 col-md-2 mb-3">
-                <div class="color">
-                  <div class="color-circle dark-red"></div>
-                  <p>Dark</p>
-                  <p>Red</p>
-                </div>
-              </div>
-              <div class="col-3 col-md-2 mb-3">
-                <div class="color">
-                  <div class="color-circle white-smoke"></div>
-                  <p>White</p>
-                  <p>Smoke</p>
-                </div>
-              </div>
-              <div class="col-3 col-md-2 mb-3">
-                <div class="color">
-                  <div class="color-circle light-green"></div>
-                  <p>Light</p>
-                  <p>Green</p>
-                </div>
-              </div>
-              <div class="col-3 col-md-2 mb-3">
-                <div class="color">
-                  <div class="color-circle dim-grey"></div>
-                  <p>Dim</p>
-                  <p>Grey</p>
-                </div>
-              </div>
-              <div class="col-3 col-md-2 mb-3">
-                <div class="color">
-                  <div class="color-circle steel-blue"></div>
-                  <p>Steel</p>
-                  <p>Blue</p>
-                </div>
-              </div>
-              <div class="col-3 col-md-2 mb-3">
-                <div class="color">
-                  <div class="color-circle dark-grey"></div>
-                  <p>Dark</p>
-                  <p>Grey</p>
-                </div>
-              </div>
-              <div class="col-3 col-md-2 mb-3">
-                <div class="color">
-                  <div class="color-circle royal-blue"></div>
-                  <p>Royal</p>
-                  <p>Blue</p>
-                </div>
-              </div>
+            <div
+              class="price mt-2 ms-2"
+              v-if="fabric_show"
+              data-aos="fade-down"
+              data-aos-easing="linear"
+              data-aos-duration="8000"
+            >
+              <label
+                v-for="series in availableSeries"
+                :key="series"
+                class="filter-cat"
+              >
+                <input
+                  type="checkbox"
+                  :value="series"
+                  v-model="selectedSeries"
+                />
+                <p class="ps-2">{{ series }} Series</p>
+              </label>
             </div>
           </div>
         </v-list-item>
@@ -299,7 +203,7 @@
         <v-list-item>
           <div class="filter-size">
             <div class="d-flex justify-content-between">
-              <h5 class="fw-bold">Size</h5>
+              <h5 class="fw-bold">Size Guide</h5>
               <span
                 class="material-symbols-outlined"
                 @click="size_show = !size_show"
@@ -307,9 +211,15 @@
                 expand_more
               </span>
             </div>
-            <div class="size-filter" v-if="size_show">
+            <div
+              class="size-filter"
+              v-if="size_show"
+              data-aos="fade-down"
+              data-aos-easing="linear"
+              data-aos-duration="8000"
+            >
               <p>Size of Waist(Inch)</p>
-              <div class="row mt-3 all-size justify-content-between">
+              <div class="row mt-3 justify-content-between">
                 <div class="col-6 mb-3">
                   <div class="size">
                     <p class="text-center">M(28-30)</p>
@@ -331,63 +241,6 @@
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </v-list-item>
-        <v-divider></v-divider>
-        <v-list-item>
-          <div class="filter-fabric">
-            <div class="d-flex justify-content-between">
-              <h5 class="fw-bold">Fabric</h5>
-              <span
-                class="material-symbols-outlined"
-                @click="fabric_show = !fabric_show"
-              >
-                expand_more
-              </span>
-            </div>
-            <div class="price mt-2 ms-2" v-if="fabric_show">
-              <ul>
-                <li>
-                  <div class="form-check">
-                    <input
-                      class="form-check-input"
-                      type="checkbox"
-                      value=""
-                      id="flexCheckDefault"
-                    />
-                    <label class="form-check-label" for="flexCheckDefault"
-                      >Bamboo Fibre
-                    </label>
-                  </div>
-                </li>
-                <li>
-                  <div class="form-check">
-                    <input
-                      class="form-check-input"
-                      type="checkbox"
-                      value=""
-                      id="flexCheckDefault"
-                    />
-                    <label class="form-check-label" for="flexCheckDefault"
-                      >Lycra Modal
-                    </label>
-                  </div>
-                </li>
-                <li>
-                  <div class="form-check">
-                    <input
-                      class="form-check-input"
-                      type="checkbox"
-                      value=""
-                      id="flexCheckDefault"
-                    />
-                    <label class="form-check-label" for="flexCheckDefault"
-                      >Lycra Spandex
-                    </label>
-                  </div>
-                </li>
-              </ul>
             </div>
           </div>
         </v-list-item>
@@ -467,6 +320,10 @@ export default {
   display: none;
 }
 
+.f-1 {
+  position: fixed;
+}
+
 .route-text {
   text-transform: capitalize;
 }
@@ -475,7 +332,7 @@ export default {
   color: red;
   text-decoration: underline;
 }
-.filter-price {
+.filter-category {
   padding: 10px 0;
   border-top: 1px solid #111111;
   border-bottom: 1px solid #111111;
@@ -514,7 +371,7 @@ export default {
   font-weight: 400;
 }
 
-.filter-price,
+.filter-category,
 .filter-fabric,
 .filter-color,
 .filter-size .material-symbols-outlined {
@@ -613,7 +470,7 @@ export default {
   .f-2 {
     display: block;
   }
-  .f-2 .filter-price,
+  .f-2 .filter-category,
   .filter-fabric,
   .filter-color,
   .filter-size {

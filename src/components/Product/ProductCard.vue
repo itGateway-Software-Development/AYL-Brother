@@ -11,7 +11,7 @@
             <img :src="product.img" class="img-fluid" alt="" />
           </div>
           <div class="p-color text-center mb-2">
-            <p>Color; {{ product.color }}</p>
+            <p>Color: {{ product.color }}</p>
           </div>
           <div class="card-content text-start">
             <p class="code">Product-code: {{ product.code }}</p>
@@ -19,7 +19,7 @@
             <p>Price: {{ product.price }} MMK</p>
             <p v-if="selectedSize">Selected Size: {{ selectedSize }}</p>
           </div>
-          <div class="row mt-3 justify-content-around">
+          <div class="row mt-3 justify-content-around px-3">
             <div
               class="size col-3 mb-3 size-col"
               id="size"
@@ -127,7 +127,7 @@ export default {
 }
 
 .add-btn {
-  width: 350px;
+  width: 370px;
   background: #111;
   color: #fff;
 }
@@ -138,7 +138,7 @@ export default {
 }
 
 .wish-btn {
-  width: 350px;
+  width: 370px;
   border: 1px solid #111;
 }
 

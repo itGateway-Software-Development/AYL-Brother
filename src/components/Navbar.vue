@@ -31,12 +31,7 @@
               <router-link to="/product" class="nav-link mb-text"
                 ><v-list-item><p>Product</p></v-list-item></router-link
               >
-              <router-link to="/" class="nav-link mb-text"
-                ><v-list-item><p>Boxer Briefs</p></v-list-item></router-link
-              >
-              <router-link to="/" class="nav-link mb-text"
-                ><v-list-item><p>Briefs</p></v-list-item></router-link
-              >
+
               <router-link to="/" class="nav-link mb-text"
                 ><v-list-item><p>Promotion</p></v-list-item></router-link
               >
@@ -84,10 +79,7 @@
           <router-link to="/product" class="pe-5 nav-link"
             ><p>Product</p></router-link
           >
-          <router-link to="#" class="pe-5 nav-link"
-            ><p>Boxer Brief</p></router-link
-          >
-          <router-link to="#" class="pe-5 nav-link"><p>Brief</p></router-link>
+
           <router-link to="#" class="pe-5 nav-link"
             ><p>Promotion</p></router-link
           >
