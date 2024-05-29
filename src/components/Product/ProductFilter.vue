@@ -1,8 +1,12 @@
 <template>
   <div class="product-filter text-start">
-    <p class="mb-3 route-text">Men / {{ this.$route.name }}</p>
-    <p class="mb-5 res">{{ product.length }} Result</p>
+    <div class="d-none">
+      <p class="mb-3 route-text">Men / {{ this.$route.name }}</p>
+      <p class="mb-5 res">{{ product.length }} Result</p>
+    </div>
     <div class="f-1">
+      <p class="mb-3 route-text">Men / {{ this.$route.name }}</p>
+      <p class="mb-5 res">{{ product.length }} Result</p>
       <div class="filter-header">
         <hr />
         <h4 class="fw-bold">Filter Product</h4>
@@ -467,9 +471,10 @@ export default {
   color: #ffffff !important;
 }
 
-.product-filter {
+/* .product-filter {
   position: fixed;
-}
+  left: 20px;
+} */
 
 @media (max-width: 1200px) {
   .f-1 {
@@ -483,6 +488,15 @@ export default {
   .filter-color,
   .filter-size {
     border: 0px;
+  }
+
+  .res {
+    margin-right: -10px;
+  }
+
+  .head-filter {
+    display: flex;
+    justify-content: space-between;
   }
 
   .row {
@@ -545,6 +559,9 @@ export default {
     font-family: "Roboto", sans-serif;
     font-weight: 300;
     font-style: normal;
+  }
+  .res {
+    margin-left: 0px;
   }
 }
 </style>

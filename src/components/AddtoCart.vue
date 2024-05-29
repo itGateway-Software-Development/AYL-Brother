@@ -77,18 +77,17 @@
           <div class="checkout-heading mt-3">
             <h3>Order Summary</h3>
           </div>
-          <div
-            class="total-price d-flex justify-content-between"
-            v-for="itemprice in cartItems"
-            :key="itemprice.id"
-          >
-            <p class="text-start sub-product">
-              Product Code:{{ itemprice.code }} <br />
-              Size:{{ itemprice.size }} <br />
-              Color: {{ itemprice.color }} <br />
-              Quantity : {{ itemprice.quantity }}
-            </p>
-            <p>{{ itemprice.price }} MMK</p>
+          <div class="total-price d-flex justify-content-between">
+            <p class="text-start sub-product">Sub-total:</p>
+            <p>{{ total }} MMK</p>
+          </div>
+          <div class="total-price d-flex justify-content-between">
+            <p class="text-start sub-product">Delivery Charges:</p>
+            <p>1500 MMK</p>
+          </div>
+          <div class="total-price d-flex justify-content-between">
+            <p class="text-start sub-product">Promo Point:</p>
+            <p>0 point</p>
           </div>
 
           <!-- <div class="promo-point mt-5">
@@ -178,7 +177,7 @@ export default {
 }
 
 .container {
-  max-width: 1620px;
+  max-width: 1400px;
 }
 
 .heading-cart {
@@ -202,7 +201,7 @@ export default {
 }
 
 .cart-item {
-  width: 1250px;
+  width: 1000px;
   height: max-content;
   background-color: #ffffff;
   border-radius: 5px;

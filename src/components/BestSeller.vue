@@ -115,7 +115,7 @@ export default {
 
 .wish-btn,
 .add-btn {
-  width: 520px;
+  width: 450px;
 }
 
 .heading h1 {

@@ -245,7 +245,7 @@ export default {
 
 .nav-img {
   width: 120px;
-  margin-right: 350px;
+  margin-right: 160px;
 }
 
 .nav-link:hover {
@@ -283,6 +283,10 @@ export default {
   }
   .v-navigation-drawer {
     width: 500px !important;
+  }
+
+  .logo-img {
+    margin-right: 40px;
   }
 
   .cart-count {

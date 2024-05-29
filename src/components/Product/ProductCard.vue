@@ -7,42 +7,43 @@
           v-for="product in filteredProducts"
           :key="product.id"
         >
-          <router-link
-            :to="{ name: 'productDetail', params: { id: product.id } }"
-            class="product-link"
-          >
-            <div class="p-card mb-3">
+          <div class="p-card mb-3">
+            <router-link
+              :to="{ name: 'productDetail', params: { id: product.id } }"
+              class="product-link"
+            >
               <div class="card-img mb-2">
                 <img :src="product.img" class="img-fluid" alt="" />
               </div>
-              <div class="p-color text-center mb-2">
-                <p>Color: {{ product.color }}</p>
-              </div>
-              <div class="card-content text-start">
-                <p class="code">Product-code: {{ product.code }}</p>
-                <p>{{ product.pics }}</p>
-                <p>Price: {{ product.price }} MMK</p>
-                <p v-if="selectedSize">Selected Size: {{ selectedSize }}</p>
-              </div>
-              <div class="row mt-3 justify-content-around px-3">
-                <div
-                  class="size col-3 mb-3 size-col"
-                  id="size"
-                  v-for="size in sizes"
-                  :key="size.id"
-                  @click="selectSize(size.size)"
-                >
-                  <p>{{ size.size }}</p>
-                </div>
-              </div>
-              <div class="card-button-group mt-3">
-                <div class="btn add-btn mb-3" @click="addToCart(product)">
-                  Add to Bag
-                </div>
-                <div class="btn wish-btn">Add to WishList</div>
+            </router-link>
+
+            <div class="p-color text-center mb-2">
+              <p>Color: {{ product.color }}</p>
+            </div>
+            <div class="card-content text-start">
+              <p class="code">Product-code: {{ product.code }}</p>
+              <p>{{ product.pics }}</p>
+              <p>Price: {{ product.price }} MMK</p>
+              <p v-if="selectedSize">Selected Size: {{ selectedSize }}</p>
+            </div>
+            <div class="row mt-3 justify-content-around px-3 card-size">
+              <div
+                class="size col-3 mb-3 size-col"
+                id="size"
+                v-for="size in sizes"
+                :key="size.id"
+                @click="selectSize(size.size)"
+              >
+                <p>{{ size.size }}</p>
               </div>
             </div>
-          </router-link>
+            <div class="card-button-group mt-3">
+              <div class="btn add-btn mb-3" @click="addToCart(product)">
+                Add to Bag
+              </div>
+              <div class="btn wish-btn">Add to WishList</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -137,7 +138,7 @@ export default {
 }
 
 .add-btn {
-  width: 370px;
+  width: 320px;
   background: #111;
   color: #fff;
 }
@@ -148,7 +149,7 @@ export default {
 }
 
 .wish-btn {
-  width: 370px;
+  width: 320px;
   border: 1px solid #111;
 }
 
@@ -165,8 +166,11 @@ export default {
   margin: 0px auto;
 }
 
+.card-size {
+}
+
 .size {
-  width: 80px;
+  width: 70px;
   height: 40px;
   border: 1px solid #111111;
   border-radius: 5px;
@@ -237,26 +241,24 @@ export default {
 
 @media (max-width: 800px) {
   .p-card-col {
-    width: 50%;
+    width: 45%;
   }
   .p-card {
     width: 300px;
   }
 
+  .product-filter {
+    width: 790px;
+  }
+
   .card-list {
+    margin: 0px auto;
   }
 }
 
 @media (max-width: 500px) {
-  .p-card-col {
-    width: 50%;
-  }
-}
-
-@media (max-width: 450px) {
-  .add-btn,
-  .wish-btn {
-    width: 180px;
+  .product-filter {
+    width: 500px;
   }
 }
 </style>

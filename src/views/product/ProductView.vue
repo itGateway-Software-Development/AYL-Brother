@@ -4,7 +4,7 @@
       <div class="col-12 col-md-3 col-sm-12">
         <ProductFilter @priceFilter="filterPrice"></ProductFilter>
       </div>
-      <div class="col-12 col-md-9 col-sm-6">
+      <div class="col-12 col-md-9 col-sm-6 p-list">
         <ProductCard :price="selPrice"></ProductCard>
       </div>
     </div>
@@ -57,6 +57,9 @@ export default {
 @media (max-width: 500px) {
   .product {
     margin: 0;
+  }
+  .p-list {
+    width: 500px;
   }
 }
 </style>

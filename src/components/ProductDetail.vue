@@ -12,7 +12,7 @@
       </div>
     </div>
     <div class="d-1 container content-wrapper mt-5">
-      <div class="row">
+      <div class="row px-2">
         <div class="col-4">
           <div class="product-series">
             <div class="item">
@@ -148,8 +148,8 @@ export default {
 }
 
 .item img {
-  width: 550px;
-  height: 450px;
+  width: 500px;
+  height: 400px;
   object-fit: cover;
 }
 
