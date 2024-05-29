@@ -1,3 +1,4 @@
+import { toast } from "vue3-toastify";
 const CART_KEY = "cart";
 
 const saveCartToLocalStorage = (cart) => {
@@ -652,6 +653,9 @@ export default {
   actions: {
     addToCart(context, product) {
       context.commit("addToCart", product);
+      toast.success(
+        `Product Code:${product.code} of Size:${product.size} is added to Bag`
+      );
     },
     increaseQuantity(context, payload) {
       context.commit("increaseQuantity", payload);
@@ -661,6 +665,10 @@ export default {
     },
     removeFromCart(context, payload) {
       context.commit("removeFromCart", payload);
+      toast.error(
+        `Product Code:${payload.code} of Size:${payload.size} is remove from Bag`
+      );
+      console.log(payload);
     },
     setSelectedSeries(context, series) {
       context.commit("setSelectedSeries", series);

@@ -151,7 +151,11 @@ export default {
       store.dispatch("decreaseQuantity", { id: item.id, size: item.size });
     };
     const removeFromCart = (item) => {
-      store.dispatch("removeFromCart", { id: item.id, size: item.size });
+      store.dispatch("removeFromCart", {
+        id: item.id,
+        size: item.size,
+        code: item.code,
+      });
     };
     return {
       cartItems,
