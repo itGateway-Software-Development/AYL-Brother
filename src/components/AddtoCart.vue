@@ -1,6 +1,6 @@
 <template>
   <div class="addtoCart">
-    <div class="container content-wrapper">
+    <div class="container">
       <div class="heading-cart">
         <router-link
           class="nav-link text-start mb-3 d-flex align-items-center"
@@ -170,10 +170,6 @@ export default {
 </script>
 
 <style>
-.content-wrapper {
-  padding: 0px 0px;
-}
-
 .addtoCart {
   background: #f2f2f2;
   width: 100%;

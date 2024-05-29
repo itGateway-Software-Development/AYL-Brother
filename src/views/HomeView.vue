@@ -1,32 +1,23 @@
 <template>
   <div>
-    <Slider></Slider>
-    <BestSeller></BestSeller>
-    <ProductDetail></ProductDetail>
-    <NewProductSlider></NewProductSlider>
-    <OurProduct></OurProduct>
+    <MainSection></MainSection>
+    <AvaFabric></AvaFabric>
     <News></News>
   </div>
 </template>
 
 <script>
 import News from "../components/News";
-import OurProduct from "../components/OurProduct";
-import NewProductSlider from "../components/NewProductSlider";
-import ProductDetail from "../components/ProductDetail";
-import BestSeller from "../components/BestSeller";
-import Slider from "../components/Slider";
+import AvaFabric from "../components/AvaFabric";
+import MainSection from "../components/MainSection";
 // @ is an alias to /src
 
 export default {
   name: "HomeView",
   components: {
     News,
-    OurProduct,
-    NewProductSlider,
-    ProductDetail,
-    BestSeller,
-    Slider,
+    AvaFabric,
+    MainSection,
   },
 };
 </script>

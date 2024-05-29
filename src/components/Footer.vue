@@ -1,6 +1,8 @@
 <template>
   <div class="footer">
-    <div class="mt-5 container content-wrapper">
+    <div
+      class="mt-5 container content-wrapper footer-padding justify-content-center"
+    >
       <div class="row footer-group">
         <!-- <div class="col-12 col-lg-3 d-flex-column logo-text text-start f-1">
           <h1 class="mb-3">ROMANTIC SHARING</h1>
@@ -66,6 +68,11 @@ export default {};
   height: auto;
   background: #111111;
   color: #ffffff;
+}
+
+.footer-padding {
+  padding: 0px 70px;
+  margin: 0px auto;
 }
 
 .logo-text h2 {

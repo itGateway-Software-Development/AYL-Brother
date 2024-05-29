@@ -26,6 +26,8 @@ p {
   font-weight: 700;
   font-style: normal;
   font-size: 30px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
 }
 
 h2 {
@@ -44,6 +46,7 @@ h2 {
   font-family: "Roboto", sans-serif;
   font-weight: 900;
   font-style: normal;
+  text-transform: uppercase;
 }
 
 .shopnow-button:hover {

@@ -1,6 +1,6 @@
 <template>
   <div class="product-filter text-start">
-    <div class="d-none">
+    <div class="text-filter">
       <p class="mb-3 route-text">Men / {{ this.$route.name }}</p>
       <p class="mb-5 res">{{ product.length }} Result</p>
     </div>
@@ -330,6 +330,12 @@ export default {
 
 .f-1 {
   position: fixed;
+  height: max-content;
+  z-index: 9999;
+}
+
+.text-filter {
+  display: none;
 }
 
 .route-text {
@@ -481,6 +487,9 @@ export default {
     display: none;
   }
   .f-2 {
+    display: block;
+  }
+  .text-filter {
     display: block;
   }
   .f-2 .filter-category,

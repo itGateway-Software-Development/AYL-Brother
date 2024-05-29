@@ -73,50 +73,61 @@
     </div>
 
     <div class="nav2" id="nav2">
-      <div class="d-flex justify-content-between align-items-center">
-        <div class="nav-text d-flex">
-          <router-link to="/" class="pe-5 nav-link"><p>Home</p></router-link>
-          <router-link to="/product" class="pe-5 nav-link"
-            ><p>Product</p></router-link
-          >
+      <div class="upper-nav container content-wrapper">
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="logo-img">
+            <router-link to="/">
+              <img src="../assets/romantic-logo.png" class="img-fluid" alt=""
+            /></router-link>
+          </div>
+          <div class="upper-nav-icon">
+            <div class="icon-group d-flex justify-content-around">
+              <span class="material-symbols-outlined"> language </span>
+              <span class="material-symbols-outlined"> person </span>
+              <span class="material-symbols-outlined"> favorite </span>
+              <router-link to="/cart" class="nav-link"
+                ><span class="material-symbols-outlined">
+                  shopping_bag
+                </span></router-link
+              >
+            </div>
+          </div>
+        </div>
+      </div>
 
-          <router-link to="#" class="pe-5 nav-link"
-            ><p>Promotion</p></router-link
-          >
-          <router-link to="#" class="pe-5 nav-link"
-            ><p>Our Story</p></router-link
-          >
-        </div>
-        <div class="nav-img">
-          <router-link to="/"
-            ><img
-              src="../assets/romantic-logo.png"
-              alt="logo"
-              class="img-fluid"
-          /></router-link>
-        </div>
-        <div class="d-flex nav-icon">
-          <router-link to="#" class="nav-link pe-4"
-            ><span class="material-symbols-outlined">
-              search
-            </span></router-link
-          >
-          <router-link to="#" class="nav-link pe-4"
-            ><span class="material-symbols-outlined">
-              account_circle
-            </span></router-link
-          >
-          <router-link to="#" class="nav-link pe-4"
-            ><span class="material-symbols-outlined">
-              favorite
-            </span></router-link
-          >
-          <router-link to="/cart" class="nav-link pe-4"
-            ><span class="material-symbols-outlined"> shopping_bag </span>
-            <span v-if="cartItemCount > 0" class="cart-count">{{
-              cartItemCount
-            }}</span></router-link
-          >
+      <div class="lower-nav container content-wrapper">
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="nav-text-content">
+            <div class="d-flex justify-content-around text-group">
+              <router-link to="/" class="nav-link">
+                <p>Home</p>
+              </router-link>
+              <router-link to="/product" class="nav-link">
+                <p>Product</p>
+              </router-link>
+              <router-link to="/" class="nav-link">
+                <p>Promotion</p>
+              </router-link>
+              <router-link to="/" class="nav-link">
+                <p>Our Story</p>
+              </router-link>
+            </div>
+          </div>
+
+          <div class="nav-search">
+            <div class="input-group">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Search"
+                aria-label="Username"
+                aria-describedby="basic-addon1"
+              />
+              <span class="material-symbols-outlined input-group-text">
+                search
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -157,6 +168,29 @@ export default {
   display: none;
 }
 
+.icon-group .material-symbols-outlined {
+  padding: 0px 15px;
+  font-size: 28px;
+}
+
+.nav-text-content .text-group p {
+  padding: 0px 20px;
+  margin-left: 10px;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.nav-search .form-control {
+  border-radius: 50px;
+}
+
+.nav-search .input-group-text {
+  border-radius: 50px;
+  color: #111111;
+  background: #fff;
+  border-left: 0px;
+}
+
 .cart-count {
   position: absolute;
   right: 55px;
@@ -170,7 +204,7 @@ export default {
 
 .nav2 {
   width: 100%;
-  height: 65px;
+  height: max-content;
   cursor: pointer;
   background-color: #fff;
   position: fixed;
@@ -182,8 +216,8 @@ export default {
 }
 
 .nav2.scrolled {
-  background-color: #111111;
-  opacity: 0.98;
+  background-color: #fff;
+  border-bottom: 0.5px solid #f2f2f2;
 }
 
 #mobile-nav {
@@ -233,8 +267,8 @@ export default {
 }
 
 .logo-img {
-  width: 120px;
-  margin-left: 70px;
+  width: 150px;
+  margin-left: 10px;
 }
 
 .logo-img-nav {
