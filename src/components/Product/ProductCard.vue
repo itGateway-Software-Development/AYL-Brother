@@ -231,7 +231,7 @@ export default {
   }
   .add-btn,
   .wish-btn {
-    width: 250px;
+    width: 280px;
   }
 
   .size-col {
@@ -241,24 +241,32 @@ export default {
 
 @media (max-width: 800px) {
   .p-card-col {
-    width: 45%;
+    width: 50%;
   }
   .p-card {
     width: 300px;
   }
-
-  .product-filter {
-    width: 790px;
-  }
-
-  .card-list {
-    margin: 0px auto;
-  }
 }
 
 @media (max-width: 500px) {
-  .product-filter {
-    width: 500px;
+  .p-card {
+    width: 175px;
+  }
+  .add-btn,
+  .wish-btn {
+    width: 160px;
+  }
+  .p-color {
+    font-size: 10px;
+    font-weight: 700;
+  }
+
+  .card-content {
+    font-size: 14px;
+    padding-left: 10px;
+  }
+  .size-col {
+    width: 40%;
   }
 }
 </style>

@@ -50,16 +50,16 @@ export default {
     width: 100%;
   }
   .product {
-    margin: 0 auto;
+    margin: 150px auto 50px;
+  }
+}
+
+@media (max-width: 800px) {
+  .product {
+    margin: 50px auto;
   }
 }
 
 @media (max-width: 500px) {
-  .product {
-    margin: 0;
-  }
-  .p-list {
-    width: 500px;
-  }
 }
 </style>

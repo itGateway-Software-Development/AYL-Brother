@@ -8,7 +8,7 @@
           <h1 class="mb-3">ROMANTIC SHARING</h1>
           <img src="../assets/romantic-logo.png" alt="" class="footer-img" />
         </div> -->
-        <div class="col-12 col-md-4 logo-text text-start">
+        <div class="col-12 col-md-4 logo-text text-start footer-col-1">
           <h2>Customer Service</h2>
           <ul class="text-start info-text">
             <li>
@@ -28,11 +28,11 @@
             </li>
           </ul>
         </div>
-        <div class="col-12 col-md-4 logo-text text-start">
+        <div class="col-12 col-md-4 logo-text text-start footer-col-1">
           <h2 class="mb-1">About Romantic</h2>
           <p>About Us</p>
         </div>
-        <div class="col-12 col-md-4 logo-text text-start p-col-12">
+        <div class="col-12 col-md-4 logo-text text-start footer-col-2">
           <h2>Discount & Membership</h2>
           <ul class="text-start info-text">
             <li class="d-flex">
@@ -68,11 +68,6 @@ export default {};
   height: auto;
   background: #111111;
   color: #ffffff;
-}
-
-.footer-padding {
-  padding: 0px 70px;
-  margin: 0px auto;
 }
 
 .logo-text h2 {
@@ -125,10 +120,6 @@ export default {};
 }
 
 @media (max-width: 1200px) {
-  .col-md-4 {
-    width: 50%;
-  }
-
   .logo-text {
     margin-top: 20px;
   }
@@ -141,7 +132,7 @@ export default {};
     display: none;
   }
   .logo-text h2 {
-    font-size: 20px;
+    font-size: 18px;
   }
   .info-text,
   .icon-text {
@@ -150,11 +141,10 @@ export default {};
   .logo-text p {
     font-size: 15px;
   }
-  .footer-group {
-    align-content: center;
-    margin: 0px auto;
+  .footer-col-1 {
+    width: 50%;
   }
-  .p-col-12 {
+  .footer-col-2 {
     width: 100%;
   }
 }

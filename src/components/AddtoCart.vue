@@ -1,6 +1,6 @@
 <template>
   <div class="addtoCart">
-    <div class="container">
+    <div class="container add-to-cart">
       <div class="heading-cart">
         <router-link
           class="nav-link text-start mb-3 d-flex align-items-center"
@@ -169,15 +169,15 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .addtoCart {
   background: #f2f2f2;
   width: 100%;
   height: 100%;
 }
 
-.container {
-  max-width: 1400px;
+.add-to-cart {
+  width: 100%;
 }
 
 .heading-cart {
@@ -201,7 +201,7 @@ export default {
 }
 
 .cart-item {
-  width: 1000px;
+  width: 900px;
   height: max-content;
   background-color: #ffffff;
   border-radius: 5px;
@@ -213,7 +213,7 @@ export default {
 }
 
 .check-out {
-  width: 400px;
+  width: 500px;
   height: max-content;
   background-color: #ffffff;
   padding: 20px 0px;
@@ -321,19 +321,16 @@ export default {
   .cart-item {
     width: 600px;
   }
-  .container {
-    width: 950px;
-  }
 }
 
 @media (max-width: 800px) {
   .cart-item {
     width: 720px;
-    height: 250px;
+    height: max-content;
   }
   .check-out {
     width: 720px;
-    height: 280px;
+    height: max-content;
   }
 
   .check-out p {
@@ -396,12 +393,12 @@ export default {
 @media (max-width: 500px) {
   .cart-item {
     width: 400px;
-    height: 250px;
+    height: max-content;
   }
 
   .check-out {
     width: 400px;
-    height: 320px;
+    height: max-content;
     margin: 0px 0px 15px 0px;
   }
 

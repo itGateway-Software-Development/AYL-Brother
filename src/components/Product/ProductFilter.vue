@@ -547,7 +547,7 @@ export default {
   }
   .v-navigation-drawer {
     width: 500px !important;
-    height: 870px !important;
+    height: max-content !important;
     overflow: scroll;
   }
 

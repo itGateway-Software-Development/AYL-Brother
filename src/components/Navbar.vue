@@ -56,10 +56,10 @@
         </div>
         <div class="icon-group">
           <ul class="d-flex">
-            <li class="p-2">
+            <li class="">
               <span class="material-symbols-outlined"> search </span>
             </li>
-            <li class="p-2">
+            <li class="">
               <router-link to="/cart" class="nav-link">
                 <span class="material-symbols-outlined"> shopping_bag </span>
                 <span v-if="cartItemCount > 0" class="cart-count">{{
@@ -86,9 +86,10 @@
               <span class="material-symbols-outlined"> person </span>
               <span class="material-symbols-outlined"> favorite </span>
               <router-link to="/cart" class="nav-link"
-                ><span class="material-symbols-outlined">
-                  shopping_bag
-                </span></router-link
+                ><span class="material-symbols-outlined"> shopping_bag </span>
+                <span v-if="cartItemCount > 0" class="cart-count">{{
+                  cartItemCount
+                }}</span></router-link
               >
             </div>
           </div>
@@ -193,8 +194,8 @@ export default {
 
 .cart-count {
   position: absolute;
-  right: 55px;
-  top: 2px;
+  right: 5%;
+  top: 5px;
   background-color: red;
   color: white;
   border-radius: 50%;
@@ -308,13 +309,13 @@ export default {
 }
 
 @media (max-width: 1200px) {
-  .nav1 {
+  /* .nav1 {
     display: block;
     padding: 0px 15px;
   }
   .nav2 {
     display: none;
-  }
+  } */
   .v-navigation-drawer {
     width: 500px !important;
   }
@@ -324,19 +325,33 @@ export default {
   }
 
   .cart-count {
-    right: 5px;
+    right: 5.5%;
     padding: 5px 10px;
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 1024px) {
+  .cart-count {
+    right: 6.5%;
+  }
+}
+
+@media (max-width: 800px) {
   .nav1 {
     display: block;
-    padding: 0px;
   }
   .nav2 {
     display: none;
   }
+  .logo-img {
+    margin: 0px;
+  }
+  .mobile-view {
+    height: max-content;
+  }
+}
+
+@media (max-width: 500px) {
   .v-navigation-drawer {
     width: 320px !important;
   }
@@ -344,9 +359,15 @@ export default {
     margin-left: 40px;
   }
 
+  .icon-group .material-symbols-outlined {
+    padding: 0px 8px;
+    font-size: 20px;
+  }
+
   .cart-count {
-    right: 0px;
-    padding: 3px 5px;
+    right: 5px;
+    top: 15px;
+    padding: 2px 5px;
   }
 }
 </style>
