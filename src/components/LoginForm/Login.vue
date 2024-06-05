@@ -120,7 +120,6 @@ export default {
 }
 
 .group-form {
-  margin: 0px auto;
   justify-content: center;
   margin: 0px 50px;
 }
@@ -188,5 +187,50 @@ export default {
 
 .f-pass {
   text-decoration: underline;
+}
+
+@media (max-width: 800px) {
+  .login-form {
+    margin: 50px auto;
+  }
+
+  .form-logo {
+    display: none;
+  }
+}
+
+@media (max-width: 500px) {
+  .input-form .input-group {
+    width: 300px;
+  }
+  .login-btn {
+    width: 300px;
+  }
+
+  .form-login {
+    width: 390px;
+  }
+  .group-form {
+    margin: 0px 15px;
+    padding: 0px 30px;
+  }
+}
+
+@media (max-width: 375px) {
+  .input-form .input-group {
+    width: 300px;
+  }
+  .login-btn {
+    width: 300px;
+  }
+
+  .form-login {
+    width: 375px;
+  }
+
+  .group-form {
+    margin: 0px 10px;
+    padding: 0px 20px;
+  }
 }
 </style>
