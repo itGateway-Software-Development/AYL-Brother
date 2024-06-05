@@ -105,6 +105,7 @@ export default {
       };
 
       store.dispatch("addToCart", productToAdd);
+      selectedSize.value = null;
     };
 
     const selectSize = (size) => {
@@ -164,9 +165,6 @@ export default {
 
 .card {
   margin: 0px auto;
-}
-
-.card-size {
 }
 
 .size {

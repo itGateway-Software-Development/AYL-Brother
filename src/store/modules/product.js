@@ -564,15 +564,16 @@ const defaultProduct = [
 
 export default {
   state: {
-    product: defaultProduct,
+    products: defaultProduct,
     cart: loadCartFromLocalStorage(),
     selectedCat: [],
     selectedSeries: [],
   },
   getters: {
-    product: (state) => {
-      return state.product;
+    products: (state) => {
+      return state.products;
     },
+
     cartItems: (state) => {
       return state.cart;
     },
@@ -586,7 +587,7 @@ export default {
       );
     },
     filteredProducts: (state) => {
-      let filtered = state.product;
+      let filtered = state.products;
 
       if (state.selectedSeries.length > 0) {
         filtered = filtered.filter((product) =>
@@ -601,6 +602,9 @@ export default {
       }
 
       return filtered;
+    },
+    getProductById: (state) => (id) => {
+      return state.products.find((product) => product.id === parseInt(id));
     },
   },
   mutations: {
@@ -668,7 +672,6 @@ export default {
       toast.error(
         `Product Code:${payload.code} of Size:${payload.size} is remove from Bag`
       );
-      console.log(payload);
     },
     setSelectedSeries(context, series) {
       context.commit("setSelectedSeries", series);

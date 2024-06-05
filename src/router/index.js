@@ -3,6 +3,9 @@ import HomeView from "../views/HomeView.vue";
 import ProductView from "../views/product/ProductView.vue";
 import CartView from "../views/CartView.vue";
 import ProductDetail from "../views/product/ProductDetail.vue";
+import SignUp from "../views/SignUp.vue";
+import Login from "../components/LoginForm/Login.vue";
+import Register from "../components/LoginForm/Register.vue";
 
 const routes = [
   {
@@ -21,10 +24,25 @@ const routes = [
     component: CartView,
   },
   {
-    path: "/productDetail/:id",
+    path: "/product/productDetail/:id",
     name: "productDetail",
     component: ProductDetail,
-    props: true,
+    props: (route) => ({ id: Number(route.params.id) }),
+  },
+  {
+    path: "/signup",
+    name: "signup",
+    component: SignUp,
+  },
+  {
+    path: "/login",
+    name: "Login",
+    component: Login,
+  },
+  {
+    path: "/register",
+    name: "Register",
+    component: Register,
   },
 ];
 

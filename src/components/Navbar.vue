@@ -83,7 +83,11 @@
           <div class="upper-nav-icon">
             <div class="icon-group d-flex justify-content-around">
               <span class="material-symbols-outlined"> language </span>
-              <span class="material-symbols-outlined"> person </span>
+              <router-link to="/login" class="nav-link btn"
+                ><span class="material-symbols-outlined">
+                  person
+                </span></router-link
+              >
               <span class="material-symbols-outlined"> favorite </span>
               <router-link to="/cart" class="nav-link"
                 ><span class="material-symbols-outlined"> shopping_bag </span>
@@ -306,6 +310,18 @@ export default {
 .nav-text p {
   font-size: 16px;
   font-weight: 500;
+}
+
+@media (max-width: 1920px) {
+  .cart-count {
+    right: 16.3%;
+  }
+}
+
+@media (max-width: 1600px) {
+  .cart-count {
+    right: 9.5%;
+  }
 }
 
 @media (max-width: 1200px) {
