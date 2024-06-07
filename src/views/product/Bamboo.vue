@@ -13,7 +13,6 @@
 
 <script>
 import { ref } from "vue";
-import { defineProps } from "vue";
 import ProductCard from "../../components/Product/ProductCard";
 import ProductFilter from "../../components/Product/ProductFilter";
 export default {

@@ -562,12 +562,118 @@ const defaultProduct = [
   },
 ];
 
+const defaultLocation = [
+  {
+    id: 1,
+    location: "Yangon",
+  },
+  {
+    id: 2,
+    location: "Mandalay",
+  },
+  {
+    id: 3,
+    location: "Nay Pyi Taw",
+  },
+  {
+    id: 4,
+    location: "Chin State",
+  },
+  {
+    id: 5,
+    location: "Bago",
+  },
+  {
+    id: 6,
+    location: "Ayeyarwady",
+  },
+  {
+    id: 7,
+    location: "Sagaing",
+  },
+  {
+    id: 8,
+    location: "Kayin State",
+  },
+  {
+    id: 9,
+    location: "Magway Region",
+  },
+  {
+    id: 10,
+    location: "Shan",
+  },
+  {
+    id: 11,
+    location: "Tanintharyi Region",
+  },
+  {
+    id: 12,
+    location: "Rakhine",
+  },
+  {
+    id: 13,
+    location: "Kachin",
+  },
+  {
+    id: 14,
+    location: "Gate",
+  },
+];
+
+const defaultsubLocation = {
+  Yangon: [
+    { id: 1, township: "Pazundaung", price: 1500 },
+    { id: 2, township: "Pabedan", price: 1500 },
+    { id: 3, township: "Kyauktada", price: 1500 },
+    { id: 4, township: "Botahtaung", price: 1500 },
+    { id: 5, township: "Mingala Taungnyunt", price: 1500 },
+    { id: 6, township: "Latha", price: 1500 },
+    { id: 7, township: "Kamayut Township", price: 3000 },
+    { id: 8, township: "Kyimyindaing Township", price: 3000 },
+    { id: 9, township: "Sanchaung Township", price: 3000 },
+    { id: 10, township: "Tamwe Township", price: 3000 },
+    { id: 11, township: "South Okkalapa", price: 3000 },
+    { id: 12, township: "Dagon", price: 3000 },
+    { id: 13, township: "Dawbon Township", price: 3000 },
+    { id: 14, township: "Bahan", price: 3000 },
+    { id: 15, township: "Mayangon", price: 3000 },
+    { id: 16, township: "North Okkalapa", price: 3000 },
+    { id: 17, township: "Yankin", price: 3000 },
+    { id: 18, township: "Hlaing Township", price: 3000 },
+    { id: 19, township: "Thingangyun", price: 3000 },
+    { id: 20, township: "Tharkayta", price: 3000 },
+    { id: 21, township: "Ahlone Township", price: 3000 },
+    { id: 22, township: "Insein Township", price: 3000 },
+    { id: 23, township: "Dagon Seikkan Township", price: 3000 },
+    { id: 24, township: "East Dagon Township", price: 3000 },
+    { id: 25, township: "North Dagon Township", price: 3000 },
+    { id: 26, township: "South Dagon Township", price: 3000 },
+    { id: 27, township: "Mingaladon Township", price: 3000 },
+    { id: 28, township: "Shwepyitha Township", price: 3000 },
+    { id: 29, township: "Hlaingthaya Township", price: 3000 },
+    { id: 30, township: "Thanlyin", price: 3000 },
+  ],
+  Mandalay: [
+    { id: 1, township: "Aungmyaythazan", price: 4000 },
+    { id: 2, township: "Chanayethazan", price: 4000 },
+    { id: 3, township: "Mahaaungmyay", price: 4000 },
+    { id: 4, township: "Chanmyathazi", price: 4000 },
+    { id: 5, township: "Pyigyitagon", price: 4000 },
+  ],
+};
+
 export default {
   state: {
     products: defaultProduct,
     cart: loadCartFromLocalStorage(),
     selectedCat: [],
     selectedSeries: [],
+    locations: defaultLocation,
+    subLocations: defaultsubLocation,
+    selectedLocation: null,
+    selectedSubLocation: null,
+    deliveryPrice: 0,
   },
   getters: {
     products: (state) => {
@@ -605,6 +711,28 @@ export default {
     },
     getProductById: (state) => (id) => {
       return state.products.find((product) => product.id === parseInt(id));
+    },
+    randomProducts: (state) => (count) => {
+      let sliceProduct = state.products;
+      sliceProduct = sliceProduct.sort(() => 0.5 - Math.random());
+      return sliceProduct.slice(0, count);
+    },
+    getSubLocations: (state) => {
+      if (!state.selectedLocation) return [];
+      return state.subLocations[state.selectedLocation.location] || [];
+    },
+
+    locations: (state) => {
+      return state.locations;
+    },
+    deliveryPrice: (state) => state.deliveryPrice,
+
+    grandTotal: (state) => {
+      return state.cart.reduce(
+        (total, item) =>
+          total + item.price * item.quantity + state.deliveryPrice,
+        0
+      );
     },
   },
   mutations: {
@@ -653,6 +781,17 @@ export default {
     setSelectedCat(state, cat) {
       state.selectedCat = cat;
     },
+    SET_LOCATION(state, location) {
+      state.selectedLocation = location;
+      state.selectedSubLocation = null; // Reset sub-location when location changes
+    },
+    SET_SUB_LOCATION(state, subLocation) {
+      state.selectedSubLocation = subLocation;
+    },
+    SET_DELIVERY_PRICE(state, price) {
+      // Mutation to set delivery price
+      state.deliveryPrice = price;
+    },
   },
   actions: {
     addToCart(context, product) {
@@ -678,6 +817,39 @@ export default {
     },
     setSelectedCat(context, cat) {
       context.commit("setSelectedCat", cat);
+    },
+    chooseLocation({ commit }, location) {
+      commit("SET_LOCATION", location);
+    },
+    chooseSubLocation({ commit }, subLocation) {
+      commit("SET_SUB_LOCATION", subLocation);
+    },
+    calculateDeliveryPrice({ commit, state }) {
+      console.log("calculateDeliveryPrice action called");
+      const location = state.selectedLocation?.location;
+      const subLocation = state.selectedSubLocation;
+      console.log("Location:", location);
+      console.log("SubLocation:", subLocation);
+      if (!location || !subLocation) {
+        commit("SET_DELIVERY_PRICE", 0);
+        return;
+      }
+
+      const locationSubLocations = state.subLocations[location];
+      console.log("Location SubLocations:", locationSubLocations);
+      if (!locationSubLocations) {
+        commit("SET_DELIVERY_PRICE", 0);
+        return;
+      }
+
+      const subLocationObj = locationSubLocations.find(
+        (subLoc) => subLoc.township === subLocation
+      );
+
+      const deliveryPrice = subLocationObj ? subLocationObj.price : 0;
+
+      console.log(deliveryPrice);
+      commit("SET_DELIVERY_PRICE", deliveryPrice);
     },
   },
   modules: {},

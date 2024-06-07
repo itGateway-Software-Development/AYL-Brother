@@ -6,6 +6,7 @@ import ProductDetail from "../views/product/ProductDetail.vue";
 import SignUp from "../views/SignUp.vue";
 import Login from "../components/LoginForm/Login.vue";
 import Register from "../components/LoginForm/Register.vue";
+import Bamboo from "../views/product/Bamboo.vue";
 
 const routes = [
   {
@@ -17,6 +18,11 @@ const routes = [
     path: "/product",
     name: "product",
     component: ProductView,
+  },
+  {
+    path: "/product/:series",
+    name: "bamboo",
+    component: Bamboo,
   },
   {
     path: "/cart",

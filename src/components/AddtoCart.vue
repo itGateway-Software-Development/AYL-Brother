@@ -82,10 +82,6 @@
             <p>{{ total }} MMK</p>
           </div>
           <div class="total-price d-flex justify-content-between">
-            <p class="text-start sub-product">Delivery Charges:</p>
-            <p>1500 MMK</p>
-          </div>
-          <div class="total-price d-flex justify-content-between">
             <p class="text-start sub-product">Promo Point:</p>
             <p>0 point</p>
           </div>
@@ -109,9 +105,58 @@
             </p>
           </div> -->
 
+          <div class="location">
+            <div class="d-flex justify-content-between align-items-center mb-5">
+              <label for="location">Select Location:</label>
+              <select
+                class="form-select"
+                aria-label="Default select example"
+                id="location"
+                v-model="selectedLocation"
+                @change="onLocationChange"
+              >
+                <option
+                  v-for="location in locations"
+                  :key="location.id"
+                  :value="location"
+                >
+                  {{ location.location }}
+                </option>
+              </select>
+            </div>
+            <hr />
+            <div
+              class="d-flex justify-content-between align-items-center mt-3 mb-5"
+            >
+              <label v-if="subLocations.length > 0" for="subLocation"
+                >Select Sub-Location:</label
+              >
+              <select
+                class="form-select"
+                aria-label="Default select example"
+                v-if="subLocations.length > 0"
+                id="subLocation"
+                v-model="selectedSubLocation"
+                @change="onSubLocationChange"
+              >
+                <option
+                  v-for="subLocation in subLocations"
+                  :key="subLocation.id"
+                  :value="subLocation.township"
+                >
+                  {{ subLocation.township }}
+                </option>
+              </select>
+            </div>
+          </div>
+
+          <div class="total-price d-flex justify-content-between">
+            <p>Delivery Charges(MMK)</p>
+            <p>{{ deliveryPrice }} MMK</p>
+          </div>
           <div class="total-price d-flex justify-content-between">
             <p>Total(MMK)</p>
-            <p>{{ total }} MMK</p>
+            <p>{{ grandTotal }} MMK</p>
           </div>
 
           <div class="delivery-note">
@@ -134,16 +179,33 @@
 <script>
 import { toast } from "vue3-toastify";
 import "vue3-toastify/dist/index.css";
-import { computed, ref } from "vue";
+import { computed, ref, watch } from "vue";
 import { mapGetters, mapMutations, useStore } from "vuex";
 export default {
   setup() {
     const store = useStore();
+    const selectedLocation = ref(null);
+    const selectedSubLocation = ref(null);
+
+    const locations = computed(() => store.getters.locations);
+    const subLocations = computed(() => store.getters.getSubLocations);
+
+    const onLocationChange = () => {
+      store.dispatch("chooseLocation", selectedLocation.value);
+      store.dispatch("calculateDeliveryPrice");
+    };
+
+    const onSubLocationChange = () => {
+      store.dispatch("chooseSubLocation", selectedSubLocation.value);
+      store.dispatch("calculateDeliveryPrice");
+    };
+
+    const deliveryPrice = computed(() => store.getters.deliveryPrice);
 
     const cartItems = computed(() => store.getters["cartItems"]);
     const cartItemCount = computed(() => store.getters["cartItemCount"]);
     const total = computed(() => store.getters["totalPrice"]);
-
+    const grandTotal = computed(() => store.getters["grandTotal"]);
     const increaseQuantity = (item) => {
       store.dispatch("increaseQuantity", { id: item.id, size: item.size });
     };
@@ -164,6 +226,14 @@ export default {
       decreaseQuantity,
       cartItemCount,
       removeFromCart,
+      selectedLocation,
+      selectedSubLocation,
+      locations,
+      subLocations,
+      onLocationChange,
+      onSubLocationChange,
+      deliveryPrice,
+      grandTotal,
     };
   },
 };
@@ -317,6 +387,15 @@ export default {
   line-height: 30px;
 }
 
+.form-select {
+  width: 150px;
+}
+
+.location {
+  padding: 12px 30px;
+  border-bottom: 1px solid #111;
+}
+
 @media (max-width: 1200px) {
   .cart-item {
     width: 600px;
@@ -388,6 +467,14 @@ export default {
   .info p {
     margin: 0px 30px;
   }
+  .form-select {
+    width: 300px;
+  }
+
+  .location {
+    padding: 12px 40px;
+    border-bottom: 1px solid #111;
+  }
 }
 
 @media (max-width: 500px) {
@@ -422,6 +509,14 @@ export default {
 
   .heading {
     padding: 10px 0px;
+  }
+  .form-select {
+    width: 160px;
+  }
+
+  .location {
+    padding: 12px 40px;
+    border-bottom: 1px solid #111;
   }
 }
 </style>

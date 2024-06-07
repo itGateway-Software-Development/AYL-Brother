@@ -54,9 +54,11 @@
 import { computed, defineProps, inject, onMounted, ref, watch } from "vue";
 import { mapActions, useStore, mapGetters } from "vuex";
 import product from "../../store/modules/product";
+import { useRoute } from "vue-router";
 
 export default {
   setup() {
+    const route = useRoute;
     const store = useStore();
 
     const filteredProducts = computed(() => store.getters.filteredProducts);

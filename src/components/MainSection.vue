@@ -30,7 +30,9 @@
           </div>
           <div class="main-text-content">
             <h3 class="text-center mb-5">Boxer</h3>
-            <button class="btn shopnow-button">Shop Now</button>
+            <router-link to="/product"
+              ><button class="btn shopnow-button">Shop Now</button></router-link
+            >
           </div>
         </div>
         <div class="col-6 romantic-men">
@@ -65,7 +67,9 @@
           </div>
           <div class="main-text-content">
             <h3 class="text-center mb-5">Brief</h3>
-            <button class="btn shopnow-button">Shop Now</button>
+            <router-link to="/product"
+              ><button class="btn shopnow-button">Shop Now</button></router-link
+            >
           </div>
         </div>
       </div>
@@ -135,8 +139,10 @@
 </template>
 
 <script>
+import { useRoute } from "vue-router";
 export default {
   setup() {
+    const router = useRoute;
     const boxer = [
       {
         id: 1,

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="nav1">
+    <div class="nav1" id="nav1">
       <div
         class="mobile-view d-flex justify-content-between align-items-center"
       >
@@ -29,8 +29,122 @@
                 ><v-list-item><p>Home</p></v-list-item></router-link
               >
               <router-link to="/product" class="nav-link mb-text"
-                ><v-list-item><p>Product</p></v-list-item></router-link
-              >
+                ><div class="d-flex align-items-center justify-content-between">
+                  <v-list-item><p>Product</p> </v-list-item>
+                  <span
+                    class="material-symbols-outlined pe-10"
+                    type="button"
+                    @click="mobileDropdown = !mobileDropdown"
+                  >
+                    keyboard_arrow_down
+                  </span>
+                </div>
+                <ul class="dropdown-mobile" v-if="mobileDropdown">
+                  <hr />
+                  <li class="mobile-dropdown-item">
+                    <div
+                      class="d-flex align-items-center justify-content-between"
+                    >
+                      <router-link to="/" class="nav-link"
+                        ><p>Bamboo Series</p>
+                      </router-link>
+                      <span
+                        class="material-symbols-outlined pe-10"
+                        type="button"
+                        @click="bamboo = !bamboo"
+                      >
+                        keyboard_arrow_down
+                      </span>
+                    </div>
+                    <ul class="mobile-sub-dropdown" v-if="bamboo">
+                      <li class="mobile-sub-item">
+                        <router-link to="/" class="nav-link"
+                          >RO: 8018</router-link
+                        >
+                      </li>
+                      <li class="mobile-sub-item">
+                        <router-link to="/" class="nav-link"
+                          >RO: 8017</router-link
+                        >
+                      </li>
+                      <li class="mobile-sub-item">
+                        <router-link to="/" class="nav-link"
+                          >RO: 8003</router-link
+                        >
+                      </li>
+                      <li class="mobile-sub-item">
+                        <router-link to="/" class="nav-link"
+                          >RO: 8004</router-link
+                        >
+                      </li>
+                    </ul>
+                  </li>
+                  <hr />
+                  <li class="mobile-dropdown-item">
+                    <div
+                      class="d-flex align-items-center justify-content-between"
+                    >
+                      <router-link to="/" class="nav-link"
+                        ><p>Spandex Series</p>
+                      </router-link>
+                      <span
+                        class="material-symbols-outlined pe-10"
+                        type="button"
+                        @click="spandex = !spandex"
+                      >
+                        keyboard_arrow_down
+                      </span>
+                    </div>
+                    <ul class="mobile-sub-dropdown" v-if="spandex">
+                      <li class="mobile-sub-item">
+                        <router-link to="/" class="nav-link"
+                          >RO: 5002</router-link
+                        >
+                      </li>
+                      <li class="mobile-sub-item">
+                        <router-link to="/" class="nav-link"
+                          >RO: 5003</router-link
+                        >
+                      </li>
+                      <li class="mobile-sub-item">
+                        <router-link to="/" class="nav-link"
+                          >RO: 5012</router-link
+                        >
+                      </li>
+                    </ul>
+                  </li>
+                  <hr />
+                  <li class="mobile-dropdown-item">
+                    <div
+                      class="d-flex align-items-center justify-content-between"
+                    >
+                      <router-link to="/" class="nav-link"
+                        ><p>Lycra Modal Series</p>
+                      </router-link>
+                      <span
+                        class="material-symbols-outlined pe-10"
+                        type="button"
+                        @click="modal = !modal"
+                      >
+                        keyboard_arrow_down
+                      </span>
+                    </div>
+                    <ul class="mobile-sub-dropdown" v-if="modal">
+                      <li class="mobile-sub-item">
+                        <router-link to="/" class="nav-link"
+                          >RO: 8018</router-link
+                        >
+                      </li>
+                      <li class="mobile-sub-item">
+                        <router-link to="/" class="nav-link"
+                          >RO: 8017</router-link
+                        >
+                      </li>
+                    </ul>
+                  </li>
+                  <hr />
+                </ul>
+              </router-link>
 
               <router-link to="/" class="nav-link mb-text"
                 ><v-list-item><p>Promotion</p></v-list-item></router-link
@@ -107,8 +221,80 @@
               <router-link to="/" class="nav-link">
                 <p>Home</p>
               </router-link>
-              <router-link to="/product" class="nav-link">
+              <router-link
+                to="/product"
+                class="nav-link"
+                @mouseover="dropdown = !dropdown"
+              >
                 <p>Product</p>
+                <ul class="dropdown">
+                  <li class="dropdown-item">
+                    <router-link to="/" class="dropdown-link"
+                      >Bamboo Fiber</router-link
+                    >
+                    <ul class="dropdown-submenu">
+                      <li class="dropdown-submenu-item">
+                        <router-link to="/" class="dropdown-link"
+                          >RO: 8018</router-link
+                        >
+                      </li>
+                      <li class="dropdown-submenu-item">
+                        <router-link to="/" class="dropdown-link"
+                          >RO: 8017</router-link
+                        >
+                      </li>
+                      <li class="dropdown-submenu-item">
+                        <router-link to="/" class="dropdown-link"
+                          >RO: 8003</router-link
+                        >
+                      </li>
+                      <li class="dropdown-submenu-item">
+                        <router-link to="/" class="dropdown-link"
+                          >RO: 8004</router-link
+                        >
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="dropdown-item">
+                    <router-link to="/" class="dropdown-link"
+                      >Lycra Spandex Series</router-link
+                    >
+                    <ul class="dropdown-submenu">
+                      <li class="dropdown-submenu-item">
+                        <router-link to="/" class="dropdown-link"
+                          >RO: 5002</router-link
+                        >
+                      </li>
+                      <li class="dropdown-submenu-item">
+                        <router-link to="/" class="dropdown-link"
+                          >RO: 5003</router-link
+                        >
+                      </li>
+                      <li class="dropdown-submenu-item">
+                        <router-link to="/" class="dropdown-link"
+                          >RO: 5012</router-link
+                        >
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="dropdown-item">
+                    <router-link to="/" class="dropdown-link"
+                      >Lycra Modal Series</router-link
+                    >
+                    <ul class="dropdown-submenu">
+                      <li class="dropdown-submenu-item">
+                        <router-link to="/" class="dropdown-link"
+                          >RO: 8076</router-link
+                        >
+                      </li>
+                      <li class="dropdown-submenu-item">
+                        <router-link to="/" class="dropdown-link"
+                          >RO: 8077</router-link
+                        >
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
               </router-link>
               <router-link to="/" class="nav-link">
                 <p>Promotion</p>
@@ -146,11 +332,16 @@ import { mapGetters, mapMutations, useStore } from "vuex";
 export default {
   setup() {
     const drawer = ref(false);
+    const mobileDropdown = ref(false);
+    const bamboo = ref(false);
+    const modal = ref(false);
+    const spandex = ref(false);
 
     const store = useStore();
     const cartItemCount = computed(() => {
       return store.getters.cartItemCount;
     });
+    const dropdown = ref(false);
 
     document.addEventListener("scroll", () => {
       const header = document.getElementById("nav2");
@@ -161,7 +352,15 @@ export default {
       }
     });
 
-    return { drawer, cartItemCount };
+    return {
+      drawer,
+      cartItemCount,
+      dropdown,
+      mobileDropdown,
+      bamboo,
+      modal,
+      spandex,
+    };
   },
 };
 </script>
@@ -312,6 +511,71 @@ export default {
   font-weight: 500;
 }
 
+.dropdown {
+  display: none;
+  position: absolute;
+  left: 23%;
+  top: 95%;
+  background: #fff;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+}
+
+.dropdown-submenu {
+  display: none;
+  position: absolute;
+  left: 100%;
+  top: 0;
+  background: #fff;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dropdown-item,
+.dropdown-submenu-item {
+  position: relative;
+  z-index: 1;
+  text-align: start;
+  border: 0.1px solid #111111;
+}
+
+.dropdown-link,
+.dropdown-submenu-link {
+  color: #111111;
+  padding: 1rem;
+  text-decoration: none;
+  display: block;
+  width: 200px;
+  padding: auto 20px;
+  z-index: 1;
+}
+
+.dropdown-link:hover,
+.dropdown-submenu-link:hover {
+  background-color: #f2f2f2;
+  color: red;
+}
+
+.nav-link:hover > .dropdown,
+.dropdown-item:hover > .dropdown-submenu {
+  display: block;
+}
+
+.dropdown-mobile {
+  padding: 0px 20px;
+}
+
+.mobile-dropdown-item,
+.mobile-sub-item {
+  margin: 10px 0px 20px 0px;
+}
+
+.mobile-dropdown-item p {
+  font-size: 20px;
+}
 @media (max-width: 1920px) {
   .cart-count {
     right: 16.3%;
@@ -324,6 +588,12 @@ export default {
   }
 }
 
+@media (max-width: 1400px) {
+  .dropdown {
+    left: 14%;
+  }
+}
+
 @media (max-width: 1200px) {
   /* .nav1 {
     display: block;
@@ -332,6 +602,10 @@ export default {
   .nav2 {
     display: none;
   } */
+  .dropdown {
+    left: 16%;
+  }
+
   .v-navigation-drawer {
     width: 500px !important;
   }
@@ -349,6 +623,10 @@ export default {
 @media (max-width: 1024px) {
   .cart-count {
     right: 6.5%;
+  }
+
+  .dropdown {
+    left: 19.5%;
   }
 }
 
