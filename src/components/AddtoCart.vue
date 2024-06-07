@@ -388,7 +388,7 @@ export default {
 }
 
 .form-select {
-  width: 150px;
+  width: 170px;
 }
 
 .location {
