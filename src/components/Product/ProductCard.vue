@@ -52,12 +52,14 @@
 
 <script>
 import { computed, defineProps, inject, onMounted, ref, watch } from "vue";
+
 import { mapActions, useStore, mapGetters } from "vuex";
 import product from "../../store/modules/product";
 import { useRoute } from "vue-router";
 
 export default {
   setup() {
+    const Swal = require("sweetalert2");
     const route = useRoute;
     const store = useStore();
 
@@ -90,7 +92,12 @@ export default {
 
     const addToCart = (product) => {
       if (!selectedSize.value) {
-        alert("Please select a size");
+        Swal.fire({
+          title: "Error!",
+          text: "Please Select Size !!",
+          icon: "error",
+          confirmButtonText: "Ok",
+        });
         return;
       }
       const productToAdd = {

@@ -413,15 +413,17 @@ export default {
   background-color: #fff;
   position: fixed;
   padding: 5px 55px;
+  padding-bottom: 10px;
   top: 0;
   left: 0;
   transition: bacground-color 0.4s ease-in-out;
+  border-bottom: 0.5px solid #f2f2f2;
   z-index: 9999;
 }
 
 .nav2.scrolled {
   background-color: #fff;
-  border-bottom: 0.5px solid #f2f2f2;
+  border-bottom: 1px solid #f2f2f2;
 }
 
 #mobile-nav {
@@ -514,13 +516,15 @@ export default {
 .dropdown {
   display: none;
   position: absolute;
-  left: 23%;
-  top: 95%;
+  left: 22.5%;
+  top: 100%;
   background: #fff;
   list-style-type: none;
   margin: 0;
   padding: 0;
   z-index: 1;
+  border: 1px solid lightgray;
+  border-radius: 2px;
 }
 
 .dropdown-submenu {
@@ -532,6 +536,7 @@ export default {
   list-style-type: none;
   margin: 0;
   padding: 0;
+  border: 1px solid lightgray;
 }
 
 .dropdown-item,
@@ -539,7 +544,8 @@ export default {
   position: relative;
   z-index: 1;
   text-align: start;
-  border: 0.1px solid #111111;
+  border-bottom: 0.1px solid #111111;
+  font-size: 14px;
 }
 
 .dropdown-link,
@@ -548,7 +554,7 @@ export default {
   padding: 1rem;
   text-decoration: none;
   display: block;
-  width: 200px;
+  width: 180px;
   padding: auto 20px;
   z-index: 1;
 }
@@ -585,6 +591,9 @@ export default {
 @media (max-width: 1600px) {
   .cart-count {
     right: 9.5%;
+  }
+  .dropdown {
+    left: 17.5%;
   }
 }
 
