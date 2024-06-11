@@ -218,90 +218,141 @@
         <div class="d-flex justify-content-between align-items-center">
           <div class="nav-text-content">
             <div class="d-flex justify-content-around text-group">
-              <router-link to="/" class="nav-link">
-                <p>Home</p>
-              </router-link>
-              <router-link
-                to="/product"
-                class="nav-link"
-                @mouseover="dropdown = !dropdown"
-              >
-                <p>Product</p>
-                <ul class="dropdown">
-                  <li class="dropdown-item">
-                    <router-link to="/" class="dropdown-link"
-                      >Bamboo Fiber</router-link
-                    >
-                    <ul class="dropdown-submenu">
-                      <li class="dropdown-submenu-item">
-                        <router-link to="/" class="dropdown-link"
-                          >RO: 8018</router-link
+              <ul class="d-flex justify-content-around text-group">
+                <li>
+                  <router-link to="/" class="nav-link">
+                    <p>Home</p>
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="/product" class="nav-link">
+                    <p class="nav-p">Product</p>
+                    <ul class="dropdown">
+                      <li class="dropdown-item">
+                        <router-link
+                          to="/products/bamboo/0"
+                          class="dropdown-link"
+                          >Bamboo Fiber</router-link
                         >
+                        <ul class="dropdown-submenu">
+                          <li class="dropdown-submenu-item">
+                            <router-link
+                              to="/products/bamboo/8028"
+                              class="dropdown-link"
+                              >RO: 8028</router-link
+                            >
+                          </li>
+                          <li class="dropdown-submenu-item">
+                            <router-link
+                              to="/products/bamboo/8027"
+                              class="dropdown-link"
+                              >RO: 8027</router-link
+                            >
+                          </li>
+                          <li class="dropdown-submenu-item">
+                            <router-link
+                              to="/products/bamboo/8018"
+                              class="dropdown-link"
+                              >RO: 8018</router-link
+                            >
+                          </li>
+                          <li class="dropdown-submenu-item">
+                            <router-link
+                              to="/products/bamboo/8017"
+                              class="dropdown-link"
+                              >RO: 8017</router-link
+                            >
+                          </li>
+                          <li class="dropdown-submenu-item">
+                            <router-link
+                              to="/products/bamboo/8003"
+                              class="dropdown-link"
+                              >RO: 8003</router-link
+                            >
+                          </li>
+                          <li class="dropdown-submenu-item">
+                            <router-link
+                              to="/products/bamboo/8004"
+                              class="dropdown-link"
+                              >RO: 8004</router-link
+                            >
+                          </li>
+                        </ul>
                       </li>
-                      <li class="dropdown-submenu-item">
-                        <router-link to="/" class="dropdown-link"
-                          >RO: 8017</router-link
+                      <li class="dropdown-item">
+                        <router-link
+                          to="/products/spandex/0"
+                          class="dropdown-link"
+                          >Lycra Spandex Series</router-link
                         >
+                        <ul class="dropdown-submenu">
+                          <li class="dropdown-submenu-item">
+                            <router-link
+                              to="/products/spandex/5002"
+                              class="dropdown-link"
+                              >RO: 5002</router-link
+                            >
+                          </li>
+                          <li class="dropdown-submenu-item">
+                            <router-link
+                              to="/products/spandex/5003"
+                              class="dropdown-link"
+                              >RO: 5003</router-link
+                            >
+                          </li>
+                          <li class="dropdown-submenu-item">
+                            <router-link
+                              to="/products/spandex/5012"
+                              class="dropdown-link"
+                              >RO: 5012</router-link
+                            >
+                          </li>
+                          <li class="dropdown-submenu-item">
+                            <router-link
+                              to="/products/spandex/5013"
+                              class="dropdown-link"
+                              >RO: 5013</router-link
+                            >
+                          </li>
+                        </ul>
                       </li>
-                      <li class="dropdown-submenu-item">
-                        <router-link to="/" class="dropdown-link"
-                          >RO: 8003</router-link
+                      <li class="dropdown-item">
+                        <router-link
+                          to="/products/lycra/0"
+                          class="dropdown-link"
+                          >Lycra Modal Series</router-link
                         >
-                      </li>
-                      <li class="dropdown-submenu-item">
-                        <router-link to="/" class="dropdown-link"
-                          >RO: 8004</router-link
-                        >
+                        <ul class="dropdown-submenu">
+                          <li class="dropdown-submenu-item">
+                            <router-link
+                              to="/products/lycra/8076"
+                              class="dropdown-link"
+                              >RO: 8076</router-link
+                            >
+                          </li>
+                          <li class="dropdown-submenu-item">
+                            <router-link
+                              to="/products/lycra/8077"
+                              class="dropdown-link"
+                              >RO: 8077</router-link
+                            >
+                          </li>
+                        </ul>
                       </li>
                     </ul>
-                  </li>
-                  <li class="dropdown-item">
-                    <router-link to="/" class="dropdown-link"
-                      >Lycra Spandex Series</router-link
-                    >
-                    <ul class="dropdown-submenu">
-                      <li class="dropdown-submenu-item">
-                        <router-link to="/" class="dropdown-link"
-                          >RO: 5002</router-link
-                        >
-                      </li>
-                      <li class="dropdown-submenu-item">
-                        <router-link to="/" class="dropdown-link"
-                          >RO: 5003</router-link
-                        >
-                      </li>
-                      <li class="dropdown-submenu-item">
-                        <router-link to="/" class="dropdown-link"
-                          >RO: 5012</router-link
-                        >
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="dropdown-item">
-                    <router-link to="/" class="dropdown-link"
-                      >Lycra Modal Series</router-link
-                    >
-                    <ul class="dropdown-submenu">
-                      <li class="dropdown-submenu-item">
-                        <router-link to="/" class="dropdown-link"
-                          >RO: 8076</router-link
-                        >
-                      </li>
-                      <li class="dropdown-submenu-item">
-                        <router-link to="/" class="dropdown-link"
-                          >RO: 8077</router-link
-                        >
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
-              </router-link>
-              <router-link to="/" class="nav-link">
-                <p>Promotion</p>
-              </router-link>
-              <router-link to="/" class="nav-link">
-                <p>Our Story</p>
-              </router-link>
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="/" class="nav-link">
+                    <p>Promotion</p>
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="/" class="nav-link">
+                    <p>Our Story</p>
+                  </router-link>
+                </li>
+              </ul>
             </div>
           </div>
 
@@ -336,12 +387,20 @@ export default {
     const bamboo = ref(false);
     const modal = ref(false);
     const spandex = ref(false);
+    const isHovered = ref(false);
+
+    const handleMouseOver = () => {
+      isHovered.value = true;
+    };
+
+    const handleMouseLeave = () => {
+      isHovered.value = false;
+    };
 
     const store = useStore();
     const cartItemCount = computed(() => {
       return store.getters.cartItemCount;
     });
-    const dropdown = ref(false);
 
     document.addEventListener("scroll", () => {
       const header = document.getElementById("nav2");
@@ -355,11 +414,14 @@ export default {
     return {
       drawer,
       cartItemCount,
-      dropdown,
+
       mobileDropdown,
       bamboo,
       modal,
       spandex,
+      isHovered,
+      handleMouseOver,
+      handleMouseLeave,
     };
   },
 };
@@ -514,7 +576,8 @@ export default {
 }
 
 .dropdown {
-  display: none;
+  display: block;
+  visibility: hidden;
   position: absolute;
   left: 22.5%;
   top: 100%;
@@ -525,10 +588,11 @@ export default {
   z-index: 1;
   border: 1px solid lightgray;
   border-radius: 2px;
+  transition: 0.5s ease-out;
 }
 
 .dropdown-submenu {
-  display: none;
+  visibility: hidden;
   position: absolute;
   left: 100%;
   top: 0;
@@ -567,7 +631,7 @@ export default {
 
 .nav-link:hover > .dropdown,
 .dropdown-item:hover > .dropdown-submenu {
-  display: block;
+  visibility: visible;
 }
 
 .dropdown-mobile {

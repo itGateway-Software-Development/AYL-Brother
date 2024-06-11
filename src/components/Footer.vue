@@ -12,25 +12,33 @@
           <h2>Customer Service</h2>
           <ul class="text-start info-text">
             <li>
-              <p>Contact Us</p>
+              <router-link class="nav-link" to="/contact">
+                <p>Contact Us</p></router-link
+              >
             </li>
-            <li>
-              <p>FAQs</p>
+            <li class="nav-link">
+              <router-link class="nav-link" to="/"> <p>FAQs</p></router-link>
             </li>
-            <li>
-              <p>Order & Delivery</p>
+            <li class="nav-link">
+              <router-link class="nav-link" to="/">
+                <p>Oreder & Delivery</p></router-link
+              >
             </li>
-            <li>
-              <p>Payment & Pricing</p>
+            <li class="nav-link">
+              <router-link class="nav-link" to="/">
+                <p>Payment & Pricing</p></router-link
+              >
             </li>
-            <li>
-              <p>Promotion Terms & Condition</p>
+            <li class="nav-link">
+              <router-link class="nav-link" to="/">
+                <p>Promotion Terms & Condition</p></router-link
+              >
             </li>
           </ul>
         </div>
         <div class="col-12 col-md-4 logo-text text-start footer-col-1">
           <h2 class="mb-1">About Romantic</h2>
-          <p>About Us</p>
+          <router-link class="nav-link" to="/"> <p>Our Story</p></router-link>
         </div>
         <div class="col-12 col-md-4 logo-text text-start footer-col-2">
           <h2>Discount & Membership</h2>
@@ -75,6 +83,10 @@ export default {};
   color: #ffffff;
   font-weight: bold;
   text-transform: uppercase;
+}
+
+.info-text {
+  cursor: pointer;
 }
 
 .info-text li {

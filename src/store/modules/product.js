@@ -1186,12 +1186,6 @@ export default {
         );
       }
 
-      if (state.selectedCat.length > 0) {
-        filtered = filtered.filter((product) =>
-          state.selectedCat.includes(product.cat)
-        );
-      }
-
       return filtered;
     },
     getProductById: (state) => (id) => {
@@ -1263,9 +1257,9 @@ export default {
     setSelectedSeries(state, series) {
       state.selectedSeries = series;
     },
-    setSelectedCat(state, cat) {
-      state.selectedCat = cat;
-    },
+    // setSelectedCode(state, code) {
+    //   state.selectedCode = code;
+    // },
     SET_LOCATION(state, location) {
       state.selectedLocation = location;
       state.selectedSubLocation = null; // Reset sub-location when location changes
@@ -1300,9 +1294,9 @@ export default {
     setSelectedSeries(context, series) {
       context.commit("setSelectedSeries", series);
     },
-    setSelectedCat(context, cat) {
-      context.commit("setSelectedCat", cat);
-    },
+    // setSelectedCat(context, code) {
+    //   context.commit("setSelectedCode", code);
+    // },
     chooseLocation({ commit }, location) {
       commit("SET_LOCATION", location);
     },

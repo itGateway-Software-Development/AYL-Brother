@@ -5,7 +5,11 @@
         <ProductFilter @priceFilter="filterPrice"></ProductFilter>
       </div>
       <div class="col-12 col-md-9 col-sm-6 p-list">
-        <ProductCard :price="selPrice"></ProductCard>
+        <ProductCard
+          :price="selPrice"
+          :series="series"
+          :code="code"
+        ></ProductCard>
       </div>
     </div>
   </div>
@@ -21,6 +25,7 @@ export default {
     ProductCard,
     ProductFilter,
   },
+  props: ["series", "code"],
   setup() {
     let selPrice = ref("");
 

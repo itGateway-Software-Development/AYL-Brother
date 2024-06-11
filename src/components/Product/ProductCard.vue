@@ -58,12 +58,50 @@ import product from "../../store/modules/product";
 import { useRoute } from "vue-router";
 
 export default {
-  setup() {
+  props: ["series", "code"],
+  setup(props) {
     const Swal = require("sweetalert2");
-    const route = useRoute;
+    const route = useRoute();
     const store = useStore();
+    const series = ref(props.series);
+    const code = ref();
 
-    const filteredProducts = computed(() => store.getters.filteredProducts);
+    // const filteredProducts = computed(() => store.getters.filteredProducts);
+    const products = computed(() => store.getters.filteredProducts);
+    const filteredProducts = ref([]);
+
+    const codeValue = () => {
+      if (props.code == 0) {
+        code.value = null;
+      } else {
+        code.value = props.code;
+      }
+    };
+
+    const filter = () => {
+      codeValue();
+      filteredProducts.value = products.value.filter((product) => {
+        if (series.value && code.value) {
+          return product.series == series.value && product.code == code.value;
+        }
+        if (series.value && code.value == null) {
+          return product.series == series.value;
+        }
+        if (!series.value && !code.value) {
+          return products;
+        }
+      });
+    };
+
+    watch(route, () => {
+      code.value = route.params.code;
+      series.value = route.params.series;
+      filter();
+    });
+
+    onMounted(() => {
+      filter();
+    });
 
     const items = computed(() => store.getters["product"]);
 
@@ -93,9 +131,9 @@ export default {
     const addToCart = (product) => {
       if (!selectedSize.value) {
         Swal.fire({
-          title: "Error!",
+          title: "Warning",
           text: "Please Select Size !!",
-          icon: "error",
+          icon: "warning",
           confirmButtonText: "Ok",
         });
         return;

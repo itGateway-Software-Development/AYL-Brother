@@ -2,11 +2,11 @@
   <div class="product-filter text-start">
     <div class="text-filter">
       <p class="mb-3 route-text">Men / {{ this.$route.name }}</p>
-      <p class="mb-5 res">{{ product.length }} Result</p>
+      <p class="mb-5 res">{{ filteredProducts.length }} Result</p>
     </div>
     <div class="f-1">
       <p class="mb-3 route-text">Men / {{ this.$route.name }}</p>
-      <p class="mb-5 res">{{ product.length }} Result</p>
+      <p class="mb-5 res">{{ filteredProducts.length }} Result</p>
       <div class="filter-header">
         <hr />
         <h4 class="fw-bold">Filter Product</h4>
@@ -14,7 +14,7 @@
         <p><span class="color-text">Briefs</span></p> -->
       </div>
       <div class="filter-list">
-        <div class="filter-category">
+        <!-- <div class="filter-category">
           <div class="d-flex justify-content-between">
             <h5 class="fw-bold">Category</h5>
             <span
@@ -32,13 +32,17 @@
             data-aos-duration="8000"
           >
             <div>
-              <label v-for="cat in availableCats" :key="cat" class="filter-cat">
-                <input type="checkbox" :value="cat" v-model="selectedCat" />
-                <p class="ps-2">{{ cat }}</p>
+              <label
+                v-for="code in availableCode"
+                :key="code"
+                class="filter-cat"
+              >
+                <input type="checkbox" :value="code" v-model="selectedCat" />
+                <p class="ps-2">RO: {{ code }}</p>
               </label>
             </div>
           </div>
-        </div>
+        </div> -->
 
         <div class="filter-fabric">
           <div class="d-flex justify-content-between">
@@ -62,8 +66,9 @@
               :key="series"
               class="filter-cat"
             >
-              <input type="checkbox" :value="series" v-model="selectedSeries" />
-              <p class="ps-2">{{ series }} Series</p>
+              <router-link class="nav-link" to="/product">
+                <p class="">{{ series }} Series</p></router-link
+              >
             </label>
           </div>
         </div>
@@ -160,12 +165,12 @@
             >
               <div>
                 <label
-                  v-for="cat in availableCats"
-                  :key="cat"
+                  v-for="code in availableCode"
+                  :key="code"
                   class="filter-cat"
                 >
-                  <input type="checkbox" :value="cat" v-model="selectedCat" />
-                  <p class="ps-2">{{ cat }}</p>
+                  <input type="checkbox" :value="code" v-model="selectedCat" />
+                  <p class="ps-2">RO: {{ code }}</p>
                 </label>
               </div>
             </div>
@@ -257,13 +262,17 @@
 </template>
 
 <script>
-import { ref, watch, computed } from "vue";
+import { ref, watch, computed, onMounted } from "vue";
 import { useStore } from "vuex";
+import { useRoute } from "vue-router";
+
 export default {
+  props: ["series", "code"],
   setup(props, context) {
     const store = useStore();
     const product = computed(() => store.getters.filteredProducts);
     const drawer = ref(false);
+    const route = useRoute();
 
     const fabric = ref([]);
 
@@ -287,7 +296,45 @@ export default {
     const selectedSeries = ref([]);
     const selectedCat = ref([]);
     const availableSeries = ["bamboo", "lycra", "spandex"]; // Example series, this could be dynamically generated
-    const availableCats = ref(["boxer", "brief"]); // Example categories, can be generated dynamically
+    // const availableCode = ref([8028, 8027, 8018, 8017, 8003, 8002]); // Example categories, can be generated dynamically
+
+    const products = computed(() => store.getters.filteredProducts);
+    const filteredProducts = ref([]);
+    const series = ref(props.series);
+    const code = ref();
+
+    const codeValue = () => {
+      if (props.code == 0) {
+        code.value = null;
+      } else {
+        code.value = props.code;
+      }
+    };
+
+    const filter = () => {
+      codeValue();
+      filteredProducts.value = products.value.filter((product) => {
+        if (series.value && code.value) {
+          return product.series == series.value && product.code == code.value;
+        }
+        if (series.value && code.value == null) {
+          return product.series == series.value;
+        }
+        if (!series.value && !code.value) {
+          return products;
+        }
+      });
+    };
+
+    watch(route, () => {
+      code.value = route.params.code;
+      series.value = route.params.series;
+      filter();
+    });
+
+    onMounted(() => {
+      filter();
+    });
 
     watch(
       selectedSeries,
@@ -297,13 +344,13 @@ export default {
       { immediate: true }
     );
 
-    watch(
-      selectedCat,
-      (newCat) => {
-        store.dispatch("setSelectedCat", newCat);
-      },
-      { immediate: true }
-    );
+    // watch(
+    //   selectedCat,
+    //   (newCat) => {
+    //     store.dispatch("setSelectedCat", newCat);
+    //   },
+    //   { immediate: true }
+    // );
 
     return {
       fabric,
@@ -316,8 +363,9 @@ export default {
       selectedSeries,
       availableSeries,
       selectedCat,
-      availableCats,
+
       product,
+      filteredProducts,
     };
   },
 };

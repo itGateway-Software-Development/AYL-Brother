@@ -7,6 +7,7 @@ import SignUp from "../views/SignUp.vue";
 import Login from "../components/LoginForm/Login.vue";
 import Register from "../components/LoginForm/Register.vue";
 import Bamboo from "../views/product/Bamboo.vue";
+import ContactUs from "../views/ContactUs.vue";
 
 const routes = [
   {
@@ -20,11 +21,6 @@ const routes = [
     component: ProductView,
   },
   {
-    path: "/product/:series",
-    name: "bamboo",
-    component: Bamboo,
-  },
-  {
     path: "/cart",
     name: "cart",
     component: CartView,
@@ -35,6 +31,12 @@ const routes = [
     component: ProductDetail,
     props: (route) => ({ id: Number(route.params.id) }),
   },
+  {
+    path: "/products/:series/:code",
+    component: ProductView,
+    props: true,
+  },
+
   {
     path: "/signup",
     name: "signup",
@@ -49,6 +51,11 @@ const routes = [
     path: "/register",
     name: "Register",
     component: Register,
+  },
+  {
+    path: "/contact",
+    name: "Contact",
+    component: ContactUs,
   },
 ];
 
