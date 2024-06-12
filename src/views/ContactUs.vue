@@ -123,6 +123,10 @@ export default {};
   display: flex;
 }
 
+.text-contact {
+  display: flex;
+}
+
 @media (max-width: 1200px) {
   iframe,
   .meet-us,

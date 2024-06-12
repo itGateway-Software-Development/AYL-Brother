@@ -207,8 +207,8 @@ export default {
 .promotion-text {
   position: absolute;
   top: 11%;
-  left: 37.5%;
-  transform: translate(-11%, -37.5%);
+  left: 41%;
+  transform: translate(-11%, -41%);
   color: #fff;
 }
 
