@@ -142,13 +142,13 @@
                   </div>
                   <ul class="mobile-sub-dropdown" v-if="modal">
                     <li class="mobile-sub-item">
-                      <router-link to="/products/lycra/8018" class="nav-link"
-                        >RO: 8018</router-link
+                      <router-link to="/products/lycra/8076" class="nav-link"
+                        >RO: 8076</router-link
                       >
                     </li>
                     <li class="mobile-sub-item">
-                      <router-link to="/products/lycra/8017" class="nav-link"
-                        >RO: 8017</router-link
+                      <router-link to="/products/lycra/8077" class="nav-link"
+                        >RO: 8077</router-link
                       >
                     </li>
                   </ul>
