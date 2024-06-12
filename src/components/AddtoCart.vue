@@ -168,7 +168,9 @@
             </div>
           </div>
           <div class="checkout-button">
-            <button class="btn checkout-btn">Proceed To Checkout</button>
+            <button class="btn checkout-btn" @click="checkOut()">
+              Proceed To Checkout
+            </button>
           </div>
         </div>
       </div>
@@ -219,6 +221,20 @@ export default {
         code: item.code,
       });
     };
+    const checkOut = () => {
+      if (
+        selectedLocation.value &&
+        selectedSubLocation.value &&
+        cartItems.value
+      ) {
+        console.log(cartItems);
+        console.log(total.value);
+        console.log(grandTotal.value);
+        console.log(deliveryPrice.value);
+      } else {
+        console.log("check cart");
+      }
+    };
     return {
       cartItems,
       total,
@@ -234,6 +250,7 @@ export default {
       onSubLocationChange,
       deliveryPrice,
       grandTotal,
+      checkOut,
     };
   },
 };

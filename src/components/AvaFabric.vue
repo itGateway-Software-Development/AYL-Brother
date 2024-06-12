@@ -174,7 +174,7 @@ export default {
   }
 
   .item img {
-    height: max-content;
+    height: 300px;
   }
 
   .item-text {

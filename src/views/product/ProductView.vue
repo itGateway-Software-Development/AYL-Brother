@@ -1,7 +1,7 @@
 <template>
   <div class="product container content-wrapper">
     <div class="row">
-      <div class="col-12 col-md-3 col-sm-12">
+      <div class="col-12 col-md-3 col-sm-12 f-list">
         <ProductFilter @priceFilter="filterPrice"></ProductFilter>
       </div>
       <div class="col-12 col-md-9 col-sm-6 p-list">
@@ -68,5 +68,16 @@ export default {
 }
 
 @media (max-width: 500px) {
+  .product {
+    margin: 10px 20px;
+  }
+
+  .f-list {
+    margin-left: 10px;
+  }
+
+  .p-list {
+    margin-left: -10px;
+  }
 }
 </style>

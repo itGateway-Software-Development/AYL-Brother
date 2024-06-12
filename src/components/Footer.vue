@@ -54,9 +54,25 @@
             <h2>Follow Us</h2>
             <ul>
               <li class="d-flex social">
-                <i class="uil uil-facebook-f"></i>
+                <a
+                  href="https://www.facebook.com/romanticmenunderwear/?ref=embed_page"
+                  class="nav-link"
+                  ><i class="uil uil-facebook-f"></i
+                ></a>
                 <i class="uil uil-instagram-alt"></i>
-                <i class="uil uil-youtube"></i>
+                <a
+                  href="https://www.youtube.com/@RomanticUnderwear"
+                  class="nav-link"
+                  ><i class="uil uil-youtube"></i
+                ></a>
+                <a href="https://t.me/romanticmenunderwear" class="nav-link"
+                  ><i class="uil uil-telegram"></i
+                ></a>
+                <a
+                  href="https://invite.viber.com/?g2=AQBOaf6o2%2Bnp41LyWr00ZANYufLz%2B647%2FEccgumEJXIMudr7zT%2FNQeU82FmA%2FGss"
+                  class="nav-link"
+                  ><i class="fa-brands fa-viber"></i
+                ></a>
               </li>
             </ul>
           </div>
@@ -129,6 +145,11 @@ export default {};
 
 .footer-img {
   width: 300px;
+}
+
+.fa-brands {
+  font-size: 32px;
+  padding: 10px 0px 0px;
 }
 
 @media (max-width: 1200px) {
