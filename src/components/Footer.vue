@@ -16,19 +16,19 @@
                 <p>Contact Us</p></router-link
               >
             </li>
-            <li class="nav-link">
+            <!-- <li class="nav-link">
               <router-link class="nav-link" to="/"> <p>FAQs</p></router-link>
-            </li>
+            </li> -->
             <li class="nav-link">
               <router-link class="nav-link" to="/">
                 <p>Oreder & Delivery</p></router-link
               >
             </li>
-            <li class="nav-link">
+            <!-- <li class="nav-link">
               <router-link class="nav-link" to="/">
                 <p>Payment & Pricing</p></router-link
               >
-            </li>
+            </li> -->
             <li class="nav-link">
               <router-link class="nav-link" to="/">
                 <p>Promotion Terms & Condition</p></router-link
@@ -43,9 +43,9 @@
         <div class="col-12 col-md-4 logo-text text-start footer-col-2">
           <h2>Discount & Membership</h2>
           <ul class="text-start info-text">
-            <li class="d-flex">
+            <!-- <li class="d-flex">
               <p>Affiiate Program</p>
-            </li>
+            </li> -->
             <li class="d-flex">
               <p>Romantic Membership</p>
             </li>

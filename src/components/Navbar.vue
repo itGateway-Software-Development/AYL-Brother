@@ -162,11 +162,74 @@
               <router-link to="/" class="nav-link mb-text"
                 ><v-list-item><p>Our Story</p></v-list-item></router-link
               >
-              <v-list-item link
-                ><span class="material-symbols-outlined">
-                  account_circle
-                </span></v-list-item
+              <v-list-item link v-if="isLogin"
+                ><router-link class="nav-link" to="/login"
+                  ><span class="material-symbols-outlined">
+                    account_circle
+                  </span></router-link
+                ></v-list-item
               >
+              <v-list-item link v-else>
+                <div class="dropdown-img dropdown">
+                  <img
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    class="img-fluid"
+                    src="https://ui-avatars.com/api/?background=ff0000&color=fff&name=SST"
+                    alt=""
+                  />
+                  <ul class="dropdown-menu">
+                    <li>
+                      <a
+                        class="dropdown-item d-flex align-items-center img-text"
+                        href="#"
+                        ><img
+                          src="https://ui-avatars.com/api/?background=ff0000&color=fff&name=SST"
+                          alt=""
+                        />
+                        <h5>SST</h5></a
+                      >
+                    </li>
+                    <li>
+                      <div class="dropdown-divider"></div>
+                    </li>
+                    <li>
+                      <router-link
+                        class="dropdown-item d-flex align-items-center icon-text nav-link"
+                        to="/"
+                        ><span class="material-symbols-outlined"> person </span>
+                        <p>My Profile</p>
+                      </router-link>
+                    </li>
+                    <li>
+                      <router-link
+                        class="dropdown-item d-flex align-items-center icon-text nav-link"
+                        to="/"
+                        ><span class="material-symbols-outlined">
+                          settings
+                        </span>
+                        <p>Settings</p></router-link
+                      >
+                    </li>
+                    <li>
+                      <div class="dropdown-divider"></div>
+                    </li>
+                    <li>
+                      <button
+                        class="dropdown-item d-flex align-items-center icon-text nav-link"
+                        type="button"
+                        @click="logout()"
+                      >
+                        <span class="material-symbols-outlined">
+                          power_settings_new
+                        </span>
+                        <p>Logout</p>
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+              </v-list-item>
               <v-list-item link
                 ><span class="material-symbols-outlined">
                   favorite
@@ -207,11 +270,72 @@
           <div class="upper-nav-icon">
             <div class="icon-group d-flex justify-content-around">
               <span class="material-symbols-outlined"> language </span>
-              <router-link to="/login" class="nav-link btn"
+              <router-link to="/login" class="nav-link btn" v-if="isLogin"
                 ><span class="material-symbols-outlined">
                   person
                 </span></router-link
               >
+              <div v-else class="px-3">
+                <div class="dropdown-img dropdown">
+                  <img
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    class="img-fluid"
+                    src="https://ui-avatars.com/api/?background=ff0000&color=fff&name=SST"
+                    alt=""
+                  />
+                  <ul class="dropdown-menu">
+                    <li>
+                      <a
+                        class="dropdown-item d-flex align-items-center img-text"
+                        href="#"
+                        ><img
+                          src="https://ui-avatars.com/api/?background=ff0000&color=fff&name=SST"
+                          alt=""
+                        />
+                        <h5>SST</h5></a
+                      >
+                    </li>
+                    <li>
+                      <div class="dropdown-divider"></div>
+                    </li>
+                    <li>
+                      <router-link
+                        class="dropdown-item d-flex align-items-center icon-text nav-link"
+                        to="/"
+                        ><span class="material-symbols-outlined"> person </span>
+                        <p>My Profile</p>
+                      </router-link>
+                    </li>
+                    <li>
+                      <router-link
+                        class="dropdown-item d-flex align-items-center icon-text nav-link"
+                        to="/"
+                        ><span class="material-symbols-outlined">
+                          settings
+                        </span>
+                        <p>Settings</p></router-link
+                      >
+                    </li>
+                    <li>
+                      <div class="dropdown-divider"></div>
+                    </li>
+                    <li>
+                      <button
+                        class="dropdown-item d-flex align-items-center icon-text nav-link"
+                        type="button"
+                        @click="logout()"
+                      >
+                        <span class="material-symbols-outlined">
+                          power_settings_new
+                        </span>
+                        <p>Logout</p>
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+              </div>
               <span class="material-symbols-outlined"> favorite </span>
               <router-link to="/cart" class="nav-link"
                 ><span class="material-symbols-outlined"> shopping_bag </span>
@@ -237,8 +361,8 @@
                 <li>
                   <router-link to="/product" class="nav-link">
                     <p class="nav-p">Product</p>
-                    <ul class="dropdown">
-                      <li class="dropdown-item">
+                    <ul class="dropdowns">
+                      <li class="dropdown-items">
                         <router-link
                           to="/products/bamboo/0"
                           class="dropdown-link"
@@ -289,7 +413,7 @@
                           </li>
                         </ul>
                       </li>
-                      <li class="dropdown-item">
+                      <li class="dropdown-items">
                         <router-link
                           to="/products/spandex/0"
                           class="dropdown-link"
@@ -326,7 +450,7 @@
                           </li>
                         </ul>
                       </li>
-                      <li class="dropdown-item">
+                      <li class="dropdown-items">
                         <router-link
                           to="/products/lycra/0"
                           class="dropdown-link"
@@ -398,6 +522,12 @@ export default {
     const modal = ref(false);
     const spandex = ref(false);
     const isHovered = ref(false);
+    const isLogin = ref(false);
+
+    const logout = () => {
+      localStorage.removeItem("Token");
+      isLogin.value = true;
+    };
 
     const handleMouseOver = () => {
       isHovered.value = true;
@@ -424,7 +554,7 @@ export default {
     return {
       drawer,
       cartItemCount,
-
+      isLogin,
       mobileDropdown,
       bamboo,
       modal,
@@ -432,6 +562,7 @@ export default {
       isHovered,
       handleMouseOver,
       handleMouseLeave,
+      logout,
     };
   },
 };
@@ -585,7 +716,7 @@ export default {
   font-weight: 500;
 }
 
-.dropdown {
+.dropdowns {
   display: block;
   visibility: hidden;
   position: absolute;
@@ -613,7 +744,7 @@ export default {
   border: 1px solid lightgray;
 }
 
-.dropdown-item,
+.dropdown-items,
 .dropdown-submenu-item {
   position: relative;
   z-index: 1;
@@ -639,8 +770,8 @@ export default {
   color: red;
 }
 
-.nav-link:hover > .dropdown,
-.dropdown-item:hover > .dropdown-submenu {
+.nav-link:hover > .dropdowns,
+.dropdown-items:hover > .dropdown-submenu {
   visibility: visible;
 }
 
@@ -656,6 +787,29 @@ export default {
 .mobile-dropdown-item p {
   font-size: 20px;
 }
+
+.dropdown-img img {
+  width: 28px;
+  border-radius: 50%;
+}
+
+.img-text img {
+  margin-right: 20px;
+  width: 50px;
+}
+
+.img-text h5 {
+  margin-top: 10px;
+}
+
+.icon-text {
+  height: 50px;
+}
+
+.dropdown-menu {
+  width: 180px;
+}
+
 @media (max-width: 1920px) {
   .cart-count {
     right: 16.3%;
@@ -666,13 +820,13 @@ export default {
   .cart-count {
     right: 9.5%;
   }
-  .dropdown {
+  .dropdowns {
     left: 17.5%;
   }
 }
 
 @media (max-width: 1400px) {
-  .dropdown {
+  .dropdowns {
     left: 14%;
   }
 }
@@ -685,7 +839,7 @@ export default {
   .nav2 {
     display: none;
   } */
-  .dropdown {
+  .dropdowns {
     left: 16%;
   }
 
@@ -708,7 +862,7 @@ export default {
     right: 6.5%;
   }
 
-  .dropdown {
+  .dropdowns {
     left: 19.5%;
   }
 }

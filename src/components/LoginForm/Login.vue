@@ -57,7 +57,7 @@
               </div>
             </div>
             <div class="login-btn-group">
-              <div class="btn login-btn">Login</div>
+              <button class="btn login-btn" @click="fetchData">Login</button>
             </div>
             <div class="f-pass mt-5 text-start">
               <p>Forget Password?</p>
@@ -72,6 +72,9 @@
 <script>
 import { ref } from "vue";
 import { useRouter } from "vue-router";
+import axios from "axios";
+import api from "@/service/api";
+
 export default {
   setup() {
     const router = useRouter();
@@ -85,11 +88,30 @@ export default {
 
     console.log(selectedRoute.value);
 
+    let fetchData = async () => {
+      const token = JSON.parse(localStorage.getItem("Token"));
+      console.log(typeof token);
+
+      console.log(api.test);
+      try {
+        const response = await axios.get(api.test, {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        console.log(response);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
     return {
       selectedRoute,
       changeRoute,
       email,
       password,
+      fetchData,
     };
   },
 };

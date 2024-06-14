@@ -34,72 +34,86 @@
                 <label class="radiobutton_label"> I'm New to Romantic </label>
               </div>
             </div>
-            <div class="input-form text-start mb-5">
-              <p class="mb-2">Enter your email</p>
-              <div class="input-group mb-3">
-                <input
-                  type="text"
-                  v-model="email"
-                  class="form-control"
-                  aria-label="Sizing example input"
-                  aria-describedby="inputGroup-sizing-default"
-                />
+            <form @submit="submit">
+              <div class="input-form text-start mb-5">
+                <p class="mb-2">Enter your name</p>
+                <div class="input-group mb-3">
+                  <input
+                    type="text"
+                    v-model="form.userName"
+                    class="form-control"
+                    aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-default"
+                  />
+                </div>
+                <p class="mb-2">Enter your eamil</p>
+                <div class="input-group mb-3">
+                  <input
+                    type="email"
+                    v-model="form.email"
+                    class="form-control"
+                    aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-default"
+                  />
+                </div>
+                <p class="mb-2">Enter new password</p>
+                <div class="input-group mb-3">
+                  <input
+                    type="password"
+                    v-model="form.password"
+                    class="form-control"
+                    aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-default"
+                  />
+                </div>
+                <p
+                  class="text-danger mb-3"
+                  v-if="form.password.length < 6 && form.password.length > 0"
+                >
+                  You must enter at least 6 chracters
+                </p>
+                <p class="mb-2">Confirm your password</p>
+                <div class="input-group mb-3">
+                  <input
+                    type="password"
+                    v-model="form.cfpassword"
+                    class="form-control"
+                    aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-default"
+                  />
+                </div>
+                <p
+                  class="text-danger mb-3"
+                  v-if="form.password != form.cfpassword"
+                >
+                  Your password is unmatched
+                </p>
+                <p class="mb-2">Enter your Birthday</p>
+                <div class="input-group mb-3">
+                  <input
+                    type="date"
+                    v-model="form.birthday"
+                    class="form-control"
+                    aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-default"
+                  />
+                </div>
+                <p class="mb-2">Enter your Address</p>
+                <div class="form-floating">
+                  <textarea
+                    class="form-control"
+                    v-model="form.address"
+                    placeholder="Leave a comment here"
+                    id="floatingTextarea2"
+                    style="height: 100px"
+                  ></textarea>
+                  <label for="floatingTextarea2">Address</label>
+                </div>
               </div>
-              <p class="mb-2">Create New Password</p>
-              <div class="input-group mb-3">
-                <input
-                  type="text"
-                  v-model="password"
-                  class="form-control"
-                  aria-label="Sizing example input"
-                  aria-describedby="inputGroup-sizing-default"
-                />
+              <div class="login-btn-group">
+                <button class="btn login-btn">Register Now</button>
               </div>
-              <p class="mb-2">Confirm your Password</p>
-              <div class="input-group mb-3">
-                <input
-                  type="text"
-                  v-model="cfpassword"
-                  class="form-control"
-                  aria-label="Sizing example input"
-                  aria-describedby="inputGroup-sizing-default"
-                />
-              </div>
-              <p class="mb-2">Enter your Name</p>
-              <div class="input-group mb-3">
-                <input
-                  type="text"
-                  v-model="userName"
-                  class="form-control"
-                  aria-label="Sizing example input"
-                  aria-describedby="inputGroup-sizing-default"
-                />
-              </div>
-              <p class="mb-2">Enter your Birthday</p>
-              <div class="input-group mb-3">
-                <input
-                  type="date"
-                  v-model="birthday"
-                  class="form-control"
-                  aria-label="Sizing example input"
-                  aria-describedby="inputGroup-sizing-default"
-                />
-              </div>
-              <p class="mb-2">Enter your Address</p>
-              <div class="form-floating">
-                <textarea
-                  class="form-control"
-                  v-model="address"
-                  placeholder="Leave a comment here"
-                  id="floatingTextarea2"
-                  style="height: 100px"
-                ></textarea>
-                <label for="floatingTextarea2">Address</label>
-              </div>
-            </div>
-            <div class="login-btn-group">
-              <div class="btn login-btn">Register Now</div>
-            </div>
+            </form>
           </div>
         </div>
       </div>
@@ -110,17 +124,45 @@
 <script>
 import { ref } from "vue";
 import { useRouter } from "vue-router";
+import axios from "axios";
+import api from "@/service/api";
 export default {
   setup() {
     const router = useRouter();
     const selectedRoute = ref("/");
 
-    const userName = ref("");
-    const password = ref("");
-    const cfpassword = ref("");
-    const email = ref("");
-    const birthday = ref("");
-    const address = ref("");
+    // const userName = ref("");
+    // const password = ref("");
+    // const cfpassword = ref("");
+    // const email = ref("");
+    // const birthday = ref("");
+    // const address = ref("");
+
+    const form = ref({
+      userName: "",
+      password: "",
+      cfpassword: "",
+      email: "",
+      birthday: "",
+      address: "",
+    });
+
+    const submit = async (e) => {
+      e.preventDefault();
+      let formDataToSend = new FormData();
+      formDataToSend.append("name", form.value.userName);
+      formDataToSend.append("email", form.value.email);
+      formDataToSend.append("password", form.value.password);
+      formDataToSend.append("password_confirmation", form.value.cfpassword);
+      formDataToSend.append("birthday", form.value.birthday);
+      formDataToSend.append("address", form.value.address);
+      let response = await axios.post(api.register, formDataToSend);
+
+      let token = response.data.response.token;
+
+      localStorage.setItem("Token", JSON.stringify(token));
+      router.push("/");
+    };
 
     const changeRoute = () => {
       router.push(selectedRoute.value);
@@ -129,12 +171,10 @@ export default {
     return {
       selectedRoute,
       changeRoute,
-      userName,
-      password,
-      cfpassword,
-      email,
-      birthday,
-      address,
+
+      form,
+
+      submit,
     };
   },
 };
