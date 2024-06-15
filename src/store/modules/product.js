@@ -1,5 +1,8 @@
+import { ref } from "vue";
 import { toast } from "vue3-toastify";
 const CART_KEY = "cart";
+const TOTAL_AVAILABLE_POINTS_KEY = "totalAvailablePoints";
+const POINTS_TO_MMK_CONVERSION_RATE = 1;
 
 const saveCartToLocalStorage = (cart) => {
   localStorage.setItem(CART_KEY, JSON.stringify(cart));
@@ -8,6 +11,19 @@ const saveCartToLocalStorage = (cart) => {
 const loadCartFromLocalStorage = () => {
   const cart = localStorage.getItem(CART_KEY);
   return cart ? JSON.parse(cart) : [];
+};
+const saveTotalAvailablePointsToLocalStorage = (points) => {
+  localStorage.setItem(TOTAL_AVAILABLE_POINTS_KEY, points);
+};
+
+const loadTotalAvailablePointsFromLocalStorage = () => {
+  const points = localStorage.getItem(TOTAL_AVAILABLE_POINTS_KEY);
+  if (points === null) {
+    const initialPoints = 1000; // Initialize to 1000 points if not set
+    localStorage.setItem(TOTAL_AVAILABLE_POINTS_KEY, initialPoints);
+    return initialPoints;
+  }
+  return parseInt(points, 10);
 };
 const defaultProduct = [
   {
@@ -1159,10 +1175,16 @@ export default {
     selectedLocation: null,
     selectedSubLocation: null,
     deliveryPrice: 0,
+    totalAvailablePoints: loadTotalAvailablePointsFromLocalStorage(),
+    discountPoints: loadPointsFromLocalStorage(),
   },
   getters: {
     products: (state) => {
       return state.products;
+    },
+
+    discountPoints: (state) => {
+      return state.discountPoints;
     },
 
     cartItems: (state) => {
@@ -1207,11 +1229,13 @@ export default {
     deliveryPrice: (state) => state.deliveryPrice,
 
     grandTotal: (state) => {
-      return state.cart.reduce(
+      const total = state.cart.reduce(
         (total, item) =>
           total + item.price * item.quantity + state.deliveryPrice,
         0
       );
+      const discount = state.discountPoints * POINTS_TO_MMK_CONVERSION_RATE;
+      return Math.max(0, total - discount);
     },
   },
   mutations: {
@@ -1271,6 +1295,13 @@ export default {
       // Mutation to set delivery price
       state.deliveryPrice = price;
     },
+
+    APPLY_DISCOUNT_POINTS(state, points) {
+      state.discountPoints = points;
+      state.totalAvailablePoints -= points;
+      savePointsToLocalStorage(points);
+      saveTotalAvailablePointsToLocalStorage(state.totalAvailablePoints);
+    },
   },
   actions: {
     addToCart(context, product) {
@@ -1329,6 +1360,14 @@ export default {
 
       console.log(deliveryPrice);
       commit("SET_DELIVERY_PRICE", deliveryPrice);
+    },
+    applyDiscountPoints({ commit, state }, points) {
+      if (points > state.totalAvailablePoints) {
+        toast.error(`You don't have enough discount points.`);
+      } else {
+        commit("APPLY_DISCOUNT_POINTS", points);
+        toast.info(`Applied ${points} discount points`);
+      }
     },
   },
   modules: {},

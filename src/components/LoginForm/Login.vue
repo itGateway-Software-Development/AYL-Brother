@@ -34,31 +34,33 @@
                 <label class="radiobutton_label"> I'm New to Romantic </label>
               </div>
             </div>
-            <div class="input-form text-start mb-5">
-              <p class="mb-2">Email</p>
-              <div class="input-group mb-3">
-                <input
-                  type="text"
-                  v-model="email"
-                  class="form-control"
-                  aria-label="Sizing example input"
-                  aria-describedby="inputGroup-sizing-default"
-                />
+            <form @submit="sumbit">
+              <div class="input-form text-start mb-5">
+                <p class="mb-2">Email</p>
+                <div class="input-group mb-3">
+                  <input
+                    type="text"
+                    v-model="form.email"
+                    class="form-control"
+                    aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-default"
+                  />
+                </div>
+                <p class="mb-2">Password</p>
+                <div class="input-group mb-3">
+                  <input
+                    type="password"
+                    v-model="form.password"
+                    class="form-control"
+                    aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-default"
+                  />
+                </div>
               </div>
-              <p class="mb-2">Password</p>
-              <div class="input-group mb-3">
-                <input
-                  type="text"
-                  v-model="password"
-                  class="form-control"
-                  aria-label="Sizing example input"
-                  aria-describedby="inputGroup-sizing-default"
-                />
+              <div class="login-btn-group">
+                <button class="btn login-btn">Login</button>
               </div>
-            </div>
-            <div class="login-btn-group">
-              <button class="btn login-btn" @click="fetchData">Login</button>
-            </div>
+            </form>
             <div class="f-pass mt-5 text-start">
               <p>Forget Password?</p>
             </div>
@@ -79,39 +81,40 @@ export default {
   setup() {
     const router = useRouter();
     const selectedRoute = ref("/");
-    const password = ref("");
-    const email = ref("");
 
     const changeRoute = () => {
       router.push(selectedRoute.value);
     };
 
-    console.log(selectedRoute.value);
+    let form = ref({
+      email: "",
+      password: "",
+    });
 
-    let fetchData = async () => {
-      const token = JSON.parse(localStorage.getItem("Token"));
-      console.log(typeof token);
+    let sumbit = async (e) => {
+      e.preventDefault();
+      let formDataToSend = new FormData();
+      formDataToSend.append("email", form.value.email);
+      formDataToSend.append("password", form.value.password);
 
-      console.log(api.test);
-      try {
-        const response = await axios.get(api.test, {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        });
-        console.log(response);
-      } catch (error) {
-        console.log(error);
-      }
+      let response = await axios.post(api.login, formDataToSend);
+      let user = localStorage.setItem(
+        "user",
+        JSON.stringify(response.data.response.user)
+      );
+      localStorage.setItem(
+        "Token",
+        JSON.stringify(response.data.response.token)
+      );
+
+      router.push("/");
     };
 
     return {
       selectedRoute,
       changeRoute,
-      email,
-      password,
-      fetchData,
+      form,
+      sumbit,
     };
   },
 };

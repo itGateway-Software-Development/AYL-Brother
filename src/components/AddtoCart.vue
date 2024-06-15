@@ -181,13 +181,14 @@
 <script>
 import { toast } from "vue3-toastify";
 import "vue3-toastify/dist/index.css";
-import { computed, ref, watch } from "vue";
+import { computed, onMounted, ref, watch } from "vue";
 import { mapGetters, mapMutations, useStore } from "vuex";
 export default {
   setup() {
     const store = useStore();
     const selectedLocation = ref(null);
     const selectedSubLocation = ref(null);
+    const point = computed(() => store.getters.points);
 
     const locations = computed(() => store.getters.locations);
     const subLocations = computed(() => store.getters.getSubLocations);
@@ -235,6 +236,10 @@ export default {
         console.log("check cart");
       }
     };
+
+    onMounted(() => {
+      console.log(point);
+    });
     return {
       cartItems,
       total,
@@ -251,6 +256,7 @@ export default {
       deliveryPrice,
       grandTotal,
       checkOut,
+      point,
     };
   },
 };

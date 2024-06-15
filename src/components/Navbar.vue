@@ -162,25 +162,30 @@
               <router-link to="/" class="nav-link mb-text"
                 ><v-list-item><p>Our Story</p></v-list-item></router-link
               >
-              <v-list-item link v-if="isLogin"
-                ><router-link class="nav-link" to="/login"
-                  ><span class="material-symbols-outlined">
-                    account_circle
-                  </span></router-link
-                ></v-list-item
-              >
-              <v-list-item link v-else>
-                <div class="dropdown-img dropdown">
-                  <img
+              <v-list-item v-if="user">
+                <div
+                  class="dropdown-img d-flex justify-content-between align-items-center"
+                  link
+                >
+                  <div class="d-flex align-items-center">
+                    <img
+                      type="button"
+                      class="img-fluid"
+                      :src="avatarSrc"
+                      alt=""
+                    />
+                    <p class="px-5">{{ user.name }}</p>
+                  </div>
+                  <span
+                    class="material-symbols-outlined pe-10"
                     type="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                    class="img-fluid"
-                    src="https://ui-avatars.com/api/?background=ff0000&color=fff&name=SST"
-                    alt=""
-                  />
-                  <ul class="dropdown-menu">
-                    <li>
+                    @click="userAccount = !userAccount"
+                  >
+                    keyboard_arrow_down
+                  </span>
+                </div>
+                <ul class="mobile-dropdown-menu mt-2" v-if="userAccount">
+                  <!-- <li>
                       <a
                         class="dropdown-item d-flex align-items-center img-text"
                         href="#"
@@ -190,46 +195,47 @@
                         />
                         <h5>SST</h5></a
                       >
-                    </li>
-                    <li>
-                      <div class="dropdown-divider"></div>
-                    </li>
-                    <li>
-                      <router-link
-                        class="dropdown-item d-flex align-items-center icon-text nav-link"
-                        to="/"
-                        ><span class="material-symbols-outlined"> person </span>
-                        <p>My Profile</p>
-                      </router-link>
-                    </li>
-                    <li>
-                      <router-link
-                        class="dropdown-item d-flex align-items-center icon-text nav-link"
-                        to="/"
-                        ><span class="material-symbols-outlined">
-                          settings
-                        </span>
-                        <p>Settings</p></router-link
-                      >
-                    </li>
-                    <li>
-                      <div class="dropdown-divider"></div>
-                    </li>
-                    <li>
-                      <button
-                        class="dropdown-item d-flex align-items-center icon-text nav-link"
-                        type="button"
-                        @click="logout()"
-                      >
-                        <span class="material-symbols-outlined">
-                          power_settings_new
-                        </span>
-                        <p>Logout</p>
-                      </button>
-                    </li>
-                  </ul>
-                </div>
+                    </li> -->
+
+                  <li>
+                    <router-link
+                      class="dropdown-item d-flex align-items-center icon-text us-links"
+                      to="/"
+                      ><span class="material-symbols-outlined"> person </span>
+                      <p>My Profile</p>
+                    </router-link>
+                  </li>
+                  <li>
+                    <router-link
+                      class="dropdown-item d-flex align-items-center icon-text us-links"
+                      to="/"
+                      ><span class="material-symbols-outlined"> settings </span>
+                      <p>Settings</p></router-link
+                    >
+                  </li>
+
+                  <li>
+                    <button
+                      class="dropdown-item d-flex align-items-center icon-text nav-link"
+                      type="button"
+                      @click="logout()"
+                    >
+                      <span class="material-symbols-outlined">
+                        power_settings_new
+                      </span>
+                      <p>Logout</p>
+                    </button>
+                  </li>
+                </ul>
               </v-list-item>
+              <v-list-item link v-else
+                ><router-link class="nav-link" to="/login"
+                  ><span class="material-symbols-outlined">
+                    account_circle
+                  </span></router-link
+                ></v-list-item
+              >
+
               <v-list-item link
                 ><span class="material-symbols-outlined">
                   favorite
@@ -270,19 +276,14 @@
           <div class="upper-nav-icon">
             <div class="icon-group d-flex justify-content-around">
               <span class="material-symbols-outlined"> language </span>
-              <router-link to="/login" class="nav-link btn" v-if="isLogin"
-                ><span class="material-symbols-outlined">
-                  person
-                </span></router-link
-              >
-              <div v-else class="px-3">
+              <div v-if="user" class="px-3">
                 <div class="dropdown-img dropdown">
                   <img
                     type="button"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                     class="img-fluid"
-                    src="https://ui-avatars.com/api/?background=ff0000&color=fff&name=SST"
+                    :src="avatarSrc"
                     alt=""
                   />
                   <ul class="dropdown-menu">
@@ -290,11 +291,8 @@
                       <a
                         class="dropdown-item d-flex align-items-center img-text"
                         href="#"
-                        ><img
-                          src="https://ui-avatars.com/api/?background=ff0000&color=fff&name=SST"
-                          alt=""
-                        />
-                        <h5>SST</h5></a
+                        ><img :src="avatarSrc" alt="" />
+                        <h5>{{ user.name }}</h5></a
                       >
                     </li>
                     <li>
@@ -336,6 +334,12 @@
                   </ul>
                 </div>
               </div>
+              <router-link to="/login" class="nav-link btn" v-else
+                ><span class="material-symbols-outlined">
+                  person
+                </span></router-link
+              >
+
               <span class="material-symbols-outlined"> favorite </span>
               <router-link to="/cart" class="nav-link"
                 ><span class="material-symbols-outlined"> shopping_bag </span>
@@ -511,8 +515,9 @@
 </template>
 
 <script>
-import { computed, ref } from "vue";
+import { computed, onMounted, ref, watch } from "vue";
 import { mapGetters, mapMutations, useStore } from "vuex";
+import router from "@/router";
 
 export default {
   setup() {
@@ -522,11 +527,19 @@ export default {
     const modal = ref(false);
     const spandex = ref(false);
     const isHovered = ref(false);
-    const isLogin = ref(false);
+    const userAccount = ref(false);
+
+    const user = ref(JSON.parse(localStorage.getItem("user")));
+
+    const avatarSrc = computed(() => {
+      const userName = user.value.name;
+      return `https://ui-avatars.com/api/?background=ff0000&color=fff&name=${userName}`;
+    });
 
     const logout = () => {
+      localStorage.removeItem("user");
       localStorage.removeItem("Token");
-      isLogin.value = true;
+      router.push("/login");
     };
 
     const handleMouseOver = () => {
@@ -551,10 +564,13 @@ export default {
       }
     });
 
+    watch(user, () => {
+      user.value;
+    });
+
     return {
       drawer,
       cartItemCount,
-      isLogin,
       mobileDropdown,
       bamboo,
       modal,
@@ -563,6 +579,9 @@ export default {
       handleMouseOver,
       handleMouseLeave,
       logout,
+      user,
+      avatarSrc,
+      userAccount,
     };
   },
 };
@@ -808,6 +827,18 @@ export default {
 
 .dropdown-menu {
   width: 180px;
+}
+
+.dropdown-img p {
+  text-transform: capitalize;
+}
+
+.us-links .material-symbols-outlined {
+  color: #111111;
+}
+
+.us-links p {
+  color: #111111;
 }
 
 @media (max-width: 1920px) {
