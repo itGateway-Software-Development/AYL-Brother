@@ -1176,7 +1176,6 @@ export default {
     selectedSubLocation: null,
     deliveryPrice: 0,
     totalAvailablePoints: loadTotalAvailablePointsFromLocalStorage(),
-    discountPoints: loadPointsFromLocalStorage(),
   },
   getters: {
     products: (state) => {
