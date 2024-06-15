@@ -8,6 +8,7 @@ import Login from "../components/LoginForm/Login.vue";
 import Register from "../components/LoginForm/Register.vue";
 import Bamboo from "../views/product/Bamboo.vue";
 import ContactUs from "../views/ContactUs.vue";
+import CheckOut from "../views/CheckOut.vue";
 
 const routes = [
   {
@@ -56,6 +57,11 @@ const routes = [
     path: "/contact",
     name: "Contact",
     component: ContactUs,
+  },
+  {
+    path: "/cart/checkout",
+    name: "checkout",
+    component: CheckOut,
   },
 ];
 

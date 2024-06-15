@@ -130,6 +130,7 @@ export default {
   setup() {
     const router = useRouter();
     const selectedRoute = ref("/");
+    const TOTAL_AVAILABLE_POINTS_KEY = "totalAvailablePoints";
 
     // const userName = ref("");
     // const password = ref("");
@@ -159,8 +160,12 @@ export default {
       let response = await axios.post(api.register, formDataToSend);
 
       let token = response.data.response.token;
+      let user = response.data.response.user;
+      let point = response.data.response.point;
+      localStorage.setItem(TOTAL_AVAILABLE_POINTS_KEY, point);
 
       localStorage.setItem("Token", JSON.stringify(token));
+      localStorage.setItem("user", JSON.stringify(user));
       router.push("/");
     };
 

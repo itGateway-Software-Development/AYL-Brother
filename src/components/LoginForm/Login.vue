@@ -106,6 +106,8 @@ export default {
         "Token",
         JSON.stringify(response.data.response.token)
       );
+      let point = response.data.response.point;
+      localStorage.setItem("totalAvailablePoints", point);
 
       router.push("/");
     };

@@ -88,6 +88,16 @@
                         >RO: 8004</router-link
                       >
                     </li>
+                    <li class="mobile-sub-item">
+                      <router-link to="/products/bamboo/9001" class="nav-link"
+                        >RO: 9001</router-link
+                      >
+                    </li>
+                    <li class="mobile-sub-item">
+                      <router-link to="/products/bamboo/9002" class="nav-link"
+                        >RO: 9002</router-link
+                      >
+                    </li>
                   </ul>
                 </li>
                 <hr />
@@ -415,13 +425,28 @@
                               >RO: 8004</router-link
                             >
                           </li>
+                          <li class="dropdown-submenu-item">
+                            <router-link
+                              to="/products/bamboo/9001"
+                              class="dropdown-link"
+                              >RO: 9001</router-link
+                            >
+                          </li>
+                          <li class="dropdown-submenu-item">
+                            <router-link
+                              to="/products/bamboo/9002"
+                              class="dropdown-link"
+                              >RO: 9002</router-link
+                            >
+                          </li>
                         </ul>
                       </li>
                       <li class="dropdown-items">
                         <router-link
                           to="/products/spandex/0"
                           class="dropdown-link"
-                          >Lycra Spandex Series</router-link
+                        >
+                          Spandex Series</router-link
                         >
                         <ul class="dropdown-submenu">
                           <li class="dropdown-submenu-item">
@@ -518,9 +543,11 @@
 import { computed, onMounted, ref, watch } from "vue";
 import { mapGetters, mapMutations, useStore } from "vuex";
 import router from "@/router";
+import { useRoute } from "vue-router";
 
 export default {
   setup() {
+    const route = useRoute();
     const drawer = ref(false);
     const mobileDropdown = ref(false);
     const bamboo = ref(false);
@@ -528,6 +555,7 @@ export default {
     const spandex = ref(false);
     const isHovered = ref(false);
     const userAccount = ref(false);
+    const isLogin = ref(true);
 
     const user = ref(JSON.parse(localStorage.getItem("user")));
 
@@ -564,8 +592,10 @@ export default {
       }
     });
 
-    watch(user, () => {
-      user.value;
+    watch(route, () => {
+      if (user) {
+        isLogin.value = false;
+      }
     });
 
     return {
@@ -582,6 +612,7 @@ export default {
       user,
       avatarSrc,
       userAccount,
+      isLogin,
     };
   },
 };

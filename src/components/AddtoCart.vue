@@ -81,13 +81,15 @@
             <p class="text-start sub-product">Sub-total:</p>
             <p>{{ total }} MMK</p>
           </div>
-          <div class="total-price d-flex justify-content-between">
+          <!-- <div class="total-price d-flex justify-content-between">
             <p class="text-start sub-product">Promo Point:</p>
             <p>0 point</p>
-          </div>
+          </div> -->
 
-          <!-- <div class="promo-point mt-5">
-            <div class="use-point mt-5 d-flex justify-content-between px-2">
+          <!-- <div class="promo-point mt-3" v-if="user">
+            <div
+              class="use-point mt-5 d-flex justify-content-between px-2 align-items-middle"
+            >
               <input
                 type="number"
                 v-model.number="points"
@@ -95,9 +97,21 @@
                 placeholder="Enter discount points"
                 class="point-input"
               />
-              <button @click="applyDiscount" class="btn promo-btn">
-                Apply Points
-              </button>
+              <v-text-field
+                class="mx-auto"
+                max-width="100"
+                type="number"
+                label="Enter discount points"
+                v-model.number="points"
+                :max="availablePoints"
+                variant="outlined"
+              ></v-text-field>
+
+              <div class="ps-5">
+                <button @click="applyDiscount" class="btn promo-btn">
+                  Apply Points
+                </button>
+              </div>
             </div>
             <p class="m-3">
               You have <span class="points">{{ availablePoints }}</span> points
@@ -105,7 +119,7 @@
             </p>
           </div> -->
 
-          <div class="location">
+          <!-- <div class="location" v-if="cartItems.length > 0">
             <div class="d-flex justify-content-between align-items-center mb-5">
               <label for="location">Select Location:</label>
               <select
@@ -148,26 +162,27 @@
                 </option>
               </select>
             </div>
-          </div>
+          </div> -->
 
-          <div class="total-price d-flex justify-content-between">
+          <!-- <div class="total-price d-flex justify-content-between">
             <p>Delivery Charges(MMK)</p>
             <p>{{ deliveryPrice }} MMK</p>
-          </div>
-          <div class="total-price d-flex justify-content-between">
+          </div> -->
+          <!-- <div class="total-price d-flex justify-content-between">
             <p>Total(MMK)</p>
             <p>{{ grandTotal }} MMK</p>
-          </div>
+          </div> -->
 
-          <div class="delivery-note">
+          <div class="delivery-note" v-if="!user">
             <div class="info">
               <span class="material-symbols-outlined"> info </span>
               <p>
-                Addational Derivery Charges may be added base on your location
+                Your are not Sigin. If you login you can use dicount point and
+                you can earn point back
               </p>
             </div>
           </div>
-          <div class="checkout-button">
+          <div class="checkout-button mt-3" v-if="cartItems.length > 0">
             <button class="btn checkout-btn" @click="checkOut()">
               Proceed To Checkout
             </button>
@@ -183,12 +198,13 @@ import { toast } from "vue3-toastify";
 import "vue3-toastify/dist/index.css";
 import { computed, onMounted, ref, watch } from "vue";
 import { mapGetters, mapMutations, useStore } from "vuex";
+import router from "@/router";
 export default {
   setup() {
     const store = useStore();
     const selectedLocation = ref(null);
     const selectedSubLocation = ref(null);
-    const point = computed(() => store.getters.points);
+    const Swal = require("sweetalert2");
 
     const locations = computed(() => store.getters.locations);
     const subLocations = computed(() => store.getters.getSubLocations);
@@ -222,24 +238,47 @@ export default {
         code: item.code,
       });
     };
+    const points = ref(store.getters.discountPoints);
+    const availablePoints = computed(() => store.getters.totalAvailablePoints);
+    console.log(typeof availablePoints.value);
+    const applyDiscount = () => {
+      store.dispatch("applyDiscountPoints", points.value);
+    };
     const checkOut = () => {
-      if (
-        selectedLocation.value &&
-        selectedSubLocation.value &&
-        cartItems.value
-      ) {
-        console.log(cartItems);
-        console.log(total.value);
-        console.log(grandTotal.value);
-        console.log(deliveryPrice.value);
+      if (!user) {
+        Swal.fire({
+          title: "Warning",
+          text: "Do you want to sigin to get point or Do you want to continue without sigin",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonText: "Sigin",
+          cancelButtonText: "Continue",
+          reverseButtons: true,
+        }).then((result) => {
+          if (result.isConfirmed) {
+            Swal.fire({
+              title: "You will be redirect to Login page",
+              icon: "success",
+              confirmButtonText: "Ok",
+            }).then((result) => {
+              if (result.isConfirmed) {
+                router.push("/login");
+              }
+            });
+          } else if (
+            /* Read more about handling dismissals below */
+            result.dismiss === Swal.DismissReason.cancel
+          ) {
+            router.push("/cart/checkout");
+          }
+        });
       } else {
-        console.log("check cart");
+        router.push("/cart/checkout");
       }
     };
 
-    onMounted(() => {
-      console.log(point);
-    });
+    const user = localStorage.getItem("user");
+
     return {
       cartItems,
       total,
@@ -256,7 +295,10 @@ export default {
       deliveryPrice,
       grandTotal,
       checkOut,
-      point,
+      availablePoints,
+      applyDiscount,
+      points,
+      user,
     };
   },
 };
@@ -338,6 +380,7 @@ export default {
 .promo-btn {
   background: #111;
   color: #ffffff;
+  height: 56px;
 }
 
 .point-input {
@@ -347,7 +390,6 @@ export default {
 }
 
 .promo-point {
-  border-top: 1px solid;
   border-bottom: 1px solid;
   margin: 0px 10px;
 }
@@ -388,7 +430,7 @@ export default {
 .delivery-note {
   width: 300px;
   background: #e1f4fe;
-  color: #0d3a6f;
+  color: red;
   min-height: 40px;
   margin: 10px auto;
   border-radius: 5px;
@@ -408,15 +450,6 @@ export default {
 
 .sub-product {
   line-height: 30px;
-}
-
-.form-select {
-  width: 170px;
-}
-
-.location {
-  padding: 12px 30px;
-  border-bottom: 1px solid #111;
 }
 
 @media (max-width: 1200px) {

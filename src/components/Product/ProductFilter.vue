@@ -61,13 +61,19 @@
             data-aos-easing="linear"
             data-aos-duration="8000"
           >
-            <label
-              v-for="series in availableSeries"
-              :key="series"
-              class="filter-cat"
-            >
-              <router-link class="nav-link" to="/product">
-                <p class="">{{ series }} Series</p></router-link
+            <label class="filter-cat mb-2">
+              <router-link class="nav-link" to="/products/bamboo/0">
+                <p class="">Bamboo Series</p></router-link
+              >
+            </label>
+            <label class="filter-cat mb-2">
+              <router-link class="nav-link" to="/products/spandex/0">
+                <p class="">Spandex Series</p></router-link
+              >
+            </label>
+            <label class="filter-cat mb-2">
+              <router-link class="nav-link" to="/products/lycra/0">
+                <p class="">Lycra Modal Series</p></router-link
               >
             </label>
           </div>
@@ -145,37 +151,6 @@
           </div></v-list-item
         >
         <v-divider></v-divider>
-        <v-list-item>
-          <div class="filter-category">
-            <div class="d-flex justify-content-between">
-              <h5 class="fw-bold">Category</h5>
-              <span
-                class="material-symbols-outlined"
-                @click="price_show = !price_show"
-              >
-                expand_more
-              </span>
-            </div>
-            <div
-              class="price mt-2 ms-2"
-              v-if="price_show"
-              data-aos="fade-down"
-              data-aos-easing="linear"
-              data-aos-duration="8000"
-            >
-              <div>
-                <label
-                  v-for="code in availableCode"
-                  :key="code"
-                  class="filter-cat"
-                >
-                  <input type="checkbox" :value="code" v-model="selectedCat" />
-                  <p class="ps-2">RO: {{ code }}</p>
-                </label>
-              </div>
-            </div>
-          </div>
-        </v-list-item>
         <v-divider></v-divider>
         <v-list-item>
           <div class="filter-fabric">
@@ -195,17 +170,20 @@
               data-aos-easing="linear"
               data-aos-duration="8000"
             >
-              <label
-                v-for="series in availableSeries"
-                :key="series"
-                class="filter-cat"
-              >
-                <input
-                  type="checkbox"
-                  :value="series"
-                  v-model="selectedSeries"
-                />
-                <p class="ps-2">{{ series }} Series</p>
+              <label class="filter-cat mb-2">
+                <router-link class="nav-link" to="/products/bamboo/0">
+                  <p class="">Bamboo Series</p></router-link
+                >
+              </label>
+              <label class="filter-cat mb-2">
+                <router-link class="nav-link" to="/products/spandex/0">
+                  <p class="">Spandex Series</p></router-link
+                >
+              </label>
+              <label class="filter-cat mb-2">
+                <router-link class="nav-link" to="/products/lycra/0">
+                  <p class="">Lycra Modal Series</p></router-link
+                >
               </label>
             </div>
           </div>
@@ -265,6 +243,7 @@
 import { ref, watch, computed, onMounted } from "vue";
 import { useStore } from "vuex";
 import { useRoute } from "vue-router";
+import router from "@/router";
 
 export default {
   props: ["series", "code"],
@@ -295,7 +274,11 @@ export default {
 
     const selectedSeries = ref([]);
     const selectedCat = ref([]);
-    const availableSeries = ["bamboo", "lycra", "spandex"]; // Example series, this could be dynamically generated
+    const availableSeries = [
+      "Bamboo Series",
+      "Lycra Modal Series",
+      "Spandex Series",
+    ]; // Example series, this could be dynamically generated
     // const availableCode = ref([8028, 8027, 8018, 8017, 8003, 8002]); // Example categories, can be generated dynamically
 
     const products = computed(() => store.getters.filteredProducts);
@@ -339,7 +322,11 @@ export default {
     watch(
       selectedSeries,
       (newSeries) => {
-        store.dispatch("setSelectedSeries", newSeries);
+        if (selectedSeries == "Bamboo") {
+          router.push("/products/bamboo");
+        } else if (selectedSeries == "Lycra Modal") {
+          router.push("/products/");
+        }
       },
       { immediate: true }
     );
