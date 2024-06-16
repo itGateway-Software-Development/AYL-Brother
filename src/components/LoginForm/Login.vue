@@ -39,6 +39,7 @@
                 <p class="mb-2">Email</p>
                 <div class="input-group mb-3">
                   <input
+                    required
                     type="text"
                     v-model="form.email"
                     class="form-control"
@@ -49,6 +50,7 @@
                 <p class="mb-2">Password</p>
                 <div class="input-group mb-3">
                   <input
+                    required
                     type="password"
                     v-model="form.password"
                     class="form-control"
@@ -72,15 +74,23 @@
 </template>
 
 <script>
-import { ref } from "vue";
+import { computed, ref } from "vue";
 import { useRouter } from "vue-router";
 import axios from "axios";
 import api from "@/service/api";
+import { useStore } from "vuex";
 
 export default {
   setup() {
+    const store = useStore();
     const router = useRouter();
     const selectedRoute = ref("/");
+
+    const isUser = ref(true);
+
+    const chageUserLogin = () => {
+      store.dispatch("changeisLogin", isUser.value);
+    };
 
     const changeRoute = () => {
       router.push(selectedRoute.value);
@@ -98,18 +108,22 @@ export default {
       formDataToSend.append("password", form.value.password);
 
       let response = await axios.post(api.login, formDataToSend);
-      let user = localStorage.setItem(
-        "user",
-        JSON.stringify(response.data.response.user)
-      );
-      localStorage.setItem(
-        "Token",
-        JSON.stringify(response.data.response.token)
-      );
-      let point = response.data.response.point;
-      localStorage.setItem("totalAvailablePoints", point);
+      if (response.status == 201) {
+        localStorage.setItem(
+          "user",
+          JSON.stringify(response.data.response.user)
+        );
+        localStorage.setItem(
+          "Token",
+          JSON.stringify(response.data.response.token)
+        );
+        let point = response.data.response.point;
+        localStorage.setItem("totalAvailablePoints", point);
 
-      router.push("/");
+        localStorage.setItem("isLogin", JSON.stringify(true));
+
+        router.push("/");
+      }
     };
 
     return {

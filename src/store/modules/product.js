@@ -1182,12 +1182,15 @@ export default {
     deliveryPrice: 0,
     discountPoints: loadPointsFromLocalStorage(),
     totalAvailablePoints: loadTotalAvailablePointsFromLocalStorage(),
+    isLogin: ref(),
   },
   getters: {
     products: (state) => {
       return state.products;
     },
-
+    isLogin: (state) => {
+      return state.isLogin;
+    },
     discountPoints: (state) => {
       return state.discountPoints;
     },
@@ -1239,14 +1242,17 @@ export default {
           total + item.price * item.quantity + state.deliveryPrice,
         0
       );
-      const discount = state.discountPoints * POINTS_TO_MMK_CONVERSION_RATE;
-      return Math.max(0, total - discount);
+      if (state.discountPoints) {
+        const discount = state.discountPoints * POINTS_TO_MMK_CONVERSION_RATE;
+        return Math.max(0, total - discount);
+      }
+      return total;
     },
     totalAvailablePoints: (state) => {
       return state.totalAvailablePoints;
     },
     discountPrice: (state) => {
-      return state.discountPoints * POINTS_TO_MMK_CONVERSION_RATE;
+      return state.discountPoints * POINTS_TO_MMK_CONVERSION_RATE || 0;
     },
   },
   mutations: {
@@ -1309,9 +1315,16 @@ export default {
 
     APPLY_DISCOUNT_POINTS(state, points) {
       state.discountPoints = points;
-      state.totalAvailablePoints -= points;
+
       savePointsToLocalStorage(points);
-      saveTotalAvailablePointsToLocalStorage(state.totalAvailablePoints);
+    },
+    returnPoint(state, points) {
+      state.discountPoints = points;
+
+      savePointsToLocalStorage(points);
+    },
+    changeisLogin(state, value) {
+      state.isLogin = value;
     },
   },
   actions: {
@@ -1379,6 +1392,12 @@ export default {
         commit("APPLY_DISCOUNT_POINTS", points);
         toast.info(`Applied ${points} discount points`);
       }
+    },
+    changeisLogin({ commit }, value) {
+      commit("changeisLogin", value);
+    },
+    returnPoint({ commit }, points) {
+      commit("returnPoint", points);
     },
   },
   modules: {},

@@ -21,7 +21,10 @@
               <p class="code">Product-code: {{ product.code }}</p>
               <p>{{ product.pics }}</p>
               <p>Price: {{ product.price }} MMK</p>
-              <p v-if="selectedSize">Selected Size: {{ selectedSize }}</p>
+              <p>
+                Selected Size:
+                {{ selectedSize }}
+              </p>
             </div>
             <div class="row mt-3 justify-content-around px-3 card-size">
               <div
@@ -121,7 +124,7 @@ export default {
       },
     ];
 
-    const selectedSize = ref(null);
+    const selectedSize = ref(null || "Please select a size");
 
     const quantity = ref(1);
 
@@ -149,7 +152,7 @@ export default {
       };
 
       store.dispatch("addToCart", productToAdd);
-      selectedSize.value = null;
+      selectedSize.value = "please select size";
     };
 
     const selectSize = (size) => {
@@ -193,6 +196,11 @@ export default {
   color: #fff;
 }
 
+.selected-size {
+  background-color: red !important;
+  color: #fff !important;
+}
+
 .wish-btn {
   width: 320px;
   border: 1px solid #111;
@@ -223,11 +231,6 @@ export default {
   font-size: 14px;
   font-weight: bold;
   padding: 9px 0;
-}
-
-.size.active {
-  background: red;
-  color: #fff;
 }
 
 .size:hover {

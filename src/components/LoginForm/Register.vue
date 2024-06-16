@@ -39,6 +39,7 @@
                 <p class="mb-2">Enter your name</p>
                 <div class="input-group mb-3">
                   <input
+                    required
                     type="text"
                     v-model="form.userName"
                     class="form-control"
@@ -49,6 +50,7 @@
                 <p class="mb-2">Enter your eamil</p>
                 <div class="input-group mb-3">
                   <input
+                    required
                     type="email"
                     v-model="form.email"
                     class="form-control"
@@ -59,6 +61,7 @@
                 <p class="mb-2">Enter new password</p>
                 <div class="input-group mb-3">
                   <input
+                    required
                     type="password"
                     v-model="form.password"
                     class="form-control"
@@ -75,6 +78,7 @@
                 <p class="mb-2">Confirm your password</p>
                 <div class="input-group mb-3">
                   <input
+                    required
                     type="password"
                     v-model="form.cfpassword"
                     class="form-control"
@@ -91,6 +95,7 @@
                 <p class="mb-2">Enter your Birthday</p>
                 <div class="input-group mb-3">
                   <input
+                    required
                     type="date"
                     v-model="form.birthday"
                     class="form-control"
@@ -101,6 +106,7 @@
                 <p class="mb-2">Enter your Address</p>
                 <div class="form-floating">
                   <textarea
+                    required
                     class="form-control"
                     v-model="form.address"
                     placeholder="Leave a comment here"
@@ -158,15 +164,23 @@ export default {
       formDataToSend.append("birthday", form.value.birthday);
       formDataToSend.append("address", form.value.address);
       let response = await axios.post(api.register, formDataToSend);
+      if (response.status == 201) {
+        let token = response.data.response.token;
+        let user = response.data.response.user;
+        let point = response.data.response.point;
+        localStorage.setItem(TOTAL_AVAILABLE_POINTS_KEY, point);
 
-      let token = response.data.response.token;
-      let user = response.data.response.user;
-      let point = response.data.response.point;
-      localStorage.setItem(TOTAL_AVAILABLE_POINTS_KEY, point);
-
-      localStorage.setItem("Token", JSON.stringify(token));
-      localStorage.setItem("user", JSON.stringify(user));
-      router.push("/");
+        localStorage.setItem("Token", JSON.stringify(token));
+        localStorage.setItem("user", JSON.stringify(user));
+        localStorage.setItem("isLogin", JSON.stringify(true));
+        router.push("/");
+      } else {
+        Swal.fire({
+          icon: "error",
+          title: "Unauthorized",
+          text: "Please check your email & password!",
+        });
+      }
     };
 
     const changeRoute = () => {

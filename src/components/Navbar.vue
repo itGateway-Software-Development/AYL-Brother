@@ -177,14 +177,14 @@
                   class="dropdown-img d-flex justify-content-between align-items-center"
                   link
                 >
-                  <div class="d-flex align-items-center">
+                  <div class="d-flex align-items-center mb-img-text">
                     <img
                       type="button"
                       class="img-fluid"
-                      :src="avatarSrc"
+                      :src="`https://ui-avatars.com/api/?background=ff0000&color=fff&name=${user.name}`"
                       alt=""
                     />
-                    <p class="px-5">{{ user.name }}</p>
+                    <p class="px-5 text-capitalize">{{ user.name }}</p>
                   </div>
                   <span
                     class="material-symbols-outlined pe-10"
@@ -212,7 +212,7 @@
                       class="dropdown-item d-flex align-items-center icon-text us-links"
                       to="/"
                       ><span class="material-symbols-outlined"> person </span>
-                      <p>My Profile</p>
+                      <p class="px-3 pt-1">My Profile</p>
                     </router-link>
                   </li>
                   <li>
@@ -220,7 +220,7 @@
                       class="dropdown-item d-flex align-items-center icon-text us-links"
                       to="/"
                       ><span class="material-symbols-outlined"> settings </span>
-                      <p>Settings</p></router-link
+                      <p class="px-3 pt-1">Settings</p></router-link
                     >
                   </li>
 
@@ -233,7 +233,7 @@
                       <span class="material-symbols-outlined">
                         power_settings_new
                       </span>
-                      <p>Logout</p>
+                      <p class="px-3 pt-1">Logout</p>
                     </button>
                   </li>
                 </ul>
@@ -286,14 +286,14 @@
           <div class="upper-nav-icon">
             <div class="icon-group d-flex justify-content-around">
               <span class="material-symbols-outlined"> language </span>
-              <div v-if="user" class="px-3">
+              <div v-if="userLogin" class="px-3">
                 <div class="dropdown-img dropdown">
                   <img
                     type="button"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                     class="img-fluid"
-                    :src="avatarSrc"
+                    :src="`https://ui-avatars.com/api/?background=ff0000&color=fff&name=${user.name}`"
                     alt=""
                   />
                   <ul class="dropdown-menu">
@@ -301,8 +301,11 @@
                       <a
                         class="dropdown-item d-flex align-items-center img-text"
                         href="#"
-                        ><img :src="avatarSrc" alt="" />
-                        <h5>{{ user.name }}</h5></a
+                        ><img
+                          :src="`https://ui-avatars.com/api/?background=ff0000&color=fff&name=${user.name}`"
+                          alt=""
+                        />
+                        <h5 class="text-capitalize">{{ user.name }}</h5></a
                       >
                     </li>
                     <li>
@@ -547,7 +550,9 @@ import { useRoute } from "vue-router";
 
 export default {
   setup() {
+    const store = useStore();
     const route = useRoute();
+
     const drawer = ref(false);
     const mobileDropdown = ref(false);
     const bamboo = ref(false);
@@ -555,18 +560,14 @@ export default {
     const spandex = ref(false);
     const isHovered = ref(false);
     const userAccount = ref(false);
-    const isLogin = ref(true);
-
-    const user = ref(JSON.parse(localStorage.getItem("user")));
-
-    const avatarSrc = computed(() => {
-      const userName = user.value.name;
-      return `https://ui-avatars.com/api/?background=ff0000&color=fff&name=${userName}`;
-    });
+    const userLogin = ref();
+    const user = ref();
 
     const logout = () => {
       localStorage.removeItem("user");
       localStorage.removeItem("Token");
+      localStorage.removeItem("totalAvailablePoints");
+      localStorage.removeItem("isLogin");
       router.push("/login");
     };
 
@@ -578,7 +579,6 @@ export default {
       isHovered.value = false;
     };
 
-    const store = useStore();
     const cartItemCount = computed(() => {
       return store.getters.cartItemCount;
     });
@@ -592,10 +592,11 @@ export default {
       }
     });
 
+    onMounted(() => {});
+
     watch(route, () => {
-      if (user) {
-        isLogin.value = false;
-      }
+      userLogin.value = JSON.parse(localStorage.getItem("isLogin"));
+      user.value = JSON.parse(localStorage.getItem("user"));
     });
 
     return {
@@ -610,9 +611,8 @@ export default {
       handleMouseLeave,
       logout,
       user,
-      avatarSrc,
       userAccount,
-      isLogin,
+      userLogin,
     };
   },
 };
@@ -870,6 +870,30 @@ export default {
 
 .us-links p {
   color: #111111;
+}
+
+.img-text h5 {
+  font-family: "Kanit", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 5;
+}
+
+.icon-text p {
+  font-size: 16px;
+  font-family: "Kanit", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.icon-text .material-symbols-outlined {
+  font-size: 26px;
+}
+
+.mb-img-text p {
+  font-family: "Kanit", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 @media (max-width: 1920px) {

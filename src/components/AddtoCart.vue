@@ -1,17 +1,23 @@
 <template>
   <div class="addtoCart">
     <div class="container add-to-cart">
-      <div class="heading-cart">
-        <router-link
-          class="nav-link text-start mb-3 d-flex align-items-center"
-          to="/product"
-          ><span class="material-symbols-outlined"> arrow_back </span>
-          <p>Continue Shopping</p>
-        </router-link>
-        <div class="addtocart-heading align-item-center text-start">
-          <h3 class="pt-8 ps-3">Shopping Bag</h3>
-          <p class="ms-4" v-if="cartItemCount <= 1">{{ cartItemCount }} item</p>
-          <p class="ms-4" v-if="cartItemCount > 1">{{ cartItemCount }} items</p>
+      <div class="add-back">
+        <div class="heading-cart">
+          <router-link
+            class="nav-link text-start mb-3 d-flex align-items-center heading-link"
+            to="/product"
+            ><span class="material-symbols-outlined"> arrow_back </span>
+            <p>Continue Shopping</p>
+          </router-link>
+          <div class="addtocart-heading align-item-center text-start">
+            <h3 class="pt-8 ps-3">Shopping Bag</h3>
+            <p class="ms-4" v-if="cartItemCount <= 1">
+              {{ cartItemCount }} item
+            </p>
+            <p class="ms-4" v-if="cartItemCount > 1">
+              {{ cartItemCount }} items
+            </p>
+          </div>
         </div>
       </div>
 
@@ -240,7 +246,6 @@ export default {
     };
     const points = ref(store.getters.discountPoints);
     const availablePoints = computed(() => store.getters.totalAvailablePoints);
-    console.log(typeof availablePoints.value);
     const applyDiscount = () => {
       store.dispatch("applyDiscountPoints", points.value);
     };
@@ -315,8 +320,23 @@ export default {
   width: 100%;
 }
 
+.add-back {
+  position: fixed;
+  width: 100%;
+  z-index: 99;
+  background: #f2f2f2;
+}
+
 .heading-cart {
   padding: 50px 0 10px 0px;
+
+  width: 1300px;
+}
+
+.heading-cart .heading-link {
+  background: #f2f2f2;
+  width: 1300px;
+  height: 100%;
 }
 
 .heading-cart h3 {
@@ -345,15 +365,21 @@ export default {
 
 .cart-item-list {
   flex-direction: column;
+  margin-top: 230px;
+  position: relative;
+  z-index: 1;
 }
 
 .check-out {
-  width: 500px;
+  width: 390px;
   height: max-content;
   background-color: #ffffff;
   padding: 20px 0px;
   margin-left: 10px;
   border-radius: 5px;
+  position: fixed;
+  top: 38%;
+  right: 9.5%;
 }
 
 .cart-plus-minus {
@@ -452,6 +478,13 @@ export default {
   line-height: 30px;
 }
 
+@media (min-width: 1920px) {
+  .check-out {
+    right: 16.1%;
+    top: 21.5%;
+  }
+}
+
 @media (max-width: 1200px) {
   .cart-item {
     width: 600px;
@@ -466,6 +499,8 @@ export default {
   .check-out {
     width: 720px;
     height: max-content;
+    position: relative;
+    right: 0;
   }
 
   .check-out p {

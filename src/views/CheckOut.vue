@@ -17,136 +17,143 @@
           </div>
         </div>
         <div class="col-8 col-sm-12 col-md-8 check-1-custom">
-          <div class="info-form">
-            <div class="form-location text-start">
-              <h3>Delivery</h3>
+          <div class="info-form text-start">
+            <div class="head d-flex justify-content-between align-items-center">
+              <h3>Contact</h3>
+              <router-link to="/login" class="nav-link" v-if="!user"
+                >Login</router-link
+              >
+            </div>
 
-              <div class="selcect-form">
-                <div
-                  class="location d-flex flex-wrap justify-content-between align-items-center"
-                >
-                  <div
-                    class="d-flex justify-content-between align-items-center mb-5"
-                  >
-                    <div class="field">
-                      <h4>Select Regions</h4>
-                      <select
-                        class="form-select"
-                        aria-label="Default select example"
-                        id="location"
-                        v-model="selectedLocation"
-                        @change="onLocationChange"
-                      >
-                        <option
-                          v-for="location in locations"
-                          :key="location.id"
-                          :value="location"
-                        >
-                          {{ location.location }}
-                        </option>
-                      </select>
-                    </div>
-                  </div>
-                  <div
-                    class="d-flex justify-content-between align-items-center mb-5"
-                  >
-                    <div class="field">
-                      <h4>Select City</h4>
-                      <select
-                        class="form-select"
-                        aria-label="Default select example"
-                        v-if="subLocations.length > 0"
-                        id="subLocation"
-                        v-model="selectedSubLocation"
-                        @change="onSubLocationChange"
-                      >
-                        <option
-                          v-for="subLocation in subLocations"
-                          :key="subLocation.id"
-                          :value="subLocation.township"
-                        >
-                          {{ subLocation.township }}
-                        </option>
-                      </select>
-                    </div>
-                  </div>
+            <div class="input-form mt-5" v-if="!user">
+              <div class="d-flex flex-wrap justify-content-between">
+                <div class="field">
+                  <h4>Name</h4>
+                  <v-text-field
+                    :rules="[rules.required]"
+                    clearable
+                    v-model="name"
+                    label="Enter your Name"
+                    variant="outlined"
+                  ></v-text-field>
                 </div>
+                <div class="field">
+                  <h4>Phone Number</h4>
+                  <v-text-field
+                    :rules="[rules.required]"
+                    clearable
+                    type="number"
+                    v-model="phoneNumber"
+                    label="Enter your phone number"
+                    variant="outlined"
+                  ></v-text-field>
+                </div>
+              </div>
+              <div class="address-field">
+                <h4>Address</h4>
+                <v-text-field
+                  :rules="[rules.required]"
+                  clearable
+                  v-model="address"
+                  label="Enter your full address"
+                  variant="outlined"
+                ></v-text-field>
               </div>
             </div>
+            <div class="input-form mt-5" v-if="user">
+              <div class="d-flex flex-wrap justify-content-between">
+                <div class="field">
+                  <h4>Name</h4>
+
+                  <v-text-field
+                    :rules="[rules.required]"
+                    clearable
+                    label="Enter your Name"
+                    v-model="name"
+                    variant="outlined"
+                  ></v-text-field>
+                </div>
+                <div class="field">
+                  <h4>Phone Number</h4>
+                  <v-text-field
+                    :rules="[rules.required]"
+                    clearable
+                    type="number"
+                    label="Enter your phone number"
+                    v-model="phoneNumber"
+                    variant="outlined"
+                  ></v-text-field>
+                </div>
+              </div>
+              <div class="address-field">
+                <h4>Address</h4>
+                <v-text-field
+                  :rules="[rules.required]"
+                  clearable
+                  v-model="address"
+                  label="Enter your full address"
+                  variant="outlined"
+                ></v-text-field>
+              </div>
+            </div>
+
             <hr />
             <div class="form-contact text-start mt-5">
-              <div
-                class="head d-flex justify-content-between align-items-center"
-              >
-                <h3>Contact</h3>
-                <router-link to="/login" class="nav-link" v-if="!user"
-                  >Login</router-link
-                >
-              </div>
+              <div class="form-location text-start">
+                <h3>Delivery</h3>
 
-              <div class="input-form mt-5" v-if="!user">
-                <div class="d-flex flex-wrap justify-content-between">
-                  <div class="field">
-                    <h4>Name</h4>
-                    <v-text-field
-                      clearable
-                      v-model="name"
-                      label="Enter your Name"
-                      variant="outlined"
-                    ></v-text-field>
+                <div class="selcect-form">
+                  <div
+                    class="location d-flex flex-wrap justify-content-between align-items-center"
+                  >
+                    <div
+                      class="d-flex justify-content-between align-items-center mb-5"
+                    >
+                      <div class="field">
+                        <h4>Select Regions</h4>
+                        <select
+                          required
+                          class="form-select"
+                          aria-label="Default select example"
+                          id="location"
+                          v-model="selectedLocation"
+                          @change="onLocationChange"
+                        >
+                          <option
+                            v-for="location in locations"
+                            :key="location.id"
+                            :value="location"
+                          >
+                            {{ location.location }}
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                    <div
+                      class="d-flex justify-content-between align-items-center mb-5"
+                    >
+                      <div class="field">
+                        <h4>Select City</h4>
+                        <select
+                          required
+                          class="form-select"
+                          aria-label="Default select example"
+                          v-if="subLocations.length > 0"
+                          id="subLocation"
+                          v-model="selectedSubLocation"
+                          @change="onSubLocationChange"
+                        >
+                          <option
+                            v-for="subLocation in subLocations"
+                            :key="subLocation.id"
+                            :value="subLocation.township"
+                          >
+                            {{ subLocation.township }}
+                          </option>
+                        </select>
+                      </div>
+                    </div>
                   </div>
-                  <div class="field">
-                    <h4>Contact</h4>
-                    <v-text-field
-                      clearable
-                      type="number"
-                      v-model="phoneNumber"
-                      label="Enter your phone number"
-                      variant="outlined"
-                    ></v-text-field>
-                  </div>
-                </div>
-                <div class="address-field">
-                  <h4>Address</h4>
-                  <v-text-field
-                    clearable
-                    v-model="address"
-                    label="Enter your full address"
-                    variant="outlined"
-                  ></v-text-field>
-                </div>
-              </div>
-              <div class="input-form mt-5" v-if="user">
-                <div class="d-flex flex-wrap justify-content-between">
-                  <div class="field">
-                    <h4>Name</h4>
-                    <v-text-field
-                      clearable
-                      label="Enter your Name"
-                      :value="user.name"
-                      v-model="name"
-                      variant="outlined"
-                    ></v-text-field>
-                  </div>
-                  <div class="field">
-                    <h4>Contact</h4>
-                    <v-text-field
-                      clearable
-                      type="number"
-                      label="Enter your phone number"
-                      v-model="phoneNumber"
-                      variant="outlined"
-                    ></v-text-field>
-                  </div>
-                </div>
-                <div class="address-field">
-                  <h4>Address</h4>
-                  <v-text-field
-                    clearable
-                    v-model="address"
-                    label="Enter your full address"
-                    variant="outlined"
-                  ></v-text-field>
                 </div>
               </div>
               <hr />
@@ -156,14 +163,15 @@
                   class="d-flex flex-wrap justify-content-between align-items-center"
                 >
                   <div class="discount">
-                    <h4>Discount Point</h4>
+                    <h4>Points</h4>
                     <v-text-field
                       clearable
                       type="number"
-                      v-model.number="points"
+                      v-model.number="enterPoints"
                       :max="availablePoints"
                       label="Enter Discount Point"
                       variant="outlined"
+                      @click:clear="onClear()"
                     ></v-text-field>
                   </div>
                   <div class="button-group">
@@ -174,7 +182,10 @@
                 </div>
                 <h5>
                   You have
-                  <span class="points">{{ availablePoints }}</span> points lefts
+                  <span class="points">{{
+                    availablePoints - discountPrice
+                  }}</span>
+                  points lefts
                 </h5>
               </div>
 
@@ -187,6 +198,28 @@
           </div>
         </div>
         <div class="col-4 col-sm-12 col-md-4 check-2-custom">
+          <div class="mt-3 price-list">
+            <div class="d-flex justify-content-between mb-3">
+              <h5>Sub-Total:</h5>
+              <h5>{{ total }} MMK</h5>
+            </div>
+            <div class="d-flex justify-content-between mb-3">
+              <h5>Delivery Charges:</h5>
+              <h5>{{ deliveryPrice }} MMK</h5>
+            </div>
+            <!-- <div class="d-flex justify-content-between mb-3">
+                <h5>Use Point:</h5>
+                <h5>{{ pointsUse }} points</h5>
+              </div> -->
+            <div class="d-flex justify-content-between mb-3">
+              <h5>Discount:</h5>
+              <h5>- {{ discountPrice }} MMK</h5>
+            </div>
+            <div class="d-flex justify-content-between mb-3">
+              <h5>Total:</h5>
+              <h5>{{ grandTotal }} MMK</h5>
+            </div>
+          </div>
           <div class="mini-product">
             <div
               class="product-list d-flex flex-column"
@@ -209,28 +242,6 @@
               </div>
               <hr />
             </div>
-            <div class="mt-3 price-list">
-              <div class="d-flex justify-content-between mb-3">
-                <h5>Sub-Total:</h5>
-                <h5>{{ total }} MMK</h5>
-              </div>
-              <div class="d-flex justify-content-between mb-3">
-                <h5>Delivery Charges:</h5>
-                <h5>{{ deliveryPrice }} MMK</h5>
-              </div>
-              <div class="d-flex justify-content-between mb-3">
-                <h5>Use Point:</h5>
-                <h5>{{ pointsUse }} points</h5>
-              </div>
-              <div class="d-flex justify-content-between mb-3">
-                <h5>Discount:</h5>
-                <h5>{{ discountPrice }} MMK</h5>
-              </div>
-              <div class="d-flex justify-content-between mb-3">
-                <h5>Total:</h5>
-                <h5>{{ grandTotal }} MMK</h5>
-              </div>
-            </div>
           </div>
         </div>
         <div class="button-group mt-5">
@@ -242,7 +253,7 @@
 </template>
 
 <script>
-import { computed, ref } from "vue";
+import { computed, ref, watch } from "vue";
 import { useStore } from "vuex";
 export default {
   setup() {
@@ -252,6 +263,9 @@ export default {
     const name = ref();
     const phoneNumber = ref();
     const address = ref();
+    const rules = {
+      required: (value) => !!value || "Field is required",
+    };
 
     const cartItems = computed(() => store.getters["cartItems"]);
     const total = computed(() => store.getters["totalPrice"]);
@@ -272,18 +286,29 @@ export default {
       store.dispatch("calculateDeliveryPrice");
     };
 
-    const user = localStorage.getItem("user");
+    const user = JSON.parse(localStorage.getItem("user"));
+    const points = ref(store.getters.discountPoints);
 
     const deliveryPrice = computed(() => store.getters.deliveryPrice);
 
-    const points = ref(store.getters.discountPoints);
+    const enterPoints = ref();
+
     const availablePoints = computed(() => store.getters.totalAvailablePoints);
     const applyDiscount = () => {
-      store.dispatch("applyDiscountPoints", points.value);
+      store.dispatch("applyDiscountPoints", enterPoints.value);
+    };
+    const onClear = () => {
+      store.dispatch("returnPoint", points.value);
     };
 
     let order = () => {
-      console.log(name.value, phoneNumber.value, address.value);
+      console.log(name.value);
+      console.log(phoneNumber.value);
+      console.log(address.value);
+      console.log(grandTotal);
+      console.log(cartItems);
+      console.log(discountPrice);
+      console.log(deliveryPrice);
     };
 
     return {
@@ -306,7 +331,10 @@ export default {
       availablePoints,
       applyDiscount,
       pointsUse,
+      onClear,
+      enterPoints,
       points,
+      rules,
     };
   },
 };
@@ -326,6 +354,7 @@ export default {
 .check-out {
   padding-top: 150px;
   padding-bottom: 100px;
+  background: #f2f2f2;
 }
 
 .form-select {
@@ -335,7 +364,7 @@ export default {
 .info-form {
   background: #ffff;
   width: 100%;
-  height: 100%;
+  height: max-content;
   padding: 20px 30px;
 }
 
@@ -343,6 +372,8 @@ export default {
   width: 100%;
   height: max-content;
   background: #f2f2f2;
+
+  position: relative;
 }
 
 .product-list {
@@ -397,6 +428,10 @@ export default {
   font-style: normal;
 }
 
+.order-btn-2 {
+  display: none;
+}
+
 .promo-btn:hover {
   background: red;
   color: #fff;
@@ -411,8 +446,16 @@ export default {
   color: #fff;
 }
 
+.order-btn-2:hover {
+  background: red;
+  color: #fff;
+}
+
 .price-list {
+  width: 100%;
   padding: 10px 20px;
+
+  margin-top: 100px;
 }
 
 .points {
@@ -499,7 +542,7 @@ export default {
 
 @media (max-width: 390px) {
   .order-btn-2 {
-    width: 360px;
+    width: 36ေ0px;
   }
   .promo-btn {
     margin-top: -10px;
