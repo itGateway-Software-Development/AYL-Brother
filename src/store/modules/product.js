@@ -1359,18 +1359,14 @@ export default {
       commit("SET_SUB_LOCATION", subLocation);
     },
     calculateDeliveryPrice({ commit, state }) {
-      console.log("calculateDeliveryPrice action called");
       const location = state.selectedLocation?.location;
       const subLocation = state.selectedSubLocation;
-      console.log("Location:", location);
-      console.log("SubLocation:", subLocation);
       if (!location || !subLocation) {
         commit("SET_DELIVERY_PRICE", 0);
         return;
       }
 
       const locationSubLocations = state.subLocations[location];
-      console.log("Location SubLocations:", locationSubLocations);
       if (!locationSubLocations) {
         commit("SET_DELIVERY_PRICE", 0);
         return;
@@ -1382,7 +1378,6 @@ export default {
 
       const deliveryPrice = subLocationObj ? subLocationObj.price : 0;
 
-      console.log(deliveryPrice);
       commit("SET_DELIVERY_PRICE", deliveryPrice);
     },
     applyDiscountPoints({ commit, state }, points) {

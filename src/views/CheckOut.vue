@@ -17,185 +17,190 @@
           </div>
         </div>
         <div class="col-8 col-sm-12 col-md-8 check-1-custom">
-          <div class="info-form text-start">
-            <div class="head d-flex justify-content-between align-items-center">
-              <h3>Contact</h3>
-              <router-link to="/login" class="nav-link" v-if="!user"
-                >Login</router-link
+          <form @submit="order">
+            <div class="info-form text-start">
+              <div
+                class="head d-flex justify-content-between align-items-center"
               >
-            </div>
-
-            <div class="input-form mt-5" v-if="!user">
-              <div class="d-flex flex-wrap justify-content-between">
-                <div class="field">
-                  <h4>Name</h4>
-                  <v-text-field
-                    :rules="[rules.required]"
-                    clearable
-                    v-model="name"
-                    label="Enter your Name"
-                    variant="outlined"
-                  ></v-text-field>
-                </div>
-                <div class="field">
-                  <h4>Phone Number</h4>
-                  <v-text-field
-                    :rules="[rules.required]"
-                    clearable
-                    type="number"
-                    v-model="phoneNumber"
-                    label="Enter your phone number"
-                    variant="outlined"
-                  ></v-text-field>
-                </div>
-              </div>
-              <div class="address-field">
-                <h4>Address</h4>
-                <v-text-field
-                  :rules="[rules.required]"
-                  clearable
-                  v-model="address"
-                  label="Enter your full address"
-                  variant="outlined"
-                ></v-text-field>
-              </div>
-            </div>
-            <div class="input-form mt-5" v-if="user">
-              <div class="d-flex flex-wrap justify-content-between">
-                <div class="field">
-                  <h4>Name</h4>
-
-                  <v-text-field
-                    :rules="[rules.required]"
-                    clearable
-                    label="Enter your Name"
-                    v-model="name"
-                    variant="outlined"
-                  ></v-text-field>
-                </div>
-                <div class="field">
-                  <h4>Phone Number</h4>
-                  <v-text-field
-                    :rules="[rules.required]"
-                    clearable
-                    type="number"
-                    label="Enter your phone number"
-                    v-model="phoneNumber"
-                    variant="outlined"
-                  ></v-text-field>
-                </div>
-              </div>
-              <div class="address-field">
-                <h4>Address</h4>
-                <v-text-field
-                  :rules="[rules.required]"
-                  clearable
-                  v-model="address"
-                  label="Enter your full address"
-                  variant="outlined"
-                ></v-text-field>
-              </div>
-            </div>
-
-            <hr />
-            <div class="form-contact text-start mt-5">
-              <div class="form-location text-start">
-                <h3>Delivery</h3>
-
-                <div class="selcect-form">
-                  <div
-                    class="location d-flex flex-wrap justify-content-between align-items-center"
-                  >
-                    <div
-                      class="d-flex justify-content-between align-items-center mb-5"
-                    >
-                      <div class="field">
-                        <h4>Select Regions</h4>
-                        <select
-                          required
-                          class="form-select"
-                          aria-label="Default select example"
-                          id="location"
-                          v-model="selectedLocation"
-                          @change="onLocationChange"
-                        >
-                          <option
-                            v-for="location in locations"
-                            :key="location.id"
-                            :value="location"
-                          >
-                            {{ location.location }}
-                          </option>
-                        </select>
-                      </div>
-                    </div>
-                    <div
-                      class="d-flex justify-content-between align-items-center mb-5"
-                    >
-                      <div class="field">
-                        <h4>Select City</h4>
-                        <select
-                          required
-                          class="form-select"
-                          aria-label="Default select example"
-                          v-if="subLocations.length > 0"
-                          id="subLocation"
-                          v-model="selectedSubLocation"
-                          @change="onSubLocationChange"
-                        >
-                          <option
-                            v-for="subLocation in subLocations"
-                            :key="subLocation.id"
-                            :value="subLocation.township"
-                          >
-                            {{ subLocation.township }}
-                          </option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <hr />
-
-              <div class="discount-point">
-                <div
-                  class="d-flex flex-wrap justify-content-between align-items-center"
+                <h3>Contact</h3>
+                <router-link to="/login" class="nav-link" v-if="!user"
+                  >Login</router-link
                 >
-                  <div class="discount">
-                    <h4>Points</h4>
+              </div>
+
+              <div class="input-form mt-5">
+                <div class="d-flex flex-wrap justify-content-between">
+                  <div class="field">
+                    <h4>Name</h4>
                     <v-text-field
+                      required
+                      :rules="[rules.required]"
                       clearable
-                      type="number"
-                      v-model.number="enterPoints"
-                      :max="availablePoints"
-                      label="Enter Discount Point"
+                      v-model="name"
+                      label="Enter your Name"
                       variant="outlined"
-                      @click:clear="onClear()"
                     ></v-text-field>
                   </div>
-                  <div class="button-group">
-                    <div class="promo-btn btn" @click="applyDiscount()">
-                      Apply Discount
+                  <div class="field">
+                    <h4>Phone Number</h4>
+                    <v-text-field
+                      required
+                      :rules="[rules.required]"
+                      clearable
+                      type="number"
+                      v-model="phoneNumber"
+                      label="Enter your phone number"
+                      variant="outlined"
+                    ></v-text-field>
+                  </div>
+                </div>
+                <div class="address-field">
+                  <h4>Address</h4>
+                  <v-text-field
+                    required
+                    :rules="[rules.required]"
+                    clearable
+                    v-model="address"
+                    label="Enter your full address"
+                    variant="outlined"
+                  ></v-text-field>
+                </div>
+              </div>
+              <!-- <div class="input-form mt-5" v-if="user">
+              <div class="d-flex flex-wrap justify-content-between">
+                <div class="field">
+                  <h4>Name</h4>
+
+                  <v-text-field
+                    :rules="[rules.required]"
+                    clearable
+                    label="Enter your Name"
+                    v-model="name"
+                    variant="outlined"
+                  ></v-text-field>
+                </div>
+                <div class="field">
+                  <h4>Phone Number</h4>
+                  <v-text-field
+                    :rules="[rules.required]"
+                    clearable
+                    type="number"
+                    label="Enter your phone number"
+                    v-model="phoneNumber"
+                    variant="outlined"
+                  ></v-text-field>
+                </div>
+              </div>
+              <div class="address-field">
+                <h4>Address</h4>
+                <v-text-field
+                  :rules="[rules.required]"
+                  clearable
+                  v-model="address"
+                  label="Enter your full address"
+                  variant="outlined"
+                ></v-text-field>
+              </div>
+            </div> -->
+
+              <hr />
+              <div class="form-contact text-start mt-5">
+                <div class="form-location text-start">
+                  <h3>Delivery</h3>
+
+                  <div class="selcect-form">
+                    <div
+                      class="location d-flex flex-wrap justify-content-between align-items-center"
+                    >
+                      <div
+                        class="d-flex justify-content-between align-items-center mb-5"
+                      >
+                        <div class="field">
+                          <h4>Select Regions</h4>
+                          <select
+                            required
+                            class="form-select"
+                            aria-label="Default select example"
+                            id="location"
+                            v-model="selectedLocation"
+                            @change="onLocationChange"
+                          >
+                            <option
+                              v-for="location in locations"
+                              :key="location.id"
+                              :value="location"
+                            >
+                              {{ location.location }}
+                            </option>
+                          </select>
+                        </div>
+                      </div>
+                      <div
+                        class="d-flex justify-content-between align-items-center mb-5"
+                      >
+                        <div class="field">
+                          <h4>Select City</h4>
+                          <select
+                            required
+                            class="form-select"
+                            aria-label="Default select example"
+                            v-if="subLocations.length > 0"
+                            id="subLocation"
+                            v-model="selectedSubLocation"
+                            @change="onSubLocationChange"
+                          >
+                            <option
+                              v-for="subLocation in subLocations"
+                              :key="subLocation.id"
+                              :value="subLocation.township"
+                            >
+                              {{ subLocation.township }}
+                            </option>
+                          </select>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-                <h5>
-                  You have
-                  <span class="points">{{
-                    availablePoints - discountPrice
-                  }}</span>
-                  points lefts
-                </h5>
-              </div>
+                <hr />
 
-              <div class="button-group mt-5">
-                <button class="btn order-btn" @click="order()">
-                  Order Now
-                </button>
+                <div class="discount-point">
+                  <div
+                    class="d-flex flex-wrap justify-content-between align-items-center"
+                  >
+                    <div class="discount">
+                      <h4>Points</h4>
+                      <v-text-field
+                        clearable
+                        type="number"
+                        v-model.number="enterPoints"
+                        :max="availablePoints"
+                        label="Enter Discount Point"
+                        variant="outlined"
+                        @click:clear="onClear()"
+                      ></v-text-field>
+                    </div>
+                    <div class="button-group">
+                      <div class="promo-btn btn" @click="applyDiscount()">
+                        Apply Discount
+                      </div>
+                    </div>
+                  </div>
+                  <h5>
+                    You have
+                    <span class="points">{{
+                      availablePoints - discountPrice
+                    }}</span>
+                    points lefts
+                  </h5>
+                </div>
+
+                <div class="button-group mt-5">
+                  <button class="btn order-btn">Order Now</button>
+                </div>
               </div>
             </div>
-          </div>
+          </form>
         </div>
         <div class="col-4 col-sm-12 col-md-4 check-2-custom">
           <div class="mt-3 price-list">
@@ -244,9 +249,9 @@
             </div>
           </div>
         </div>
-        <div class="button-group mt-5">
+        <!-- <div class="button-group mt-5">
           <button class="btn order-btn-2" @click="order()">Order Now</button>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
@@ -258,14 +263,17 @@ import { useStore } from "vuex";
 export default {
   setup() {
     const store = useStore();
-    const selectedLocation = ref(null);
-    const selectedSubLocation = ref(null);
-    const name = ref();
-    const phoneNumber = ref();
-    const address = ref();
+    const selectedLocation = ref();
+    const selectedSubLocation = ref();
+    const name = ref("");
+    const phoneNumber = ref("");
+    const address = ref("");
     const rules = {
       required: (value) => !!value || "Field is required",
     };
+
+    const city = ref(null);
+    const township = ref(null);
 
     const cartItems = computed(() => store.getters["cartItems"]);
     const total = computed(() => store.getters["totalPrice"]);
@@ -279,11 +287,13 @@ export default {
     const onLocationChange = () => {
       store.dispatch("chooseLocation", selectedLocation.value);
       store.dispatch("calculateDeliveryPrice");
+      city.value = selectedLocation.value.location;
     };
 
     const onSubLocationChange = () => {
       store.dispatch("chooseSubLocation", selectedSubLocation.value);
       store.dispatch("calculateDeliveryPrice");
+      township.value = selectedSubLocation.value;
     };
 
     const user = JSON.parse(localStorage.getItem("user"));
@@ -301,14 +311,33 @@ export default {
       store.dispatch("returnPoint", points.value);
     };
 
-    let order = () => {
-      console.log(name.value);
-      console.log(phoneNumber.value);
-      console.log(address.value);
-      console.log(grandTotal);
-      console.log(cartItems);
-      console.log(discountPrice);
-      console.log(deliveryPrice);
+    let order = (e) => {
+      e.preventDefault();
+      const orderForm = ref({
+        userName: name.value,
+        phone: phoneNumber.value,
+        address: address.value,
+        products: cartItems.value,
+        city: city.value,
+        town: township.value,
+        deliverPrice: deliveryPrice.value,
+        pointsUse: discountPrice.value ? discountPrice.value : 0,
+        totalAvailablePoints: availablePoints.value,
+        price_total: total.value,
+      });
+      let orderDataFrom = new FormData();
+      orderDataFrom.append("name", orderForm.value.userName);
+      orderDataFrom.append("phone", orderForm.value.phone);
+      orderDataFrom.append("address", orderForm.value.address);
+      orderDataFrom.append("products", orderForm.value.products);
+      orderDataFrom.append("city", orderForm.value.city);
+      orderDataFrom.append("town", orderForm.value.town);
+      orderDataFrom.append("deliveryPrice", orderForm.value.deliverPrice);
+      orderDataFrom.append("pointsUse", orderForm.value.pointsUse);
+      orderDataFrom.append("totalPoint", orderForm.value.totalAvailablePoints);
+      orderDataFrom.append("totalPrice", orderForm.value.price_total);
+
+      console.log(orderForm.value);
     };
 
     return {
