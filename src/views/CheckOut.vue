@@ -258,6 +258,8 @@
 </template>
 
 <script>
+import api from "@/service/api";
+import axios from "axios";
 import { computed, ref, watch } from "vue";
 import { useStore } from "vuex";
 export default {
@@ -265,9 +267,7 @@ export default {
     const store = useStore();
     const selectedLocation = ref();
     const selectedSubLocation = ref();
-    const name = ref("");
-    const phoneNumber = ref("");
-    const address = ref("");
+  
     const rules = {
       required: (value) => !!value || "Field is required",
     };
@@ -298,6 +298,10 @@ export default {
 
     const user = JSON.parse(localStorage.getItem("user"));
     const points = ref(store.getters.discountPoints);
+    const name = ref(user ? user.name : '');
+    const address = ref(user ? user.address : '');
+    const phoneNumber = ref("");
+
 
     const deliveryPrice = computed(() => store.getters.deliveryPrice);
 
@@ -311,7 +315,7 @@ export default {
       store.dispatch("returnPoint", points.value);
     };
 
-    let order = (e) => {
+    let order = async (e) => {
       e.preventDefault();
       const orderForm = ref({
         userName: name.value,
@@ -326,18 +330,21 @@ export default {
         price_total: total.value,
       });
       let orderDataFrom = new FormData();
+      orderDataFrom.append("user_id", user ? user.id : null);
       orderDataFrom.append("name", orderForm.value.userName);
       orderDataFrom.append("phone", orderForm.value.phone);
       orderDataFrom.append("address", orderForm.value.address);
-      orderDataFrom.append("products", orderForm.value.products);
+      orderDataFrom.append("products", JSON.stringify(orderForm.value.products));
       orderDataFrom.append("city", orderForm.value.city);
       orderDataFrom.append("town", orderForm.value.town);
       orderDataFrom.append("deliveryPrice", orderForm.value.deliverPrice);
       orderDataFrom.append("pointsUse", orderForm.value.pointsUse);
       orderDataFrom.append("totalPoint", orderForm.value.totalAvailablePoints);
-      orderDataFrom.append("totalPrice", orderForm.value.price_total);
+      orderDataFrom.append("subTotal", orderForm.value.price_total);
 
-      console.log(orderForm.value);
+      let response = await axios.post(api.order, orderDataFrom);
+
+      console.log(response);
     };
 
     return {
