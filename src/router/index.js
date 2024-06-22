@@ -70,4 +70,12 @@ const router = createRouter({
   routes,
 });
 
+// router.beforeEach((to, from, next) => {
+//   if (to.name === "Login" && from.fullPath) {
+//     next({ name: "Login", query: { redirect: from.fullPath } });
+//   } else {
+//     next();
+//   }
+// });
+
 export default router;

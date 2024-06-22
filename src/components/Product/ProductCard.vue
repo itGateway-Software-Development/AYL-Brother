@@ -8,7 +8,10 @@
           :key="product.id"
         >
           <div class="p-card mb-3">
-            <router-link to="/product" class="product-link">
+            <router-link
+              :to="{ name: 'productDetail', params: { id: product.id } }"
+              class="product-link"
+            >
               <div class="card-img mb-2">
                 <img :src="product.img" class="img-fluid" alt="" />
               </div>

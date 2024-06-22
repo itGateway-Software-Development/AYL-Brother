@@ -21,7 +21,7 @@
             </li> -->
             <li class="nav-link">
               <router-link class="nav-link" to="/">
-                <p>Oreder & Delivery</p></router-link
+                <p>Order & Delivery</p></router-link
               >
             </li>
             <!-- <li class="nav-link">

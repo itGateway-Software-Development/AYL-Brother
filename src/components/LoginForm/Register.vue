@@ -47,6 +47,17 @@
                     aria-describedby="inputGroup-sizing-default"
                   />
                 </div>
+                <p class="mb-2">Enter your Phone Number</p>
+                <div class="input-group mb-3">
+                  <input
+                    required
+                    type="number"
+                    v-model="form.phoneNumber"
+                    class="form-control"
+                    aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-default"
+                  />
+                </div>
                 <p class="mb-2">Enter your eamil</p>
                 <div class="input-group mb-3">
                   <input
@@ -147,6 +158,7 @@ export default {
 
     const form = ref({
       userName: "",
+      phoneNumber: "",
       password: "",
       cfpassword: "",
       email: "",
@@ -158,6 +170,7 @@ export default {
       e.preventDefault();
       let formDataToSend = new FormData();
       formDataToSend.append("name", form.value.userName);
+      formDataToSend.append("phone", form.value.phoneNumber);
       formDataToSend.append("email", form.value.email);
       formDataToSend.append("password", form.value.password);
       formDataToSend.append("password_confirmation", form.value.cfpassword);

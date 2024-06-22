@@ -74,17 +74,26 @@
 </template>
 
 <script>
-import { computed, ref } from "vue";
-import { useRouter } from "vue-router";
+import { computed, onMounted, ref, watch } from "vue";
+import {
+  onBeforeRouteLeave,
+  onBeforeRouteUpdate,
+  useRoute,
+  useRouter,
+} from "vue-router";
 import axios from "axios";
 import api from "@/service/api";
 import { useStore } from "vuex";
+import Swal from "sweetalert2";
 
 export default {
   setup() {
     const store = useStore();
     const router = useRouter();
+    const route = useRoute();
     const selectedRoute = ref("/");
+    const currentRoute = useRoute();
+    const previousRoute = ref(null);
 
     const isUser = ref(true);
 
@@ -94,6 +103,14 @@ export default {
 
     const changeRoute = () => {
       router.push(selectedRoute.value);
+    };
+
+    let usePreviousRoute = () => {
+      if (previousRoute.value == "/cart") {
+        router.push("/cart");
+      } else {
+        router.push("/");
+      }
     };
 
     let form = ref({
@@ -106,31 +123,71 @@ export default {
       let formDataToSend = new FormData();
       formDataToSend.append("email", form.value.email);
       formDataToSend.append("password", form.value.password);
+      try {
+        let response = await axios.post(api.login, formDataToSend);
+        console.log(response);
+        if (response.status == 201) {
+          localStorage.setItem(
+            "user",
+            JSON.stringify(response.data.response.user)
+          );
+          localStorage.setItem(
+            "Token",
+            JSON.stringify(response.data.response.token)
+          );
+          let point = response.data.response.point;
+          store.dispatch("saveAvaliabePoints", point);
 
-      let response = await axios.post(api.login, formDataToSend);
-      if (response.status == 201) {
-        localStorage.setItem(
-          "user",
-          JSON.stringify(response.data.response.user)
-        );
-        localStorage.setItem(
-          "Token",
-          JSON.stringify(response.data.response.token)
-        );
-        let point = response.data.response.point;
-        localStorage.setItem("totalAvailablePoints", point);
+          localStorage.setItem("isLogin", JSON.stringify(true));
 
-        localStorage.setItem("isLogin", JSON.stringify(true));
-
-        router.push("/");
+          usePreviousRoute();
+          // router.push(redirect);
+        }
+      } catch (error) {
+        if (error.response && error.response.status) {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Wrong Username & Password!",
+          });
+        } else {
+          console.log(error);
+        }
       }
     };
+
+    // watch(route, () => {
+    //   const history = router.options.history.state.back;
+    //   if (history) {
+    //     previousRoute.value = history;
+    //     console.log(previousRoute.value);
+    //   }
+    //   console.log("hello");
+    // });
+
+    onMounted(() => {
+      const history = router.options.history.state.back;
+      if (history) {
+        previousRoute.value = history;
+        console.log(previousRoute.value);
+      }
+      // onBeforeRouteUpdate((to, from) => {
+      //   previousRoute.value = from;
+      //   console.log(previousRoute.value);
+      // });
+
+      // onBeforeRouteLeave((to, from) => {
+      //   previousRoute.value = from;
+      //   console.log(previousRoute.value);
+      // });
+    });
 
     return {
       selectedRoute,
       changeRoute,
       form,
       sumbit,
+      previousRoute,
     };
   },
 };

@@ -40,6 +40,13 @@ const defaultProduct = [
     price: 14200,
     pics: "1 Box in 2 PCS",
     img: require("@/assets/product/8028/B.jpg"),
+    miniImages: [
+      { id: "p-1", url: require("@/assets/product/8028/B.jpg") },
+      { id: "p-2", url: require("@/assets/product/8028/31.png") },
+      { id: "p-3", url: require("@/assets/product/8028/32.png") },
+      { id: "p-4", url: require("@/assets/product/8028/37.png") },
+      { id: "p-5", url: require("@/assets/product/8028/38.png") },
+    ],
   },
   {
     id: 2,
@@ -1207,6 +1214,15 @@ export default {
         0
       );
     },
+    getMiniImagesByProductId: (state) => (id) => {
+      const product = state.products.find((product) => product.id === id);
+      return product ? product.miniImages : [];
+    },
+    getImageUrlByTab: (state) => (id, tab) => {
+      const product = state.products.find((product) => product.id === id);
+      const miniImage = product?.miniImages.find((image) => image.id === tab);
+      return miniImage ? miniImage.url : product?.mainImage;
+    },
     filteredProducts: (state) => {
       let filtered = state.products;
 
@@ -1326,6 +1342,27 @@ export default {
     changeisLogin(state, value) {
       state.isLogin = value;
     },
+    clearCart(state) {
+      state.cart = [];
+      localStorage.setItem("cart", JSON.stringify(state.cart));
+    },
+    clearDiscountPoints(state) {
+      state.discountPoints = 0;
+      localStorage.setItem(
+        "discountPoints",
+        JSON.stringify(state.discountPoints)
+      );
+    },
+    saveAvaliablePoints(state, points) {
+      state.totalAvailablePoints = points;
+      saveTotalAvailablePointsToLocalStorage(points);
+    },
+    usePoints(state, points) {
+      let avaliablePoints = state.totalAvailablePoints;
+      state.totalAvailablePoints = avaliablePoints - points;
+      let usePoint = avaliablePoints - points;
+      saveTotalAvailablePointsToLocalStorage(usePoint);
+    },
   },
   actions: {
     addToCart(context, product) {
@@ -1393,6 +1430,19 @@ export default {
     },
     returnPoint({ commit }, points) {
       commit("returnPoint", points);
+    },
+    clearCart({ commit }) {
+      commit("clearCart");
+    },
+    clearDiscount({ commit }) {
+      commit("clearDiscountPoints");
+    },
+    saveAvaliabePoints({ commit }, points) {
+      commit("saveAvaliablePoints", points);
+    },
+    usePoints({ commit }, points) {
+      commit("usePoints", points);
+      console.log(points);
     },
   },
   modules: {},

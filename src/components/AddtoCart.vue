@@ -321,9 +321,7 @@ export default {
 }
 
 .add-back {
-  position: fixed;
   width: 100%;
-  z-index: 99;
   background: #f2f2f2;
 }
 
@@ -365,8 +363,6 @@ export default {
 
 .cart-item-list {
   flex-direction: column;
-  margin-top: 230px;
-  position: relative;
   z-index: 1;
 }
 
@@ -377,9 +373,6 @@ export default {
   padding: 20px 0px;
   margin-left: 10px;
   border-radius: 5px;
-  position: fixed;
-  top: 38%;
-  right: 9.5%;
 }
 
 .cart-plus-minus {
@@ -478,10 +471,31 @@ export default {
   line-height: 30px;
 }
 
+@media (max-width: 2880px) {
+  .check-out {
+    top: 38%;
+    right: 9.5%;
+  }
+}
+
 @media (min-width: 1920px) {
   .check-out {
     right: 16.1%;
     top: 21.5%;
+  }
+}
+
+@media (max-width: 1600px) {
+  .check-out {
+    top: 2%;
+    right: 9.5%;
+  }
+}
+
+@media (max-width: 1400px) {
+  .check-out {
+    top: 27%;
+    right: 3.5%;
   }
 }
 
@@ -492,6 +506,13 @@ export default {
 }
 
 @media (max-width: 800px) {
+  .add-back {
+    position: relative;
+    width: auto;
+    background: none;
+    z-index: 0;
+  }
+
   .cart-item {
     width: 720px;
     height: max-content;
