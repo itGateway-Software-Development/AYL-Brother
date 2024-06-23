@@ -57,6 +57,13 @@ const defaultProduct = [
     price: 14200,
     pics: "1 Box in 2 PCS",
     img: require("@/assets/product/8028/B1.jpg"),
+    miniImages: [
+      { id: "p-1", url: require("@/assets/product/8028/B1.jpg") },
+      { id: "p-2", url: require("@/assets/product/8028/21.png") },
+      { id: "p-3", url: require("@/assets/product/8028/22.png") },
+      { id: "p-4", url: require("@/assets/product/8028/27.png") },
+      { id: "p-5", url: require("@/assets/product/8028/28.png") },
+    ],
   },
   {
     id: 3,
@@ -67,6 +74,13 @@ const defaultProduct = [
     price: 14200,
     pics: "1 Box in 2 PCS",
     img: require("@/assets/product/8028/B2.jpg"),
+    miniImages: [
+      { id: "p-1", url: require("@/assets/product/8028/B2.jpg") },
+      { id: "p-2", url: require("@/assets/product/8028/23.png") },
+      { id: "p-3", url: require("@/assets/product/8028/24.png") },
+      { id: "p-4", url: require("@/assets/product/8028/25.png") },
+      { id: "p-5", url: require("@/assets/product/8028/26.png") },
+    ],
   },
   {
     id: 4,
@@ -77,6 +91,13 @@ const defaultProduct = [
     price: 14200,
     pics: "1 Box in 2 PCS",
     img: require("@/assets/product/8028/B4.jpg"),
+    miniImages: [
+      { id: "p-1", url: require("@/assets/product/8028/B4.jpg") },
+      { id: "p-2", url: require("@/assets/product/8028/33.png") },
+      { id: "p-3", url: require("@/assets/product/8028/34.png") },
+      { id: "p-4", url: require("@/assets/product/8028/39.png") },
+      { id: "p-5", url: require("@/assets/product/8028/40.png") },
+    ],
   },
   {
     id: 5,
@@ -87,6 +108,13 @@ const defaultProduct = [
     price: 14200,
     pics: "1 Box in 2 PCS",
     img: require("@/assets/product/8028/B3.jpg"),
+    miniImages: [
+      { id: "p-1", url: require("@/assets/product/8028/B3.jpg") },
+      { id: "p-2", url: require("@/assets/product/8028/35.png") },
+      { id: "p-3", url: require("@/assets/product/8028/36.png") },
+      { id: "p-4", url: require("@/assets/product/8028/29.png") },
+      { id: "p-5", url: require("@/assets/product/8028/30.png") },
+    ],
   },
   {
     id: 6,
@@ -97,6 +125,13 @@ const defaultProduct = [
     price: 13300,
     pics: "1 Box in 2 PCS",
     img: require("@/assets/product/8027/A4.jpg"),
+    miniImages: [
+      { id: "p-1", url: require("@/assets/product/8027/A4.jpg") },
+      { id: "p-2", url: require("@/assets/product/8027/19.png") },
+      { id: "p-3", url: require("@/assets/product/8027/20.png") },
+      { id: "p-4", url: require("@/assets/product/8027/15.png") },
+      { id: "p-5", url: require("@/assets/product/8027/16.png") },
+    ],
   },
   {
     id: 7,
@@ -107,6 +142,13 @@ const defaultProduct = [
     price: 13300,
     pics: "1 Box in 2 PCS",
     img: require("@/assets/product/8027/A3.jpg"),
+    miniImages: [
+      { id: "p-1", url: require("@/assets/product/8027/A3.jpg") },
+      { id: "p-2", url: require("@/assets/product/8027/17.png") },
+      { id: "p-3", url: require("@/assets/product/8027/18.png") },
+      { id: "p-4", url: require("@/assets/product/8027/13.png") },
+      { id: "p-5", url: require("@/assets/product/8027/14.png") },
+    ],
   },
   {
     id: 8,
@@ -117,6 +159,13 @@ const defaultProduct = [
     price: 13300,
     pics: "1 Box in 2 PCS",
     img: require("@/assets/product/8027/A2.jpg"),
+    miniImages: [
+      { id: "p-1", url: require("@/assets/product/8027/A2.jpg") },
+      { id: "p-2", url: require("@/assets/product/8027/11.png") },
+      { id: "p-3", url: require("@/assets/product/8027/12.png") },
+      { id: "p-4", url: require("@/assets/product/8027/9.png") },
+      { id: "p-5", url: require("@/assets/product/8027/10.png") },
+    ],
   },
   {
     id: 9,
@@ -127,6 +176,13 @@ const defaultProduct = [
     price: 13300,
     pics: "1 Box in 2 PCS",
     img: require("@/assets/product/8027/A1.jpg"),
+    miniImages: [
+      { id: "p-1", url: require("@/assets/product/8027/A1.jpg") },
+      { id: "p-2", url: require("@/assets/product/8027/7.png") },
+      { id: "p-3", url: require("@/assets/product/8027/8.png") },
+      { id: "p-4", url: require("@/assets/product/8027/5.png") },
+      { id: "p-5", url: require("@/assets/product/8027/6.png") },
+    ],
   },
   {
     id: 10,
@@ -137,6 +193,13 @@ const defaultProduct = [
     price: 13300,
     pics: "1 Box in 2 PCS",
     img: require("@/assets/product/8027/A.jpg"),
+    miniImages: [
+      { id: "p-1", url: require("@/assets/product/8027/A.jpg") },
+      { id: "p-2", url: require("@/assets/product/8027/1.png") },
+      { id: "p-3", url: require("@/assets/product/8027/2.png") },
+      { id: "p-4", url: require("@/assets/product/8027/3.png") },
+      { id: "p-5", url: require("@/assets/product/8027/4.png") },
+    ],
   },
   {
     id: 11,
@@ -147,6 +210,11 @@ const defaultProduct = [
     price: 14200,
     pics: "1 Box in 2 PCS",
     img: require("@/assets/product/8004/d.jpg"),
+    miniImages: [
+      { id: "p-1", url: require("@/assets/product/8004/d.jpg") },
+      { id: "p-2", url: require("@/assets/product/8004/7.jpg") },
+      { id: "p-3", url: require("@/assets/product/8004/8.jpg") },
+    ],
   },
   {
     id: 12,
@@ -157,6 +225,11 @@ const defaultProduct = [
     price: 14200,
     pics: "1 Box in 2 PCS",
     img: require("@/assets/product/8004/c.jpg"),
+    miniImages: [
+      { id: "p-1", url: require("@/assets/product/8004/c.jpg") },
+      { id: "p-2", url: require("@/assets/product/8004/6.jpg") },
+      { id: "p-3", url: require("@/assets/product/8004/5.jpg") },
+    ],
   },
   {
     id: 13,
@@ -167,6 +240,11 @@ const defaultProduct = [
     price: 14200,
     pics: "1 Box in 2 PCS",
     img: require("@/assets/product/8004/a.jpg"),
+    miniImages: [
+      { id: "p-1", url: require("@/assets/product/8004/a.jpg") },
+      { id: "p-2", url: require("@/assets/product/8004/1.jpg") },
+      { id: "p-3", url: require("@/assets/product/8004/8.jpg") },
+    ],
   },
   {
     id: 14,
@@ -177,6 +255,11 @@ const defaultProduct = [
     price: 14200,
     pics: "1 Box in 2 PCS",
     img: require("@/assets/product/8004/b.jpg"),
+    miniImages: [
+      { id: "p-1", url: require("@/assets/product/8004/b.jpg") },
+      { id: "p-2", url: require("@/assets/product/8004/4.jpg") },
+      { id: "p-3", url: require("@/assets/product/8004/3.jpg") },
+    ],
   },
   {
     id: 15,
@@ -187,17 +270,27 @@ const defaultProduct = [
     price: 14200,
     pics: "1 Box in 2 PCS",
     img: require("@/assets/product/8004/0.jpg"),
+    miniImages: [
+      { id: "p-1", url: require("@/assets/product/8004/0.jpg") },
+      { id: "p-2", url: require("@/assets/product/8004/10.jpg") },
+      { id: "p-3", url: require("@/assets/product/8004/9.jpg") },
+    ],
   },
-  {
-    id: 16,
-    series: "bamboo",
-    cat: "boxer",
-    code: 8004,
-    color: "Blue & Light Grey",
-    price: 14200,
-    pics: "1 Box in 2 PCS",
-    img: require("@/assets/product/8004/d.jpg"),
-  },
+  // {
+  //   id: 16,
+  //   series: "bamboo",
+  //   cat: "boxer",
+  //   code: 8004,
+  //   color: "Blue & Light Grey",
+  //   price: 14200,
+  //   pics: "1 Box in 2 PCS",
+  //   img: require("@/assets/product/8004/d.jpg"),
+  //   miniImages: [
+  //     { id: "p-1", url: require("@/assets/product/8004/d.jpg") },
+  //     { id: "p-2", url: require("@/assets/product/8004/7.jpg") },
+  //     { id: "p-3", url: require("@/assets/product/8004/8.jpg") },
+  //   ],
+  // },
   {
     id: 17,
     series: "bamboo",
@@ -207,6 +300,11 @@ const defaultProduct = [
     price: 13300,
     pics: "1 Box in 2 PCS",
     img: require("@/assets/product/8003/c.jpg"),
+    miniImages: [
+      { id: "p-1", url: require("@/assets/product/8003/c.jpg") },
+      { id: "p-2", url: require("@/assets/product/8003/5.jpg") },
+      { id: "p-3", url: require("@/assets/product/8003/4.jpg") },
+    ],
   },
   {
     id: 18,
@@ -217,6 +315,11 @@ const defaultProduct = [
     price: 13300,
     pics: "1 Box in 2 PCS",
     img: require("@/assets/product/8003/AA.jpg"),
+    miniImages: [
+      { id: "p-1", url: require("@/assets/product/8003/AA.jpg") },
+      { id: "p-2", url: require("@/assets/product/8003/10.jpg") },
+      { id: "p-3", url: require("@/assets/product/8003/1.jpg") },
+    ],
   },
   {
     id: 19,
@@ -227,6 +330,11 @@ const defaultProduct = [
     price: 13300,
     pics: "1 Box in 2 PCS",
     img: require("@/assets/product/8003/d.jpg"),
+    miniImages: [
+      { id: "p-1", url: require("@/assets/product/8003/d.jpg") },
+      { id: "p-2", url: require("@/assets/product/8003/2.jpg") },
+      { id: "p-3", url: require("@/assets/product/8003/3.jpg") },
+    ],
   },
   {
     id: 20,
@@ -237,6 +345,11 @@ const defaultProduct = [
     price: 13300,
     pics: "1 Box in 2 PCS",
     img: require("@/assets/product/8003/b.jpg"),
+    miniImages: [
+      { id: "p-1", url: require("@/assets/product/8003/b.jpg") },
+      { id: "p-2", url: require("@/assets/product/8003/7.jpg") },
+      { id: "p-3", url: require("@/assets/product/8003/6.jpg") },
+    ],
   },
   {
     id: 21,
@@ -247,6 +360,11 @@ const defaultProduct = [
     price: 13300,
     pics: "1 Box in 2 PCS",
     img: require("@/assets/product/8003/a.jpg"),
+    miniImages: [
+      { id: "p-1", url: require("@/assets/product/8003/a.jpg") },
+      { id: "p-2", url: require("@/assets/product/8003/9.jpg") },
+      { id: "p-3", url: require("@/assets/product/8003/8.jpg") },
+    ],
   },
   {
     id: 22,
@@ -257,6 +375,11 @@ const defaultProduct = [
     price: 14800,
     pics: "1 Box in 2 PCS",
     img: require("@/assets/product/8017/AA.jpg"),
+    miniImages: [
+      { id: "p-1", url: require("@/assets/product/8017/AA.jpg") },
+      { id: "p-2", url: require("@/assets/product/8017/4.jpg") },
+      { id: "p-3", url: require("@/assets/product/8017/3.jpg") },
+    ],
   },
   {
     id: 23,
@@ -267,6 +390,11 @@ const defaultProduct = [
     price: 14800,
     pics: "1 Box in 2 PCS",
     img: require("@/assets/product/8017/a.jpg"),
+    miniImages: [
+      { id: "p-1", url: require("@/assets/product/8017/a.jpg") },
+      { id: "p-2", url: require("@/assets/product/8017/6.jpg") },
+      { id: "p-3", url: require("@/assets/product/8017/5.jpg") },
+    ],
   },
   {
     id: 24,
@@ -277,6 +405,11 @@ const defaultProduct = [
     price: 14800,
     pics: "1 Box in 2 PCS",
     img: require("@/assets/product/8017/b.jpg"),
+    miniImages: [
+      { id: "p-1", url: require("@/assets/product/8017/b.jpg") },
+      { id: "p-2", url: require("@/assets/product/8017/2.jpg") },
+      { id: "p-3", url: require("@/assets/product/8017/1.jpg") },
+    ],
   },
   {
     id: 25,
@@ -287,6 +420,11 @@ const defaultProduct = [
     price: 14800,
     pics: "1 Box in 2 PCS",
     img: require("@/assets/product/8017/c.jpg"),
+    miniImages: [
+      { id: "p-1", url: require("@/assets/product/8017/c.jpg") },
+      { id: "p-2", url: require("@/assets/product/8017/8.jpg") },
+      { id: "p-3", url: require("@/assets/product/8017/7.jpg") },
+    ],
   },
   {
     id: 26,
@@ -297,6 +435,11 @@ const defaultProduct = [
     price: 14800,
     pics: "1 Box in 2 PCS",
     img: require("@/assets/product/8017/d.jpg"),
+    miniImages: [
+      { id: "p-1", url: require("@/assets/product/8017/d.jpg") },
+      { id: "p-2", url: require("@/assets/product/8017/10.jpg") },
+      { id: "p-3", url: require("@/assets/product/8017/9.jpg") },
+    ],
   },
   {
     id: 27,
@@ -307,6 +450,11 @@ const defaultProduct = [
     price: 15600,
     pics: "1 Box in 2 PCS",
     img: require("@/assets/product/8018/d.jpg"),
+    miniImages: [
+      { id: "p-1", url: require("@/assets/product/8018/d.jpg") },
+      { id: "p-2", url: require("@/assets/product/8018/5.jpg") },
+      { id: "p-3", url: require("@/assets/product/8018/7.jpg") },
+    ],
   },
   {
     id: 28,
@@ -317,6 +465,11 @@ const defaultProduct = [
     price: 15600,
     pics: "1 Box in 2 PCS",
     img: require("@/assets/product/8018/c.jpg"),
+    miniImages: [
+      { id: "p-1", url: require("@/assets/product/8018/c.jpg") },
+      { id: "p-2", url: require("@/assets/product/8018/10.jpg") },
+      { id: "p-3", url: require("@/assets/product/8018/1.jpg") },
+    ],
   },
   {
     id: 29,
@@ -327,6 +480,11 @@ const defaultProduct = [
     price: 15600,
     pics: "1 Box in 2 PCS",
     img: require("@/assets/product/8018/b.jpg"),
+    miniImages: [
+      { id: "p-1", url: require("@/assets/product/8018/b.jpg") },
+      { id: "p-2", url: require("@/assets/product/8018/6.jpg") },
+      { id: "p-3", url: require("@/assets/product/8018/4.jpg") },
+    ],
   },
   {
     id: 30,
@@ -337,6 +495,11 @@ const defaultProduct = [
     price: 15600,
     pics: "1 Box in 2 PCS",
     img: require("@/assets/product/8018/0.jpg"),
+    miniImages: [
+      { id: "p-1", url: require("@/assets/product/8018/0.jpg") },
+      { id: "p-2", url: require("@/assets/product/8018/2.jpg") },
+      { id: "p-3", url: require("@/assets/product/8018/3.jpg") },
+    ],
   },
   {
     id: 31,
@@ -347,6 +510,11 @@ const defaultProduct = [
     price: 15600,
     pics: "1 Box in 2 PCS",
     img: require("@/assets/product/8018/a.jpg"),
+    miniImages: [
+      { id: "p-1", url: require("@/assets/product/8018/a.jpg") },
+      { id: "p-2", url: require("@/assets/product/8018/9.jpg") },
+      { id: "p-3", url: require("@/assets/product/8018/8.jpg") },
+    ],
   },
   {
     id: 32,
@@ -357,6 +525,11 @@ const defaultProduct = [
     price: 13000,
     pics: "1 Box in 2 PCS",
     img: require("@/assets/product/5003/b.jpg"),
+    miniImages: [
+      { id: "p-1", url: require("@/assets/product/5003/b.jpg") },
+      { id: "p-2", url: require("@/assets/product/5003/9.jpg") },
+      { id: "p-3", url: require("@/assets/product/5003/7.jpg") },
+    ],
   },
   {
     id: 33,
@@ -367,6 +540,11 @@ const defaultProduct = [
     price: 13000,
     pics: "1 Box in 2 PCS",
     img: require("@/assets/product/5003/d.jpg"),
+    miniImages: [
+      { id: "p-1", url: require("@/assets/product/5003/d.jpg") },
+      { id: "p-2", url: require("@/assets/product/5003/8.jpg") },
+      { id: "p-3", url: require("@/assets/product/5003/5.jpg") },
+    ],
   },
   {
     id: 34,
@@ -377,6 +555,11 @@ const defaultProduct = [
     price: 13000,
     pics: "1 Box in 2 PCS",
     img: require("@/assets/product/5003/c.jpg"),
+    miniImages: [
+      { id: "p-1", url: require("@/assets/product/5003/c.jpg") },
+      { id: "p-2", url: require("@/assets/product/5003/11.jpg") },
+      { id: "p-3", url: require("@/assets/product/5003/6.jpg") },
+    ],
   },
   {
     id: 35,
@@ -387,6 +570,11 @@ const defaultProduct = [
     price: 13000,
     pics: "1 Box in 2 PCS",
     img: require("@/assets/product/5003/e.jpg"),
+    miniImages: [
+      { id: "p-1", url: require("@/assets/product/5003/e.jpg") },
+      { id: "p-2", url: require("@/assets/product/5003/3.jpg") },
+      { id: "p-3", url: require("@/assets/product/5003/4.jpg") },
+    ],
   },
   {
     id: 36,
@@ -397,6 +585,11 @@ const defaultProduct = [
     price: 13000,
     pics: "1 Box in 2 PCS",
     img: require("@/assets/product/5003/0.jpg"),
+    miniImages: [
+      { id: "p-1", url: require("@/assets/product/5003/0.jpg") },
+      { id: "p-2", url: require("@/assets/product/5003/2.jpg") },
+      { id: "p-3", url: require("@/assets/product/5003/1.jpg") },
+    ],
   },
   {
     id: 37,
@@ -407,6 +600,11 @@ const defaultProduct = [
     price: 13000,
     pics: "1 Box in 2 PCS",
     img: require("@/assets/product/5003/a.jpg"),
+    miniImages: [
+      { id: "p-1", url: require("@/assets/product/5003/a.jpg") },
+      { id: "p-2", url: require("@/assets/product/5003/10.jpg") },
+      { id: "p-3", url: require("@/assets/product/5003/12.jpg") },
+    ],
   },
   {
     id: 38,
@@ -417,6 +615,11 @@ const defaultProduct = [
     price: 12200,
     pics: "1 Box in 2 PCS",
     img: require("@/assets/product/5002/1RO.jpg"),
+    miniImages: [
+      { id: "p-1", url: require("@/assets/product/5002/1RO.jpg") },
+      { id: "p-2", url: require("@/assets/product/5002/B.jpg") },
+      { id: "p-3", url: require("@/assets/product/5002/A.jpg") },
+    ],
   },
   {
     id: 39,
@@ -427,6 +630,11 @@ const defaultProduct = [
     price: 12200,
     pics: "1 Box in 2 PCS",
     img: require("@/assets/product/5002/1.jpg"),
+    miniImages: [
+      { id: "p-1", url: require("@/assets/product/5002/1.jpg") },
+      { id: "p-2", url: require("@/assets/product/5002/H.jpg") },
+      { id: "p-3", url: require("@/assets/product/5002/I.jpg") },
+    ],
   },
   {
     id: 40,
@@ -437,6 +645,11 @@ const defaultProduct = [
     price: 12200,
     pics: "1 Box in 2 PCS",
     img: require("@/assets/product/5002/2.jpg"),
+    miniImages: [
+      { id: "p-1", url: require("@/assets/product/5002/2.jpg") },
+      { id: "p-2", url: require("@/assets/product/5002/K.jpg") },
+      { id: "p-3", url: require("@/assets/product/5002/G.jpg") },
+    ],
   },
   {
     id: 41,
@@ -447,6 +660,11 @@ const defaultProduct = [
     price: 12200,
     pics: "1 Box in 2 PCS",
     img: require("@/assets/product/5002/3.jpg"),
+    miniImages: [
+      { id: "p-1", url: require("@/assets/product/5002/3.jpg") },
+      { id: "p-2", url: require("@/assets/product/5002/L.jpg") },
+      { id: "p-3", url: require("@/assets/product/5002/J.jpg") },
+    ],
   },
   {
     id: 42,
@@ -457,6 +675,11 @@ const defaultProduct = [
     price: 12200,
     pics: "1 Box in 2 PCS",
     img: require("@/assets/product/5002/4.jpg"),
+    miniImages: [
+      { id: "p-1", url: require("@/assets/product/5002/4.jpg") },
+      { id: "p-2", url: require("@/assets/product/5002/D.jpg") },
+      { id: "p-3", url: require("@/assets/product/5002/C.jpg") },
+    ],
   },
   {
     id: 43,
@@ -467,6 +690,11 @@ const defaultProduct = [
     price: 12200,
     pics: "1 Box in 2 PCS",
     img: require("@/assets/product/5002/5.jpg"),
+    miniImages: [
+      { id: "p-1", url: require("@/assets/product/5002/5.jpg") },
+      { id: "p-2", url: require("@/assets/product/5002/E.jpg") },
+      { id: "p-3", url: require("@/assets/product/5002/F.jpg") },
+    ],
   },
   {
     id: 44,
@@ -477,6 +705,11 @@ const defaultProduct = [
     price: 14200,
     pics: "1 Box in 2 PCS",
     img: require("@/assets/product/8077/0.jpg"),
+    miniImages: [
+      { id: "p-1", url: require("@/assets/product/8077/0.jpg") },
+      { id: "p-2", url: require("@/assets/product/8077/6.jpg") },
+      { id: "p-3", url: require("@/assets/product/8077/7.jpg") },
+    ],
   },
   {
     id: 45,
@@ -487,6 +720,11 @@ const defaultProduct = [
     price: 14200,
     pics: "1 Box in 2 PCS",
     img: require("@/assets/product/8077/c.jpg"),
+    miniImages: [
+      { id: "p-1", url: require("@/assets/product/8077/c.jpg") },
+      { id: "p-2", url: require("@/assets/product/8077/9.jpg") },
+      { id: "p-3", url: require("@/assets/product/8077/8.jpg") },
+    ],
   },
   {
     id: 46,
@@ -497,6 +735,11 @@ const defaultProduct = [
     price: 14200,
     pics: "1 Box in 2 PCS",
     img: require("@/assets/product/8077/d.jpg"),
+    miniImages: [
+      { id: "p-1", url: require("@/assets/product/8077/d.jpg") },
+      { id: "p-2", url: require("@/assets/product/8077/1.jpg") },
+      { id: "p-3", url: require("@/assets/product/8077/10.jpg") },
+    ],
   },
   {
     id: 47,
@@ -507,6 +750,11 @@ const defaultProduct = [
     price: 14200,
     pics: "1 Box in 2 PCS",
     img: require("@/assets/product/8077/b.jpg"),
+    miniImages: [
+      { id: "p-1", url: require("@/assets/product/8077/b.jpg") },
+      { id: "p-2", url: require("@/assets/product/8077/5.jpg") },
+      { id: "p-3", url: require("@/assets/product/8077/4.jpg") },
+    ],
   },
   {
     id: 48,
@@ -517,6 +765,11 @@ const defaultProduct = [
     price: 14200,
     pics: "1 Box in 2 PCS",
     img: require("@/assets/product/8077/a.jpg"),
+    miniImages: [
+      { id: "p-1", url: require("@/assets/product/8077/a.jpg") },
+      { id: "p-2", url: require("@/assets/product/8077/2.jpg") },
+      { id: "p-3", url: require("@/assets/product/8077/3.jpg") },
+    ],
   },
   {
     id: 49,
@@ -527,6 +780,11 @@ const defaultProduct = [
     price: 13300,
     pics: "1 Box in 2 PCS",
     img: require("@/assets/product/8076/4.jpg"),
+    miniImages: [
+      { id: "p-1", url: require("@/assets/product/8076/4.jpg") },
+      { id: "p-2", url: require("@/assets/product/8076/f.jpg") },
+      { id: "p-3", url: require("@/assets/product/8076/e.jpg") },
+    ],
   },
   {
     id: 50,
@@ -537,6 +795,11 @@ const defaultProduct = [
     price: 13300,
     pics: "1 Box in 2 PCS",
     img: require("@/assets/product/8076/1.jpg"),
+    miniImages: [
+      { id: "p-1", url: require("@/assets/product/8076/1.jpg") },
+      { id: "p-2", url: require("@/assets/product/8076/d.jpg") },
+      { id: "p-3", url: require("@/assets/product/8076/c.jpg") },
+    ],
   },
   {
     id: 51,
@@ -547,6 +810,11 @@ const defaultProduct = [
     price: 13300,
     pics: "1 Box in 2 PCS",
     img: require("@/assets/product/8076/AA.jpg"),
+    miniImages: [
+      { id: "p-1", url: require("@/assets/product/8076/AA.jpg") },
+      { id: "p-2", url: require("@/assets/product/8076/a.jpg") },
+      { id: "p-3", url: require("@/assets/product/8076/b.jpg") },
+    ],
   },
   {
     id: 52,
@@ -557,6 +825,11 @@ const defaultProduct = [
     price: 13300,
     pics: "1 Box in 2 PCS",
     img: require("@/assets/product/8076/2.jpg"),
+    miniImages: [
+      { id: "p-1", url: require("@/assets/product/8076/2.jpg") },
+      { id: "p-2", url: require("@/assets/product/8076/g.jpg") },
+      { id: "p-3", url: require("@/assets/product/8076/h.jpg") },
+    ],
   },
   {
     id: 53,
@@ -567,6 +840,11 @@ const defaultProduct = [
     price: 13300,
     pics: "1 Box in 2 PCS",
     img: require("@/assets/product/8076/3.jpg"),
+    miniImages: [
+      { id: "p-1", url: require("@/assets/product/8076/3.jpg") },
+      { id: "p-2", url: require("@/assets/product/8076/I.jpg") },
+      { id: "p-3", url: require("@/assets/product/8076/J.jpg") },
+    ],
   },
   {
     id: 54,
