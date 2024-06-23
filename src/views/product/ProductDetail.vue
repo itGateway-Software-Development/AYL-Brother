@@ -281,6 +281,7 @@ export default {
 
     const fetchRandomProducts = () => {
       randomProducts.value = store.getters.randomProducts(productCount.value);
+      window.scroll(0, 0);
     };
 
     // Fetch products when component is mounted
@@ -288,7 +289,7 @@ export default {
       fetchRandomProducts();
     });
     // Watch for changes to productCount and re-fetch products
-    watch(productCount, () => {
+    watch(props, () => {
       fetchRandomProducts();
     });
 

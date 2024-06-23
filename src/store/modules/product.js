@@ -1457,6 +1457,7 @@ const defaultsubLocation = {
 export default {
   state: {
     products: defaultProduct,
+    randomProducts: defaultProduct.slice(0, 60),
     cart: loadCartFromLocalStorage(),
     selectedCat: [],
     selectedSeries: [],
@@ -1516,7 +1517,7 @@ export default {
       return state.products.find((product) => product.id === parseInt(id));
     },
     randomProducts: (state) => (count) => {
-      let sliceProduct = state.products;
+      let sliceProduct = state.randomProducts;
       sliceProduct = sliceProduct.sort(() => 0.5 - Math.random());
       return sliceProduct.slice(0, count);
     },
