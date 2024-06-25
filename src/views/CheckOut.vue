@@ -195,6 +195,81 @@
                   </h5>
                 </div>
 
+                <div class="choice-payment mt-5">
+                  <div class="cash-delivery">
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="flexRadioDefault"
+                        id="flexRadioDefault1"
+                        value="cash"
+                        v-model="cod"
+                      />
+                      <label
+                        class="form-check-label mt-1"
+                        for="flexRadioDefault1"
+                      >
+                        Cash on delivery
+                      </label>
+                    </div>
+                  </div>
+                  <div class="pay-up mt-3">
+                    <div class="online-pay">
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          name="flexRadioDefault"
+                          id="flexRadioDefault1"
+                          value="kpay"
+                          v-model="cod"
+                        />
+                        <label
+                          class="form-check-label mt-1"
+                          for="flexRadioDefault1"
+                        >
+                          K-pay
+                        </label>
+                      </div>
+                    </div>
+                    <div class="online-pay-form">
+                      <div class="qr-heading mt-3 mb-5">
+                        <h4>Scan the QR and Pay Now</h4>
+                      </div>
+                      <div class="d-flex">
+                        <div class="qr-image me-3">
+                          <v-img
+                            width="300"
+                            height="300"
+                            lazy-src="https://picsum.photos/id/11/100/60"
+                            :src="qrImage"
+                            cover
+                          >
+                            <template v-slot:placeholder>
+                              <div
+                                class="d-flex align-center justify-center fill-height"
+                              >
+                                <v-progress-circular
+                                  color="grey-lighten-4"
+                                  indeterminate
+                                ></v-progress-circular>
+                              </div>
+                            </template>
+                          </v-img>
+                        </div>
+                        <div class="upload-image mt-3">
+                          <v-file-input
+                            accept="image/*"
+                            label="File input"
+                          ></v-file-input>
+                          <p>Upload your transition screenshoot</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
                 <div class="button-group mt-5">
                   <button class="btn order-btn">Order Now</button>
                 </div>
@@ -277,11 +352,14 @@ export default {
     const rules = {
       required: (value) => !!value || "Field is required",
     };
+    const cod = ref("cash");
 
     const userLogin = ref();
 
     const city = ref(null);
     const township = ref(null);
+
+    const qrImage = ref(require("@/assets/sample.jpg"));
 
     const cartItems = computed(() => store.getters["cartItems"]);
     const total = computed(() => store.getters["totalPrice"]);
@@ -409,6 +487,8 @@ export default {
       points,
       rules,
       userLogin,
+      cod,
+      qrImage,
     };
   },
 };
@@ -534,6 +614,44 @@ export default {
 
 .points {
   color: red;
+}
+
+.online-pay-form {
+  padding: 20px 20px;
+  border-left: 1px solid #111;
+  border-right: 1px solid #111;
+  border-bottom: 1px solid #111;
+  border-top: 1px solid red;
+  border-radius: 10px;
+  background: #f2f2f2;
+}
+
+.cash-delivery,
+.online-pay {
+  width: 800px;
+  height: 90px;
+  border: 2px solid red;
+  background-color: #ff7066;
+  border-radius: 10px;
+  padding: 10px 20px;
+  align-content: center;
+}
+
+.upload-image {
+  width: 400px;
+}
+
+.upload-image p {
+  margin-left: 10px;
+  font-family: "Kanit", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.qr-heading {
+  font-family: "Kanit", sans-serif;
+  font-weight: 700;
+  font-style: normal;
 }
 
 @media (max-width: 1200px) {
