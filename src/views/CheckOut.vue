@@ -206,15 +206,12 @@
                         value="cash"
                         v-model="cod"
                       />
-                      <label
-                        class="form-check-label mt-1"
-                        for="flexRadioDefault1"
-                      >
+                      <label class="form-check-label" for="flexRadioDefault1">
                         Cash on delivery
                       </label>
                     </div>
                   </div>
-                  <div class="pay-up mt-3">
+                  <div class="pay-up mt-3 mb-5">
                     <div class="online-pay">
                       <div class="form-check">
                         <input
@@ -225,16 +222,13 @@
                           value="kpay"
                           v-model="cod"
                         />
-                        <label
-                          class="form-check-label mt-1"
-                          for="flexRadioDefault1"
-                        >
+                        <label class="form-check-label" for="flexRadioDefault1">
                           K-pay
                         </label>
                       </div>
                     </div>
-                    <div class="online-pay-form">
-                      <div class="qr-heading mt-3 mb-5">
+                    <div class="online-pay-form" v-if="cod == 'kpay'">
+                      <div class="qr-heading mt-3">
                         <h4>Scan the QR and Pay Now</h4>
                       </div>
                       <div class="d-flex">
@@ -270,7 +264,7 @@
                   </div>
                 </div>
 
-                <div class="button-group mt-5">
+                <div clas="button-group mt-5">
                   <button class="btn order-btn">Order Now</button>
                 </div>
               </div>
@@ -434,22 +428,22 @@ export default {
       orderDataFrom.append("totalPrice", orderForm.value.price_total);
 
       let response = await axios.post(api.order, orderDataFrom);
-      console.log(response);
-      if (response.status == 200) {
-        store.dispatch("usePoints", pointsUse.value);
-        store.dispatch("clearCart");
-        store.dispatch("clearDiscount");
+      console.log(response.data);
+      // if (response.status == 200) {
+      //   store.dispatch("usePoints", pointsUse.value);
+      //   store.dispatch("clearCart");
+      //   store.dispatch("clearDiscount");
 
-        Swal.fire({
-          title: "Order Done",
-          icon: "success",
-          confirmButtonText: "Ok",
-        }).then((result) => {
-          if (result.isConfirmed) {
-            router.push("/product");
-          }
-        });
-      }
+      //   Swal.fire({
+      //     title: "Order Done",
+      //     icon: "success",
+      //     confirmButtonText: "Ok",
+      //   }).then((result) => {
+      //     if (result.isConfirmed) {
+      //       router.push("/product");
+      //     }
+      //   });
+      // }
     };
     onMounted(() => {
       const users = JSON.parse(localStorage.getItem("user"));
@@ -494,7 +488,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .summary-list {
   display: none;
 }
@@ -621,17 +615,17 @@ export default {
   border-left: 1px solid #111;
   border-right: 1px solid #111;
   border-bottom: 1px solid #111;
-  border-top: 1px solid red;
+  border-top: 1px solid #1773b0;
   border-radius: 10px;
-  background: #f2f2f2;
+  background-color: rgba(240, 247, 255, 1);
 }
 
 .cash-delivery,
 .online-pay {
   width: 800px;
   height: 90px;
-  border: 2px solid red;
-  background-color: #ff7066;
+  border: 2px solid #1773b0;
+  background-color: rgba(240, 247, 255, 1);
   border-radius: 10px;
   padding: 10px 20px;
   align-content: center;
@@ -654,8 +648,25 @@ export default {
   font-style: normal;
 }
 
+.form-check-input:checked {
+  background-color: #1773b0;
+  border-color: #8cd3ff;
+}
+
+.form-check-label {
+  font-family: "Kanit", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 22px;
+}
+
 @media (max-width: 1200px) {
   .order-btn {
+    width: 650px;
+  }
+
+  .cash-delivery,
+  .online-pay {
     width: 650px;
   }
 
@@ -665,6 +676,10 @@ export default {
 
   .field {
     width: 320px;
+  }
+
+  .online-pay-form {
+    width: 650px;
   }
 
   .form-select {
@@ -677,6 +692,14 @@ export default {
   }
   .discount {
     width: 320px;
+  }
+
+  .cash-delivery,
+  .online-pay {
+    width: 550px;
+  }
+  .online-pay-form {
+    width: 550px;
   }
 }
 
@@ -706,12 +729,19 @@ export default {
     width: 380px;
   }
   .order-btn {
-    display: none;
+    width: 650px;
   }
-  .order-btn-2 {
+  .cash-delivery,
+  .online-pay {
+    width: 650px;
+  }
+  .online-pay-form {
+    width: 650px;
+  }
+  /* .order-btn-2 {
     display: block;
     width: 630px;
-  }
+  } */
   .check-out {
     margin-top: 20px;
     padding-top: 20px;
@@ -724,6 +754,16 @@ export default {
     width: 380px;
     font-size: 24px;
   }
+  .order-btn {
+    width: 320px;
+  }
+  .cash-delivery,
+  .online-pay {
+    width: 320px;
+  }
+  .online-pay-form {
+    width: 320px;
+  }
   .discount {
     width: 240px;
   }
@@ -734,7 +774,7 @@ export default {
 
 @media (max-width: 390px) {
   .order-btn-2 {
-    width: 36ေ0px;
+    width: 360px;
   }
   .promo-btn {
     margin-top: -10px;
@@ -742,6 +782,16 @@ export default {
   }
   .discount {
     width: 300px;
+  }
+  .order-btn {
+    width: 320px;
+  }
+  .cash-delivery,
+  .online-pay {
+    width: 320px;
+  }
+  .online-pay-form {
+    width: 320px;
   }
 }
 </style>
