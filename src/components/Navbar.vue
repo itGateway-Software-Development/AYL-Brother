@@ -581,11 +581,8 @@
                 <router-link
                   class="nav-link d-flex align-items-center"
                   to="/cart"
-                  ><i class="fa-solid fa-cart-shopping"></i>
-                  <span v-if="cartItemCount > 0" class="cart-count">{{
-                    cartItemCount
-                  }}</span>
-                  <p class="ms-2">Your Cart</p></router-link
+                  ><i class="fa-solid fa-heart"></i>
+                  <p class="ms-2">Favourites</p></router-link
                 >
               </li>
               <li>
