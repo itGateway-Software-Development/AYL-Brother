@@ -579,7 +579,7 @@
             <ul class="d-flex align-items-center">
               <li>
                 <router-link class="nav-link d-flex align-items-center"
-                  ><i class="fa-solid fa-heart"></i>
+                  ><i class="fa-solid fa-cart-shopping"></i>
                   <p class="ms-2">Favourites</p></router-link
                 >
               </li>
