@@ -580,7 +580,7 @@
               <li>
                 <router-link class="nav-link d-flex align-items-center"
                   ><i class="fa-solid fa-heart"></i>
-                  <p class="ms-2">Favouriters</p></router-link
+                  <p class="ms-2">Favourites</p></router-link
                 >
               </li>
               <li>
