@@ -406,6 +406,9 @@ export default {
 }
 
 @media (max-width: 800px) {
+  .back {
+    padding: 20px;
+  }
   .main-section {
     margin: 30px auto;
   }
