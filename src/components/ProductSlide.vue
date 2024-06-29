@@ -71,12 +71,12 @@
                     />
                   </a>
                 </div>
-                <div class="carousel-btn">
+                <!-- <div class="carousel-btn">
                   <router-link class="nav-link d-flex align-items-center btn-1"
                     ><p>Join Community</p>
                     <i class="fa-solid fa-arrow-right ms-4"></i
                   ></router-link>
-                </div>
+                </div> -->
               </div>
             </div>
           </div>
@@ -159,12 +159,12 @@
                     />
                   </a>
                 </div>
-                <div class="carousel-btn btn-3">
+                <!-- <div class="carousel-btn btn-3">
                   <router-link class="nav-link d-flex align-items-center"
                     ><p>Order Now</p>
                     <i class="fa-solid fa-arrow-right ms-4"></i
                   ></router-link>
-                </div>
+                </div> -->
               </div>
             </div>
           </div>
