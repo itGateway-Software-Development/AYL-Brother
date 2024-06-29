@@ -25,9 +25,6 @@
                     /></div></v-list-item
               ></router-link>
               <v-divider></v-divider>
-              <router-link to="/" class="nav-link mb-text"
-                ><v-list-item><p>Home</p></v-list-item></router-link
-              >
               <div class="d-flex align-items-center justify-content-between">
                 <router-link to="/product" class="nav-link mb-text"
                   ><v-list-item><p>Product</p> </v-list-item></router-link
@@ -238,18 +235,27 @@
                   </li>
                 </ul>
               </v-list-item>
-              <v-list-item link v-else
-                ><router-link class="nav-link" to="/login"
-                  ><span class="material-symbols-outlined">
-                    account_circle
-                  </span></router-link
-                ></v-list-item
+              <v-list-item link v-else>
+                <div class="d-flex align-items-center">
+                  <router-link
+                    class="nav-link d-flex align-items-center"
+                    to="/login"
+                  >
+                    <div class="icon-group d-flex align-items-center">
+                      <i class="fa-regular fa-user"></i
+                      ><i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                    <p class="ms-1">Login |</p></router-link
+                  ><router-link class="nav-link ms-1" to="/register"
+                    ><p>Register</p></router-link
+                  >
+                </div></v-list-item
               >
-
               <v-list-item link
-                ><span class="material-symbols-outlined">
-                  favorite
-                </span></v-list-item
+                ><router-link class="d-flex align-items-center nav-link" to="/"
+                  ><i class="fa-solid fa-heart"></i>
+                  <p class="ms-2">Favouriters</p>
+                </router-link></v-list-item
               >
             </v-navigation-drawer>
           </div>
@@ -258,13 +264,15 @@
           <img src="../assets/romantic-logo.png" alt="" class="img-fluid" />
         </div>
         <div class="icon-group">
-          <ul class="d-flex">
-            <li class="">
-              <span class="material-symbols-outlined"> search </span>
+          <ul class="d-flex align-items-center">
+            <li class="ms-3">
+              <i class="fa-solid fa-magnifying-glass"></i>
             </li>
-            <li class="">
+            <li class="ms-3"><i class="fa-solid fa-globe"></i></li>
+            <li class="ms-3"><i class="fa-solid fa-moon"></i></li>
+            <li class="ms-3">
               <router-link to="/cart" class="nav-link">
-                <span class="material-symbols-outlined"> shopping_bag </span>
+                <i class="fa-solid fa-cart-shopping"></i>
                 <span v-if="cartItemCount > 0" class="cart-count">{{
                   cartItemCount
                 }}</span></router-link
@@ -278,250 +286,281 @@
     <div class="nav2" id="nav2">
       <div class="upper-nav container content-wrapper">
         <div class="d-flex justify-content-between align-items-center">
-          <div class="logo-img">
-            <router-link to="/">
-              <img src="../assets/romantic-logo.png" class="img-fluid" alt=""
-            /></router-link>
-          </div>
-          <div class="upper-nav-icon">
-            <div class="icon-group d-flex justify-content-around">
-              <span class="material-symbols-outlined"> language </span>
-              <div v-if="userLogin" class="px-3">
-                <div class="dropdown-img dropdown">
-                  <img
-                    type="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                    class="img-fluid"
-                    :src="`https://ui-avatars.com/api/?background=ff0000&color=fff&name=${user.name}`"
-                    alt=""
-                  />
-                  <ul class="dropdown-menu">
-                    <li>
-                      <a
-                        class="dropdown-item d-flex align-items-center img-text"
-                        href="#"
-                        ><img
-                          :src="`https://ui-avatars.com/api/?background=ff0000&color=fff&name=${user.name}`"
-                          alt=""
-                        />
-                        <h5 class="text-capitalize">{{ user.name }}</h5></a
+          <div class="upper-content-1">
+            <ul class="d-flex">
+              <li class="upper-li">
+                <router-link to="/product" class="nav-link">
+                  <p class="nav-p">Product</p>
+                  <ul class="dropdowns">
+                    <li class="dropdown-items">
+                      <router-link to="/products/bamboo/0" class="dropdown-link"
+                        >Bamboo Fiber</router-link
                       >
+                      <ul class="dropdown-submenu">
+                        <li class="dropdown-submenu-item">
+                          <router-link
+                            to="/products/bamboo/8028"
+                            class="dropdown-link"
+                            >RO: 8028</router-link
+                          >
+                        </li>
+                        <li class="dropdown-submenu-item">
+                          <router-link
+                            to="/products/bamboo/8027"
+                            class="dropdown-link"
+                            >RO: 8027</router-link
+                          >
+                        </li>
+                        <li class="dropdown-submenu-item">
+                          <router-link
+                            to="/products/bamboo/8018"
+                            class="dropdown-link"
+                            >RO: 8018</router-link
+                          >
+                        </li>
+                        <li class="dropdown-submenu-item">
+                          <router-link
+                            to="/products/bamboo/8017"
+                            class="dropdown-link"
+                            >RO: 8017</router-link
+                          >
+                        </li>
+                        <li class="dropdown-submenu-item">
+                          <router-link
+                            to="/products/bamboo/8003"
+                            class="dropdown-link"
+                            >RO: 8003</router-link
+                          >
+                        </li>
+                        <li class="dropdown-submenu-item">
+                          <router-link
+                            to="/products/bamboo/8004"
+                            class="dropdown-link"
+                            >RO: 8004</router-link
+                          >
+                        </li>
+                        <li class="dropdown-submenu-item">
+                          <router-link
+                            to="/products/bamboo/9001"
+                            class="dropdown-link"
+                            >RO: 9001</router-link
+                          >
+                        </li>
+                        <li class="dropdown-submenu-item">
+                          <router-link
+                            to="/products/bamboo/9002"
+                            class="dropdown-link"
+                            >RO: 9002</router-link
+                          >
+                        </li>
+                      </ul>
                     </li>
-                    <li>
-                      <div class="dropdown-divider"></div>
-                    </li>
-                    <li>
+                    <li class="dropdown-items">
                       <router-link
-                        class="dropdown-item d-flex align-items-center icon-text nav-link"
-                        to="/"
-                        ><span class="material-symbols-outlined"> person </span>
-                        <p>My Profile</p>
-                      </router-link>
-                    </li>
-                    <li>
-                      <router-link
-                        class="dropdown-item d-flex align-items-center icon-text nav-link"
-                        to="/"
-                        ><span class="material-symbols-outlined">
-                          settings
-                        </span>
-                        <p>Settings</p></router-link
+                        to="/products/spandex/0"
+                        class="dropdown-link"
                       >
-                    </li>
-                    <li>
-                      <div class="dropdown-divider"></div>
-                    </li>
-                    <li>
-                      <button
-                        class="dropdown-item d-flex align-items-center icon-text nav-link"
-                        type="button"
-                        @click="logout()"
+                        Spandex Series</router-link
                       >
-                        <span class="material-symbols-outlined">
-                          power_settings_new
-                        </span>
-                        <p>Logout</p>
-                      </button>
+                      <ul class="dropdown-submenu">
+                        <li class="dropdown-submenu-item">
+                          <router-link
+                            to="/products/spandex/5002"
+                            class="dropdown-link"
+                            >RO: 5002</router-link
+                          >
+                        </li>
+                        <li class="dropdown-submenu-item">
+                          <router-link
+                            to="/products/spandex/5003"
+                            class="dropdown-link"
+                            >RO: 5003</router-link
+                          >
+                        </li>
+                        <li class="dropdown-submenu-item">
+                          <router-link
+                            to="/products/spandex/5012"
+                            class="dropdown-link"
+                            >RO: 5012</router-link
+                          >
+                        </li>
+                        <li class="dropdown-submenu-item">
+                          <router-link
+                            to="/products/spandex/5013"
+                            class="dropdown-link"
+                            >RO: 5013</router-link
+                          >
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="dropdown-items">
+                      <router-link to="/products/lycra/0" class="dropdown-link"
+                        >Lycra Modal Series</router-link
+                      >
+                      <ul class="dropdown-submenu">
+                        <li class="dropdown-submenu-item">
+                          <router-link
+                            to="/products/lycra/8076"
+                            class="dropdown-link"
+                            >RO: 8076</router-link
+                          >
+                        </li>
+                        <li class="dropdown-submenu-item">
+                          <router-link
+                            to="/products/lycra/8077"
+                            class="dropdown-link"
+                            >RO: 8077</router-link
+                          >
+                        </li>
+                      </ul>
                     </li>
                   </ul>
+                </router-link>
+              </li>
+              <li class="upper-li">
+                <router-link class="nav-link" to="/"
+                  ><p>Promotion</p></router-link
+                >
+              </li>
+              <li class="upper-li">
+                <router-link class="nav-link" to="/"
+                  ><p>Our Story</p></router-link
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="logo-img">
+            <router-link class="nav-link" to="/">
+              <img src="../assets/romantic-logo.png" alt="" class="img-fluid"
+            /></router-link>
+          </div>
+          <div class="upper-content-2">
+            <ul class="d-flex align-items-center">
+              <li v-if="userLogin">
+                <div class="px-3">
+                  <div class="dropdown-img dropdown">
+                    <img
+                      type="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                      class="img-fluid"
+                      :src="`https://ui-avatars.com/api/?background=ff0000&color=fff&name=${user.name}`"
+                      alt=""
+                    />
+                    <ul class="dropdown-menu">
+                      <li>
+                        <a
+                          class="dropdown-item d-flex align-items-center img-text"
+                          href="#"
+                          ><img
+                            :src="`https://ui-avatars.com/api/?background=ff0000&color=fff&name=${user.name}`"
+                            alt=""
+                          />
+                          <h5 class="text-capitalize">{{ user.name }}</h5></a
+                        >
+                      </li>
+                      <li>
+                        <div class="dropdown-divider"></div>
+                      </li>
+                      <li>
+                        <router-link
+                          class="dropdown-item d-flex align-items-center icon-text nav-link"
+                          to="/"
+                          ><span class="material-symbols-outlined">
+                            person
+                          </span>
+                          <p>My Profile</p>
+                        </router-link>
+                      </li>
+                      <li>
+                        <router-link
+                          class="dropdown-item d-flex align-items-center icon-text nav-link"
+                          to="/"
+                          ><span class="material-symbols-outlined">
+                            settings
+                          </span>
+                          <p>Settings</p></router-link
+                        >
+                      </li>
+                      <li>
+                        <div class="dropdown-divider"></div>
+                      </li>
+                      <li>
+                        <button
+                          class="dropdown-item d-flex align-items-center icon-text nav-link"
+                          type="button"
+                          @click="logout()"
+                        >
+                          <span class="material-symbols-outlined">
+                            power_settings_new
+                          </span>
+                          <p>Logout</p>
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
-              </div>
-              <router-link to="/login" class="nav-link btn" v-else
-                ><span class="material-symbols-outlined">
-                  person
-                </span></router-link
-              >
+              </li>
 
-              <span class="material-symbols-outlined"> favorite </span>
-              <router-link to="/cart" class="nav-link"
-                ><span class="material-symbols-outlined"> shopping_bag </span>
-                <span v-if="cartItemCount > 0" class="cart-count">{{
-                  cartItemCount
-                }}</span></router-link
-              >
-            </div>
+              <li class="d-flex align-items-center" v-else>
+                <router-link
+                  class="nav-link d-flex align-items-center"
+                  to="/login"
+                >
+                  <div class="icon-group d-flex align-items-center">
+                    <i class="fa-regular fa-user"></i
+                    ><i class="fa-solid fa-arrow-right"></i>
+                  </div>
+                  <p class="ms-1">Login |</p></router-link
+                ><router-link class="nav-link ms-1" to="/register"
+                  ><p>Register</p></router-link
+                >
+              </li>
+              <li>
+                <router-link class="nav-link d-flex align-items-center">
+                  <i class="fa-solid fa-globe"></i>
+                  <p>Language</p></router-link
+                >
+              </li>
+              <li class="d-flex align-items-center">
+                <i class="fa-solid fa-moon"></i>
+                <p>Dark Mode</p>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
 
       <div class="lower-nav container content-wrapper">
         <div class="d-flex justify-content-between align-items-center">
-          <div class="nav-text-content">
-            <div class="d-flex justify-content-around text-group">
-              <ul class="d-flex justify-content-around text-group">
-                <li>
-                  <router-link to="/" class="nav-link">
-                    <p>Home</p>
-                  </router-link>
-                </li>
-                <li>
-                  <router-link to="/product" class="nav-link">
-                    <p class="nav-p">Product</p>
-                    <ul class="dropdowns">
-                      <li class="dropdown-items">
-                        <router-link
-                          to="/products/bamboo/0"
-                          class="dropdown-link"
-                          >Bamboo Fiber</router-link
-                        >
-                        <ul class="dropdown-submenu">
-                          <li class="dropdown-submenu-item">
-                            <router-link
-                              to="/products/bamboo/8028"
-                              class="dropdown-link"
-                              >RO: 8028</router-link
-                            >
-                          </li>
-                          <li class="dropdown-submenu-item">
-                            <router-link
-                              to="/products/bamboo/8027"
-                              class="dropdown-link"
-                              >RO: 8027</router-link
-                            >
-                          </li>
-                          <li class="dropdown-submenu-item">
-                            <router-link
-                              to="/products/bamboo/8018"
-                              class="dropdown-link"
-                              >RO: 8018</router-link
-                            >
-                          </li>
-                          <li class="dropdown-submenu-item">
-                            <router-link
-                              to="/products/bamboo/8017"
-                              class="dropdown-link"
-                              >RO: 8017</router-link
-                            >
-                          </li>
-                          <li class="dropdown-submenu-item">
-                            <router-link
-                              to="/products/bamboo/8003"
-                              class="dropdown-link"
-                              >RO: 8003</router-link
-                            >
-                          </li>
-                          <li class="dropdown-submenu-item">
-                            <router-link
-                              to="/products/bamboo/8004"
-                              class="dropdown-link"
-                              >RO: 8004</router-link
-                            >
-                          </li>
-                          <li class="dropdown-submenu-item">
-                            <router-link
-                              to="/products/bamboo/9001"
-                              class="dropdown-link"
-                              >RO: 9001</router-link
-                            >
-                          </li>
-                          <li class="dropdown-submenu-item">
-                            <router-link
-                              to="/products/bamboo/9002"
-                              class="dropdown-link"
-                              >RO: 9002</router-link
-                            >
-                          </li>
-                        </ul>
-                      </li>
-                      <li class="dropdown-items">
-                        <router-link
-                          to="/products/spandex/0"
-                          class="dropdown-link"
-                        >
-                          Spandex Series</router-link
-                        >
-                        <ul class="dropdown-submenu">
-                          <li class="dropdown-submenu-item">
-                            <router-link
-                              to="/products/spandex/5002"
-                              class="dropdown-link"
-                              >RO: 5002</router-link
-                            >
-                          </li>
-                          <li class="dropdown-submenu-item">
-                            <router-link
-                              to="/products/spandex/5003"
-                              class="dropdown-link"
-                              >RO: 5003</router-link
-                            >
-                          </li>
-                          <li class="dropdown-submenu-item">
-                            <router-link
-                              to="/products/spandex/5012"
-                              class="dropdown-link"
-                              >RO: 5012</router-link
-                            >
-                          </li>
-                          <li class="dropdown-submenu-item">
-                            <router-link
-                              to="/products/spandex/5013"
-                              class="dropdown-link"
-                              >RO: 5013</router-link
-                            >
-                          </li>
-                        </ul>
-                      </li>
-                      <li class="dropdown-items">
-                        <router-link
-                          to="/products/lycra/0"
-                          class="dropdown-link"
-                          >Lycra Modal Series</router-link
-                        >
-                        <ul class="dropdown-submenu">
-                          <li class="dropdown-submenu-item">
-                            <router-link
-                              to="/products/lycra/8076"
-                              class="dropdown-link"
-                              >RO: 8076</router-link
-                            >
-                          </li>
-                          <li class="dropdown-submenu-item">
-                            <router-link
-                              to="/products/lycra/8077"
-                              class="dropdown-link"
-                              >RO: 8077</router-link
-                            >
-                          </li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </router-link>
-                </li>
-                <li>
-                  <router-link to="/" class="nav-link">
-                    <p>Promotion</p>
-                  </router-link>
-                </li>
-                <li>
-                  <router-link to="/" class="nav-link">
-                    <p>Our Story</p>
-                  </router-link>
-                </li>
-              </ul>
-            </div>
+          <div class="upper-icon-group">
+            <ul class="d-flex">
+              <li>
+                <a
+                  class="nav-link"
+                  href="https://www.facebook.com/romanticmenunderwear/?ref=embed_page"
+                  ><i class="fa-brands fa-square-facebook"></i
+                ></a>
+              </li>
+              <li>
+                <a
+                  class="nav-link"
+                  href="https://www.youtube.com/@RomanticUnderwear"
+                  ><i class="fa-brands fa-youtube"></i
+                ></a>
+              </li>
+              <li>
+                <a class="nav-link" href="/"
+                  ><i class="fa-brands fa-viber"></i
+                ></a>
+              </li>
+              <li>
+                <a class="nav-link" href="https://t.me/romanticmenunderwear"
+                  ><i class="fa-brands fa-telegram"></i
+                ></a>
+              </li>
+            </ul>
           </div>
-
           <div class="nav-search">
             <div class="input-group">
               <input
@@ -535,6 +574,27 @@
                 search
               </span>
             </div>
+          </div>
+          <div class="right-group">
+            <ul class="d-flex align-items-center">
+              <li>
+                <router-link class="nav-link d-flex align-items-center"
+                  ><i class="fa-solid fa-heart"></i>
+                  <p class="ms-2">Favouriters</p></router-link
+                >
+              </li>
+              <li>
+                <router-link
+                  class="nav-link d-flex align-items-center"
+                  to="/cart"
+                  ><i class="fa-solid fa-cart-shopping"></i>
+                  <span v-if="cartItemCount > 0" class="cart-count">{{
+                    cartItemCount
+                  }}</span>
+                  <p class="ms-2">Your Cart</p></router-link
+                >
+              </li>
+            </ul>
           </div>
         </div>
       </div>
@@ -625,9 +685,37 @@ export default {
   display: none;
 }
 
+.upper-content-1 .upper-li {
+  margin: 0px 15px;
+}
+
+.upper-content-2 ul li {
+  margin: 0px 15px;
+}
+
+.upper-icon-group ul li {
+  margin: 0px 15px;
+}
+
+.upper-icon-group .fa-brands {
+  font-size: 28px;
+}
+
+.upper-content-2 ul li .fa-solid {
+  margin-right: 10px;
+}
+
+.right-group ul li {
+  margin: 0px 15px;
+}
+
 .icon-group .material-symbols-outlined {
   padding: 0px 15px;
   font-size: 28px;
+}
+
+.fa-arrow-right {
+  font-size: 10px;
 }
 
 .nav-text-content .text-group p {
@@ -637,12 +725,18 @@ export default {
   font-weight: 400;
 }
 
+.nav-search {
+  width: 450px;
+}
+
 .nav-search .form-control {
   border-radius: 50px;
+  border-color: rgb(47, 82, 143);
 }
 
 .nav-search .input-group-text {
   border-radius: 50px;
+  border-color: rgb(47, 82, 143);
   color: #111111;
   background: #fff;
   border-left: 0px;
@@ -675,8 +769,8 @@ export default {
 }
 
 .nav2.scrolled {
-  background-color: #fff;
-  border-bottom: 1px solid #f2f2f2;
+  /* background-color: #f2f2f2; */
+  border-bottom: 0.5px solid #f2f2f2;
 }
 
 #mobile-nav {
@@ -770,8 +864,8 @@ export default {
   display: block;
   visibility: hidden;
   position: absolute;
-  left: 22.5%;
-  top: 100%;
+  left: 16%;
+  top: 60%;
   background: #fff;
   list-style-type: none;
   margin: 0;
@@ -786,7 +880,7 @@ export default {
   visibility: hidden;
   position: absolute;
   left: 100%;
-  top: 0;
+  top: 0%;
   background: #fff;
   list-style-type: none;
   margin: 0;
@@ -810,7 +904,7 @@ export default {
   text-decoration: none;
   display: block;
   width: 180px;
-  padding: auto 20px;
+  padding: auto 0px;
   z-index: 1;
 }
 
@@ -873,7 +967,7 @@ export default {
 }
 
 .img-text h5 {
-  font-family: "Kanit", sans-serif;
+  font-family: "Chakra Petch", sans-serif;
   font-weight: 400;
   font-style: normal;
   letter-spacing: 5;
@@ -881,7 +975,7 @@ export default {
 
 .icon-text p {
   font-size: 16px;
-  font-family: "Kanit", sans-serif;
+  font-family: "Chakra Petch", sans-serif;
   font-weight: 400;
   font-style: normal;
 }
@@ -891,29 +985,36 @@ export default {
 }
 
 .mb-img-text p {
-  font-family: "Kanit", sans-serif;
+  font-family: "Chakra Petch", sans-serif;
   font-weight: 400;
   font-style: normal;
 }
 
+/* .cart-count {
+  right: 19.8%;
+  top: 50%;
+} */
+
 @media (max-width: 1920px) {
   .cart-count {
-    right: 16.3%;
+    right: 19.8%;
+    top: 50%;
   }
 }
 
 @media (max-width: 1600px) {
   .cart-count {
-    right: 9.5%;
-  }
-  .dropdowns {
-    left: 17.5%;
+    top: 50%;
+    right: 14%;
   }
 }
 
 @media (max-width: 1400px) {
   .dropdowns {
     left: 14%;
+  }
+  .cart-count {
+    right: 10%;
   }
 }
 
@@ -938,18 +1039,31 @@ export default {
   }
 
   .cart-count {
-    right: 5.5%;
+    right: 11.5%;
     padding: 5px 10px;
   }
 }
 
 @media (max-width: 1024px) {
   .cart-count {
-    right: 6.5%;
+    right: 14%;
+    top: 48%;
+  }
+
+  .logo-img {
+    width: 130px;
+  }
+
+  .upper-content-2 p {
+    font-size: 13px;
   }
 
   .dropdowns {
     left: 19.5%;
+  }
+
+  .nav-search {
+    width: 350px;
   }
 }
 
@@ -961,10 +1075,17 @@ export default {
     display: none;
   }
   .logo-img {
-    margin: 0px;
+    margin-left: 150px;
   }
   .mobile-view {
     height: max-content;
+  }
+  .icon-group .fa-solid {
+    font-size: 22px;
+  }
+  .cart-count {
+    right: 0;
+    top: 0;
   }
 }
 
@@ -982,9 +1103,12 @@ export default {
   }
 
   .cart-count {
-    right: 5px;
-    top: 15px;
+    right: 0;
+    top: 5px;
     padding: 2px 5px;
+  }
+  .icon-group .fa-solid {
+    font-size: 20px;
   }
 }
 </style>

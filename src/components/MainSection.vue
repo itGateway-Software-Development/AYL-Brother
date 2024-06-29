@@ -1,137 +1,133 @@
 <template>
-  <div class="main-section">
-    <div class="container content-wrapper">
-      <div class="main-banner justify-content-center">
-        <img src="../assets/promotion-banner.jpg" alt="" class="img-fluid" />
-        <div class="promotion-text">
-          <h3>Sign up with email & get an extra point</h3>
-          <div class="butoon">
-            <button class="btn sign-up-button">Sign UP</button>
+  <div class="back">
+    <div class="main-section">
+      <div class="container content-wrapper">
+        <div
+          id="carouselExampleIndicators"
+          class="carousel slide"
+          data-bs-ride="carousel"
+        >
+          <div class="carousel-indicators">
+            <button
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide-to="0"
+              class="active"
+              aria-current="true"
+              aria-label="Slide 1"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide-to="1"
+              aria-label="Slide 2"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide-to="2"
+              aria-label="Slide 3"
+            ></button>
           </div>
-        </div>
-      </div>
-      <div class="row justify-content-center main-product-section">
-        <div class="col-3 sub-col">
-          <div
-            id="carouselExampleAutoplaying"
-            class="carousel slide carousel-fade"
-            data-bs-ride="carousel"
-            data-bs-interval="2000"
-          >
-            <div class="carousel-inner">
-              <div
-                class="carousel-item active"
-                v-for="item in boxer"
-                :key="item.id"
-              >
-                <img :src="item.img" class="img-fluid" alt="..." />
-              </div>
-            </div>
-          </div>
-          <div class="main-text-content">
-            <h3 class="text-center mb-5">Boxer</h3>
-            <router-link to="/product"
-              ><button class="btn shopnow-button">Shop Now</button></router-link
-            >
-          </div>
-        </div>
-        <div class="col-6 romantic-men">
-          <div class="main-img">
-            <img
-              src="../assets/person-1.jpg"
-              class="d-block img-fluid"
-              alt=""
-            />
-          </div>
-          <div class="main-text text-center">
-            <h3>Romantic Sharing</h3>
-            <h3>Superior Quality Underwears for Men</h3>
-          </div>
-        </div>
-        <div class="col-3 sub-col">
-          <div
-            id="carouselExampleAutoplaying"
-            class="carousel slide carousel-fade"
-            data-bs-ride="carousel"
-            data-bs-interval="2000"
-          >
-            <div class="carousel-inner">
-              <div
-                class="carousel-item active"
-                v-for="item in brief"
-                :key="item.id"
-              >
-                <img :src="item.img" class="d-block img-fluid" alt="..." />
-              </div>
-            </div>
-          </div>
-          <div class="main-text-content">
-            <h3 class="text-center mb-5">Brief</h3>
-            <router-link to="/product"
-              ><button class="btn shopnow-button">Shop Now</button></router-link
-            >
-          </div>
-        </div>
-      </div>
-      <div class="mobile-main-product-section">
-        <div class="row justify-content-center">
-          <div class="col-6 romantic-men">
-            <div class="main-img">
-              <img
-                src="../assets/person-1.jpg"
-                class="d-block img-fluid"
-                alt=""
-              />
-            </div>
-            <div class="main-text text-center">
-              <h3>Romantic Sharing</h3>
-              <h3>Superior Quality Underwears for Men</h3>
-            </div>
-          </div>
-          <div class="col-3 sub-col">
-            <div
-              id="carouselExampleAutoplaying"
-              class="carousel slide carousel-fade"
-              data-bs-ride="carousel"
-              data-bs-interval="2000"
-            >
-              <div class="carousel-inner">
-                <div
-                  class="carousel-item active"
-                  v-for="item in boxer"
-                  :key="item.id"
-                >
-                  <img :src="item.img" class="img-fluid" alt="..." />
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="d-flex">
+                <img src="../assets/banner-1.png" class="d-block" alt="..." />
+                <div class="content-box">
+                  <div class="heading-text">
+                    <h5>See the latest Promotion!</h5>
+                  </div>
+                  <div class="content-header text-start">
+                    <h1>Choose Our Underwear Series</h1>
+                  </div>
+                  <div class="content-text text-start">
+                    <h5>
+                      Look and find what your need and our porducts will provide
+                      you more confortable and reliable.
+                    </h5>
+                  </div>
+                  <div class="content-buttom text-end bb-1">
+                    <button
+                      class="btn d-flex align-items-center bs-content justify-content-center"
+                    >
+                      <p>Shop now</p>
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="main-text-content">
-              <h3 class="text-center mb-5">Boxer</h3>
-              <button class="btn shopnow-button">Shop Now</button>
-            </div>
-          </div>
-          <div class="col-3 sub-col">
-            <div
-              id="carouselExampleAutoplaying"
-              class="carousel slide carousel-fade"
-              data-bs-ride="carousel"
-              data-bs-interval="2000"
-            >
-              <div class="carousel-inner">
-                <div
-                  class="carousel-item active"
-                  v-for="item in brief"
-                  :key="item.id"
-                >
-                  <img :src="item.img" class="d-block img-fluid" alt="..." />
+            <div class="carousel-item">
+              <div class="d-flex">
+                <img src="../assets/banner-2.png" class="d-block" alt="..." />
+                <div class="content-box">
+                  <div class="heading-text">
+                    <h5>Join our communities to buy easily!</h5>
+                  </div>
+                  <div class="content-header text-start">
+                    <h1>Many sale channels on Social Platforms.</h1>
+                  </div>
+                  <div class="content-text text-start">
+                    <h5>
+                      Join our social communities such as Facebook, Youtube,
+                      Viber and Telegram to take customer experiences.
+                    </h5>
+                  </div>
+                  <div class="content-buttom text-end">
+                    <button
+                      class="btn d-flex align-items-center bs-content justify-content-center"
+                    >
+                      <p>Shop now</p>
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="main-text-content">
-              <h3 class="text-center mb-5">Brief</h3>
-              <button class="btn shopnow-button">Shop Now</button>
+            <div class="carousel-item">
+              <div class="d-flex">
+                <img src="../assets/banner-3.png" class="d-block" alt="..." />
+                <div class="content-box">
+                  <div class="heading-text">
+                    <h5>Select, Checkout and Order Quickly!</h5>
+                  </div>
+                  <div class="content-header text-start">
+                    <h1>The Men Underwear With The Superiors Quality</h1>
+                  </div>
+                  <div class="content-text text-start">
+                    <h5>
+                      We are providing many product series for men’s underwear
+                      and you can order and buy easily & quickly.
+                    </h5>
+                  </div>
+                  <div class="content-buttom text-end">
+                    <button
+                      class="btn d-flex align-items-center bs-content justify-content-center"
+                    >
+                      <p>Shop now</p>
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="prev"
+          >
+            <i class="fa-solid fa-arrow-left-long"></i>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="next"
+          >
+            <i class="fa-solid fa-arrow-right-long"></i>
+          </button>
         </div>
       </div>
     </div>
@@ -182,8 +178,10 @@ export default {
 </script>
 
 <style>
+.back {
+  padding-top: 150px;
+}
 .main-section {
-  margin-top: 150px;
 }
 
 .main-text-content h3 {
@@ -232,6 +230,102 @@ export default {
   display: none;
 }
 
+.carousel-indicators {
+  top: 100%;
+  left: 0;
+  width: 150px;
+  margin-left: 0;
+}
+
+.carousel-indicators [data-bs-target] {
+  background-color: #111;
+  width: 50px;
+}
+
+.carousel-indicators .active {
+  background-color: red;
+}
+
+.carousel-item img {
+  width: 750px;
+}
+
+.content-box {
+  z-index: 99;
+  background: 100%;
+  width: 600px;
+  height: 480px;
+  background: #f2f2f2;
+  padding: 50px 20px;
+  margin-left: -30px;
+  margin-top: 25px;
+}
+
+.carousel-control-next {
+  left: 6%;
+}
+
+.carousel-control-prev {
+  left: 1%;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  justify-content: start;
+  top: 90%;
+}
+
+.carousel-control-prev .fa-solid {
+  font-size: 50px;
+  color: #f2f2f2;
+}
+
+.carousel-control-next .fa-solid {
+  font-size: 50px;
+  color: #f2f2f2;
+}
+
+.heading-text {
+  width: 350px;
+  padding: 10px 10px;
+  background: red;
+  color: #fff;
+}
+
+.heading-text h5 {
+  margin-bottom: 0px;
+}
+
+.content-buttom {
+  margin-left: 340px;
+  margin-top: 60px;
+}
+
+.bs-content {
+  width: 150px;
+  height: auto;
+  border: 1px solid red;
+  transition: 0.5s ease-in;
+}
+
+.bs-content .fa-solid {
+  margin-left: 10px;
+}
+
+.bs-content:hover {
+  background: red;
+  color: #fff;
+}
+
+.content-header h1 {
+  font-size: 44px;
+  font-weight: 700;
+}
+
+.content-header {
+  margin: 35px 0px;
+}
+
 @media (max-width: 1200px) {
   .main-img img {
     width: 400px;
@@ -251,6 +345,63 @@ export default {
     top: 12%;
     left: 35%;
     transform: translate(-12%, -35%);
+  }
+  .carousel-item img {
+    width: 550px;
+  }
+
+  .content-box {
+    z-index: 99;
+    background: 100%;
+    width: 600px;
+    height: 360px;
+    background: #f2f2f2;
+    padding: 50px 20px;
+    margin-left: -30px;
+    margin-top: 15px;
+  }
+  .content-header {
+    margin: 20px 0px;
+  }
+  .content-buttom {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .content-header h1 {
+    font-size: 36px;
+  }
+  .carousel-item img {
+    width: 450px;
+  }
+  .content-box {
+    width: 550px;
+    height: 300px;
+    margin-top: 10px;
+    padding: 30px 20px;
+  }
+  .content-header {
+    margin: 10px 0px;
+  }
+  .carousel-control-next {
+    left: 7%;
+  }
+
+  .carousel-control-prev {
+    left: 1%;
+  }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    justify-content: start;
+    top: 88%;
+  }
+  .carousel-control-next .fa-solid {
+    font-size: 40px;
+  }
+  .carousel-control-prev .fa-solid {
+    font-size: 40px;
   }
 }
 
@@ -294,11 +445,45 @@ export default {
   .sub-col {
     width: 25%;
   }
+  .carousel-item img {
+    width: 380px;
+  }
+  .content-box {
+    width: 400px;
+    height: 250px;
+    margin-left: -50px;
+    margin-top: 10px;
+    padding: 20px 10px;
+  }
+  .content-header h1 {
+    font-size: 24px;
+  }
+
+  .content-buttom {
+    margin-left: 170px;
+    margin-top: 10px;
+  }
+
+  .content-text h5 {
+    font-size: 16px;
+  }
+
+  .bb-1 {
+    margin-top: 50px;
+  }
 }
 
 @media (max-width: 500px) {
   .main-banner img {
     width: 450px;
+  }
+
+  .content-box {
+    display: none;
+  }
+
+  .carousel-item img {
+    width: 500px;
   }
 
   .main-banner {
@@ -324,6 +509,13 @@ export default {
 
   .sub-col {
     width: 50%;
+  }
+  .carousel-control-next {
+    left: 14%;
+  }
+
+  .carousel-control-prev {
+    left: 1%;
   }
 }
 

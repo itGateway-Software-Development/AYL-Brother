@@ -1,68 +1,81 @@
 <template>
-  <div class="mb-5">
+  <div class="ab-fabric">
     <div
       class="heading text-center"
       data-aos="fade-down"
       data-aos-duration="2000"
     >
-      <div class="row align-items-center justify-content-center">
-        <div class="col-4 line"><hr /></div>
-        <div class="col-3 p-col-2"><h1>Avaliable Fabric</h1></div>
-        <div class="col-4 line"><hr /></div>
-      </div>
-    </div>
-    <div class="justify-content-center container content-wrapper mt-5">
-      <div class="row px-2">
-        <div class="col-4 item-col">
-          <div class="product-series">
-            <div class="item">
-              <router-link to="/product"
-                ><img
-                  src="../assets/pdetail/bamboo.jpg"
-                  class="img-fluid"
-                  alt=""
-              /></router-link>
+      <div class="justify-content-center container content-wrapper mt-5">
+        <div class="fabric-heading text-start">
+          <h2>Product Series</h2>
+        </div>
+        <div class="row px-2">
+          <div class="col-4 item-col">
+            <div class="product-series">
+              <div class="item">
+                <router-link to="/product"
+                  ><img src="../assets/Picture1.png" class="img-fluid" alt=""
+                /></router-link>
+              </div>
+              <div class="item-text text-start">
+                <router-link to="/products/bamboo/0" class="nav-link"
+                  ><button class="btn p-btn d-flex align-items-center">
+                    <p>Bamboo Fiber Series</p>
+                    <i class="fa-solid fa-arrow-right"></i></button
+                ></router-link>
+                <p class="b-text">
+                  2 pcs in 1 box with color pair and over 10 color pairs to
+                  choose
+                </p>
+              </div>
             </div>
-            <div class="item-text text-start">
-              <router-link to="/product" class="nav-link"
-                ><p>Bamboo Fiber Series</p></router-link
-              >
+          </div>
+          <div class="col-4 item-col">
+            <div class="product-series">
+              <div class="item">
+                <router-link to="/product"
+                  ><img src="../assets/Picture2.png" class="img-fluid" alt=""
+                /></router-link>
+              </div>
+              <div class="item-text text-start">
+                <router-link to="/product/modal/0" class="nav-link"
+                  ><button class="btn p-btn d-flex align-items-center">
+                    <p>Lycra Modal Series</p>
+                    <i class="fa-solid fa-arrow-right"></i></button
+                ></router-link>
+                <p class="b-text">
+                  2 pcs in 1 box with color pair and over 10 color pairs to
+                  choose
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-4 item-col">
+            <div class="product-series">
+              <div class="item">
+                <router-link to="/product">
+                  <img src="../assets/Picture3.png" class="img-fluid" alt=""
+                /></router-link>
+              </div>
+              <div class="item-text text-start">
+                <router-link to="/product/spandex/0" class="nav-link"
+                  ><button class="btn p-btn d-flex align-items-center">
+                    <p>Spandex Series</p>
+                    <i class="fa-solid fa-arrow-right"></i></button
+                ></router-link>
+                <p class="b-text">
+                  2 pcs in 1 box with color pair and over 10 color pairs to
+                  choose
+                </p>
+              </div>
             </div>
           </div>
         </div>
-        <div class="col-4 item-col">
-          <div class="product-series">
-            <div class="item">
-              <router-link to="/product"
-                ><img
-                  src="../assets/pdetail/modal.jpg"
-                  class="img-fluid"
-                  alt=""
-              /></router-link>
-            </div>
-            <div class="item-text text-start">
-              <router-link to="product" class="nav-link"
-                ><p>Lycra Modal Series</p></router-link
-              >
-            </div>
-          </div>
-        </div>
-        <div class="col-4 item-col">
-          <div class="product-series">
-            <div class="item">
-              <router-link to="/product">
-                <img
-                  src="../assets/pdetail/spandex.jpg"
-                  class="img-fluid"
-                  alt=""
-              /></router-link>
-            </div>
-            <div class="item-text text-start">
-              <router-link to="/product" class="nav-link"
-                ><p>Spandex Series</p></router-link
-              >
-            </div>
-          </div>
+
+        <div class="text-center mt-5 more-p">
+          <router-link class="nav-link" to="/product"
+            ><h4>See more products</h4></router-link
+          >
         </div>
       </div>
     </div>
@@ -108,6 +121,10 @@ export default {
 </script>
 
 <style>
+.ab-fabric {
+  margin-top: 50px;
+}
+
 .d-1 {
   overflow: hidden;
 }
@@ -124,16 +141,40 @@ export default {
 
 .item-text {
   margin: 10px 0px;
-  text-decoration: underline;
   cursor: pointer;
+  justify-content: center;
 }
 
-.item-text:hover {
-  color: red;
+.p-btn {
+  width: 200px;
+  border: 1px solid red;
+  border-radius: 50px;
+  text-align: center;
+  justify-content: center;
+  margin: 10px 100px;
+}
+.p-btn p {
+  padding: 0px 5px;
+}
+
+.p-btn:hover {
+  background: red;
+  color: #ffffff;
+}
+
+.b-text {
+  padding: 0px 50px;
 }
 
 .product-heading {
   text-decoration: underline;
+}
+
+.more-p {
+  text-decoration: underline;
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 700;
+  font-style: normal;
 }
 
 @media (max-width: 1200px) {
@@ -162,6 +203,14 @@ export default {
   .item img {
     height: 200px;
   }
+
+  .p-btn {
+    margin: 10px 20px;
+  }
+
+  .b-text {
+    padding: 0px 20px;
+  }
 }
 
 @media (max-width: 500px) {
@@ -177,8 +226,12 @@ export default {
     height: 300px;
   }
 
-  .item-text {
+  /* .item-text {
     display: none;
+  } */
+
+  .p-btn {
+    margin: 10px 120px;
   }
 }
 </style>
