@@ -578,9 +578,14 @@
           <div class="right-group">
             <ul class="d-flex align-items-center">
               <li>
-                <router-link class="nav-link d-flex align-items-center"
+                <router-link
+                  class="nav-link d-flex align-items-center"
+                  to="/cart"
                   ><i class="fa-solid fa-cart-shopping"></i>
-                  <p class="ms-2">Favourites</p></router-link
+                  <span v-if="cartItemCount > 0" class="cart-count">{{
+                    cartItemCount
+                  }}</span>
+                  <p class="ms-2">Your Cart</p></router-link
                 >
               </li>
               <li>
@@ -591,7 +596,7 @@
                   <span v-if="cartItemCount > 0" class="cart-count">{{
                     cartItemCount
                   }}</span>
-                  <p class="ms-2">Your Cart</p></router-link
+                  <p class="ms-2">Your Carts</p></router-link
                 >
               </li>
             </ul>
