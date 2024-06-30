@@ -168,6 +168,10 @@ export default {
   margin-left: 50px;
 }
 
+.news {
+  margin: 100px 0;
+}
+
 .news-content .content-text {
   padding: 0px 50px 0px 0px;
 }

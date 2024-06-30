@@ -539,6 +539,7 @@
                 <a
                   class="nav-link"
                   href="https://www.facebook.com/romanticmenunderwear/?ref=embed_page"
+                  target="_blank"
                   ><i class="fa-brands fa-square-facebook"></i
                 ></a>
               </li>
@@ -546,6 +547,7 @@
                 <a
                   class="nav-link"
                   href="https://www.youtube.com/@RomanticUnderwear"
+                  target="_blank"
                   ><i class="fa-brands fa-youtube"></i
                 ></a>
               </li>
@@ -555,7 +557,10 @@
                 ></a>
               </li>
               <li>
-                <a class="nav-link" href="https://t.me/romanticmenunderwear"
+                <a
+                  class="nav-link"
+                  href="https://t.me/romanticmenunderwear"
+                  target="_blank"
                   ><i class="fa-brands fa-telegram"></i
                 ></a>
               </li>

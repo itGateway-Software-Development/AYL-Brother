@@ -16,6 +16,7 @@ import AvaFabric from "../components/AvaFabric";
 import MainSection from "../components/MainSection";
 // @ is an alias to /src
 
+import { onMounted } from "vue";
 export default {
   name: "HomeView",
   components: {
@@ -24,6 +25,12 @@ export default {
     News,
     AvaFabric,
     MainSection,
+  },
+
+  setup() {
+    onMounted(() => {
+      window.scroll(0, 0);
+    });
   },
 };
 </script>

@@ -38,7 +38,7 @@
                 /></router-link>
               </div>
               <div class="item-text text-start">
-                <router-link to="/product/modal/0" class="nav-link"
+                <router-link to="/products/lycra/0" class="nav-link"
                   ><button class="btn p-btn d-flex align-items-center">
                     <p>Lycra Modal Series</p>
                     <i class="fa-solid fa-arrow-right"></i></button
@@ -58,7 +58,7 @@
                 /></router-link>
               </div>
               <div class="item-text text-start">
-                <router-link to="/product/spandex/0" class="nav-link"
+                <router-link to="/products/spandex/0" class="nav-link"
                   ><button class="btn p-btn d-flex align-items-center">
                     <p>Spandex Series</p>
                     <i class="fa-solid fa-arrow-right"></i></button
@@ -122,7 +122,7 @@ export default {
 
 <style>
 .ab-fabric {
-  margin-top: 50px;
+  margin: 80px 0;
 }
 
 .d-1 {

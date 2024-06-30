@@ -1,5 +1,5 @@
 <template>
-  <div class="slide mt-5">
+  <div class="slide">
     <div
       id="carouselExampleIndicators-2"
       class="carousel slide"
@@ -43,13 +43,17 @@
                 <div class="carousel-icon d-flex align-items-center">
                   <a
                     href="https://www.facebook.com/romanticmenunderwear/?ref=embed_page"
+                    target="_blank"
                   >
                     <img
                       src="../assets/icon/icon-1.png"
                       alt=""
                       class="img-fluid"
                   /></a>
-                  <a href="https://www.youtube.com/@RomanticUnderwear">
+                  <a
+                    href="https://www.youtube.com/@RomanticUnderwear"
+                    target="_blank"
+                  >
                     <img
                       src="../assets/icon/icon-2.png"
                       alt=""
@@ -63,7 +67,7 @@
                       class="img-fluid"
                     />
                   </a>
-                  <a href="https://t.me/romanticmenunderwear">
+                  <a href="https://t.me/romanticmenunderwear" target="_blank">
                     <img
                       src="../assets/icon/icon-4.png"
                       alt=""
@@ -72,12 +76,13 @@
                   </a>
                 </div>
                 <div class="carousel-btn">
-                  <router-link
+                  <a
                     class="nav-link d-flex align-items-center btn-1"
-                    to="/"
+                    href="https://www.facebook.com/romanticmenunderwear/?ref=embed_page"
+                    target="_blank"
                     ><p>Join Community</p>
                     <i class="fa-solid fa-arrow-right ms-4"></i
-                  ></router-link>
+                  ></a>
                 </div>
               </div>
             </div>
@@ -96,13 +101,13 @@
 
               <div class="carousel-bottom d-flex align-items-center btn-5">
                 <div class="carousel-icon-text d-flex align-items-center">
-                  <router-link class="nav-link"
+                  <router-link class="nav-link" to="/products/bamboo/0"
                     ><p class="b">Bamboo</p></router-link
                   >
-                  <router-link class="nav-link"
+                  <router-link class="nav-link" to="/products/lycra/0"
                     ><p class="ms-3 l">Lycra</p></router-link
                   >
-                  <router-link class="nav-link"
+                  <router-link class="nav-link" to="/products/spandex/0"
                     ><p class="ms-3 s">Spandex</p></router-link
                   >
                 </div>
@@ -133,6 +138,7 @@
                 <div class="carousel-icon d-flex align-items-center">
                   <a
                     href="https://www.facebook.com/romanticmenunderwear/?ref=embed_page"
+                    target="_blank"
                   >
                     <img
                       src="../assets/icon/icon-5.jpg"
@@ -153,7 +159,7 @@
                       class="img-fluid"
                     />
                   </a>
-                  <a href="https://t.me/romanticmenunderwear">
+                  <a href="https://t.me/romanticmenunderwear" target="_blank">
                     <img
                       src="../assets/icon/icon-8.png"
                       alt=""
@@ -187,6 +193,10 @@ export default {};
   left: 45.5%;
 }
 
+.slide {
+  margin-bottom: 100px;
+}
+
 .carousel-item {
   width: 100%;
   height: 500px;
@@ -208,10 +218,10 @@ export default {};
 
 .carousel-btn {
   margin: 0px 20px;
-  width: 300px;
+  width: 250px;
   border: 1px solid red;
   border-radius: 20px;
-  padding: 15px 30px;
+  padding: 10px 15px;
 }
 
 .btn-1 p {
@@ -219,10 +229,14 @@ export default {};
 }
 
 .btn-3 {
-  padding: 15px 70px;
+  padding: 10px 50px;
 }
 .btn-3 p {
   font-size: 24px;
+}
+
+.btn-2 {
+  padding: 10px 25px;
 }
 
 .btn-1 .fa-solid {

@@ -147,6 +147,10 @@ export default {
 </script>
 
 <style>
+.product-gallary {
+  margin: 100px auto;
+}
+
 .photo-gallary {
   margin: 50px auto;
 }

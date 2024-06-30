@@ -12,7 +12,7 @@
                 >
               </li>
               <li>
-                <router-link class="nav-link" to="/products/modal/0"
+                <router-link class="nav-link" to="/products/lycra/0"
                   ><p>Lycra Modal</p></router-link
                 >
               </li>
@@ -126,11 +126,15 @@
         <div class="d-flex align-items-center justify-content-center">
           <a
             href="https://www.facebook.com/romanticmenunderwear/?ref=embed_page"
+            target="_blank"
             class="nav-link"
           >
             <i class="fa-brands fa-square-facebook"></i
           ></a>
-          <a class="nav-link" href="https://www.youtube.com/@RomanticUnderwear"
+          <a
+            class="nav-link"
+            href="https://www.youtube.com/@RomanticUnderwear"
+            target="_blank"
             ><i class="fa-brands fa-youtube"></i
           ></a>
           <a href="#" class="nav-link"> <i class="fa-brands fa-tiktok"></i></a>

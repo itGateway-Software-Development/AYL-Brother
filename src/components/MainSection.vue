@@ -47,12 +47,13 @@
                     </h5>
                   </div>
                   <div class="content-buttom text-end bb-1">
-                    <button
-                      class="btn d-flex align-items-center bs-content justify-content-center"
-                    >
-                      <p>Shop now</p>
-                      <i class="fa-solid fa-arrow-right"></i>
-                    </button>
+                    <router-link class="nav-link" to="/product">
+                      <button
+                        class="btn d-flex align-items-center bs-content justify-content-center"
+                      >
+                        <p>Shop now</p>
+                        <i class="fa-solid fa-arrow-right"></i></button
+                    ></router-link>
                   </div>
                 </div>
               </div>
@@ -74,12 +75,13 @@
                     </h5>
                   </div>
                   <div class="content-buttom text-end">
-                    <button
-                      class="btn d-flex align-items-center bs-content justify-content-center"
-                    >
-                      <p>Shop now</p>
-                      <i class="fa-solid fa-arrow-right"></i>
-                    </button>
+                    <router-link class="nav-link" to="/product">
+                      <button
+                        class="btn d-flex align-items-center bs-content justify-content-center"
+                      >
+                        <p>Shop now</p>
+                        <i class="fa-solid fa-arrow-right"></i></button
+                    ></router-link>
                   </div>
                 </div>
               </div>
@@ -101,12 +103,13 @@
                     </h5>
                   </div>
                   <div class="content-buttom text-end">
-                    <button
-                      class="btn d-flex align-items-center bs-content justify-content-center"
-                    >
-                      <p>Shop now</p>
-                      <i class="fa-solid fa-arrow-right"></i>
-                    </button>
+                    <router-link class="nav-link" to="/product">
+                      <button
+                        class="btn d-flex align-items-center bs-content justify-content-center"
+                      >
+                        <p>Shop now</p>
+                        <i class="fa-solid fa-arrow-right"></i></button
+                    ></router-link>
                   </div>
                 </div>
               </div>

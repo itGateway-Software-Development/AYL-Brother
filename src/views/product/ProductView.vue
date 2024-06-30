@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import { defineProps } from "vue";
 import ProductCard from "../../components/Product/ProductCard";
 import ProductFilter from "../../components/Product/ProductFilter";
@@ -32,6 +32,10 @@ export default {
     let filterPrice = (selectedPrice) => {
       selPrice.value = selectedPrice;
     };
+
+    onMounted(() => {
+      window.scroll(0, 0);
+    });
 
     return { filterPrice, selPrice };
   },
