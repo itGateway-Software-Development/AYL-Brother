@@ -19,6 +19,7 @@
           <div class="news-buttom text-end">
             <a
               href="https://www.youtube.com/@RomanticUnderwear"
+              target="_blank"
               class="btn d-flex align-items-center new-btn justify-content-center"
             >
               <p>Join YouTube Channel</p>
