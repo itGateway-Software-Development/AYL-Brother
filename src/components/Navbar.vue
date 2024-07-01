@@ -520,7 +520,7 @@
               </li>
               <li>
                 <router-link class="nav-link d-flex align-items-center">
-                  <i class="fa-solid fa-globe"></i>
+                  <!-- <i class="fa-solid fa-globe"></i> -->
                   <p>Language</p>
                 </router-link>
               </li>
