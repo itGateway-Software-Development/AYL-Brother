@@ -518,7 +518,12 @@
                   ><p>Register</p></router-link
                 >
               </li>
-
+              <li>
+                <router-link class="nav-link d-flex align-items-center">
+                  <i class="fa-solid fa-globe"></i>
+                  <p>Language</p>
+                </router-link>
+              </li>
               <li class="d-flex align-items-center">
                 <i class="fa-solid fa-moon"></i>
                 <p>Dark Mode</p>
