@@ -77,7 +77,7 @@ export default {};
   margin: 120px 0;
 }
 
-.iframe {
+iframe {
   width: 440px;
   height: 350px;
 }
@@ -132,6 +132,7 @@ export default {};
   .meet-us,
   .contact {
     height: 300px;
+    width: 380px;
   }
 }
 
@@ -140,6 +141,7 @@ export default {};
     margin: 30px 0;
   }
   .contact-box {
+    width: 100%;
     margin: 0px auto;
   }
   .box-content {

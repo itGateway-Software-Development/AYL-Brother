@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="navigation">
     <div class="nav1" id="nav1">
       <div
         class="mobile-view d-flex justify-content-between align-items-center"
@@ -261,7 +261,9 @@
           </div>
         </div>
         <div class="logo-img">
-          <img src="../assets/romantic-logo.png" alt="" class="img-fluid" />
+          <router-link to="/"
+            ><img src="../assets/romantic-logo.png" alt="" class="img-fluid"
+          /></router-link>
         </div>
         <div class="icon-group">
           <ul class="d-flex align-items-center">
@@ -516,12 +518,7 @@
                   ><p>Register</p></router-link
                 >
               </li>
-              <li>
-                <router-link class="nav-link d-flex align-items-center">
-                  <i class="fa-solid fa-globe"></i>
-                  <p>Language</p></router-link
-                >
-              </li>
+
               <li class="d-flex align-items-center">
                 <i class="fa-solid fa-moon"></i>
                 <p>Dark Mode</p>
@@ -686,6 +683,10 @@ export default {
 </script>
 
 <style>
+.navigation {
+  width: auto !important;
+}
+
 .nav1 {
   padding: 5px;
   height: 50px;
@@ -871,7 +872,7 @@ export default {
   display: block;
   visibility: hidden;
   position: absolute;
-  left: 16%;
+  left: 16.5%;
   top: 60%;
   background: #fff;
   list-style-type: none;
@@ -997,31 +998,28 @@ export default {
   font-style: normal;
 }
 
-/* .cart-count {
-  right: 19.8%;
+.cart-count {
+  right: 20.1%;
   top: 50%;
-} */
-
-@media (max-width: 1920px) {
-  .cart-count {
-    right: 19.8%;
-    top: 50%;
-  }
 }
 
 @media (max-width: 1600px) {
   .cart-count {
     top: 50%;
-    right: 14%;
+    right: 14.5%;
+  }
+
+  .dropdowns {
+    left: 10.5%;
   }
 }
 
 @media (max-width: 1400px) {
   .dropdowns {
-    left: 14%;
+    left: 6%;
   }
   .cart-count {
-    right: 10%;
+    right: 10.5%;
   }
 }
 
@@ -1033,8 +1031,13 @@ export default {
   .nav2 {
     display: none;
   } */
+
   .dropdowns {
-    left: 16%;
+    left: 5%;
+  }
+
+  .nav2 {
+    padding: 10px 0px;
   }
 
   .v-navigation-drawer {
@@ -1046,14 +1049,14 @@ export default {
   }
 
   .cart-count {
-    right: 11.5%;
+    right: 10%;
     padding: 5px 10px;
   }
 }
 
 @media (max-width: 1024px) {
   .cart-count {
-    right: 14%;
+    right: 11.5%;
     top: 48%;
   }
 
@@ -1066,7 +1069,7 @@ export default {
   }
 
   .dropdowns {
-    left: 19.5%;
+    left: 5;
   }
 
   .nav-search {
@@ -1094,6 +1097,12 @@ export default {
     right: 0;
     top: 0;
   }
+  .icon-group {
+    margin-right: 10px;
+  }
+  .navigation {
+    width: 800px !important;
+  }
 }
 
 @media (max-width: 500px) {
@@ -1102,6 +1111,10 @@ export default {
   }
   .logo-img {
     margin-left: 40px;
+  }
+
+  .navigation {
+    width: auto !important;
   }
 
   .icon-group .material-symbols-outlined {
