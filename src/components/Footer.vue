@@ -64,6 +64,9 @@
             <h5>About Romantic</h5>
             <ul>
               <li>
+                <router-link class="nav-link" to="/">About Us</router-link>
+              </li>
+              <li>
                 <router-link class="nav-link" to="/contact"
                   ><p>Contact Us</p></router-link
                 >
