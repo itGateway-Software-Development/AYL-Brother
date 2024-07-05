@@ -175,6 +175,7 @@
                         type="number"
                         v-model.number="enterPoints"
                         :max="availablePoints"
+                        :min="1"
                         label="Enter Discount Point"
                         variant="outlined"
                         @click:clear="onClear()"
@@ -348,7 +349,7 @@ export default {
     };
     const cod = ref("cash");
 
-    const userLogin = ref();
+    const userLogin = ref("");
 
     const city = ref(null);
     const township = ref(null);
@@ -382,6 +383,7 @@ export default {
 
     if (LoginUser.value) {
       userLogin.value = JSON.parse(localStorage.getItem("isLogin"));
+      name.value = user.value.name;
     } else {
       userLogin.value = false;
     }
@@ -390,9 +392,16 @@ export default {
 
     const enterPoints = ref();
 
+    const minValue = () => {
+      if (enterPoints.value < 1) {
+        enterPoints.value = 0;
+      }
+    };
+
     const availablePoints = ref();
 
     const applyDiscount = () => {
+      minValue();
       store.dispatch("applyDiscountPoints", enterPoints.value);
     };
     const onClear = () => {
@@ -454,6 +463,18 @@ export default {
 
     watch(availablePoint.value, () => {
       availablePoints.value = availablePoint.value;
+    });
+
+    watch(user, () => {
+      if (user.value) {
+        name.value = user.value.name;
+        phoneNumber.value = user.value.phone;
+        address.value = user.value.address;
+      } else if (!user.value) {
+        name.value = "";
+        phoneNumber.value = "";
+        address.value = "";
+      }
     });
 
     return {

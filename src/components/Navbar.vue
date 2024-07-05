@@ -521,7 +521,31 @@
                 >
               </li>
               <li>
-                <p>Language</p>
+                <div class="dropdown d-flex align-items-center">
+                  <i class="fa-solid fa-globe"></i>
+                  <a
+                    class="nav-link"
+                    href="#"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Language
+                  </a>
+
+                  <ul class="dropdown-menu">
+                    <li class="mb-4">
+                      <router-link class="nav-link d-flex align-items-center"
+                        >English</router-link
+                      >
+                    </li>
+                    <li>
+                      <router-link class="nav-link d-flex align-items-center"
+                        >Myanmar</router-link
+                      >
+                    </li>
+                  </ul>
+                </div>
               </li>
               <li class="d-flex align-items-center">
                 <i class="fa-solid fa-moon"></i>
@@ -892,7 +916,7 @@ export default {
   transition: 0.5s ease-out;
 }
 
-.dropdown-submenu {
+.dropdowns .dropdown-submenu {
   visibility: hidden;
   position: absolute;
   left: 100%;
@@ -967,7 +991,8 @@ export default {
 }
 
 .dropdown-menu {
-  width: 180px;
+  width: 150px;
+  margin-left: -30px !important;
 }
 
 .dropdown-img p {

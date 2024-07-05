@@ -108,6 +108,8 @@ export default {
     let usePreviousRoute = () => {
       if (previousRoute.value == "/cart") {
         router.push("/cart");
+      } else if (previousRoute.value == "/cart/checkout") {
+        router.push("/cart/checkout");
       } else {
         router.push("/");
       }
@@ -169,7 +171,6 @@ export default {
       const history = router.options.history.state.back;
       if (history) {
         previousRoute.value = history;
-        console.log(previousRoute.value);
       }
       // onBeforeRouteUpdate((to, from) => {
       //   previousRoute.value = from;
