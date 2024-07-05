@@ -521,10 +521,7 @@
                 >
               </li>
               <li>
-                <router-link class="nav-link d-flex align-items-center">
-                  <i class="fa-solid fa-globe"></i>
-                  <p>Language</p>
-                </router-link>
+                <p>Language</p>
               </li>
               <li class="d-flex align-items-center">
                 <i class="fa-solid fa-moon"></i>

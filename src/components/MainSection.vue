@@ -278,7 +278,7 @@ export default {
 .content-box {
   z-index: 99;
   background: 100%;
-  width: 600px !important;
+  width: 790px !important;
   height: 500px;
   background: #f2f2f2;
   padding: 50px 20px;

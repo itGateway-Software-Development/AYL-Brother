@@ -1,6 +1,6 @@
 <template>
   <div class="footer">
-    <div class="mt-5 container footer-padding justify-content-center desktop">
+    <div class="mt-5 footer-padding justify-content-center desktop">
       <div class="row footer-group d-flex">
         <div class="col-5 col-lg-2 footer-col">
           <div class="content-group text-start">
@@ -351,6 +351,10 @@ export default {
   display: none;
 }
 
+.footer-padding {
+  padding: 0px 130px;
+}
+
 .logo-text h2 {
   font-size: 28px;
   color: #ffffff;
@@ -450,6 +454,18 @@ export default {
   color: #ff7000;
 }
 
+@media (min-width: 1920px) {
+  .footer-padding {
+    padding: 0px 130px;
+  }
+}
+
+@media (max-width: 1400px) {
+  .footer-padding {
+    padding: 0px 65px;
+  }
+}
+
 @media (max-width: 1200px) {
   .logo-text {
     margin-top: 20px;
@@ -459,6 +475,9 @@ export default {
   }
   .footer-btn {
     padding: 10px 20px;
+  }
+  .footer-padding {
+    padding: 0px 20px;
   }
 }
 
