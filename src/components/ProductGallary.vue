@@ -218,5 +218,9 @@ export default {
   .swiper-button-next {
     display: none !important;
   }
+
+  .product-gallary {
+    margin: 10px 0px;
+  }
 }
 </style>

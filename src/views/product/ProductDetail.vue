@@ -189,7 +189,7 @@
         <div class="also-like">
           <p class="text-start">You May Also Like</p>
         </div>
-        <div class="row align-content-center card-list mt-5">
+        <div class="row align-items-center card-list mt-5">
           <div
             class="col-6 col-md-3 col-sm-3 mb-3 detail-card-col"
             v-for="product in randomProducts"
@@ -712,7 +712,7 @@ export default {
 
   .add-btn,
   .wish-btn {
-    width: 450px;
+    width: 340px;
   }
   .mini-photo {
     width: 100%;
@@ -721,7 +721,7 @@ export default {
 
   .mini-photo img {
     width: 60px;
-    margin: 0px 25px;
+    margin: 0px 5px 0px 0px;
   }
 
   .left-photo {
@@ -733,7 +733,7 @@ export default {
   }
 
   .max-photo {
-    margin: 0 !important;
+    margin: 0px 0px 40px !important;
     padding: 0 !important;
   }
 
@@ -752,6 +752,10 @@ export default {
 
   .delivery-option {
     margin: 0px;
+  }
+  .card-list {
+    padding: 0px 0px;
+    margin-right: 5px;
   }
 }
 

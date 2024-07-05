@@ -3,7 +3,7 @@
     <div class="product-card container">
       <div class="row align-content-center card-list">
         <div
-          class="col-6 col-md-4 col-sm-6 mb-3 p-card-col"
+          class="col-6 col-md-4 col-sm-6 mb-5 p-card-col"
           v-for="product in filteredProducts"
           :key="product.id"
         >
@@ -189,7 +189,7 @@ export default {
 }
 
 .add-btn {
-  width: 320px;
+  width: 300px;
   background: #111;
   color: #fff;
 }
@@ -205,7 +205,7 @@ export default {
 }
 
 .wish-btn {
-  width: 320px;
+  width: 300px;
   border: 1px solid #111;
 }
 

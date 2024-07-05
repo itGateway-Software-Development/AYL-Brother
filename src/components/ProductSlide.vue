@@ -28,7 +28,7 @@
         ></button>
       </div>
       <div class="carousel-inner">
-        <div class="carousel-item active">
+        <div class="carousel-item active product-img">
           <div
             class="d-flex align-items-center justify-content-center content-carousel"
           >
@@ -88,7 +88,7 @@
             </div>
           </div>
         </div>
-        <div class="carousel-item">
+        <div class="carousel-item product-img">
           <div
             class="d-flex align-items-center justify-content-center content-carousel"
           >
@@ -123,7 +123,7 @@
             </div>
           </div>
         </div>
-        <div class="carousel-item">
+        <div class="carousel-item product-img">
           <div
             class="d-flex align-items-center justify-content-center content-carousel"
           >
@@ -190,7 +190,7 @@ export default {};
 
 <style scoped>
 .carousel-indicators {
-  left: 45.5%;
+  left: 0;
 }
 
 .slide {
@@ -199,8 +199,12 @@ export default {};
 
 .carousel-item {
   width: 100%;
-  height: 500px;
+  height: 425px;
   background: linear-gradient(90deg, #ff1100, #ffbb00);
+}
+
+.product-img img {
+  width: 600px;
 }
 
 .content-carousel {
@@ -218,21 +222,21 @@ export default {};
 
 .carousel-btn {
   margin: 0px 20px;
-  width: 250px;
+  width: auto;
   border: 1px solid red;
   border-radius: 20px;
-  padding: 10px 15px;
+  padding: 15px 20px;
 }
 
 .btn-1 p {
-  font-size: 24px;
+  font-size: 240x;
 }
 
 .btn-3 {
-  padding: 10px 50px;
+  padding: 10px 30px;
 }
 .btn-3 p {
-  font-size: 24px;
+  font-size: 20px;
 }
 
 .btn-2 {
@@ -282,21 +286,57 @@ export default {};
 
 @media (max-width: 1200px) {
   .carousel-item {
-    height: 380px;
+    height: 400px;
+  }
+
+  .carousel-indicators {
+    left: 18%;
   }
 }
 
 @media (max-width: 1024px) {
   .carousel-item {
-    height: 310px;
+    height: 350px;
   }
 
   .carousel-btn {
     padding: 15px 10px;
   }
 
-  .btn-2 {
-    width: 220px;
+  .text-carousel-content {
+    margin-top: 20px;
+    padding: 0px;
+  }
+
+  .text-carousel-content h2 {
+    font-size: 22px;
+  }
+
+  .product-img img {
+    width: 500px;
+  }
+
+  .carousel-icon img {
+    width: 30px;
+  }
+
+  .carousel-bottom {
+    flex-direction: column;
+    align-items: flex-start !important;
+  }
+
+  .carousel-btn {
+    margin: 20px 0px;
+    padding: 10px 20px;
+    align-items: center;
+  }
+
+  .btn-3 {
+    padding: 10px 40px;
+  }
+
+  .carousel-indicators {
+    left: 20%;
   }
 }
 
@@ -306,15 +346,18 @@ export default {};
   }
 
   .carousel-item {
-    height: 260px;
+    height: 300px;
   }
   .btn-1 p {
     font-size: 20px;
   }
 
+  .carousel-icon img {
+    width: 30px !important;
+  }
+
   .content-carousel {
     padding: 0px 50px;
-    margin: 0px 100px;
   }
   .text-carousel-content {
     padding: 0;
@@ -324,9 +367,17 @@ export default {};
     flex-direction: column;
   }
 
-  .btn-2 {
-    margin-top: 10px;
-    margin-left: -100px;
+  .product-img img {
+    width: 400px;
+  }
+
+  .carousel-btn {
+    margin: 10px 0px;
+  }
+
+  .carousel-indicators {
+    top: 94%;
+    left: 28%;
   }
 }
 
@@ -335,18 +386,27 @@ export default {};
     display: none;
   }
 
+  .carousel-item {
+    height: 280px;
+  }
+
   .text-carousel-content {
     padding: 0px;
     margin: 30px auto;
   }
   .carousel-indicators {
-    left: 35.5%;
+    top: 93%;
+    left: 0;
   }
   .carousel-btn {
     margin-top: 10px;
   }
   .btn-2 {
     margin-top: 10px;
+  }
+
+  .slide {
+    margin-bottom: 50px;
   }
 }
 </style>

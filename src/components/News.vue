@@ -134,6 +134,134 @@
             </swiper-slide>
           </swiper>
         </div>
+        <div class="mb-video-list">
+          <swiper
+            :pagination="true"
+            :modules="modules"
+            :loop="true"
+            class="mySwiper"
+          >
+            <swiper-slide>
+              <div class="news-video d-flex-column">
+                <iframe
+                  src="https://www.youtube.com/embed/Ov8nG42vj7M?si=_ly9rXIW5MvV_gQv"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                ></iframe>
+                <div class="news-text ms-5 text-start">
+                  <h5>Erectile dysfunction</h5>
+                  <p>
+                    တည်ကြည်ခန့်ညား ပုရိသ အမျိုးသားတို့၏
+                    ကျန်းမာရေးသိကောင်းစရာများ(ပန်းသေ ပန်းညှိုးရောဂါ)
+                  </p>
+                </div>
+              </div></swiper-slide
+            >
+            <swiper-slide>
+              <div class="news-video d-flex-column">
+                <iframe
+                  src="https://www.youtube.com/embed/DZO_Brnq56k?si=lGcHEHUmzhE0xuu3"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                ></iframe>
+                <div class="news-text ms-5 text-start">
+                  <h5>Smoking</h5>
+                  <p>
+                    တည်ကြည်ခန့်ညားပုုရိသ အမျိုးသားတို့အတွက်
+                    ကျန်းမာရေးသိကောင်းစရာများ (ဆေးလိပ်သောက်ခြင်း)
+                  </p>
+                </div>
+              </div></swiper-slide
+            >
+            <swiper-slide>
+              <div class="news-video d-flex-column">
+                <iframe
+                  src="https://www.youtube.com/embed/DZO_Brnq56k?si=lGcHEHUmzhE0xuu3"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                ></iframe>
+                <div class="news-text ms-5 text-start">
+                  <h5>Smoking</h5>
+                  <p>
+                    တည်ကြည်ခန့်ညားပုုရိသ အမျိုးသားတို့အတွက်
+                    ကျန်းမာရေးသိကောင်းစရာများ (ဆေးလိပ်သောက်ခြင်း)
+                  </p>
+                </div>
+              </div></swiper-slide
+            >
+            <swiper-slide>
+              <div class="news-video d-flex-column">
+                <iframe
+                  src="https://www.youtube.com/embed/5MZk6cQS7kw?si=gUi1ja1OidxTbf94"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                ></iframe>
+                <div class="news-text ms-5 text-start">
+                  <h5>ဆေးစွဲခြင်း နဲ့ပတ်သတ်သည့် သိကောင်းစရာများ</h5>
+                  <p>
+                    (အမျိုးသားများ ကျန်းမာရေးအတွက် အသိပညာ ဗဟုသုတိုးပွားစေရန်
+                    Romantic Men’s Underwear မှ ပံပိုးကူညီ
+                    တင်ဆက်ပေးထားခြင်းဖြစ်ပါသည်။)
+                  </p>
+                </div>
+              </div></swiper-slide
+            >
+            <swiper-slide>
+              <div class="news-video d-flex-column">
+                <iframe
+                  src="https://www.youtube.com/embed/uczvCixputM?si=KpyBV4rHAeMg620U"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                ></iframe>
+                <div class="news-text ms-5 text-start">
+                  <h5>Tinea</h5>
+                  <p>
+                    တည်ကြည်ခန့်ညားပုရိသ အမျိုးသားတို့အတွက်
+                    ကျန်းမာရေးသိကောင်းစရာများ (ပွေး ရောဂါ)
+                  </p>
+                </div>
+              </div></swiper-slide
+            >
+            <swiper-slide>
+              <div class="news-video d-flex-column">
+                <iframe
+                  src="https://www.youtube.com/embed/Vze6X7hpj1M?si=31TJ1XMpTc3UyDN9"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                ></iframe>
+                <div class="news-text ms-5 text-start">
+                  <h5>
+                    ခံတွင်းအနံ့ဆိုး ခြင်းနဲ့ပတ်သတ်သည့် သိကောင်းစရာများ
+                    အကြောင်းအရာများ
+                  </h5>
+                  <p>
+                    (အမျိုးသားများ ကျန်းမာရေးအတွက် အသိပညာ ဗဟုသုတိုးပွားစေရန်
+                    Romantic Men’s Underwear မှ ပံပိုးကူညီ
+                    တင်ဆက်ပေးထားခြင်းဖြစ်ပါသည်။)
+                  </p>
+                </div>
+              </div></swiper-slide
+            >
+          </swiper>
+        </div>
       </div>
     </div>
   </div>
@@ -145,9 +273,11 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 // Import Swiper styles
 import "swiper/css";
 
+import "swiper/css/pagination";
+
 import "swiper/css/free-mode";
 import "swiper/css/scrollbar";
-import { FreeMode, Scrollbar, Mousewheel } from "swiper/modules";
+import { FreeMode, Scrollbar, Mousewheel, Pagination } from "swiper/modules";
 export default {
   components: {
     Swiper,
@@ -155,18 +285,34 @@ export default {
   },
   setup() {
     return {
-      modules: [FreeMode, Scrollbar, Mousewheel],
+      modules: [FreeMode, Scrollbar, Mousewheel, Pagination],
     };
   },
 };
 </script>
 
 <style>
+.heading-text {
+  width: 350px;
+  padding: 10px 10px;
+  background: red;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.heading-text h5 {
+  font-weight: 600;
+}
+
 .video-list {
   width: 2000px;
   height: 600px;
   background: #f2f2f2;
   margin-left: 50px;
+}
+
+.mb-video-list {
+  display: none;
 }
 
 .news {
@@ -253,21 +399,44 @@ iframe {
 
 @media (max-width: 500px) {
   .swiper-slide {
-    width: auto !important;
-    padding: 30px;
+    width: 100% !important;
+    height: 100%;
+    margin: 20px 0px;
   }
 
   .video-list {
     height: 300px;
   }
 
-  .news-text {
+  iframe {
+    width: 300px;
+    height: 200px;
+  }
+
+  .video-list {
+    cursor: pointer;
     display: none;
   }
 
-  iframe {
-    width: auto;
-    height: 200px;
+  .news {
+    margin: 0px;
+  }
+
+  .mb-video-list {
+    display: block;
+    width: 100%;
+  }
+
+  .news-video {
+    width: 100%;
+  }
+
+  .news-text {
+    margin: 10px 0px;
+  }
+
+  .news-text h5 {
+    font-weight: 600;
   }
 }
 </style>

@@ -5,11 +5,11 @@
       data-aos="fade-down"
       data-aos-duration="2000"
     >
-      <div class="justify-content-center container content-wrapper mt-5">
+      <div class="justify-content-center content-wrapper mt-5 ab-fabrics">
         <div class="fabric-heading text-start">
           <h2>Product Series</h2>
         </div>
-        <div class="row px-2">
+        <div class="row ab-row">
           <div class="col-4 item-col">
             <div class="product-series">
               <div class="item">
@@ -120,9 +120,21 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .ab-fabric {
   margin: 80px 0;
+}
+
+.ab-fabrics {
+  width: 100%;
+}
+
+.content-wrapper {
+  padding: 0px 8%;
+}
+
+.fabric-heading {
+  margin: 40px 0px;
 }
 
 .d-1 {
@@ -146,12 +158,12 @@ export default {
 }
 
 .p-btn {
-  width: 200px;
+  width: 220px;
   border: 1px solid red;
   border-radius: 50px;
   text-align: center;
   justify-content: center;
-  margin: 10px 100px;
+  margin: 20px 150px;
 }
 .p-btn p {
   padding: 0px 5px;
@@ -177,18 +189,34 @@ export default {
   font-style: normal;
 }
 
+@media (max-width: 1400px) {
+  .p-btn {
+    margin: 20px 100px;
+  }
+}
+
 @media (max-width: 1200px) {
   .item img {
-    height: 250px;
+    height: 400px;
   }
   .p-col-2 h1 {
     font-size: 20px;
+  }
+  .content-wrapper {
+    padding: 0px 20px;
   }
 }
 
 @media (max-width: 1024px) {
   .left-items {
     padding: 0 40px;
+  }
+
+  .item img {
+    height: 300px;
+  }
+  .p-btn {
+    margin: 20px 40px;
   }
 }
 
@@ -211,6 +239,11 @@ export default {
   .b-text {
     padding: 0px 20px;
   }
+
+  .ab-fabric {
+    margin-top: 0px;
+    margin-bottom: 80px;
+  }
 }
 
 @media (max-width: 500px) {
@@ -231,7 +264,17 @@ export default {
   } */
 
   .p-btn {
-    margin: 10px 120px;
+    margin: 10px 110px;
+  }
+
+  .fabric-heading {
+    margin: 20px 0px;
+  }
+}
+
+@media (max-width: 400px) {
+  .p-btn {
+    margin: 10px 70px;
   }
 }
 </style>

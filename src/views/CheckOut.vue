@@ -231,7 +231,7 @@
                       <div class="qr-heading mt-3">
                         <h4>Scan the QR and Pay Now</h4>
                       </div>
-                      <div class="d-flex">
+                      <div class="d-flex kpay-online">
                         <div class="qr-image me-3">
                           <v-img
                             width="300"
@@ -769,6 +769,17 @@ export default {
   }
   .promo-btn {
     width: 150px;
+  }
+
+  .kpay-online {
+    flex-direction: column;
+  }
+
+  .upload-image {
+    width: 250px;
+  }
+  .info-form {
+    padding: 20px 15px;
   }
 }
 

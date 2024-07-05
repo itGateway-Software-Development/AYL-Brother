@@ -1,7 +1,7 @@
 <template>
   <div class="back">
     <div class="main-section">
-      <div class="container content-wrapper">
+      <div class="content-wrapper">
         <div
           id="carouselExampleIndicators"
           class="carousel slide"
@@ -32,7 +32,11 @@
           <div class="carousel-inner">
             <div class="carousel-item active">
               <div class="d-flex">
-                <img src="../assets/banner-1.png" class="d-block" alt="..." />
+                <img
+                  src="../assets/banner-1.png"
+                  class="d-block img-fluid"
+                  alt="..."
+                />
                 <div class="content-box">
                   <div class="heading-text">
                     <h5>See the latest Promotion!</h5>
@@ -60,7 +64,11 @@
             </div>
             <div class="carousel-item">
               <div class="d-flex">
-                <img src="../assets/banner-2.png" class="d-block" alt="..." />
+                <img
+                  src="../assets/banner-2.png"
+                  class="d-block img-fluid"
+                  alt="..."
+                />
                 <div class="content-box">
                   <div class="heading-text">
                     <h5>Join our communities to buy easily!</h5>
@@ -88,7 +96,11 @@
             </div>
             <div class="carousel-item">
               <div class="d-flex">
-                <img src="../assets/banner-3.png" class="d-block" alt="..." />
+                <img
+                  src="../assets/banner-3.png"
+                  class="d-block img-fluid"
+                  alt="..."
+                />
                 <div class="content-box">
                   <div class="heading-text">
                     <h5>Select, Checkout and Order Quickly!</h5>
@@ -180,11 +192,21 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .back {
   padding-top: 150px;
 }
 .main-section {
+  width: 100%;
+  display: block;
+  margin: 0px auto;
+  align-items: center;
+  justify-content: center;
+  max-width: auto;
+}
+
+.content-wrapper {
+  padding: 0px 8%;
 }
 
 .main-text-content h3 {
@@ -218,13 +240,13 @@ export default {
 }
 
 .main-banner img {
-  width: 1300px;
+  width: 1500px;
   height: 200px;
   object-fit: cover;
 }
 
 .main-img img {
-  height: 400px;
+  height: 1000px;
   object-fit: cover;
   margin-left: 5px;
 }
@@ -234,8 +256,8 @@ export default {
 }
 
 .carousel-indicators {
-  top: 100%;
-  left: 0;
+  top: 95%;
+  left: 1%;
   width: 150px;
   margin-left: 0;
 }
@@ -250,18 +272,18 @@ export default {
 }
 
 .carousel-item img {
-  width: 750px;
+  width: 900px;
 }
 
 .content-box {
   z-index: 99;
   background: 100%;
-  width: 600px;
-  height: 480px;
+  width: 600px !important;
+  height: 500px;
   background: #f2f2f2;
   padding: 50px 20px;
   margin-left: -30px;
-  margin-top: 25px;
+  margin-top: 70px;
 }
 
 .carousel-control-next {
@@ -275,21 +297,21 @@ export default {
 .carousel-control-prev,
 .carousel-control-next {
   justify-content: start;
-  top: 90%;
+  top: 80%;
 }
 
 .carousel-control-prev .fa-solid {
-  font-size: 50px;
+  font-size: 35px;
   color: #f2f2f2;
 }
 
 .carousel-control-next .fa-solid {
-  font-size: 50px;
+  font-size: 35px;
   color: #f2f2f2;
 }
 
 .heading-text {
-  width: 350px;
+  width: 400px;
   padding: 10px 10px;
   background: red;
   color: #fff;
@@ -300,8 +322,12 @@ export default {
 }
 
 .content-buttom {
-  margin-left: 340px;
-  margin-top: 60px;
+  margin-left: 400px;
+  margin-top: 80px;
+}
+
+.bb-1 {
+  margin-top: 120px;
 }
 
 .bs-content {
@@ -329,6 +355,50 @@ export default {
   margin: 35px 0px;
 }
 
+@media (max-width: 1600px) {
+  .carousel-item img {
+    width: 750px;
+  }
+
+  .content-box {
+    width: 750px;
+    height: 440px;
+    margin-top: 25px;
+  }
+
+  .bb-1 {
+    margin-top: 50px;
+  }
+
+  .content-buttom {
+    margin-top: 40px;
+    margin-left: 320px;
+  }
+}
+
+@media (max-width: 1400px) {
+  .carousel-item img {
+    width: 650px;
+  }
+
+  .content-box {
+    width: 550px;
+    height: 400px;
+    margin-top: 25px;
+  }
+  .bb-1 {
+    margin-top: 70px;
+  }
+
+  .content-buttom {
+    margin-left: 340px;
+  }
+
+  .content-header h1 {
+    font-size: 30px;
+  }
+}
+
 @media (max-width: 1200px) {
   .main-img img {
     width: 400px;
@@ -336,6 +406,19 @@ export default {
     margin-left: 4px;
   }
 
+  .carousel-item img {
+    width: 600px;
+  }
+
+  .content-box {
+    width: 400px;
+    height: 380px;
+    margin-top: 20px;
+  }
+
+  .content-wrapper {
+    padding: 0px 20px;
+  }
   .main-text h3 {
     font-size: 22px;
   }
@@ -349,25 +432,17 @@ export default {
     left: 35%;
     transform: translate(-12%, -35%);
   }
-  .carousel-item img {
-    width: 550px;
-  }
 
-  .content-box {
-    z-index: 99;
-    background: 100%;
-    width: 600px;
-    height: 360px;
-    background: #f2f2f2;
-    padding: 50px 20px;
-    margin-left: -30px;
-    margin-top: 15px;
-  }
   .content-header {
     margin: 20px 0px;
   }
   .content-buttom {
-    margin-top: 20px;
+    margin-top: 60px;
+    margin-left: 400px;
+  }
+
+  .bb-1 {
+    margin-top: 80px;
   }
 }
 
@@ -376,16 +451,21 @@ export default {
     font-size: 36px;
   }
   .carousel-item img {
-    width: 450px;
+    width: 500px;
   }
   .content-box {
-    width: 550px;
-    height: 300px;
+    width: 500px !important;
+    height: 330px;
     margin-top: 10px;
+    margin-left: -40px;
     padding: 30px 20px;
   }
   .content-header {
     margin: 10px 0px;
+  }
+
+  .content-header h1 {
+    font-size: 28px;
   }
   .carousel-control-next {
     left: 7%;
@@ -398,13 +478,22 @@ export default {
   .carousel-control-prev,
   .carousel-control-next {
     justify-content: start;
-    top: 88%;
+    top: 78%;
   }
   .carousel-control-next .fa-solid {
-    font-size: 40px;
+    font-size: 32px;
   }
   .carousel-control-prev .fa-solid {
-    font-size: 40px;
+    font-size: 32px;
+  }
+
+  .carousel-indicators {
+    top: 94%;
+  }
+
+  .content-buttom {
+    margin-left: 220px;
+    margin-top: 20px;
   }
 }
 
@@ -489,7 +578,7 @@ export default {
   }
 
   .carousel-item img {
-    width: 500px;
+    width: 800px;
   }
 
   .main-banner {
@@ -500,11 +589,6 @@ export default {
     display: block;
   }
 
-  .promotion-text {
-    top: 4.5%;
-    left: 20%;
-    transform: translate(-4.5%, -20%);
-  }
   .main-product-section {
     display: none;
   }
@@ -523,21 +607,14 @@ export default {
   .carousel-control-prev {
     left: 1%;
   }
-}
-
-@media (max-width: 450px) {
-  .promotion-text {
-    top: 4.5%;
-    left: 14%;
-    transform: translate(-4.5%, -14%);
+  .carousel-control-prev,
+  .carousel-control-next {
+    justify-content: start;
+    top: 65%;
   }
-}
 
-@media (max-width: 400px) {
-  .promotion-text {
-    top: 4.5%;
-    left: 12%;
-    transform: translate(-4.5%, -12%);
+  .carousel-indicators {
+    top: 90%;
   }
 }
 </style>

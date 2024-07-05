@@ -252,7 +252,9 @@
                 </div></v-list-item
               >
               <v-list-item link
-                ><router-link class="d-flex align-items-center nav-link" to="/"
+                ><router-link
+                  class="d-flex align-items-center nav-link fav"
+                  to="/"
                   ><i class="fa-solid fa-heart"></i>
                   <p class="ms-2">Favouriters</p>
                 </router-link></v-list-item
@@ -286,7 +288,7 @@
     </div>
 
     <div class="nav2" id="nav2">
-      <div class="upper-nav container content-wrapper">
+      <div class="upper-nav content-wrapper">
         <div class="d-flex justify-content-between align-items-center">
           <div class="upper-content-1">
             <ul class="d-flex">
@@ -520,7 +522,7 @@
               </li>
               <li>
                 <router-link class="nav-link d-flex align-items-center">
-                  <!-- <i class="fa-solid fa-globe"></i> -->
+                  <i class="fa-solid fa-globe"></i>
                   <p>Language</p>
                 </router-link>
               </li>
@@ -533,7 +535,7 @@
         </div>
       </div>
 
-      <div class="lower-nav container content-wrapper">
+      <div class="lower-nav content-wrapper">
         <div class="d-flex justify-content-between align-items-center">
           <div class="upper-icon-group">
             <ul class="d-flex">
@@ -687,9 +689,13 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .navigation {
   width: auto !important;
+}
+
+.content-wrapper {
+  padding: 0px 5%;
 }
 
 .nav1 {
@@ -877,8 +883,8 @@ export default {
   display: block;
   visibility: hidden;
   position: absolute;
-  left: 16.5%;
-  top: 60%;
+  left: 8.5%;
+  top: 50%;
   background: #fff;
   list-style-type: none;
   margin: 0;
@@ -1004,18 +1010,26 @@ export default {
 }
 
 .cart-count {
-  right: 20.1%;
+  right: 13.5%;
   top: 50%;
 }
 
-@media (max-width: 1600px) {
-  .cart-count {
-    top: 50%;
-    right: 14.5%;
+@media (max-width: 1920px) {
+  .dropdowns {
+    left: 8.3%;
   }
 
+  .cart-count {
+    right: 12%;
+  }
+}
+
+@media (max-width: 1600px) {
   .dropdowns {
-    left: 10.5%;
+    left: 9%;
+  }
+  .cart-count {
+    right: 13%;
   }
 }
 
@@ -1025,6 +1039,10 @@ export default {
   }
   .cart-count {
     right: 10.5%;
+  }
+
+  .content-wrapper {
+    padding: 0px 1%;
   }
 }
 
@@ -1054,14 +1072,14 @@ export default {
   }
 
   .cart-count {
-    right: 10%;
+    right: 7.5%;
     padding: 5px 10px;
   }
 }
 
 @media (max-width: 1024px) {
   .cart-count {
-    right: 11.5%;
+    right: 10%;
     top: 48%;
   }
 
@@ -1125,6 +1143,10 @@ export default {
   .icon-group .material-symbols-outlined {
     padding: 0px 8px;
     font-size: 20px;
+  }
+
+  .fav {
+    color: #111111;
   }
 
   .cart-count {
