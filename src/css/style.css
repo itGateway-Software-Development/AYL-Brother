@@ -4,6 +4,21 @@
   box-sizing: border-box;
 }
 
+:root {
+  --background-color: #ffffff; /* light theme */
+  --text-color: #333333;
+}
+
+/* Dark theme */
+.dark {
+  --background-color: #333333; /* dark theme */
+  --text-color: #ffffff;
+
+  --content-color: #ffffff;
+  --content-text-color: #333;
+}
+
+/* ---- done --- */
 ul {
   margin: 0;
   padding: 0;
@@ -88,3 +103,5 @@ h2 {
     display: none;
   }
 }
+
+/* for dark mode  */

@@ -201,7 +201,7 @@
                 class="product-link"
                 @click="refreshProducts()"
               >
-                <div class="card-img mb-2">
+                <div class="card-img mb-2 border-img">
                   <img :src="product.img" class="img-fluid" alt="" />
                 </div>
               </router-link>
@@ -465,6 +465,10 @@ export default {
 
 .modal-content {
   width: max-content;
+}
+
+.card-img img {
+  border: 1px solid #f2f2f2 !important;
 }
 
 .mini-photo {
