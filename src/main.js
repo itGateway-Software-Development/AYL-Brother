@@ -3,6 +3,7 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import "./css/style.css";
+import "@/assets/js/theme.js";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Vue3Toastify, { toast } from "vue3-toastify";

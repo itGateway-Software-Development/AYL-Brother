@@ -9,6 +9,7 @@ import Register from "../components/LoginForm/Register.vue";
 import Bamboo from "../views/product/Bamboo.vue";
 import ContactUs from "../views/ContactUs.vue";
 import CheckOut from "../views/CheckOut.vue";
+import AboutUs from "../views/AboutUs.vue";
 
 const routes = [
   {
@@ -62,6 +63,11 @@ const routes = [
     path: "/cart/checkout",
     name: "checkout",
     component: CheckOut,
+  },
+  {
+    path: "/about-us",
+    name: "aboutus",
+    component: AboutUs,
   },
 ];
 

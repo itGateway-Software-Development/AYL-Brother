@@ -166,7 +166,7 @@
               <router-link to="/" class="nav-link mb-text"
                 ><v-list-item><p>Promotion</p></v-list-item></router-link
               >
-              <router-link to="/" class="nav-link mb-text"
+              <router-link to="/about-us" class="nav-link mb-text"
                 ><v-list-item><p>Our Story</p></v-list-item></router-link
               >
               <v-list-item v-if="user">
@@ -262,7 +262,7 @@
             </v-navigation-drawer>
           </div>
         </div>
-        <div class="logo-img">
+        <div class="logo-img" id="img">
           <router-link to="/"
             ><img src="../assets/romantic-logo.png" alt="" class="img-fluid"
           /></router-link>
@@ -427,13 +427,13 @@
                 >
               </li>
               <li class="upper-li">
-                <router-link class="nav-link" to="/"
+                <router-link class="nav-link" to="/about-us"
                   ><p>Our Story</p></router-link
                 >
               </li>
             </ul>
           </div>
-          <div class="logo-img">
+          <div class="logo-img" id="img">
             <router-link class="nav-link" to="/">
               <img src="../assets/romantic-logo.png" alt="" class="img-fluid"
             /></router-link>
@@ -521,8 +521,7 @@
                 >
               </li>
               <li>
-                <div class="dropdown d-flex align-items-center">
-                  <i class="fa-solid fa-globe"></i>
+                <div class="dropdown d-flex align-items-center mt-1">
                   <a
                     class="nav-link"
                     href="#"
@@ -530,7 +529,7 @@
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
-                    Language
+                    <i class="fa-solid fa-globe"></i>
                   </a>
 
                   <ul class="dropdown-menu">
@@ -548,8 +547,20 @@
                 </div>
               </li>
               <li class="d-flex align-items-center">
-                <i class="fa-solid fa-moon"></i>
-                <p>Dark Mode</p>
+                <span
+                  class="m-0 p-0 menu-icon material-symbols-outlined cursor-pointer prevent-select dark-icon theme-icon"
+                  @click="changeTheme('light')"
+                  :class="{ 'd-none': currentTheme == 'light' }"
+                >
+                  dark_mode
+                </span>
+                <span
+                  class="m-0 p-0 menu-icon material-symbols-outlined cursor-pointer prevent-select light-icon theme-icon"
+                  @click="changeTheme('dark')"
+                  :class="{ 'd-none': currentTheme == 'dark' }"
+                >
+                  light_mode
+                </span>
               </li>
             </ul>
           </div>
@@ -612,8 +623,7 @@
                   class="nav-link d-flex align-items-center"
                   to="/cart"
                   ><i class="fa-solid fa-heart"></i>
-                  <p class="ms-2">Favourites</p></router-link
-                >
+                </router-link>
               </li>
               <li>
                 <router-link
@@ -623,8 +633,7 @@
                   <span v-if="cartItemCount > 0" class="cart-count">{{
                     cartItemCount
                   }}</span>
-                  <p class="ms-2">Your Carts</p></router-link
-                >
+                </router-link>
               </li>
             </ul>
           </div>
@@ -641,10 +650,10 @@ import router from "@/router";
 import { useRoute } from "vue-router";
 
 export default {
-  setup() {
+  setup(props) {
     const store = useStore();
     const route = useRoute();
-
+    const currentTheme = ref("light");
     const drawer = ref(false);
     const mobileDropdown = ref(false);
     const bamboo = ref(false);
@@ -654,6 +663,7 @@ export default {
     const userAccount = ref(false);
     const userLogin = ref();
     const user = ref();
+    const check = ref(false);
 
     const logout = () => {
       localStorage.removeItem("user");
@@ -661,6 +671,10 @@ export default {
       localStorage.removeItem("totalAvailablePoints");
       localStorage.removeItem("isLogin");
       router.push("/login");
+    };
+
+    const changeTheme = (theme) => {
+      currentTheme.value = theme;
     };
 
     const handleMouseOver = () => {
@@ -684,6 +698,11 @@ export default {
       }
     });
 
+    const padding_img = () => {
+      let img = document.getElementById("img");
+      img.classList.add("img-padding");
+    };
+
     onMounted(() => {});
 
     watch(route, () => {
@@ -705,6 +724,8 @@ export default {
       user,
       userAccount,
       userLogin,
+      changeTheme,
+      currentTheme,
     };
   },
 };
@@ -723,6 +744,18 @@ export default {
   padding: 5px;
   height: 50px;
   display: none;
+}
+
+.nav2 {
+  color: var(--font-color);
+}
+
+.nav2 p {
+  font-size: 20px;
+}
+
+.nav2 .fa-solid {
+  font-size: 20px;
 }
 
 .upper-content-1 .upper-li {
@@ -767,18 +800,30 @@ export default {
 
 .nav-search {
   width: 450px;
+  margin-right: 80px;
 }
 
 .nav-search .form-control {
   border-radius: 50px;
   border-color: rgb(47, 82, 143);
+  background: var(--background-color);
+  color: var(--font-color);
+}
+
+.img-padding {
+  margin-right: 100px;
+}
+
+::placeholder {
+  color: var(--font-color);
+  opacity: 1;
 }
 
 .nav-search .input-group-text {
   border-radius: 50px;
   border-color: rgb(47, 82, 143);
-  color: #111111;
-  background: #fff;
+  color: var(--font-color);
+  background: var(--background-color);
   border-left: 0px;
 }
 
@@ -787,9 +832,9 @@ export default {
   right: 5%;
   top: 5px;
   background-color: red;
-  color: white;
+  color: #fff;
   border-radius: 50%;
-  padding: 5px 10px;
+  padding: 4px 10px;
   font-size: 12px;
 }
 
@@ -797,7 +842,7 @@ export default {
   width: 100%;
   height: max-content;
   cursor: pointer;
-  background-color: #fff;
+  background-color: var(--background-color);
   position: fixed;
   padding: 5px 55px;
   padding-bottom: 10px;
@@ -841,7 +886,7 @@ export default {
 .nav2 .nav-text {
   padding: 5px;
   font-size: 20px;
-  color: #111111;
+  color: var(--font-color);
   transition: color 0.4 ease-in-out;
 }
 
@@ -851,7 +896,7 @@ export default {
 
 .nav2 .nav-icon .material-symbols-outlined {
   font-size: 26px;
-  color: #111111;
+  color: var(--font-color);
   transition: color 0.4 ease-in-out;
 }
 
@@ -906,7 +951,7 @@ export default {
   position: absolute;
   left: 8.5%;
   top: 50%;
-  background: #fff;
+  background: var(--background-color);
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -921,7 +966,7 @@ export default {
   position: absolute;
   left: 100%;
   top: 0%;
-  background: #fff;
+  background: var(--background-color);
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -933,13 +978,13 @@ export default {
   position: relative;
   z-index: 1;
   text-align: start;
-  border-bottom: 0.1px solid #111111;
+  border-bottom: 0.1px solid var(--border-color);
   font-size: 14px;
 }
 
 .dropdown-link,
 .dropdown-submenu-link {
-  color: #111111;
+  color: var(--font-color);
   padding: 1rem;
   text-decoration: none;
   display: block;
@@ -1032,7 +1077,7 @@ export default {
 }
 
 .cart-count {
-  right: 13.5%;
+  right: 8%;
   top: 50%;
 }
 
@@ -1042,7 +1087,7 @@ export default {
   }
 
   .cart-count {
-    right: 12%;
+    right: 7.5%;
   }
 }
 
@@ -1051,7 +1096,7 @@ export default {
     left: 9%;
   }
   .cart-count {
-    right: 13%;
+    right: 8%;
   }
 }
 
@@ -1060,7 +1105,7 @@ export default {
     left: 6%;
   }
   .cart-count {
-    right: 10.5%;
+    right: 5%;
   }
 
   .content-wrapper {
@@ -1094,7 +1139,7 @@ export default {
   }
 
   .cart-count {
-    right: 7.5%;
+    right: 1%;
     padding: 5px 10px;
   }
 }
@@ -1174,7 +1219,7 @@ export default {
   .cart-count {
     right: 0;
     top: 5px;
-    padding: 2px 5px;
+    padding: 2px 8px;
   }
   .icon-group .fa-solid {
     font-size: 20px;

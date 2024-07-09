@@ -1,14 +1,11 @@
 <template>
   <div class="product-gallary">
-    <div data-aos="fade-up" data-aos-delay="50" data-aos-duration="2000">
-      <h2 class="fs-3 text-center mt-4 mb-4 fw-bold">Product Grallary</h2>
+    <div>
+      <!-- <h2 class="fs-3 text-center mt-4 mb-4 fw-bold">Product Grallary</h2> -->
       <swiper
         :slidesPerView="6"
         :spaceBetween="30"
         :loop="true"
-        :pagination="{
-          clickable: true,
-        }"
         :navigation="true"
         :modules="modules"
         class="mySwiper"
@@ -148,7 +145,8 @@ export default {
 
 <style>
 .product-gallary {
-  margin: 100px auto;
+  margin: 100px auto 0px;
+  color: var(--font-color);
 }
 
 .photo-gallary {
@@ -178,29 +176,31 @@ export default {
   color: #000;
 }
 
-.swiper-button-next {
-  margin-right: 20px;
-}
+.swiper-button-next,
 .swiper-button-prev {
-  margin-left: 20px;
+  width: 50px;
+  height: 60px;
+  background: #f2f2f2;
+  border: 1px solid #000;
+  margin-right: 10px;
 }
 
 @media (max-width: 1200px) {
   .swiper-button-next {
-    margin: 0;
+    margin: -50px 0px 0px 0px;
   }
   .swiper-button-prev {
-    margin: 0;
+    margin: -50px 0px 0px 0px;
   }
 }
 
 @media (max-width: 1024px) {
-  .swiper-button-prev {
+  /* .swiper-button-prev {
     display: none !important;
   }
   .swiper-button-next {
     display: none !important;
-  }
+  } */
 }
 
 @media (max-width: 500px) {
@@ -212,12 +212,12 @@ export default {
   .swiper-slide {
     width: 110px !important;
   }
-  .swiper-button-prev {
+  /* .swiper-button-prev {
     display: none !important;
   }
   .swiper-button-next {
     display: none !important;
-  }
+  } */
 
   .product-gallary {
     margin: 10px 0px;

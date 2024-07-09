@@ -179,8 +179,13 @@ export default {
   border-radius: 5px;
 }
 
+.p-color {
+  color: var(--font-color);
+}
+
 .card-content {
   line-height: 35px;
+  color: var(--font-color);
 }
 
 .product-link {
@@ -189,7 +194,7 @@ export default {
 }
 
 .add-btn {
-  width: 300px;
+  width: 350px;
   background: #111;
   color: #fff;
 }
@@ -205,8 +210,9 @@ export default {
 }
 
 .wish-btn {
-  width: 300px;
-  border: 1px solid #111;
+  width: 350px;
+  border: 1px solid var(--border-color);
+  color: var(--font-color);
 }
 
 .wish-btn:hover {
@@ -225,7 +231,7 @@ export default {
 .size {
   width: 70px;
   height: 40px;
-  border: 1px solid #111111;
+  border: 1px solid var(--border-color);
   border-radius: 5px;
   cursor: pointer;
 }
@@ -234,6 +240,7 @@ export default {
   font-size: 14px;
   font-weight: bold;
   padding: 9px 0;
+  color: var(--font-color);
 }
 
 .size:hover {
@@ -273,17 +280,31 @@ export default {
   }
 }
 
+@media (max-width: 1600px) {
+  .add-btn,
+  .wish-btn {
+    width: 300px;
+  }
+}
+
 @media (max-width: 1200px) {
   .p-card-col {
     width: 33.3333%;
   }
   .add-btn,
   .wish-btn {
-    width: 280px;
+    width: 340px;
   }
 
   .size-col {
     width: 21%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .add-btn,
+  .wish-btn {
+    width: 280px;
   }
 }
 

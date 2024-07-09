@@ -195,6 +195,8 @@ export default {
 <style scoped>
 .back {
   padding-top: 150px;
+  background: var(--background-color);
+  margin-bottom: 100px;
 }
 .main-section {
   width: 100%;
@@ -278,7 +280,7 @@ export default {
 .content-box {
   z-index: 99;
   background: 100%;
-  width: 790px !important;
+  width: 790px;
   height: 500px;
   background: #f2f2f2;
   padding: 50px 20px;
@@ -287,27 +289,43 @@ export default {
 }
 
 .carousel-control-next {
-  left: 6%;
+  left: 4.2%;
 }
 
 .carousel-control-prev {
-  left: 1%;
+  left: 1.2%;
 }
 
 .carousel-control-prev,
 .carousel-control-next {
-  justify-content: start;
-  top: 80%;
+  width: 40px;
+  height: 40px;
+  padding: 7px;
+  background: #fff;
+  justify-content: center;
+  top: 89%;
+  position: absolute;
+  border: 0.5px solid #111;
+  opacity: 1;
+  color: #111;
+}
+
+.carousel-control-next:hover {
+  background: red;
+  color: #fff;
+}
+
+.carousel-control-prev:hover {
+  background: red;
+  color: #fff;
 }
 
 .carousel-control-prev .fa-solid {
-  font-size: 35px;
-  color: #f2f2f2;
+  font-size: 24px;
 }
 
 .carousel-control-next .fa-solid {
-  font-size: 35px;
-  color: #f2f2f2;
+  font-size: 24px;
 }
 
 .heading-text {
@@ -331,10 +349,11 @@ export default {
 }
 
 .bs-content {
-  width: 150px;
+  width: 200px;
   height: auto;
   border: 1px solid red;
   transition: 0.5s ease-in;
+  font-size: 20px;
 }
 
 .bs-content .fa-solid {
@@ -362,7 +381,7 @@ export default {
 
   .content-box {
     width: 750px;
-    height: 440px;
+    height: 480px;
     margin-top: 25px;
   }
 
@@ -371,8 +390,16 @@ export default {
   }
 
   .content-buttom {
-    margin-top: 40px;
-    margin-left: 320px;
+    margin-top: 80px;
+    margin-left: 360px;
+  }
+  .carousel-control-next,
+  .carousel-control-prev {
+    top: 88%;
+  }
+
+  .carousel-control-next {
+    left: 5%;
   }
 }
 
@@ -397,6 +424,13 @@ export default {
   .content-header h1 {
     font-size: 30px;
   }
+  .carousel-control-next {
+    left: 5.5%;
+  }
+  .carousel-control-next,
+  .carousel-control-prev {
+    top: 87%;
+  }
 }
 
 @media (max-width: 1200px) {
@@ -411,7 +445,7 @@ export default {
   }
 
   .content-box {
-    width: 400px;
+    width: 600px;
     height: 380px;
     margin-top: 20px;
   }
@@ -438,62 +472,31 @@ export default {
   }
   .content-buttom {
     margin-top: 60px;
-    margin-left: 400px;
+    margin-left: 300px;
   }
 
   .bb-1 {
     margin-top: 80px;
   }
+  .carousel-control-next,
+  .carousel-control-prev {
+    top: 86%;
+  }
 }
 
 @media (max-width: 1024px) {
-  .content-header h1 {
-    font-size: 36px;
-  }
-  .carousel-item img {
-    width: 500px;
-  }
   .content-box {
-    width: 500px !important;
-    height: 330px;
-    margin-top: 10px;
-    margin-left: -40px;
-    padding: 30px 20px;
-  }
-  .content-header {
-    margin: 10px 0px;
+    width: 520px;
+    margin-left: -80px;
   }
 
-  .content-header h1 {
-    font-size: 28px;
-  }
-  .carousel-control-next {
-    left: 7%;
-  }
-
-  .carousel-control-prev {
-    left: 1%;
-  }
-
-  .carousel-control-prev,
-  .carousel-control-next {
-    justify-content: start;
-    top: 78%;
-  }
-  .carousel-control-next .fa-solid {
-    font-size: 32px;
-  }
-  .carousel-control-prev .fa-solid {
-    font-size: 32px;
-  }
-
-  .carousel-indicators {
-    top: 94%;
+  .bb-1 {
+    margin-top: 65px !important;
   }
 
   .content-buttom {
-    margin-left: 220px;
-    margin-top: 20px;
+    margin-top: 30px;
+    margin-left: 200px;
   }
 }
 

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="homeview">
     <MainSection></MainSection>
     <AvaFabric></AvaFabric>
     <ProductSlide></ProductSlide>
@@ -34,4 +34,8 @@ export default {
   },
 };
 </script>
-<style></style>
+<style>
+.homeview {
+  background: var(--background-color);
+}
+</style>

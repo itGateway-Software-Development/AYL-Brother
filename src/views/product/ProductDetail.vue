@@ -457,6 +457,7 @@ export default {
 <style scoped>
 .detail {
   margin: 150px 0px;
+  color: var(--font-color);
 }
 
 .modal-dialog {
@@ -569,7 +570,7 @@ export default {
 
 .size-card {
   width: 100px;
-  border: 1px solid #111;
+  border: 1px solid var(--border-color);
   border-radius: 5px;
   cursor: pointer;
   text-align: center;
@@ -611,7 +612,7 @@ export default {
 }
 
 .detail-p {
-  border-top: 1px solid #111;
+  border-top: 1px solid var(--border-color);
   padding: 12px 5px;
 }
 
@@ -625,8 +626,8 @@ export default {
 }
 
 .size-p {
-  border-top: 1px solid #111;
-  border-bottom: 1px solid #111;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
   padding: 12px 5px;
 }
 
@@ -635,7 +636,7 @@ export default {
 }
 
 .delivery-option {
-  border: 1px solid #111;
+  border: 1px solid var(--border-color);
   margin: 0px 145px 0px 0px;
 }
 

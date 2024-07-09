@@ -1,9 +1,9 @@
 <template>
   <v-app>
-    <Navbar />
+    <Navbar @themeChange="handleTheme" />
     <!-- Main content -->
     <v-main>
-      <router-view />
+      <router-view :theme="theme" />
     </v-main>
 
     <Footer />
@@ -14,6 +14,7 @@
 import Footer from "./components/Footer";
 import HomeView from "./views/HomeView";
 import Navbar from "./components/Navbar";
+import { computed, onMounted, ref, watch } from "vue";
 // @ is an alias to /src
 
 export default {
@@ -22,18 +23,20 @@ export default {
     HomeView,
     Navbar,
   },
+
+  setup() {
+    const theme = ref("light");
+    const handleTheme = (data) => (theme.value = data);
+
+    return {
+      theme,
+      handleTheme,
+    };
+  },
 };
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
 nav {
   padding: 30px;
 }
@@ -41,9 +44,5 @@ nav {
 nav a {
   font-weight: bold;
   color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
 }
 </style>

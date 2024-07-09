@@ -48,7 +48,7 @@
                     <img
                       src="../assets/icon/icon-1.png"
                       alt=""
-                      class="img-fluid"
+                      class="img-fluid icon-1"
                   /></a>
                   <a
                     href="https://www.youtube.com/@RomanticUnderwear"
@@ -57,21 +57,21 @@
                     <img
                       src="../assets/icon/icon-2.png"
                       alt=""
-                      class="img-fluid"
+                      class="img-fluid icon-2"
                     />
                   </a>
                   <a href="#">
                     <img
                       src="../assets/icon/icon-3.png"
                       alt=""
-                      class="img-fluid"
+                      class="img-fluid icon-3"
                     />
                   </a>
                   <a href="https://t.me/romanticmenunderwear" target="_blank">
                     <img
                       src="../assets/icon/icon-4.png"
                       alt=""
-                      class="img-fluid"
+                      class="img-fluid icon-3"
                     />
                   </a>
                 </div>
@@ -88,9 +88,9 @@
             </div>
           </div>
         </div>
-        <div class="carousel-item product-img">
+        <div class="carousel-item product-img-1">
           <div
-            class="d-flex align-items-center justify-content-center content-carousel"
+            class="d-flex align-items-center justify-content-center content-carousel content-carousel-1"
           >
             <img src="../assets/Picture5.png" class="img-fluid" alt="" />
             <div class="text-carousel-content text-start">
@@ -101,23 +101,30 @@
 
               <div class="carousel-bottom d-flex align-items-center btn-5">
                 <div class="carousel-icon-text d-flex align-items-center">
-                  <router-link class="nav-link" to="/products/bamboo/0"
-                    ><p class="b">Bamboo</p></router-link
-                  >
-                  <router-link class="nav-link" to="/products/lycra/0"
-                    ><p class="ms-3 l">Lycra</p></router-link
-                  >
-                  <router-link class="nav-link" to="/products/spandex/0"
-                    ><p class="ms-3 s">Spandex</p></router-link
-                  >
-                </div>
-                <div class="carousel-btn btn-2">
-                  <router-link
-                    class="nav-link d-flex align-items-center btn-1"
-                    to="/product"
-                    ><p>View Products</p>
-                    <i class="fa-solid fa-arrow-right ms-4"></i
-                  ></router-link>
+                  <div class="carousel-btn-1 btn-2">
+                    <router-link
+                      class="nav-link d-flex align-items-center btn-1"
+                      to="/products/bamboo/0"
+                      ><p>Bamboo</p>
+                      <i class="fa-solid fa-arrow-right ms-4"></i
+                    ></router-link>
+                  </div>
+                  <div class="carousel-btn-1 btn-2">
+                    <router-link
+                      class="nav-link d-flex align-items-center btn-1"
+                      to="/products/lycra/0"
+                      ><p>Modal</p>
+                      <i class="fa-solid fa-arrow-right ms-4"></i
+                    ></router-link>
+                  </div>
+                  <div class="carousel-btn-1 btn-2">
+                    <router-link
+                      class="nav-link d-flex align-items-center btn-1"
+                      to="/products/spandex/0"
+                      ><p>Spandex</p>
+                      <i class="fa-solid fa-arrow-right ms-4"></i
+                    ></router-link>
+                  </div>
                 </div>
               </div>
             </div>
@@ -190,11 +197,12 @@ export default {};
 
 <style scoped>
 .carousel-indicators {
-  left: 0;
+  left: -250px;
 }
 
 .slide {
-  margin-bottom: 100px;
+  margin-top: 150px;
+  margin-bottom: 150px;
 }
 
 .carousel-item {
@@ -207,6 +215,10 @@ export default {};
   width: 600px;
 }
 
+.product-img-1 img {
+  width: 600px;
+}
+
 .content-carousel {
   padding: 0px 100px;
 }
@@ -216,20 +228,46 @@ export default {};
 }
 
 .carousel-icon img {
-  width: 40px;
+  width: 30px;
   margin: 10px 10px;
+}
+
+.icon-1 {
+  width: 30px !important;
+}
+
+.icon-2,
+.icon-4 {
+  width: 40px !important;
+}
+
+.icon-3 {
+  width: 35px !important;
 }
 
 .carousel-btn {
   margin: 0px 20px;
   width: auto;
   border: 1px solid red;
-  border-radius: 20px;
-  padding: 15px 20px;
+  border-radius: 6px;
+  padding: 10px 20px;
+}
+
+.carousel-btn-1 {
+  width: 200px;
+  border: 1px solid red;
+  border-radius: 6px;
+  padding: 10px 20px;
+  margin: 20px 20px 0px 0px;
+}
+
+.carousel-btn-1:hover {
+  background: red;
+  color: #fff;
 }
 
 .btn-1 p {
-  font-size: 240x;
+  font-size: 20px;
 }
 
 .btn-3 {
@@ -240,7 +278,7 @@ export default {};
 }
 
 .btn-2 {
-  padding: 10px 25px;
+  padding: 10px 40px;
 }
 
 .btn-1 .fa-solid {
@@ -257,25 +295,18 @@ export default {};
 }
 
 .carousel-icon-text p {
-  font-size: 24px;
+  font-size: 20px;
   margin-right: 20px;
-  text-decoration: underline;
 }
 
 .carousel-icon-text p:hover {
   color: #fff;
 }
 
-.b {
-  color: #7030a0;
-}
-
-.l {
-  color: #0070c0;
-}
-
-.s {
-  color: #002060;
+@media (max-width: 1600px) {
+  .carousel-indicators {
+    left: 0px;
+  }
 }
 
 @media (max-width: 1400px) {
@@ -299,6 +330,11 @@ export default {};
     height: 350px;
   }
 
+  .carousel-icon-text {
+    flex-wrap: wrap;
+    width: 500px;
+  }
+
   .carousel-btn {
     padding: 15px 10px;
   }
@@ -313,6 +349,10 @@ export default {};
   }
 
   .product-img img {
+    width: 500px;
+  }
+
+  .product-img-1 img {
     width: 500px;
   }
 
@@ -331,6 +371,10 @@ export default {};
     align-items: center;
   }
 
+  .carousel-btn-1 {
+    margin: 20px 20px 0px 0px;
+  }
+
   .btn-3 {
     padding: 10px 40px;
   }
@@ -345,6 +389,14 @@ export default {};
     font-size: 22px;
   }
 
+  .carousel-icon-text {
+    flex-wrap: wrap;
+  }
+
+  .product-img-1 img {
+    width: 450px;
+  }
+
   .carousel-item {
     height: 300px;
   }
@@ -357,7 +409,7 @@ export default {};
   }
 
   .content-carousel {
-    padding: 0px 50px;
+    padding: 0px 0px;
   }
   .text-carousel-content {
     padding: 0;
@@ -375,13 +427,21 @@ export default {};
     margin: 10px 0px;
   }
 
+  .second {
+    padding: 0px 40px 0px 0px;
+  }
+
   .carousel-indicators {
     top: 94%;
-    left: 28%;
+    left: 15%;
   }
 }
 
 @media (max-width: 500px) {
+  .text-carousel-content h2 {
+    font-size: 20px;
+  }
+
   .content-carousel img {
     display: none;
   }
@@ -390,7 +450,34 @@ export default {};
     height: 280px;
   }
 
-  .text-carousel-content {
+  .content-carousel {
+    margin: 0px 50px;
+  }
+
+  .content-carousel-1 {
+    width: 400px;
+    margin: 0px 40px;
+  }
+
+  .carousel-icon-text {
+    width: 450px;
+    margin-left: -20px;
+  }
+
+  .carousel-btn-1 {
+    width: 180px;
+    margin: 20px 10px 0px 0px;
+  }
+
+  .btn-1 p {
+    font-size: 16px;
+  }
+
+  .btn-1 .fa-solid {
+    font-size: 16px;
+  }
+
+  .carousel-btn-1 .text-carousel-content {
     padding: 0px;
     margin: 30px auto;
   }

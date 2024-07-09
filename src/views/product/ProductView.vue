@@ -1,5 +1,5 @@
 <template>
-  <div class="product container content-wrapper">
+  <div class="product content-wrapper">
     <div class="row">
       <div class="col-12 col-md-3 col-sm-12 f-list">
         <ProductFilter @priceFilter="filterPrice"></ProductFilter>
@@ -42,15 +42,22 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .product {
   margin-top: 150px;
   z-index: 0;
   position: relative;
+  background: var(--background-color);
 }
 .color-text {
   color: red;
   text-decoration: underline;
+}
+
+@media (max-width: 1400px) {
+  .content-wrapper {
+    padding: 0px 6%;
+  }
 }
 
 @media (max-width: 1200px) {
@@ -63,6 +70,9 @@ export default {
   .product {
     margin: 150px auto 50px;
   }
+  .content-wrapper {
+    padding: 0px 3%;
+  }
 }
 
 @media (max-width: 800px) {
@@ -72,6 +82,9 @@ export default {
 }
 
 @media (max-width: 500px) {
+  .content-wrapper {
+    padding: 0px;
+  }
   .product {
     margin: 10px 20px;
   }
@@ -80,6 +93,12 @@ export default {
     margin-left: 10px;
   }
 
+  .p-list {
+    margin-left: 10px;
+  }
+}
+
+@media (max-width: 400px) {
   .p-list {
     margin-left: -10px;
   }

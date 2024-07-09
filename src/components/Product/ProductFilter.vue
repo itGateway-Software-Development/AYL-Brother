@@ -361,12 +361,14 @@ export default {
 <style scoped>
 .f-2 {
   display: none;
+  color: var(--font-color);
 }
 
 .f-1 {
   position: fixed;
   height: max-content;
-  z-index: 9999;
+
+  color: var(--font-color);
 }
 
 .text-filter {
@@ -383,23 +385,23 @@ export default {
 }
 .filter-category {
   padding: 10px 0;
-  border-top: 1px solid #111111;
-  border-bottom: 1px solid #111111;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
 }
 
 .filter-fabric {
   padding: 10px 0;
-  border-bottom: 1px solid #111111;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .filter-color {
   padding: 10px 0;
-  border-bottom: 1px solid #111111;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .filter-size {
   padding: 10px 0;
-  border-bottom: 1px solid #111111;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .filter-list {

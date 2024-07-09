@@ -1,10 +1,6 @@
 <template>
   <div class="ab-fabric">
-    <div
-      class="heading text-center"
-      data-aos="fade-down"
-      data-aos-duration="2000"
-    >
+    <div class="heading text-center">
       <div class="justify-content-center content-wrapper mt-5 ab-fabrics">
         <div class="fabric-heading text-start">
           <h2>Product Series</h2>
@@ -123,6 +119,8 @@ export default {
 <style scoped>
 .ab-fabric {
   margin: 80px 0;
+  background: var(--background-color);
+  color: var(--font-color);
 }
 
 .ab-fabrics {
@@ -160,10 +158,11 @@ export default {
 .p-btn {
   width: 220px;
   border: 1px solid red;
-  border-radius: 50px;
+  border-radius: 6px;
   text-align: center;
   justify-content: center;
   margin: 20px 150px;
+  color: var(--font-color);
 }
 .p-btn p {
   padding: 0px 5px;
@@ -187,6 +186,12 @@ export default {
   font-family: "Chakra Petch", sans-serif;
   font-weight: 700;
   font-style: normal;
+}
+
+@media (max-width: 1600px) {
+  .p-btn {
+    margin: 20px 130px;
+  }
 }
 
 @media (max-width: 1400px) {

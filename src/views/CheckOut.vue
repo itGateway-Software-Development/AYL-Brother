@@ -1,6 +1,6 @@
 <template>
   <div class="checkout-now">
-    <div class="container content-wrapper check-out">
+    <div class="content-wrapper check-out">
       <router-link
         class="nav-link text-start mb-3 d-flex align-items-center"
         to="/cart"

@@ -64,7 +64,9 @@
             <h5>About Romantic</h5>
             <ul>
               <li>
-                <router-link class="nav-link" to="/">About Us</router-link>
+                <router-link class="nav-link" to="/about-us"
+                  >About Us</router-link
+                >
               </li>
               <li>
                 <router-link class="nav-link" to="/contact"
@@ -338,9 +340,8 @@ export default {
 .footer {
   width: 100%;
   height: auto;
-  background: #f2f2f2;
-  color: #111111;
-  border-top: 1px solid #ffffff;
+  background: var(--footer-background-color);
+  color: var(--font-color);
 }
 
 .col-lg-2 {
@@ -367,7 +368,7 @@ export default {
 }
 
 .content-group h5 {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 700;
 }
 
@@ -424,7 +425,7 @@ export default {
 }
 
 .footer-btn {
-  width: auto;
+  width: 195px;
   height: auto;
   margin-top: 10px;
   padding: 5px 40px;
@@ -475,6 +476,7 @@ export default {
   }
   .footer-btn {
     padding: 10px 20px;
+    width: 160px;
   }
   .footer-padding {
     padding: 0px 20px;
@@ -503,6 +505,10 @@ export default {
 
   .footer-btn {
     justify-content: center;
+    align-content: center;
+    align-self: center;
+    align-items: center;
+    margin: 10px 300px;
   }
 
   .footer-col-custom .content-group {
@@ -520,6 +526,10 @@ export default {
 
   .box-text p {
     margin-bottom: 20px;
+  }
+
+  .footer-btn {
+    margin: 0px;
   }
 
   .footer-btn p {
