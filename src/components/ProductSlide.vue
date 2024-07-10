@@ -77,7 +77,7 @@
                 </div>
                 <div class="carousel-btn">
                   <a
-                    class="nav-link d-flex align-items-center btn-1"
+                    class="nav-link d-flex align-items-center btn-1 btn"
                     href="https://www.facebook.com/romanticmenunderwear/?ref=embed_page"
                     target="_blank"
                     ><p>Join Community</p>
@@ -101,25 +101,25 @@
 
               <div class="carousel-bottom d-flex align-items-center btn-5">
                 <div class="carousel-icon-text d-flex align-items-center">
-                  <div class="carousel-btn-1 btn-2">
+                  <div class="carousel-btn-1">
                     <router-link
-                      class="nav-link d-flex align-items-center btn-1"
+                      class="nav-link d-flex align-items-center btn btn-2"
                       to="/products/bamboo/0"
                       ><p>Bamboo</p>
                       <i class="fa-solid fa-arrow-right ms-4"></i
                     ></router-link>
                   </div>
-                  <div class="carousel-btn-1 btn-2">
+                  <div class="carousel-btn-1">
                     <router-link
-                      class="nav-link d-flex align-items-center btn-1"
+                      class="nav-link d-flex align-items-center btn btn-2"
                       to="/products/lycra/0"
                       ><p>Modal</p>
                       <i class="fa-solid fa-arrow-right ms-4"></i
                     ></router-link>
                   </div>
-                  <div class="carousel-btn-1 btn-2">
+                  <div class="carousel-btn-1">
                     <router-link
-                      class="nav-link d-flex align-items-center btn-1"
+                      class="nav-link d-flex align-items-center btn btn-2"
                       to="/products/spandex/0"
                       ><p>Spandex</p>
                       <i class="fa-solid fa-arrow-right ms-4"></i
@@ -176,7 +176,7 @@
                 </div>
                 <div class="carousel-btn btn-3">
                   <router-link
-                    class="nav-link d-flex align-items-center btn-1"
+                    class="nav-link d-flex align-items-center btn btn-1"
                     to="/product"
                     ><p>Order Now</p>
                     <i class="fa-solid fa-arrow-right ms-4"></i
@@ -202,7 +202,6 @@ export default {};
 
 .slide {
   margin-top: 150px;
-  margin-bottom: 150px;
 }
 
 .carousel-item {
@@ -246,19 +245,18 @@ export default {};
 }
 
 .carousel-btn {
+}
+
+.btn-1 {
   margin: 0px 20px;
-  width: auto;
+  width: 200px;
   border: 1px solid red;
-  border-radius: 6px;
-  padding: 10px 20px;
+  text-align: center;
+  justify-content: center;
+  padding: 5px 15px;
 }
 
 .carousel-btn-1 {
-  width: 200px;
-  border: 1px solid red;
-  border-radius: 6px;
-  padding: 10px 20px;
-  margin: 20px 20px 0px 0px;
 }
 
 .carousel-btn-1:hover {
@@ -267,7 +265,7 @@ export default {};
 }
 
 .btn-1 p {
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .btn-3 {
@@ -278,14 +276,28 @@ export default {};
 }
 
 .btn-2 {
-  padding: 10px 40px;
+  margin: 20px 20px 0px 0px;
+  width: 180px;
+  border: 1px solid red;
+  text-align: center;
+  justify-content: center;
+  padding: 5px 15px;
+  font-size: 16px;
+}
+
+.btn-2 p {
+  font-size: 20px !important;
+}
+
+.btn-2 .fa-solid {
+  font-size: 20px;
 }
 
 .btn-1 .fa-solid {
   font-size: 20px;
 }
 
-.carousel-btn:hover {
+.btn-1:hover {
   background: red;
   color: #fff;
 }

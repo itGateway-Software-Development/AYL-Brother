@@ -442,6 +442,10 @@ export default {
   margin-left: 5px;
 }
 
+.footer-icon {
+  margin-left: 20px;
+}
+
 .footer-icon .fa-brands {
   margin-right: 15px;
 }

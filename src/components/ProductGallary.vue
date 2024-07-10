@@ -178,11 +178,19 @@ export default {
 
 .swiper-button-next,
 .swiper-button-prev {
-  width: 50px;
-  height: 60px;
+  width: 30px;
+  height: 30px;
   background: #f2f2f2;
   border: 1px solid #000;
   margin-right: 10px;
+}
+
+.swiper-button-next::after {
+  font-size: 16px;
+}
+
+.swiper-button-prev::after {
+  font-size: 16px;
 }
 
 @media (max-width: 1200px) {

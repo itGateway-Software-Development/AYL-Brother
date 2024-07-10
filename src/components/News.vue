@@ -58,7 +58,7 @@
                 <p>Men's Health Tips(Smoking)</p>
               </div>
             </div>
-            <!-- <div class="news-video d-flex last">
+            <div class="news-video d-flex last">
               <iframe
                 src="https://www.youtube.com/embed/uczvCixputM?si=KpyBV4rHAeMg620U"
                 title="YouTube video player"
@@ -71,7 +71,7 @@
                 <h5>Tinea</h5>
                 <p>Men's Health Tips(Tinea)</p>
               </div>
-            </div> -->
+            </div>
           </div>
         </div>
         <div class="mb-video-list">
@@ -241,7 +241,7 @@ export default {
 <style scoped>
 .heading-text {
   width: 350px;
-  padding: 10px 10px;
+  padding: 5px;
   background: red;
   color: #fff;
   margin-bottom: 10px;
@@ -253,6 +253,8 @@ export default {
 
 .news-content {
   color: var(--font-color);
+  margin: 200px auto;
+  padding: 0px 100px 0px 0px;
 }
 
 .heading-text h5 {
@@ -273,10 +275,6 @@ export default {
 
 .mb-video-list {
   display: none;
-}
-
-.news {
-  margin: 100px 0;
 }
 
 .news-content .content-text {
@@ -301,7 +299,7 @@ export default {
 }
 
 .news {
-  margin: 150px 0px;
+  margin: 100px 0px;
 }
 
 .swiper {
@@ -318,7 +316,7 @@ export default {
 }
 
 .last {
-  margin: 0px !important;
+  margin: 30px 0px 0px !important;
 }
 
 iframe {
@@ -342,7 +340,7 @@ iframe {
   }
 
   .video-list {
-    height: 400px;
+    height: 580px;
   }
 }
 
@@ -368,6 +366,10 @@ iframe {
     align-content: center;
     align-self: center;
     align-items: center;
+  }
+
+  .news-content {
+    margin: 10px 0px;
   }
 
   .content-wrapper {

@@ -433,7 +433,7 @@
               </li>
             </ul>
           </div>
-          <div class="logo-img" id="img">
+          <div class="logo-img" id="img" :class="{ 'img-padding': user }">
             <router-link class="nav-link" to="/">
               <img src="../assets/romantic-logo.png" alt="" class="img-fluid"
             /></router-link>
@@ -454,7 +454,7 @@
                     <ul class="dropdown-menu">
                       <li>
                         <a
-                          class="dropdown-item d-flex align-items-center img-text"
+                          class="dropdown-item d-flex align-items-center img-text-1"
                           href="#"
                           ><img
                             :src="`https://ui-avatars.com/api/?background=ff0000&color=fff&name=${user.name}`"
@@ -521,18 +521,12 @@
                 >
               </li>
               <li>
-                <div class="dropdown d-flex align-items-center mt-1">
-                  <a
-                    class="nav-link"
-                    href="#"
-                    role="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
+                <div class="d-flex align-items-center mt-1 language">
+                  <a class="nav-link" href="#">
                     <i class="fa-solid fa-globe"></i>
                   </a>
 
-                  <ul class="dropdown-menu">
+                  <ul class="dropdown-menus">
                     <li class="mb-4">
                       <router-link class="nav-link d-flex align-items-center"
                         >English</router-link
@@ -698,11 +692,6 @@ export default {
       }
     });
 
-    const padding_img = () => {
-      let img = document.getElementById("img");
-      img.classList.add("img-padding");
-    };
-
     onMounted(() => {});
 
     watch(route, () => {
@@ -726,6 +715,7 @@ export default {
       userLogin,
       changeTheme,
       currentTheme,
+      check,
     };
   },
 };
@@ -800,7 +790,7 @@ export default {
 
 .nav-search {
   width: 450px;
-  margin-right: 80px;
+  margin-right: 140px;
 }
 
 .nav-search .form-control {
@@ -811,7 +801,7 @@ export default {
 }
 
 .img-padding {
-  margin-right: 100px;
+  margin-right: 160px !important;
 }
 
 ::placeholder {
@@ -906,7 +896,7 @@ export default {
 
 .logo-img {
   width: 150px;
-  margin-left: 10px;
+  margin-right: 30px;
 }
 
 .logo-img-nav {
@@ -958,7 +948,7 @@ export default {
   z-index: 1;
   border: 1px solid lightgray;
   border-radius: 2px;
-  transition: 0.5s ease-out;
+  transition: 0.1s ease-out;
 }
 
 .dropdowns .dropdown-submenu {
@@ -1022,13 +1012,17 @@ export default {
   border-radius: 50%;
 }
 
-.img-text img {
+.img-text-1 img {
   margin-right: 20px;
   width: 50px;
 }
 
-.img-text h5 {
+.img-text-1 h5 {
   margin-top: 10px;
+}
+
+.img-text-1 {
+  padding: 0px;
 }
 
 .icon-text {
@@ -1036,7 +1030,7 @@ export default {
 }
 
 .dropdown-menu {
-  width: 150px;
+  width: 180px;
   margin-left: -30px !important;
 }
 
@@ -1079,6 +1073,24 @@ export default {
 .cart-count {
   right: 8%;
   top: 50%;
+}
+
+.dropdown-menus {
+  position: absolute;
+  width: auto;
+  top: 40%;
+  z-index: 99;
+  background: #fff;
+  border: 1px solid #111111;
+  border-radius: 6px;
+  margin-top: 10px;
+  margin-left: -20px;
+  padding: 10px;
+  visibility: hidden;
+  transition: 0.1s ease-out;
+}
+.language:hover .dropdown-menus {
+  visibility: visible;
 }
 
 @media (max-width: 1920px) {
@@ -1160,10 +1172,6 @@ export default {
 
   .dropdowns {
     left: 5;
-  }
-
-  .nav-search {
-    width: 350px;
   }
 }
 
