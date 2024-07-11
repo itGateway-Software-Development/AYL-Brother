@@ -528,14 +528,10 @@
 
                   <ul class="dropdown-menus">
                     <li class="mb-4">
-                      <router-link class="nav-link d-flex align-items-center"
-                        >English</router-link
-                      >
+                      <p class="nav-link text-start">English</p>
                     </li>
                     <li>
-                      <router-link class="nav-link d-flex align-items-center"
-                        >Myanmar</router-link
-                      >
+                      <p class="nav-link text-start">Myanmar</p>
                     </li>
                   </ul>
                 </div>
@@ -1158,7 +1154,7 @@ export default {
 
 @media (max-width: 1024px) {
   .cart-count {
-    right: 10%;
+    right: 1%;
     top: 48%;
   }
 
@@ -1171,7 +1167,7 @@ export default {
   }
 
   .dropdowns {
-    left: 5;
+    left: 1%;
   }
 }
 

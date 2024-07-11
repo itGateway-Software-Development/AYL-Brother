@@ -77,6 +77,12 @@ h2 {
   font-style: normal;
 }
 
+h5 {
+  font-family: "Kanit", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
 .shopnow-button {
   width: 250px;
   height: 50px;

@@ -3,7 +3,7 @@
     <div class="header-main-img">
       <img src="../assets/contact-us.png" class="img-fluid" alt="" />
     </div>
-    <div class="container content-wrapper justify-content-center mt-5">
+    <div class="justify-content-center mt-5">
       <div class="contact-box">
         <div class="box-content">
           <div class="map">
@@ -121,6 +121,10 @@ iframe {
 
 .box-content {
   display: flex;
+  align-content: center;
+  margin: 0px auto;
+  justify-content: center;
+  align-items: center;
 }
 
 .text-contact {
@@ -132,7 +136,16 @@ iframe {
   .meet-us,
   .contact {
     height: 300px;
-    width: 380px;
+    width: 350px;
+  }
+}
+
+@media (max-width: 1024px) {
+  iframe,
+  .meet-us,
+  .contact {
+    height: 300px;
+    width: 300px;
   }
 }
 
@@ -149,11 +162,11 @@ iframe {
     justify-content: center;
   }
   .map {
-    width: 500px;
+    width: 600px;
     margin: 10px 0px;
   }
   iframe {
-    width: 655px !important;
+    width: 600px !important;
   }
 
   .text-contact {

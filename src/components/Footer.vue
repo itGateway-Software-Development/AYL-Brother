@@ -155,7 +155,9 @@
         <p>
           Copy Right @ 2024 by Romantic Underwear | Developed by
 
-          <span class="c-text">itGateway Software Development</span>
+          <a href="https://itgateway.org/" target="_blank"
+            ><span class="c-text">itGateway Software Development</span></a
+          >
         </p>
       </div>
     </div>
@@ -455,8 +457,16 @@ export default {
   font-size: 16px;
 }
 
+.company-footer a {
+  text-decoration: none;
+}
+
 .c-text {
   color: #ff7000;
+}
+
+.nav-link:hover {
+  color: red;
 }
 
 @media (min-width: 1920px) {
@@ -489,7 +499,7 @@ export default {
 
 @media (max-width: 1024px) {
   .footer-btn {
-    padding: 10px;
+    padding: 10px 20px;
   }
 }
 

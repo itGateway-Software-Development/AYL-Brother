@@ -341,6 +341,7 @@ iframe {
 
   .video-list {
     height: 580px;
+    margin-left: 0px;
   }
 }
 

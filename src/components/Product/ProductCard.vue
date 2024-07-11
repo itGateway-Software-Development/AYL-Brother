@@ -49,6 +49,9 @@
           </div>
         </div>
       </div>
+      <!-- <v-btn v-if="loading" :loading="loading" class="mx-auto my-4"
+        >Loading...</v-btn
+      > -->
     </div>
   </div>
 </template>
@@ -72,6 +75,24 @@ export default {
     // const filteredProducts = computed(() => store.getters.filteredProducts);
     const products = computed(() => store.getters.filteredProducts);
     const filteredProducts = ref([]);
+
+    async function api() {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve(
+            Array.from({ length: 10 }, (k, v) => v + items.value.at(-1) + 1)
+          );
+        }, 1000);
+      });
+    }
+    async function load({ done }) {
+      // Perform API call
+      const res = await api();
+
+      items.value.push(...res);
+
+      done("ok");
+    }
 
     const codeValue = () => {
       if (props.code == 0) {
@@ -162,6 +183,23 @@ export default {
       selectedSize.value = size;
     };
 
+    const scrollableElement = ref(null);
+    const scrollHeight = ref(0);
+
+    // onMounted(() => {
+    //   window.addEventListener("scroll", () => {
+    //     const scrollable = document.documentElement.scrollHeight - 22998;
+    //     const scrolled = window.scrollY;
+
+    //     console.log(scrollable);
+
+    //     if (Math.ceil(scrolled) === scrollable) {
+    //       console.log("hello world");
+    //       alert("Hello wolrd");
+    //     }
+    //   });
+    // });
+
     return {
       items,
       sizes,
@@ -169,6 +207,7 @@ export default {
       selectedSize,
       addToCart,
       filteredProducts,
+      scrollHeight,
     };
   },
 };
