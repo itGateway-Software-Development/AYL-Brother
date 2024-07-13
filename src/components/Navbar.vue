@@ -901,6 +901,14 @@ export default {
   margin: 0;
 }
 
+.fa-heart {
+  margin-right: 9px;
+}
+
+.fa-cart-shopping {
+  margin-right: 2px;
+}
+
 .nav-img {
   width: 120px;
   margin-right: 160px;

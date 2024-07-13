@@ -126,7 +126,7 @@ export default {
 
 <style scoped>
 .back {
-  padding-top: 150px;
+  padding-top: 165px;
   background: var(--background-color);
   margin-bottom: 100px;
 }
@@ -207,8 +207,8 @@ export default {
 }
 
 .carousel-item img {
-  width: 3000px;
-  height: 700px;
+  width: 1920px;
+  height: 600px;
 }
 
 .content-box {
@@ -451,7 +451,7 @@ export default {
 
 @media (max-width: 800px) {
   .back {
-    padding: 20px;
+    padding: 20px 0px;
     margin-bottom: 50px;
   }
   .main-section {

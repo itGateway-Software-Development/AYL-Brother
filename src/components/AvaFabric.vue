@@ -11,7 +11,7 @@
               <div class="item">
                 <router-link to="/product"
                   ><img
-                    src="../assets/mini-photo/4.jpg"
+                    src="../assets/mini-photo/3.jpg"
                     class="img-fluid"
                     alt=""
                 /></router-link>
@@ -154,6 +154,8 @@ export default {
 
 .item img {
   object-fit: cover;
+  width: 420px;
+  border-radius: 6px;
 }
 
 .item-text {
