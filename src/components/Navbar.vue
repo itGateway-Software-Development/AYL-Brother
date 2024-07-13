@@ -422,8 +422,8 @@
                 </router-link>
               </li>
               <li class="upper-li">
-                <router-link class="nav-link" to="/"
-                  ><p>Promotion</p></router-link
+                <router-link class="nav-link" to="/contact"
+                  ><p>Contact Us</p></router-link
                 >
               </li>
               <li class="upper-li">

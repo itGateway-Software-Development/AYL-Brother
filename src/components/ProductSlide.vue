@@ -315,6 +315,23 @@ export default {};
   color: #fff;
 }
 
+@media (max-width: 1390px) {
+  .carousel-indicators {
+    left: 1000px;
+  }
+}
+@media (max-width: 1190px) {
+  .carousel-indicators {
+    left: 1000px;
+  }
+}
+
+/* @media (max-width: 1750px) {
+  .carousel-indicators {
+    left: -90px;
+  }
+} */
+
 @media (max-width: 1600px) {
   .carousel-indicators {
     left: 0px;
@@ -452,6 +469,10 @@ export default {};
 @media (max-width: 500px) {
   .text-carousel-content h2 {
     font-size: 20px;
+  }
+
+  .slide {
+    margin: 0px;
   }
 
   .content-carousel img {

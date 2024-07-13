@@ -1,5 +1,8 @@
 <template>
   <div class="about-us-section">
+    <div class="about-img mb-5">
+      <img src="../assets/banner/1.jpg" alt="" class="img-fluid" />
+    </div>
     <div class="content-about-us content-wrapper">
       <div class="t-content text-start">
         <h3>About Us</h3>
@@ -87,7 +90,14 @@
 </template>
 
 <script>
-export default {};
+import {  onMounted } from "vue";
+export default {
+  setup() {
+    onMounted(() => {
+      window.scroll(0, 0);
+    });
+  },
+};
 </script>
 
 <style>
@@ -99,6 +109,10 @@ export default {};
   padding: 0 9%;
 }
 
+.content-about-us {
+  margin-top: 50px;
+}
+
 .p-content {
   padding: 0px 600px 0px 0px;
   margin: 50px 0px;
@@ -108,11 +122,22 @@ export default {};
   font-family: "Chakra Petch", sans-serif;
   font-weight: 400;
   font-style: normal;
+  color: var(--font-color);
+  font-size: 20px;
+}
+
+.t-content h3 {
+  font-size: 32px;
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 700;
+  font-style: normal;
 }
 
 .t-content h5 {
   font-weight: bold;
   text-decoration: underline;
+  color: var(--font-color);
+  font-size: 24px;
 }
 
 .p-content ul li {
@@ -142,6 +167,20 @@ export default {};
 @media (max-width: 800px) {
   .p-content {
     padding: 0px 100px 0px 0px;
+  }
+
+  .about-us-section {
+    margin: 20px 0px;
+  }
+}
+
+@media (max-width: 500px) {
+  .about-img img {
+    height: 250px;
+  }
+
+  .p-content {
+    padding: 0px;
   }
 }
 </style>

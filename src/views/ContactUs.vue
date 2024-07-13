@@ -69,7 +69,14 @@
 </template>
 
 <script>
-export default {};
+import { onMounted } from "vue";
+export default {
+  setup() {
+    onMounted(() => {
+      window.scroll(0, 0);
+    });
+  },
+};
 </script>
 
 <style scoped>

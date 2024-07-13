@@ -15,6 +15,7 @@ import Footer from "./components/Footer";
 import HomeView from "./views/HomeView";
 import Navbar from "./components/Navbar";
 import { computed, onMounted, ref, watch } from "vue";
+import { useZoom } from "@/assets/js/useZoom";
 // @ is an alias to /src
 
 export default {
@@ -27,6 +28,8 @@ export default {
   setup() {
     const theme = ref("light");
     const handleTheme = (data) => (theme.value = data);
+
+    useZoom();
 
     return {
       theme,

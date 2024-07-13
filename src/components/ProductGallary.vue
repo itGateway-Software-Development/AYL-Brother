@@ -1,120 +1,130 @@
 <template>
   <div class="product-gallary">
-    <div>
-      <!-- <h2 class="fs-3 text-center mt-4 mb-4 fw-bold">Product Grallary</h2> -->
-      <swiper
-        :slidesPerView="6"
-        :spaceBetween="30"
-        :loop="true"
-        :navigation="true"
-        :modules="modules"
-        class="mySwiper"
-      >
-        <swiper-slide
-          ><div class="gallary-photo">
-            <img src="../assets/product/5002/A.jpg" alt="" class="img-fluid" />
-            <p class="text-center">
-              Spandex Series <br />
-              5002
-            </p>
-          </div></swiper-slide
-        >
-        <swiper-slide
-          ><div class="gallary-photo">
-            <img src="../assets/product/5003/4.jpg" alt="" class="img-fluid" />
-            <p class="text-center">
-              Spandex Series <br />
-              5003
-            </p>
-          </div></swiper-slide
-        ><swiper-slide
-          ><div class="gallary-photo">
-            <img src="../assets/product/5012/1.jpg" alt="" class="img-fluid" />
-            <p class="text-center">
-              Spandex Series <br />
-              5012
-            </p>
-          </div></swiper-slide
-        >
-        <swiper-slide
-          ><div class="gallary-photo">
-            <img src="../assets/product/5013/5.jpg" alt="" class="img-fluid" />
-            <p class="text-center">
-              Spandex Series <br />
-              5013
-            </p>
-          </div></swiper-slide
-        ><swiper-slide
-          ><div class="gallary-photo">
-            <img src="../assets/product/8003/2.jpg" alt="" class="img-fluid" />
-            <p class="text-center">
-              Bamboo Series <br />
-              8003
-            </p>
-          </div></swiper-slide
-        >
-        <swiper-slide
-          ><div class="gallary-photo">
-            <img src="../assets/product/8004/9.jpg" alt="" class="img-fluid" />
-            <p class="text-center">
-              Bamboo Series <br />
-              8004
-            </p>
-          </div></swiper-slide
-        ><swiper-slide
-          ><div class="gallary-photo">
-            <img src="../assets/product/8017/9.jpg" alt="" class="img-fluid" />
-            <p class="text-center">
-              Bamboo Series <br />
-              8017
-            </p>
-          </div></swiper-slide
-        >
-        <swiper-slide
-          ><div class="gallary-photo">
-            <img src="../assets/product/8018/3.jpg" alt="" class="img-fluid" />
-            <p class="text-center">
-              Bamboo Series <br />
-              8018
-            </p>
-          </div></swiper-slide
-        ><swiper-slide
-          ><div class="gallary-photo">
-            <img src="../assets/product/8027/20.jpg" alt="" class="img-fluid" />
-            <p class="text-center">
-              Bamboo Series <br />
-              8027
-            </p>
-          </div></swiper-slide
-        >
-        <swiper-slide
-          ><div class="gallary-photo">
-            <img src="../assets/product/8028/20.jpg" alt="" class="img-fluid" />
-            <p class="text-center">
-              Bamboo Series <br />
-              8028
-            </p>
-          </div></swiper-slide
-        >
-        <swiper-slide
-          ><div class="gallary-photo">
-            <img src="../assets/product/8076/g.jpg" alt="" class="img-fluid" />
-            <p class="text-center">
-              Modal Series <br />
-              8076
-            </p>
-          </div></swiper-slide
-        >
-        <swiper-slide
-          ><div class="gallary-photo">
-            <img src="../assets/product/8077/1.jpg" alt="" class="img-fluid" />
-            <p class="text-center">
-              Modal Series <br />
-              8077
-            </p>
-          </div></swiper-slide
-        >
-      </swiper>
+    <div class="photo-list">
+      <div class="photo-slider">
+        <div class="photo-card">
+          <img src="../assets/product/5002/A.jpg" alt="" />
+          <p class="text-center">Spandex Series</p>
+          <p class="text-center">5002</p>
+        </div>
+        <div class="photo-card">
+          <img src="../assets/product/5003/1.jpg" alt="" />
+          <p class="text-center">Spandex Series</p>
+          <p class="text-center">5003</p>
+        </div>
+        <div class="photo-card">
+          <img src="../assets/product/5012/1.jpg" alt="" />
+          <p class="text-center">Spandex Series</p>
+          <p class="text-center">5012</p>
+        </div>
+        <div class="photo-card">
+          <img src="../assets/product/5013/1.jpg" alt="" />
+          <p class="text-center">Spandex Series</p>
+          <p class="text-center">5013</p>
+        </div>
+        <div class="photo-card">
+          <img src="../assets/product/8003/1.jpg" alt="" />
+          <p class="text-center">Bamboo Series</p>
+          <p class="text-center">8003</p>
+        </div>
+        <div class="photo-card">
+          <img src="../assets/product/8004/1.jpg" alt="" />
+          <p class="text-center">Bamboo Series</p>
+          <p class="text-center">8004</p>
+        </div>
+        <div class="photo-card">
+          <img src="../assets/product/8017/1.jpg" alt="" />
+          <p class="text-center">Bamboo Series</p>
+          <p class="text-center">8017</p>
+        </div>
+        <div class="photo-card">
+          <img src="../assets/product/8018/9.jpg" alt="" />
+          <p class="text-center">Bamboo Series</p>
+          <p class="text-center">8018</p>
+        </div>
+        <div class="photo-card">
+          <img src="../assets/product/8027/20.jpg" alt="" />
+          <p class="text-center">Bamboo Series</p>
+          <p class="text-center">8027</p>
+        </div>
+        <div class="photo-card">
+          <img src="../assets/product/8028/20.jpg" alt="" />
+          <p class="text-center">Bamboo Series</p>
+          <p class="text-center">8028</p>
+        </div>
+        <div class="photo-card">
+          <img src="../assets/product/8076/I.jpg" alt="" />
+          <p class="text-center">Modal Series</p>
+          <p class="text-center">8076</p>
+        </div>
+        <div class="photo-card">
+          <img src="../assets/product/8077/7.jpg" alt="" />
+          <p class="text-center">Modal Series</p>
+          <p class="text-center">8077</p>
+        </div>
+      </div>
+      <div class="photo-slider">
+        <div class="photo-card">
+          <img src="../assets/product/5002/A.jpg" alt="" />
+          <p class="text-center">Spandex Series</p>
+          <p class="text-center">5002</p>
+        </div>
+        <div class="photo-card">
+          <img src="../assets/product/5003/1.jpg" alt="" />
+          <p class="text-center">Spandex Series</p>
+          <p class="text-center">5003</p>
+        </div>
+        <div class="photo-card">
+          <img src="../assets/product/5012/1.jpg" alt="" />
+          <p class="text-center">Spandex Series</p>
+          <p class="text-center">5012</p>
+        </div>
+        <div class="photo-card">
+          <img src="../assets/product/5013/1.jpg" alt="" />
+          <p class="text-center">Spandex Series</p>
+          <p class="text-center">5013</p>
+        </div>
+        <div class="photo-card">
+          <img src="../assets/product/8003/1.jpg" alt="" />
+          <p class="text-center">Bamboo Series</p>
+          <p class="text-center">8003</p>
+        </div>
+        <div class="photo-card">
+          <img src="../assets/product/8004/1.jpg" alt="" />
+          <p class="text-center">Bamboo Series</p>
+          <p class="text-center">8004</p>
+        </div>
+        <div class="photo-card">
+          <img src="../assets/product/8017/1.jpg" alt="" />
+          <p class="text-center">Bamboo Series</p>
+          <p class="text-center">8017</p>
+        </div>
+        <div class="photo-card">
+          <img src="../assets/product/8018/9.jpg" alt="" />
+          <p class="text-center">Bamboo Series</p>
+          <p class="text-center">8018</p>
+        </div>
+        <div class="photo-card">
+          <img src="../assets/product/8027/20.jpg" alt="" />
+          <p class="text-center">Bamboo Series</p>
+          <p class="text-center">8027</p>
+        </div>
+        <div class="photo-card">
+          <img src="../assets/product/8028/20.jpg" alt="" />
+          <p class="text-center">Bamboo Series</p>
+          <p class="text-center">8028</p>
+        </div>
+        <div class="photo-card">
+          <img src="../assets/product/8076/I.jpg" alt="" />
+          <p class="text-center">Modal Series</p>
+          <p class="text-center">8076</p>
+        </div>
+        <div class="photo-card">
+          <img src="../assets/product/8077/7.jpg" alt="" />
+          <p class="text-center">Modal Series</p>
+          <p class="text-center">8077</p>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -145,90 +155,59 @@ export default {
 
 <style>
 .product-gallary {
-  margin: 100px auto 0px;
+  margin: 100px auto 50px;
   color: var(--font-color);
 }
 
-.photo-gallary {
-  margin: 50px auto;
-}
-
-.gallary-photo img {
-  width: 150px;
-}
-
-.mySwiper {
-  height: 300px;
-  margin-bottom: 30px;
-  padding: 20px;
-}
-
-.swiper-pagination {
-  top: 90% !important;
-}
-
-.swiper-slide {
-  margin-right: 0px;
-}
-
-.swiper-button-prev,
-.swiper-button-next {
-  color: #000;
-}
-
-.swiper-button-next,
-.swiper-button-prev {
-  width: 30px;
-  height: 30px;
-  background: #f2f2f2;
-  border: 1px solid #000;
-  margin-right: 10px;
-}
-
-.swiper-button-next::after {
-  font-size: 16px;
-}
-
-.swiper-button-prev::after {
-  font-size: 16px;
-}
-
-@media (max-width: 1200px) {
-  .swiper-button-next {
-    margin: -50px 0px 0px 0px;
+@keyframes slide {
+  from {
+    transform: translateX(0);
   }
-  .swiper-button-prev {
-    margin: -50px 0px 0px 0px;
+  to {
+    transform: translateX(-100%);
   }
 }
 
-@media (max-width: 1024px) {
-  /* .swiper-button-prev {
-    display: none !important;
-  }
-  .swiper-button-next {
-    display: none !important;
-  } */
+.photo-list {
+  overflow: hidden;
+  display: flex;
 }
+
+.photo-slider {
+  display: flex;
+  animation: 25s slide infinite linear;
+}
+
+.photo-card {
+  width: max-content;
+  padding: 12px;
+  margin: 0px 50px;
+}
+
+.photo-card img {
+  height: 180px;
+}
+
+.photo-card p {
+  font-size: 20px;
+  font-weight: 500;
+  padding-top: 5px;
+}
+
+.photo-list:hover .photo-slider {
+  animation-play-state: paused;
+}
+
+/* @media (max-width: 860px) {
+  .photo-card img {
+    width: 150px;
+    height: 100px;
+  }
+} */
 
 @media (max-width: 500px) {
-  .mySwiper {
-    height: 250px;
-    padding: 0;
-  }
-
-  .swiper-slide {
-    width: 110px !important;
-  }
-  /* .swiper-button-prev {
-    display: none !important;
-  }
-  .swiper-button-next {
-    display: none !important;
-  } */
-
-  .product-gallary {
-    margin: 10px 0px;
+  .photo-card {
+    margin: 0px 20px;
   }
 }
 </style>

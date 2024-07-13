@@ -200,6 +200,10 @@ export default {
     //   });
     // });
 
+    onMounted(() => {
+      window.scroll(0, 0);
+    });
+
     return {
       items,
       sizes,
@@ -214,6 +218,10 @@ export default {
 </script>
 
 <style>
+.product-card {
+  overflow-y: auto;
+}
+
 .card-img img {
   border-radius: 5px;
 }
@@ -233,7 +241,7 @@ export default {
 }
 
 .add-btn {
-  width: 350px;
+  width: 320px;
   background: #111;
   color: #fff;
 }
@@ -249,7 +257,7 @@ export default {
 }
 
 .wish-btn {
-  width: 350px;
+  width: 320px;
   border: 1px solid var(--border-color);
   color: var(--font-color);
 }
@@ -325,6 +333,13 @@ export default {
     width: 300px;
   }
 }
+/* 
+@media (min-width: 100px) {
+  .add-btn,
+  .wish-btn {
+    width: 350px;
+  }
+} */
 
 @media (max-width: 1200px) {
   .p-card-col {
@@ -347,12 +362,44 @@ export default {
   }
 }
 
+@media (max-width: 1390px) {
+  .add-btn,
+  .wish-btn {
+    width: 260px;
+  }
+  .size-col {
+    width: 21%;
+  }
+}
+
+@media (max-width: 1190px) {
+  .add-btn,
+  .wish-btn {
+    width: 280px;
+  }
+}
+
+/* @media (min-width: 900px) {
+  .add-btn,
+  .wish-btn {
+    width: 280px;
+  }
+  .size-col {
+    width: 40%;
+  }
+} */
+
 @media (max-width: 800px) {
   .p-card-col {
     width: 50%;
   }
   .p-card {
     width: 300px;
+  }
+
+  .add-btn,
+  .wish-btn {
+    width: 280px;
   }
 }
 

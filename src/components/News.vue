@@ -79,7 +79,6 @@
             :pagination="true"
             :modules="modules"
             :loop="true"
-            :navigation="true"
             class="mySwiper"
           >
             <swiper-slide>
@@ -232,7 +231,7 @@ export default {
   },
   setup() {
     return {
-      modules: [FreeMode, Scrollbar, Mousewheel, Pagination, Navigation],
+      modules: [FreeMode, Scrollbar, Mousewheel, Pagination],
     };
   },
 };
@@ -396,6 +395,10 @@ iframe {
     width: 100% !important;
     height: 100%;
     margin: 20px 0px;
+  }
+
+  .news-content {
+    padding: 0px;
   }
 
   .video-list {

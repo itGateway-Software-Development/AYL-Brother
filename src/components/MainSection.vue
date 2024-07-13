@@ -2,7 +2,14 @@
   <div class="back">
     <div class="main-section">
       <div class="content-wrapper">
-        <div
+        <v-carousel show-arrows="hover" cycle hide-delimiters>
+          <v-carousel-item v-for="image in carousel" :key="image.id">
+            <div class="carousel-item active">
+              <img :src="image.img" alt="" class="img-fluid" />
+            </div>
+          </v-carousel-item>
+        </v-carousel>
+        <!-- <div
           id="carouselExampleIndicators"
           class="carousel slide"
           data-bs-ride="carousel"
@@ -31,100 +38,25 @@
           </div>
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <div class="d-flex">
-                <img
-                  src="../assets/banner-1.png"
-                  class="d-block img-fluid"
-                  alt="..."
-                />
-                <div class="content-box">
-                  <div class="heading-text">
-                    <h5>See the latest Promotion!</h5>
-                  </div>
-                  <div class="content-header text-start">
-                    <h1>Choose Our Underwear Series</h1>
-                  </div>
-                  <div class="content-text text-start">
-                    <h5>
-                      Look and find what your need and our porducts will provide
-                      you more confortable and reliable.
-                    </h5>
-                  </div>
-                  <div class="content-buttom text-end bb-1">
-                    <router-link class="nav-link" to="/product">
-                      <button
-                        class="btn d-flex align-items-center bs-content justify-content-center"
-                      >
-                        <p>Shop now</p>
-                        <i class="fa-solid fa-arrow-right"></i></button
-                    ></router-link>
-                  </div>
-                </div>
-              </div>
+              <img
+                src="../assets/main-section/1.jpg"
+                alt=""
+                class="img-fluid"
+              />
             </div>
             <div class="carousel-item">
-              <div class="d-flex">
-                <img
-                  src="../assets/banner-2.png"
-                  class="d-block img-fluid"
-                  alt="..."
-                />
-                <div class="content-box">
-                  <div class="heading-text">
-                    <h5>Join our communities to buy easily!</h5>
-                  </div>
-                  <div class="content-header text-start">
-                    <h1>Many sale channels on Social Platforms.</h1>
-                  </div>
-                  <div class="content-text text-start">
-                    <h5>
-                      Join our social communities such as Facebook, Youtube,
-                      Viber and Telegram to take customer experiences.
-                    </h5>
-                  </div>
-                  <div class="content-buttom text-end">
-                    <router-link class="nav-link" to="/product">
-                      <button
-                        class="btn d-flex align-items-center bs-content justify-content-center"
-                      >
-                        <p>Shop now</p>
-                        <i class="fa-solid fa-arrow-right"></i></button
-                    ></router-link>
-                  </div>
-                </div>
-              </div>
+              <img
+                src="../assets/main-section/2.jpg"
+                alt=""
+                class="img-fluid"
+              />
             </div>
             <div class="carousel-item">
-              <div class="d-flex">
-                <img
-                  src="../assets/banner-3.png"
-                  class="d-block img-fluid"
-                  alt="..."
-                />
-                <div class="content-box">
-                  <div class="heading-text">
-                    <h5>Select, Checkout and Order Quickly!</h5>
-                  </div>
-                  <div class="content-header text-start">
-                    <h1>The Men Underwear With The Superiors Quality</h1>
-                  </div>
-                  <div class="content-text text-start">
-                    <h5>
-                      We are providing many product series for men’s underwear
-                      and you can order and buy easily & quickly.
-                    </h5>
-                  </div>
-                  <div class="content-buttom text-end">
-                    <router-link class="nav-link" to="/product">
-                      <button
-                        class="btn d-flex align-items-center bs-content justify-content-center"
-                      >
-                        <p>Shop now</p>
-                        <i class="fa-solid fa-arrow-right"></i></button
-                    ></router-link>
-                  </div>
-                </div>
-              </div>
+              <img
+                src="../assets/main-section/3.jpg"
+                alt=""
+                class="img-fluid"
+              />
             </div>
           </div>
           <button
@@ -143,7 +75,7 @@
           >
             <i class="fa-solid fa-arrow-right-long"></i>
           </button>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
@@ -154,18 +86,18 @@ import { useRoute } from "vue-router";
 export default {
   setup() {
     const router = useRoute;
-    const boxer = [
+    const carousel = [
       {
         id: 1,
-        img: require("@/assets/product/5003/1.jpg"),
+        img: require("@/assets/main-section/1.jpg"),
       },
       {
         id: 2,
-        img: require("@/assets/product/5003/2.jpg"),
+        img: require("@/assets/main-section/2.jpg"),
       },
       {
         id: 3,
-        img: require("@/assets/product/5003/3.jpg"),
+        img: require("@/assets/main-section/3.jpg"),
       },
     ];
 
@@ -185,7 +117,7 @@ export default {
     ];
 
     return {
-      boxer,
+      carousel,
       brief,
     };
   },
@@ -207,8 +139,12 @@ export default {
   max-width: auto;
 }
 
+.v-carousel {
+  height: 600px !important;
+}
+
 .content-wrapper {
-  padding: 0px 8%;
+  padding: 0px 8.5%;
 }
 
 .main-text-content h3 {
@@ -258,10 +194,7 @@ export default {
 }
 
 .carousel-indicators {
-  top: 95%;
-  left: 1%;
-  width: 150px;
-  margin-left: 0;
+  top: 100%;
 }
 
 .carousel-indicators [data-bs-target] {
@@ -274,7 +207,8 @@ export default {
 }
 
 .carousel-item img {
-  width: 900px;
+  width: 3000px;
+  height: 700px;
 }
 
 .content-box {
@@ -289,7 +223,7 @@ export default {
 }
 
 .carousel-control-next {
-  left: 4.2%;
+  right: 1.2%;
 }
 
 .carousel-control-prev {
@@ -302,8 +236,8 @@ export default {
   height: 40px;
   padding: 7px;
   background: #fff;
+  top: 50%;
   justify-content: center;
-  top: 89%;
   position: absolute;
   border: 0.5px solid #111;
   opacity: 1;
@@ -375,8 +309,12 @@ export default {
 }
 
 @media (max-width: 1600px) {
-  .carousel-item img {
+  /* .carousel-item img {
     width: 750px;
+  } */
+
+  .v-carousel {
+    height: max-content !important;
   }
 
   .content-box {
@@ -393,19 +331,23 @@ export default {
     margin-top: 80px;
     margin-left: 360px;
   }
-  .carousel-control-next,
+  /* .carousel-control-next,
   .carousel-control-prev {
     top: 88%;
   }
 
   .carousel-control-next {
     left: 5%;
-  }
+  } */
 }
 
 @media (max-width: 1400px) {
-  .carousel-item img {
+  /* .carousel-item img {
     width: 650px;
+  } */
+
+  .content-wrapper {
+    padding: 0px 5%;
   }
 
   .content-box {
@@ -424,13 +366,13 @@ export default {
   .content-header h1 {
     font-size: 30px;
   }
-  .carousel-control-next {
+  /* .carousel-control-next {
     left: 5.5%;
   }
   .carousel-control-next,
   .carousel-control-prev {
     top: 87%;
-  }
+  } */
 }
 
 @media (max-width: 1200px) {
@@ -439,9 +381,13 @@ export default {
     height: max-content;
     margin-left: 4px;
   }
+  /* .v-carousel {
+    height: 500px !important;
+  } */
 
   .carousel-item img {
-    width: 600px;
+    width: 1200px;
+    height: 500px;
   }
 
   .content-box {
@@ -478,9 +424,12 @@ export default {
   .bb-1 {
     margin-top: 80px;
   }
-  .carousel-control-next,
+  /* .carousel-control-next,
   .carousel-control-prev {
     top: 86%;
+  } */
+  .back {
+    margin-bottom: 0px;
   }
 }
 
@@ -503,9 +452,14 @@ export default {
 @media (max-width: 800px) {
   .back {
     padding: 20px;
+    margin-bottom: 50px;
   }
   .main-section {
     margin: 30px auto;
+  }
+
+  .content-wrapper {
+    padding: 0px 0px;
   }
 
   .main-banner {
@@ -537,15 +491,13 @@ export default {
   }
 
   .carousel-item img {
-    width: 300px;
+    height: 400px;
   }
 
   .sub-col {
     width: 25%;
   }
-  .carousel-item img {
-    width: 380px;
-  }
+
   .content-box {
     width: 400px;
     height: 250px;
@@ -576,12 +528,22 @@ export default {
     width: 450px;
   }
 
+  .content-wrapper {
+    padding: 0px;
+  }
+
+  .back {
+    margin-bottom: 0px;
+    padding: 0px 0px;
+  }
+
   .content-box {
     display: none;
   }
 
   .carousel-item img {
-    width: 800px;
+    width: 500px;
+    height: 250px;
   }
 
   .main-banner {
@@ -603,7 +565,12 @@ export default {
   .sub-col {
     width: 50%;
   }
+
+  .carousel-control-prev,
   .carousel-control-next {
+    display: none;
+  }
+  /* .carousel-control-next {
     left: 14%;
   }
 
@@ -614,10 +581,10 @@ export default {
   .carousel-control-next {
     justify-content: start;
     top: 65%;
-  }
+  } */
 
-  .carousel-indicators {
+  /* .carousel-indicators {
     top: 90%;
-  }
+  } */
 }
 </style>

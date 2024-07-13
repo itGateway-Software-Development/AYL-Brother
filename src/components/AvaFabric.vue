@@ -10,7 +10,10 @@
             <div class="product-series">
               <div class="item">
                 <router-link to="/product"
-                  ><img src="../assets/Picture1.png" class="img-fluid" alt=""
+                  ><img
+                    src="../assets/mini-photo/4.jpg"
+                    class="img-fluid"
+                    alt=""
                 /></router-link>
               </div>
               <div class="item-text text-start">
@@ -30,7 +33,10 @@
             <div class="product-series">
               <div class="item">
                 <router-link to="/product"
-                  ><img src="../assets/Picture2.png" class="img-fluid" alt=""
+                  ><img
+                    src="../assets/mini-photo/1.jpg"
+                    class="img-fluid"
+                    alt=""
                 /></router-link>
               </div>
               <div class="item-text text-start">
@@ -50,7 +56,10 @@
             <div class="product-series">
               <div class="item">
                 <router-link to="/product">
-                  <img src="../assets/Picture3.png" class="img-fluid" alt=""
+                  <img
+                    src="../assets/mini-photo/6.jpg"
+                    class="img-fluid"
+                    alt=""
                 /></router-link>
               </div>
               <div class="item-text text-start">
@@ -144,8 +153,6 @@ export default {
 }
 
 .item img {
-  width: 500px;
-  height: 400px;
   object-fit: cover;
 }
 
@@ -202,6 +209,7 @@ export default {
 
 @media (max-width: 1200px) {
   .item img {
+    width: 400px;
     height: 400px;
   }
   .p-col-2 h1 {
@@ -209,6 +217,10 @@ export default {
   }
   .content-wrapper {
     padding: 0px 20px;
+  }
+
+  .p-btn {
+    margin: 20px 60px !important;
   }
 }
 
@@ -218,10 +230,11 @@ export default {
   }
 
   .item img {
+    width: 300px;
     height: 300px;
   }
   .p-btn {
-    margin: 20px 40px;
+    margin: 20px 10px !important;
   }
 }
 
@@ -234,7 +247,8 @@ export default {
   }
 
   .item img {
-    height: 200px;
+    width: auto;
+    height: auto;
   }
 
   .p-btn {
@@ -261,7 +275,8 @@ export default {
   }
 
   .item img {
-    height: 300px;
+    width: 400px;
+    height: auto;
   }
 
   /* .item-text {

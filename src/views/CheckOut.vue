@@ -476,6 +476,9 @@ export default {
         address.value = "";
       }
     });
+    onMounted(() => {
+      window.scroll(0, 0);
+    });
 
     return {
       locations,
@@ -681,6 +684,20 @@ export default {
   font-size: 22px;
 }
 
+@media (max-width: 1390px) {
+  .cash-delivery,
+  .online-pay {
+    width: 650px;
+  }
+  .order-btn,
+  .order-btn-2 {
+    width: 650px;
+  }
+  .online-pay-form {
+    width: 650px;
+  }
+}
+
 @media (max-width: 1200px) {
   .order-btn {
     width: 650px;
@@ -705,6 +722,29 @@ export default {
 
   .form-select {
     width: 320px;
+  }
+}
+
+@media (max-width: 1190px) {
+  .cash-delivery,
+  .online-pay {
+    width: 550px;
+  }
+  .order-btn,
+  .order-btn-2 {
+    width: 550px;
+  }
+
+  .online-pay-form {
+    width: 550px;
+  }
+
+  .detail-img {
+    margin: 20px;
+  }
+
+  .content-wrapper {
+    padding: 150px 3%;
   }
 }
 @media (max-width: 1024px) {

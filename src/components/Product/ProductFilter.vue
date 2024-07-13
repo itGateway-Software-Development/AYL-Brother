@@ -317,6 +317,7 @@ export default {
 
     onMounted(() => {
       filter();
+      // window.scrollY(100, 100);
     });
 
     watch(
@@ -365,7 +366,6 @@ export default {
 }
 
 .f-1 {
-  position: fixed;
   height: max-content;
 
   color: var(--font-color);

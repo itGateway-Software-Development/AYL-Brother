@@ -33,29 +33,29 @@
                   ><p>Add to cart</p></router-link
                 >
               </li>
-              <li>
+              <!-- <li>
                 <router-link class="nav-link" to="/cart/checkout"
                   ><p>Checkout</p></router-link
                 >
-              </li>
-              <li>
+              </li> -->
+              <!-- <li>
                 <router-link class="nav-link" to="/"
                   ><p>Delivery</p></router-link
                 >
-              </li>
-              <li>
+              </li> -->
+              <!-- <li>
                 <router-link class="nav-link" to="/"><p>Return</p></router-link>
-              </li>
+              </li> -->
               <li>
                 <router-link class="nav-link" to="/"
                   ><p>Track My Order</p></router-link
                 >
               </li>
-              <li>
+              <!-- <li>
                 <router-link class="nav-link" to="/"
                   ><p>Shipping</p></router-link
                 >
-              </li>
+              </li> -->
             </ul>
           </div>
         </div>
@@ -85,11 +85,11 @@
                   ><p>Membership</p></router-link
                 >
               </li>
-              <li>
+              <!-- <li>
                 <router-link class="nav-link" to="/"
                   ><p>Promotion</p></router-link
                 >
-              </li>
+              </li> -->
               <li>
                 <router-link class="nav-link" to="/contact"
                   ><p>Contact</p></router-link
@@ -344,6 +344,7 @@ export default {
   height: auto;
   background: var(--footer-background-color);
   color: var(--font-color);
+  position: relative;
 }
 
 .col-lg-2 {
@@ -544,6 +545,7 @@ export default {
 
   .footer-btn {
     margin: 0px;
+    padding: 10px;
   }
 
   .footer-btn p {

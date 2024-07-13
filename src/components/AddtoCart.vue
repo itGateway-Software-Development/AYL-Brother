@@ -284,6 +284,10 @@ export default {
 
     const user = localStorage.getItem("user");
 
+    onMounted(() => {
+      window.scroll(0, 0);
+    });
+
     return {
       cartItems,
       total,

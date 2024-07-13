@@ -2,7 +2,10 @@
   <div class="product content-wrapper">
     <div class="row">
       <div class="col-12 col-md-3 col-sm-12 f-list">
-        <ProductFilter @priceFilter="filterPrice"></ProductFilter>
+        <ProductFilter
+          @priceFilter="filterPrice"
+          style="position: sticky; top: 150px"
+        ></ProductFilter>
       </div>
       <div class="col-12 col-md-9 col-sm-6 p-list">
         <ProductCard
