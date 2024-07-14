@@ -1,11 +1,7 @@
 <template>
   <div class="slide">
     <div class="content-wrapper">
-      <div
-        id="carouselExampleIndicators-2"
-        class="carousel slide"
-        data-bs-ride="carousel"
-      >
+      <div id="carouselExampleIndicators-2" class="carousel slide">
         <div class="carousel-indicators">
           <button
             type="button"
@@ -72,7 +68,7 @@
                       <img
                         src="../assets/icon/icon-4.png"
                         alt=""
-                        class="img-fluid icon-3"
+                        class="img-fluid icon-4"
                       />
                     </a>
                   </div>
@@ -89,9 +85,9 @@
               </div>
             </div>
           </div>
-          <div class="carousel-item product-img-1">
+          <div class="carousel-item product-img">
             <div
-              class="d-flex align-items-center justify-content-center content-carousel content-carousel-1"
+              class="d-flex align-items-center justify-content-center content-carousel"
             >
               <img src="../assets/mini-photo/4.jpg" class="img-fluid" alt="" />
               <div class="text-carousel-content text-start">
@@ -243,11 +239,11 @@ export default {};
 }
 
 .text-carousel-content {
-  height: 450px;
+  height: 400px;
   background: #f2f2f2;
   padding: 100px;
   margin: 0px auto;
-  margin-left: -10px;
+  margin-left: -20px;
   border-radius: 6px;
   align-content: center;
 }
@@ -321,11 +317,6 @@ export default {};
   background: #f2f2f2;
 }
 
-.carousel-btn-1:hover {
-  background: red;
-  color: #fff;
-}
-
 .btn-1 p {
   font-size: 18px;
 }
@@ -347,6 +338,16 @@ export default {};
   font-size: 16px;
 }
 
+.btn-1:hover {
+  background: red;
+  color: #fff;
+}
+
+.btn-2:hover {
+  background: red;
+  color: #fff;
+}
+
 .btn-2 p {
   font-size: 20px !important;
 }
@@ -357,11 +358,6 @@ export default {};
 
 .btn-1 .fa-solid {
   font-size: 20px;
-}
-
-.btn-1:hover {
-  background: red;
-  color: #fff;
 }
 
 .nav-link:hover {
@@ -377,9 +373,136 @@ export default {};
   color: #fff;
 }
 
+@media (max-width: 1700px) {
+  .carousel-indicators {
+    margin-left: -890px;
+  }
+  .carousel-control-next {
+    right: 91%;
+  }
+}
+
 @media (max-width: 1390px) {
+  .carousel-indicators {
+    margin-left: -760px;
+  }
+
+  .carousel-control-next {
+    right: 89.5%;
+  }
+
+  .text-carousel-content {
+    padding: 50px;
+    height: 400px;
+  }
+
+  .text-carousel-content h2 {
+    font-size: 24px;
+  }
+
+  .carousel-btn-1 p {
+    font-size: 14px !important;
+  }
+
+  .btn-2 p {
+    font-size: 14px;
+  }
+
+  .btn-2 .fa-solid {
+    font-size: 14px;
+  }
+
+  .btn-2 {
+    width: 140px;
+  }
+  .btn-1 p {
+    font-size: 14px;
+  }
+
+  .btn-1 {
+    width: 170px;
+  }
+
+  .btn-1 .fa-solid {
+    font-size: 14px;
+  }
 }
 @media (max-width: 1190px) {
+  .text-carousel-content h2 {
+    font-size: 20px;
+  }
+
+  .text-carousel-content {
+    padding: 50px;
+    height: 300px;
+  }
+
+  .product-img img {
+    width: 350px;
+  }
+
+  .icon-1 {
+    width: 20px !important;
+  }
+
+  .icon-2,
+  .icon-4 {
+    width: 25px !important;
+  }
+
+  .icon-3 {
+    width: 22px !important;
+  }
+
+  .btn-1 p {
+    font-size: 12px;
+  }
+
+  .btn-1 {
+    width: 150px;
+  }
+
+  .btn-1 .fa-solid {
+    font-size: 12px;
+  }
+
+  .carousel-control-next,
+  .carousel-control-prev {
+    width: 40px;
+    height: 40px;
+    top: 84%;
+  }
+  .carousel-indicators {
+    margin-left: -610px;
+  }
+
+  .carousel-control-next {
+    right: 88%;
+  }
+  .carousel-control-prev {
+    left: 1.3%;
+  }
+
+  .carousel-btn-1 p {
+    font-size: 12px !important;
+  }
+
+  .btn-2 p {
+    font-size: 12px;
+  }
+
+  .btn-2 .fa-solid {
+    font-size: 12px;
+  }
+
+  .btn-2 {
+    width: 120px;
+  }
+
+  .carousel-icon img {
+    width: 25px;
+    margin-right: 10px;
+  }
 }
 
 /* @media (max-width: 1750px) {
@@ -397,7 +520,7 @@ export default {};
   }
 }
 
-@media (max-width: 1200px) {
+/* @media (max-width: 1200px) {
   .carousel-item {
     height: 400px;
   }
@@ -405,7 +528,7 @@ export default {};
   .carousel-indicators {
     left: 18%;
   }
-}
+} */
 
 @media (max-width: 1024px) {
   .carousel-item {
@@ -428,14 +551,6 @@ export default {};
 
   .text-carousel-content h2 {
     font-size: 22px;
-  }
-
-  .product-img img {
-    width: 500px;
-  }
-
-  .product-img-1 img {
-    width: 500px;
   }
 
   .carousel-icon img {
@@ -473,10 +588,6 @@ export default {};
 
   .carousel-icon-text {
     flex-wrap: wrap;
-  }
-
-  .product-img-1 img {
-    width: 450px;
   }
 
   .carousel-item {
