@@ -167,10 +167,13 @@ export default {
 .p-btn {
   width: 220px;
   border: 1px solid red;
+  display: block;
   border-radius: 6px;
-  text-align: center;
+  text-align: center !important;
   justify-content: center;
-  margin: 20px 150px;
+  align-content: center;
+  align-items: center;
+  margin: 20px auto;
   color: var(--font-color);
 }
 .p-btn p {
@@ -198,15 +201,9 @@ export default {
 }
 
 @media (max-width: 1600px) {
-  .p-btn {
-    margin: 20px 130px;
-  }
 }
 
 @media (max-width: 1400px) {
-  .p-btn {
-    margin: 20px 100px;
-  }
 }
 
 @media (max-width: 1200px) {
@@ -220,10 +217,6 @@ export default {
   .content-wrapper {
     padding: 0px 20px;
   }
-
-  .p-btn {
-    margin: 20px 60px !important;
-  }
 }
 
 @media (max-width: 1024px) {
@@ -234,9 +227,6 @@ export default {
   .item img {
     width: 300px;
     height: 300px;
-  }
-  .p-btn {
-    margin: 20px 10px !important;
   }
 }
 
@@ -251,10 +241,6 @@ export default {
   .item img {
     width: auto;
     height: auto;
-  }
-
-  .p-btn {
-    margin: 10px 20px;
   }
 
   .b-text {
@@ -285,18 +271,11 @@ export default {
     display: none;
   } */
 
-  .p-btn {
-    margin: 10px 110px;
-  }
-
   .fabric-heading {
     margin: 20px 0px;
   }
 }
 
 @media (max-width: 400px) {
-  .p-btn {
-    margin: 10px 70px;
-  }
 }
 </style>

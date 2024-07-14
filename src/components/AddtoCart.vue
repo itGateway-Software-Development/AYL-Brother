@@ -1,6 +1,6 @@
 <template>
-  <div class="addtoCart">
-    <div class="container add-to-cart">
+  <div class="addtoCartr">
+    <div class="add-to-cart content-wrapper">
       <div class="add-back">
         <div class="heading-cart">
           <router-link
@@ -315,7 +315,7 @@ export default {
 
 <style scoped>
 .content-wrapper {
-  padding: 0px 0px;
+  padding: 0px 8%;
 }
 .addtoCart {
   background: #f2f2f2;
@@ -342,7 +342,7 @@ export default {
   border-radius: 5px;
 }
 .cart-item {
-  width: 1000px;
+  width: 1050px;
   height: max-content;
   background-color: #ffffff;
   border-radius: 5px;
@@ -355,7 +355,7 @@ export default {
   width: 400px;
   height: max-content;
   background-color: #ffffff;
-  padding: 20px 0px;
+  padding: 20px 10px;
   margin-left: 10px;
   border-radius: 5px;
 }
@@ -437,9 +437,19 @@ export default {
 .sub-product {
   line-height: 30px;
 }
+
+@media (max-width: 1400px) {
+  .content-wrapper {
+    padding: 0px 3%;
+  }
+}
+
 @media (max-width: 1200px) {
   .cart-item {
     width: 800px;
+  }
+  .content-wrapper {
+    padding: 0px 4%;
   }
 }
 @media (max-width: 1024px) {
@@ -449,13 +459,17 @@ export default {
 }
 
 @media (max-width: 800px) {
+  .content-wrapper {
+    padding: 0px 5%;
+  }
   .cart-item {
     width: 720px;
     height: auto;
   }
   .check-out {
     width: 720px;
-    height: 280px;
+    height: max-content;
+    padding: 20px 0px;
   }
   .check-out p {
     margin: 15px 30px;
@@ -507,12 +521,14 @@ export default {
 }
 @media (max-width: 500px) {
   .cart-item {
-    width: 400px;
+    width: auto;
+    padding: 20px;
   }
   .check-out {
-    width: 400px;
+    width: auto;
     height: 320px;
     margin: 0px 0px 15px 0px;
+    padding: 20px;
   }
   .point-input {
     width: 200px;
@@ -530,6 +546,10 @@ export default {
   }
   .heading {
     padding: 10px 0px;
+  }
+
+  .content-wrapper {
+    padding: 0px;
   }
 }
 </style>

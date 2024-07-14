@@ -1,7 +1,11 @@
 <template>
   <div class="slide">
     <div class="content-wrapper">
-      <div id="carouselExampleIndicators-2" class="carousel slide">
+      <div
+        id="carouselExampleIndicators-2"
+        class="carousel slide"
+        data-bs-ride="carousel"
+      >
         <div class="carousel-indicators">
           <button
             type="button"
@@ -183,7 +187,7 @@
               </div>
             </div>
           </div>
-          <button
+          <!-- <button
             class="carousel-control-prev"
             type="button"
             data-bs-target="#carouselExampleIndicators-2"
@@ -198,7 +202,7 @@
             data-bs-slide="next"
           >
             <i class="fa-solid fa-angle-right"></i>
-          </button>
+          </button> -->
         </div>
       </div>
     </div>
@@ -211,13 +215,12 @@ export default {};
 
 <style scoped>
 .carousel-indicators {
-  top: 95%;
+  top: 100%;
   right: 0;
-  margin-left: -1000px;
 }
 
 .carousel-indicators [data-bs-target] {
-  background-color: #ffe2e2;
+  background-color: #111111;
   width: 50px;
 }
 
@@ -373,20 +376,13 @@ export default {};
   color: #fff;
 }
 
-@media (max-width: 1700px) {
-  .carousel-indicators {
-    margin-left: -890px;
-  }
+@media (max-width: 1790px) {
   .carousel-control-next {
     right: 91%;
   }
 }
 
 @media (max-width: 1390px) {
-  .carousel-indicators {
-    margin-left: -760px;
-  }
-
   .carousel-control-next {
     right: 89.5%;
   }
@@ -427,7 +423,7 @@ export default {};
     font-size: 14px;
   }
 }
-@media (max-width: 1190px) {
+@media (max-width: 1200px) {
   .text-carousel-content h2 {
     font-size: 20px;
   }
@@ -472,9 +468,6 @@ export default {};
     height: 40px;
     top: 84%;
   }
-  .carousel-indicators {
-    margin-left: -610px;
-  }
 
   .carousel-control-next {
     right: 88%;
@@ -511,26 +504,7 @@ export default {};
   }
 } */
 
-@media (max-width: 1600px) {
-}
-
-@media (max-width: 1400px) {
-  .content-carousel {
-    padding: 0px;
-  }
-}
-
-/* @media (max-width: 1200px) {
-  .carousel-item {
-    height: 400px;
-  }
-
-  .carousel-indicators {
-    left: 18%;
-  }
-} */
-
-@media (max-width: 1024px) {
+/* @media (max-width: 1024px) {
   .carousel-item {
     height: 350px;
   }
@@ -542,11 +516,6 @@ export default {};
 
   .carousel-btn {
     padding: 15px 10px;
-  }
-
-  .text-carousel-content {
-    margin-top: 20px;
-    padding: 0px;
   }
 
   .text-carousel-content h2 {
@@ -575,58 +544,39 @@ export default {};
   .btn-3 {
     padding: 10px 40px;
   }
-
-  .carousel-indicators {
-    left: 20%;
-  }
-}
+} */
 
 @media (max-width: 800px) {
+  .content-wrapper {
+    padding: 0px 1%;
+  }
+
   .text-carousel-content h2 {
-    font-size: 22px;
-  }
-
-  .carousel-icon-text {
-    flex-wrap: wrap;
-  }
-
-  .carousel-item {
-    height: 300px;
-  }
-  .btn-1 p {
     font-size: 20px;
   }
 
+  .text-carousel-content {
+    padding: 20px;
+  }
+  .btn-3 {
+    padding: 10px 0px;
+  }
+
   .carousel-icon img {
+    width: 30px;
+  }
+
+  .icon-1 {
     width: 30px !important;
   }
 
-  .content-carousel {
-    padding: 0px 0px;
-  }
-  .text-carousel-content {
-    padding: 0;
+  .icon-2,
+  .icon-4 {
+    width: 35px !important;
   }
 
-  .btn-5 {
-    flex-direction: column;
-  }
-
-  .product-img img {
-    width: 400px;
-  }
-
-  .carousel-btn {
-    margin: 10px 0px;
-  }
-
-  .second {
-    padding: 0px 40px 0px 0px;
-  }
-
-  .carousel-indicators {
-    top: 94%;
-    left: 15%;
+  .icon-3 {
+    width: 32px !important;
   }
 }
 
@@ -636,61 +586,29 @@ export default {};
   }
 
   .slide {
-    margin: 0px;
+    margin: 0px 0px 50px;
   }
 
-  .content-carousel img {
+  .carousel-item img {
     display: none;
   }
 
-  .carousel-item {
-    height: 280px;
+  .carousel-icon img {
+    display: block;
   }
 
-  .content-carousel {
-    margin: 0px 50px;
+  .text-carousel-content {
+    width: 500px;
+    margin: 0px;
+    padding: 20px;
   }
 
-  .content-carousel-1 {
-    width: 400px;
-    margin: 0px 40px;
+  .content-wrapper {
+    padding: 0px;
   }
 
   .carousel-icon-text {
-    width: 450px;
-    margin-left: -20px;
-  }
-
-  .carousel-btn-1 {
-    width: 180px;
-    margin: 20px 10px 0px 0px;
-  }
-
-  .btn-1 p {
-    font-size: 16px;
-  }
-
-  .btn-1 .fa-solid {
-    font-size: 16px;
-  }
-
-  .carousel-btn-1 .text-carousel-content {
-    padding: 0px;
-    margin: 30px auto;
-  }
-  .carousel-indicators {
-    top: 93%;
-    left: 0;
-  }
-  .carousel-btn {
-    margin-top: 10px;
-  }
-  .btn-2 {
-    margin-top: 10px;
-  }
-
-  .slide {
-    margin-bottom: 50px;
+    flex-wrap: wrap;
   }
 }
 </style>

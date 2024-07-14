@@ -85,25 +85,9 @@ export default {
 }
 
 @media (max-width: 500px) {
-  .content-wrapper {
-    padding: 0px;
-  }
   .product {
-    margin: 10px 20px;
-  }
-
-  .f-list {
-    margin-left: 10px;
-  }
-
-  .p-list {
-    margin-left: 10px;
-  }
-}
-
-@media (max-width: 400px) {
-  .p-list {
-    margin-left: -10px;
+    display: block;
+    margin: 20px auto;
   }
 }
 </style>

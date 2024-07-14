@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="product-card container">
+    <div class="product-card">
       <div class="row align-content-center card-list">
         <div
           class="col-6 col-md-4 col-sm-6 mb-5 p-card-col"
@@ -217,11 +217,7 @@ export default {
 };
 </script>
 
-<style>
-.product-card {
-  overflow-y: auto;
-}
-
+<style scoped>
 .card-img img {
   border-radius: 5px;
 }
@@ -405,11 +401,11 @@ export default {
 
 @media (max-width: 500px) {
   .p-card {
-    width: 175px;
+    width: 160px;
   }
   .add-btn,
   .wish-btn {
-    width: 160px;
+    width: 150px;
   }
   .p-color {
     font-size: 10px;
@@ -422,6 +418,10 @@ export default {
   }
   .size-col {
     width: 40%;
+  }
+
+  .content-wrapper {
+    padding: 0px;
   }
 }
 </style>
