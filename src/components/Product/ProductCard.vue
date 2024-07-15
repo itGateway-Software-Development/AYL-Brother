@@ -29,22 +29,24 @@
                 {{ selectedSize }}
               </p>
             </div>
-            <div class="row mt-3 justify-content-around px-3 card-size">
-              <div
-                class="size col-3 mb-3 size-col"
-                id="size"
-                v-for="size in sizes"
-                :key="size.id"
-                @click="selectSize(size.size)"
-              >
-                <p>{{ size.size }}</p>
+            <div class="size-button">
+              <div class="row mt-3 justify-content-around px-3 card-size">
+                <div
+                  class="size col-3 mb-3 size-col"
+                  id="size"
+                  v-for="size in sizes"
+                  :key="size.id"
+                  @click="selectSize(size.size)"
+                >
+                  <p>{{ size.size }}</p>
+                </div>
               </div>
-            </div>
-            <div class="card-button-group mt-3">
-              <div class="btn add-btn mb-3" @click="addToCart(product)">
-                Add to Bag
+              <div class="card-button-group mt-3">
+                <div class="btn add-btn mb-3" @click="addToCart(product)">
+                  Add to Bag
+                </div>
+                <div class="btn wish-btn">Add to WishList</div>
               </div>
-              <div class="btn wish-btn">Add to WishList</div>
             </div>
           </div>
         </div>
@@ -236,10 +238,16 @@ export default {
   color: #111;
 }
 
-.add-btn {
+.size-button {
   width: 320px;
+  margin: 0px auto;
+}
+
+.add-btn {
+  width: auto;
   background: #111;
   color: #fff;
+  margin: 0px auto;
 }
 
 .add-btn:hover {
@@ -253,9 +261,10 @@ export default {
 }
 
 .wish-btn {
-  width: 320px;
+  width: auto;
   border: 1px solid var(--border-color);
   color: var(--font-color);
+  margin: 0px auto;
 }
 
 .wish-btn:hover {
@@ -337,17 +346,21 @@ export default {
   }
 } */
 
-@media (max-width: 1200px) {
+@media (max-width: 1280px) {
   .p-card-col {
     width: 33.3333%;
   }
   .add-btn,
   .wish-btn {
-    width: 340px;
+    width: auto !important;
   }
 
   .size-col {
     width: 21%;
+  }
+  .size-button {
+    width: auto;
+    padding: 0px 5px;
   }
 }
 
@@ -385,21 +398,25 @@ export default {
   }
 } */
 
-@media (max-width: 800px) {
+@media (max-width: 860px) {
   .p-card-col {
     width: 50%;
   }
   .p-card {
-    width: 300px;
+    width: auto;
   }
 
   .add-btn,
   .wish-btn {
-    width: 280px;
+    width: auto;
+  }
+  .size-button {
+    width: auto;
+    margin: 0px auto;
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   .p-card {
     width: 160px;
   }

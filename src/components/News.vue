@@ -286,6 +286,29 @@ export default {
   border: 1px solid red;
   padding: 10px;
   color: var(--font-color);
+  position: relative;
+  transition: 1s;
+}
+
+.new-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  border-radius: 6px;
+  z-index: -1;
+  transform-origin: left;
+  transition: transform 1s ease;
+  transform: scaleX(1);
+}
+
+.new-btn:hover::before {
+  transform-origin: right;
+  transition: transform 0.5s ease;
+  transform: scaleX(0);
 }
 
 .new-btn:hover {
@@ -333,7 +356,7 @@ iframe {
   }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1280px) {
   .news-content .content-header h1 {
     font-size: 35px;
   }
@@ -341,6 +364,10 @@ iframe {
   .video-list {
     height: 580px;
     margin-left: 0px;
+  }
+
+  .content-wrapper {
+    padding: 0px 3%;
   }
 }
 
@@ -359,7 +386,7 @@ iframe {
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 860px) {
   .news-container {
     flex-direction: column;
     justify-content: center !important;
@@ -388,9 +415,12 @@ iframe {
     justify-content: center;
     align-content: center;
   }
+  .list-video {
+    padding: 40px 0px;
+  }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   .swiper-slide {
     width: 100% !important;
     height: 100%;

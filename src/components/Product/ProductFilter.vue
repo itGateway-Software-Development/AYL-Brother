@@ -519,7 +519,7 @@ export default {
   left: 20px;
 } */
 
-@media (max-width: 1200px) {
+@media (max-width: 1280px) {
   .f-1 {
     display: none;
   }
@@ -572,7 +572,7 @@ export default {
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   .f-2 {
     display: block;
   }

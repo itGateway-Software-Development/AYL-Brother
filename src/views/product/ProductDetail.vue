@@ -1,11 +1,11 @@
 <template>
   <div class="detail">
-    <div class="container content-wrapper">
+    <div class="content-wrapper">
       <div
         class="modal"
         tabindex="-1"
-        id="exampleModal"
-        aria-labelledby="exampleModalLabel"
+        id="exampleModal-1"
+        aria-labelledby="exampleModalLabel-1"
         aria-hidden="true"
       >
         <div class="modal-dialog modal-dialog-centered">
@@ -21,6 +21,80 @@
             </div>
             <div class="modal-body">
               <img src="../../assets/size.png" class="img-fluid" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="modal"
+        tabindex="-1"
+        id="exampleModal-2"
+        aria-labelledby="exampleModalLabel-2"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2 class="modal-title">Write a Review</h2>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <v-text-field
+                  required
+                  clearable
+                  v-model="nickName"
+                  label="Nickname"
+                  type="text"
+                  variant="outlined"
+                ></v-text-field>
+                <v-text-field
+                  required
+                  clearable
+                  v-model="email"
+                  label="Email"
+                  type="email"
+                  variant="outlined"
+                ></v-text-field>
+                <div class="text-start mb-5">
+                  <h5 class="ms-2">Rating</h5>
+                  <v-rating
+                    required
+                    v-model="rating"
+                    clearable
+                    active-color="orange"
+                    color="orange-lighten-1"
+                  ></v-rating>
+                </div>
+                <v-textarea
+                  required
+                  clearable
+                  v-model="comment"
+                  label="Comment"
+                  variant="outlined"
+                ></v-textarea>
+              </form>
+              <div class="button-group d-flex">
+                <button
+                  class="btn comment-btn cancel-btn"
+                  data-bs-dismiss="modal"
+                >
+                  Cancel
+                </button>
+                <button
+                  class="btn comment-btn sumbit-btn"
+                  @click="sumbitComment"
+                  data-bs-dismiss="modal"
+                >
+                  Sumbit Comment
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -105,7 +179,7 @@
                 class="guide"
                 type="button"
                 data-bs-toggle="modal"
-                data-bs-target="#exampleModal"
+                data-bs-target="#exampleModal-1"
               >
                 Size Guide
               </p>
@@ -165,6 +239,22 @@
                   <span class="material-symbols-outlined">
                     keyboard_arrow_down
                   </span>
+                </div>
+              </div>
+              <div class="review">
+                <div
+                  class="d-flex justify-content-between align-items-center review-border"
+                >
+                  <p>Review</p>
+                  <button
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal-2"
+                    class="review-button btn d-flex align-items-center justify-content-between"
+                  >
+                    <p>Write a Review</p>
+                    <i class="fa-solid fa-arrow-right"></i>
+                  </button>
                 </div>
               </div>
             </div>
@@ -261,7 +351,27 @@ export default {
     const tab = ref("p-1");
     const isMagnifierVisible = ref(false);
     const magnifierSize = 150; // Size of magnifier square
-    const zoomLevel = 2; // Zoom level for magnification
+    const zoomLevel = 2; // Zoom level for magnification\
+    const rating = ref(0);
+    const nickName = ref("");
+    const email = ref("");
+    const comment = ref("");
+
+    const sumbitComment = () => {
+      if (
+        nickName.value == undefined &&
+        rating.value == 0 &&
+        email.value == undefined &&
+        comment.value == undefined
+      ) {
+        alert("Add some value");
+      } else {
+        console.log(nickName.value);
+        console.log(comment.value);
+        console.log(email.value);
+        console.log(rating.value);
+      }
+    };
 
     const detail_content = ref(false);
 
@@ -449,6 +559,11 @@ export default {
       hideMagnifier,
       moveMagnifier,
       detail_content,
+      rating,
+      nickName,
+      email,
+      comment,
+      sumbitComment,
     };
   },
 };
@@ -461,15 +576,29 @@ export default {
 }
 
 .modal-dialog {
-  max-width: 1000px !important;
-}
-
-.modal-content {
-  width: max-content;
+  max-width: 500px !important;
+  width: 100%;
 }
 
 .card-img img {
   border: 1px solid #f2f2f2 !important;
+}
+
+.button-group {
+  justify-content: end;
+  margin: 10px 0px 20px;
+}
+
+.comment-btn {
+  width: 150px;
+  margin: 0px 10px 0px 0px;
+  padding: 10px 0px;
+  border: 1px solid #111;
+}
+
+.sumbit-btn {
+  background: red;
+  color: #fff;
 }
 
 .mini-photo {
@@ -601,14 +730,56 @@ export default {
 .wish-btn {
   width: 490px;
   font-size: 24px;
+  border: 1px solid black;
+}
+
+.add-btn {
+  background: #111111;
+  color: #fff;
+}
+
+.wish-btn {
+  background: #f2f2f2;
+}
+
+.add-btn:hover {
+  background: #b7b7b7;
+  color: #fff;
+  border-color: #b7b7b7;
+}
+
+.wish-btn:hover {
+  background: #b7b7b7;
+  color: #fff;
+  border-color: #b7b7b7;
+}
+
+.review-button {
+  width: 160px;
+  border: 1px solid #111;
+  padding: 12px 10px;
+  background: #111;
+  color: #fff;
+}
+
+.review-button:hover {
+  background: #b7b7b7;
+  color: #fff;
+  border-color: #b7b7b7;
 }
 
 .detail-size {
   margin-top: 30px;
 }
 
-.size-detail {
+.size-detail,
+.review {
   padding: 0px 145px 0px 0px;
+}
+
+.review-border {
+  border-bottom: 1px solid #111;
+  padding: 12px 5px;
 }
 
 .detail-p {
@@ -669,16 +840,20 @@ export default {
   border: 5px solid red;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1280px) {
   .modal-dialog {
     max-width: 800px !important;
   }
   .detail-card-col {
     width: 25%;
   }
+  .size-detail,
+  .review {
+    padding: 0px 20px 0px 0px;
+  }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 860px) {
   .detail {
     margin: 10px auto;
   }
@@ -692,16 +867,21 @@ export default {
     width: 50%;
   }
 
-  .right-content {
-    margin-left: 70px;
-  }
-
   .main-content {
     margin: 0px auto;
   }
+
+  .right-content {
+    padding-left: 100px;
+  }
+
+  .size-detail,
+  .review {
+    padding-right: 90px;
+  }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   .modal-dialog {
     max-width: 300px !important;
   }

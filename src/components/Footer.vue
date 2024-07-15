@@ -428,17 +428,47 @@ export default {
 }
 
 .footer-btn {
+  position: relative;
   width: 195px;
   height: auto;
   margin-top: 10px;
   padding: 5px 40px;
   border: 1px solid red;
-  border-radius: 50px;
+  border-radius: 6px;
+  color: #111;
+  background: red;
+  z-index: 1;
+  transition: 1s;
+}
+
+.footer-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #c8d0d8;
+  border-radius: 6px;
+  z-index: -1;
+  transform-origin: left;
+  transition: transform 1s ease;
+  transform: scaleX(1);
+}
+
+.footer-btn:hover::before {
+  transform-origin: right;
+  transition: transform 0.5s ease;
+  transform: scaleX(0);
 }
 
 .footer-btn:hover {
+  color: #fff;
   background: red;
-  color: #ffffff;
+}
+
+.nav-link:hover {
+  color: #fff;
 }
 
 .footer-btn .fa-solid {
@@ -466,10 +496,6 @@ export default {
   color: #ff7000;
 }
 
-.nav-link:hover {
-  color: red;
-}
-
 @media (min-width: 1920px) {
   .footer-padding {
     padding: 0px 130px;
@@ -482,7 +508,7 @@ export default {
   }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1280px) {
   .logo-text {
     margin-top: 20px;
   }
@@ -502,9 +528,13 @@ export default {
   .footer-btn {
     padding: 10px 20px;
   }
+
+  .content-group h5 {
+    font-size: 18px;
+  }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 860px) {
   .footer-col {
     width: 25%;
   }
@@ -523,15 +553,22 @@ export default {
     align-content: center;
     align-self: center;
     align-items: center;
-    margin: 10px 300px;
+    margin: 10px auto;
   }
 
   .footer-col-custom .content-group {
     text-align: center !important;
   }
+  .footer-padding {
+    padding: 20px;
+  }
+  .footer-group {
+    align-content: center;
+    margin-bottom: 10px;
+  }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   .desktop {
     display: none;
   }

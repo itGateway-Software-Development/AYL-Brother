@@ -125,6 +125,29 @@ h5 {
   color: #fff;
 }
 
+.btn {
+  display: block;
+  width: 100%;
+  z-index: 2;
+  position: relative;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+.btn::after {
+  content: "";
+  width: 0px;
+  background: red;
+  color: #fff;
+  transition: all 0.3s ease 0s;
+  z-index: -1;
+  position: absolute;
+}
+
+.btn:hover::after {
+  width: 100%;
+}
+
 @media (max-width: 1200px) {
   .heading h1 {
     font-size: 20px;

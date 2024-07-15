@@ -90,7 +90,7 @@
 </template>
 
 <script>
-import {  onMounted } from "vue";
+import { onMounted } from "vue";
 export default {
   setup() {
     onMounted(() => {
@@ -152,7 +152,7 @@ export default {
   font-style: italic;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1280px) {
   .p-content {
     padding: 0px 400px 0px 0px;
   }
@@ -164,7 +164,7 @@ export default {
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 860px) {
   .p-content {
     padding: 0px 100px 0px 0px;
   }
@@ -174,7 +174,7 @@ export default {
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   .about-img img {
     height: 250px;
   }

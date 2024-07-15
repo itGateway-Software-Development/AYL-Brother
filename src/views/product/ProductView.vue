@@ -63,7 +63,7 @@ export default {
   }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1280px) {
   .col-md-3 {
     width: 100%;
   }
@@ -78,7 +78,7 @@ export default {
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 860px) {
   .product {
     margin: 50px auto;
   }

@@ -157,6 +157,7 @@ export default {
 .product-gallary {
   margin: 100px auto 50px;
   color: var(--font-color);
+  padding: 0px 9%;
 }
 
 @keyframes slide {
@@ -169,8 +170,8 @@ export default {
 }
 
 .photo-list {
-  overflow: hidden;
   display: flex;
+  overflow: hidden;
 }
 
 .photo-slider {
@@ -198,6 +199,18 @@ export default {
   animation-play-state: paused;
 }
 
+@media (max-width: 1400px) {
+  .product-gallary {
+    padding: 0px 7%;
+  }
+}
+
+@media (max-width: 1280px) {
+  .product-gallary {
+    padding: 0px 3%;
+  }
+}
+
 /* @media (max-width: 860px) {
   .photo-card img {
     width: 150px;
@@ -205,7 +218,7 @@ export default {
   }
 } */
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   .photo-card {
     margin: 0px 20px;
   }

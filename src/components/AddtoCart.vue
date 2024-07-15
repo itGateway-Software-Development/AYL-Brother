@@ -393,6 +393,7 @@ export default {
   width: 300px;
   background: #111;
   color: #ffffff;
+  margin: 0px auto;
 }
 .total-price {
   padding: 10px 30px;
@@ -444,7 +445,7 @@ export default {
   }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1280px) {
   .cart-item {
     width: 800px;
   }
@@ -458,7 +459,7 @@ export default {
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 860px) {
   .content-wrapper {
     padding: 0px 5%;
   }
@@ -519,7 +520,7 @@ export default {
     margin: 0px 30px;
   }
 }
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   .cart-item {
     width: auto;
     padding: 20px;

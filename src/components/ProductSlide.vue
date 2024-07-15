@@ -217,6 +217,7 @@ export default {};
 .carousel-indicators {
   top: 100%;
   right: 0;
+  margin-top: 20px;
 }
 
 .carousel-indicators [data-bs-target] {
@@ -279,6 +280,32 @@ export default {};
   text-align: center;
   justify-content: center;
   padding: 5px 15px;
+  position: relative;
+  color: #111;
+  background: red;
+  z-index: 1;
+  transition: 1s;
+}
+
+.btn-1::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  border-radius: 6px;
+  z-index: -1;
+  transform-origin: left;
+  transition: transform 1s ease;
+  transform: scaleX(1);
+}
+
+.btn-1:hover::before {
+  transform-origin: right;
+  transition: transform 0.5s ease;
+  transform: scaleX(0);
 }
 
 .carousel-control-prev,
@@ -339,6 +366,32 @@ export default {};
   justify-content: center;
   padding: 5px 15px;
   font-size: 16px;
+  position: relative;
+  z-index: 1;
+  background: red;
+  color: #111;
+  transition: 1s;
+}
+
+.btn-2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  border-radius: 6px;
+  z-index: -1;
+  transform-origin: left;
+  transition: transform 1s ease;
+  transform: scaleX(1);
+}
+
+.btn-2:hover::before {
+  transform-origin: right;
+  transition: transform 0.5s ease;
+  transform: scaleX(0);
 }
 
 .btn-1:hover {
@@ -423,7 +476,21 @@ export default {};
     font-size: 14px;
   }
 }
+
 @media (max-width: 1200px) {
+  .content-wrapper {
+    padding: 0px 3% !important;
+  }
+  .product-img img {
+    width: 450px;
+  }
+  .carousel-icon img {
+    width: 35px;
+    margin-right: 10px;
+  }
+}
+
+@media (max-width: 1000px) {
   .text-carousel-content h2 {
     font-size: 20px;
   }
@@ -498,6 +565,12 @@ export default {};
   }
 }
 
+@media (max-width: 1400px) {
+  .content-wrapper {
+    padding: 0px 7%;
+  }
+}
+
 /* @media (max-width: 1750px) {
   .carousel-indicators {
     left: -90px;
@@ -546,9 +619,9 @@ export default {};
   }
 } */
 
-@media (max-width: 800px) {
+@media (max-width: 860px) {
   .content-wrapper {
-    padding: 0px 1%;
+    padding: 0px;
   }
 
   .text-carousel-content h2 {
@@ -578,9 +651,12 @@ export default {};
   .icon-3 {
     width: 32px !important;
   }
+  .carousel-icon-text {
+    flex-wrap: wrap;
+  }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   .text-carousel-content h2 {
     font-size: 20px;
   }
@@ -605,10 +681,6 @@ export default {};
 
   .content-wrapper {
     padding: 0px;
-  }
-
-  .carousel-icon-text {
-    flex-wrap: wrap;
   }
 }
 </style>

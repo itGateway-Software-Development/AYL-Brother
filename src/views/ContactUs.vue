@@ -138,7 +138,7 @@ iframe {
   display: flex;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1280px) {
   iframe,
   .meet-us,
   .contact {
@@ -156,7 +156,7 @@ iframe {
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 860px) {
   .contact-us {
     margin: 30px 0;
   }
@@ -181,7 +181,7 @@ iframe {
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   .map {
     width: 380px;
   }

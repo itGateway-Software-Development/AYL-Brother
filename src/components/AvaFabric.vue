@@ -2,7 +2,7 @@
   <div class="ab-fabric">
     <div class="heading text-center">
       <div class="justify-content-center content-wrapper mt-5 ab-fabrics">
-        <div class="fabric-heading text-start">
+        <div class="fabric-heading text-center">
           <h2>Product Series</h2>
         </div>
         <div class="row ab-row">
@@ -137,7 +137,7 @@ export default {
 }
 
 .content-wrapper {
-  padding: 0px 8%;
+  padding: 0px 9%;
 }
 
 .fabric-heading {
@@ -165,25 +165,51 @@ export default {
 }
 
 .p-btn {
-  width: 220px;
-  border: 1px solid red;
-  display: block;
-  border-radius: 6px;
-  text-align: center !important;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
+  position: relative;
   margin: 20px auto;
-  color: var(--font-color);
+  width: 220px;
+  justify-content: center;
+  color: #111;
+  background: red;
+  border: 2px solid red;
+  z-index: 1;
+  transition: 1s;
 }
+
+.p-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  z-index: -1;
+  transform-origin: left;
+  transition: transform 1s ease;
+  transform: scaleX(1);
+  border-radius: 4px;
+}
+
+.p-btn:hover {
+  color: #fff;
+  background: red;
+}
+
+.p-btn:hover::before {
+  transform-origin: right;
+  transition: transform 0.5s ease;
+  transform: scaleX(0);
+}
+
 .p-btn p {
   padding: 0px 5px;
 }
 
-.p-btn:hover {
+/* .p-btn:hover {
   background: red;
   color: #ffffff;
-}
+} */
 
 .b-text {
   padding: 0px 50px;
@@ -204,9 +230,12 @@ export default {
 }
 
 @media (max-width: 1400px) {
+  .content-wrapper {
+    padding: 0px 7%;
+  }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1280px) {
   .item img {
     width: 400px;
     height: 400px;
@@ -214,8 +243,9 @@ export default {
   .p-col-2 h1 {
     font-size: 20px;
   }
+
   .content-wrapper {
-    padding: 0px 20px;
+    padding: 0px 3%;
   }
 }
 
@@ -230,7 +260,7 @@ export default {
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 860px) {
   .p-col-2 {
     width: 100%;
   }
@@ -244,7 +274,7 @@ export default {
   }
 
   .b-text {
-    padding: 0px 20px;
+    padding: 0px 10px;
   }
 
   .ab-fabric {
@@ -253,7 +283,7 @@ export default {
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   .p-col-2 h1 {
     font-size: 20px;
   }

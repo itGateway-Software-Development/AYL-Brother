@@ -698,7 +698,7 @@ export default {
   }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1280px) {
   .order-btn {
     width: 650px;
   }
@@ -764,7 +764,7 @@ export default {
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 860px) {
   .check-main {
     display: flex !important;
     flex-direction: column !important;
@@ -810,7 +810,7 @@ export default {
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   .order-btn-2 {
     width: 380px;
     font-size: 24px;
