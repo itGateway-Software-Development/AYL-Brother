@@ -163,11 +163,11 @@
                 <hr />
               </ul>
 
-              <router-link to="/" class="nav-link mb-text"
-                ><v-list-item><p>Promotion</p></v-list-item></router-link
-              >
               <router-link to="/about-us" class="nav-link mb-text"
                 ><v-list-item><p>Our Story</p></v-list-item></router-link
+              >
+              <router-link to="/contanct" class="nav-link mb-text"
+                ><v-list-item><p>Contact Us</p></v-list-item></router-link
               >
               <v-list-item v-if="user">
                 <div
@@ -304,56 +304,56 @@
                         <li class="dropdown-submenu-item">
                           <router-link
                             to="/products/bamboo/8028"
-                            class="dropdown-link"
+                            class="sub-dropdown-link"
                             >RO: 8028</router-link
                           >
                         </li>
                         <li class="dropdown-submenu-item">
                           <router-link
                             to="/products/bamboo/8027"
-                            class="dropdown-link"
+                            class="sub-dropdown-link"
                             >RO: 8027</router-link
                           >
                         </li>
                         <li class="dropdown-submenu-item">
                           <router-link
                             to="/products/bamboo/8018"
-                            class="dropdown-link"
+                            class="sub-dropdown-link"
                             >RO: 8018</router-link
                           >
                         </li>
                         <li class="dropdown-submenu-item">
                           <router-link
                             to="/products/bamboo/8017"
-                            class="dropdown-link"
+                            class="sub-dropdown-link"
                             >RO: 8017</router-link
                           >
                         </li>
                         <li class="dropdown-submenu-item">
                           <router-link
                             to="/products/bamboo/8003"
-                            class="dropdown-link"
+                            class="sub-dropdown-link"
                             >RO: 8003</router-link
                           >
                         </li>
                         <li class="dropdown-submenu-item">
                           <router-link
                             to="/products/bamboo/8004"
-                            class="dropdown-link"
+                            class="sub-dropdown-link"
                             >RO: 8004</router-link
                           >
                         </li>
                         <li class="dropdown-submenu-item">
                           <router-link
                             to="/products/bamboo/9001"
-                            class="dropdown-link"
+                            class="sub-dropdown-link"
                             >RO: 9001</router-link
                           >
                         </li>
                         <li class="dropdown-submenu-item">
                           <router-link
                             to="/products/bamboo/9002"
-                            class="dropdown-link"
+                            class="sub-dropdown-link"
                             >RO: 9002</router-link
                           >
                         </li>
@@ -370,28 +370,28 @@
                         <li class="dropdown-submenu-item">
                           <router-link
                             to="/products/spandex/5002"
-                            class="dropdown-link"
+                            class="sub-dropdown-link"
                             >RO: 5002</router-link
                           >
                         </li>
                         <li class="dropdown-submenu-item">
                           <router-link
                             to="/products/spandex/5003"
-                            class="dropdown-link"
+                            class="sub-dropdown-link"
                             >RO: 5003</router-link
                           >
                         </li>
                         <li class="dropdown-submenu-item">
                           <router-link
                             to="/products/spandex/5012"
-                            class="dropdown-link"
+                            class="sub-dropdown-link"
                             >RO: 5012</router-link
                           >
                         </li>
                         <li class="dropdown-submenu-item">
                           <router-link
                             to="/products/spandex/5013"
-                            class="dropdown-link"
+                            class="sub-dropdown-link"
                             >RO: 5013</router-link
                           >
                         </li>
@@ -405,14 +405,14 @@
                         <li class="dropdown-submenu-item">
                           <router-link
                             to="/products/lycra/8076"
-                            class="dropdown-link"
+                            class="sub-dropdown-link"
                             >RO: 8076</router-link
                           >
                         </li>
                         <li class="dropdown-submenu-item">
                           <router-link
                             to="/products/lycra/8077"
-                            class="dropdown-link"
+                            class="sub-dropdown-link"
                             >RO: 8077</router-link
                           >
                         </li>
@@ -422,13 +422,13 @@
                 </router-link>
               </li>
               <li class="upper-li">
-                <router-link class="nav-link" to="/contact"
-                  ><p>Contact Us</p></router-link
+                <router-link class="nav-link" to="/about-us"
+                  ><p>Our Story</p></router-link
                 >
               </li>
               <li class="upper-li">
-                <router-link class="nav-link" to="/about-us"
-                  ><p>Our Story</p></router-link
+                <router-link class="nav-link" to="/contact"
+                  ><p>Contact Us</p></router-link
                 >
               </li>
             </ul>
@@ -508,15 +508,17 @@
 
               <li class="d-flex align-items-center" v-else>
                 <router-link
-                  class="nav-link d-flex align-items-center"
+                  class="nav-link d-flex align-items-center main-hover"
                   to="/login"
                 >
                   <div class="icon-group d-flex align-items-center">
                     <i class="fa-regular fa-user"></i
                     ><i class="fa-solid fa-arrow-right"></i>
                   </div>
-                  <p class="ms-1">Login |</p></router-link
-                ><router-link class="nav-link ms-1" to="/register"
+                  <p class="ms-1">Login</p></router-link
+                >
+                <p class="ms-1">|</p>
+                <router-link class="nav-link ms-1 main-hover" to="/register"
                   ><p>Register</p></router-link
                 >
               </li>
@@ -784,6 +786,10 @@ export default {
   font-weight: 400;
 }
 
+.main-hover:hover {
+  margin-top: -10px;
+}
+
 .nav-search {
   width: 450px;
   margin-right: 140px;
@@ -917,6 +923,7 @@ export default {
 
 .nav-link:hover {
   color: red;
+  transition: 0.5s;
 }
 
 .nav-link .material-symbols-outlined:hover {
@@ -978,6 +985,7 @@ export default {
 }
 
 .dropdown-link,
+.sub-dropdown-link,
 .dropdown-submenu-link {
   color: var(--font-color);
   padding: 1rem;
@@ -988,8 +996,19 @@ export default {
   z-index: 1;
 }
 
+.dropdown-items:hover .dropdown-link {
+  background: red;
+  color: #fff;
+}
+
+.dropdown-link .sub-dropdown-link:hover {
+  background: red;
+  color: #fff;
+}
+
 .dropdown-link:hover,
-.dropdown-submenu-link:hover {
+.dropdown-submenu-link:hover,
+.sub-dropdown-link:hover {
   background-color: red;
   color: #fff;
 }

@@ -78,9 +78,9 @@
         </div>
 
         <div class="text-center mt-5 more-p">
-          <router-link class="nav-link" to="/product"
-            ><h4>See more products</h4></router-link
-          >
+          <router-link class="nav-link see-more" to="/product"
+            ><h4>See more products <i class="fa-solid fa-angles-right"></i></h4>
+          </router-link>
         </div>
       </div>
     </div>
@@ -137,7 +137,7 @@ export default {
 }
 
 .content-wrapper {
-  padding: 0px 9%;
+  padding: 0px 8%;
 }
 
 .fabric-heading {
@@ -156,6 +156,7 @@ export default {
   object-fit: cover;
   width: 420px;
   border-radius: 6px;
+  border: 1px solid #b7b7b7;
 }
 
 .item-text {
@@ -186,7 +187,7 @@ export default {
   background: #fff;
   z-index: -1;
   transform-origin: left;
-  transition: transform 1s ease;
+  transition: transform 0.5s ease-out;
   transform: scaleX(1);
   border-radius: 4px;
 }
@@ -198,7 +199,7 @@ export default {
 
 .p-btn:hover::before {
   transform-origin: right;
-  transition: transform 0.5s ease;
+  transition: transform 0.5s ease-in;
   transform: scaleX(0);
 }
 
@@ -220,10 +221,47 @@ export default {
 }
 
 .more-p {
-  text-decoration: underline;
   font-family: "Chakra Petch", sans-serif;
   font-weight: 700;
   font-style: normal;
+}
+
+.see-more {
+  width: auto;
+  padding: 10px 10px;
+  display: block;
+  margin: 0px auto;
+  position: relative;
+  overflow: hidden;
+  transition: 400ms;
+
+  border-radius: 50px;
+}
+
+.see-more h4 {
+  margin: 0px;
+}
+
+.see-more:hover {
+  color: red;
+  width: auto;
+  padding-right: 20px;
+}
+
+.see-more .fa-solid {
+  position: absolute;
+  font-size: 14px;
+  top: 39%;
+  margin-left: 10px;
+  transform: translateX(-60%);
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.see-more:hover .fa-solid {
+  opacity: 1;
+  color: red;
+  transform: translateX(0);
 }
 
 @media (max-width: 1600px) {

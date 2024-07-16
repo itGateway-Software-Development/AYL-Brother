@@ -114,7 +114,7 @@
               </li>
               <li>
                 <router-link
-                  class="nav-link footer-btn d-flex align-items-center"
+                  class="footer-link footer-btn d-flex align-items-center"
                   to="/register"
                   ><p>Sign Up Now</p>
                   <i class="fa-solid fa-arrow-right"></i
@@ -197,20 +197,9 @@
               <router-link class="nav-link" to="/cart">
                 <p>Add to Cart</p>
               </router-link>
-              <router-link class="nav-link" to="/checkout">
-                <p>Checkout</p>
-              </router-link>
-              <router-link class="nav-link" to="/">
-                <p>Delivery</p>
-              </router-link>
-              <router-link class="nav-link" to="/">
-                <p>Return</p>
-              </router-link>
+
               <router-link class="nav-link" to="/">
                 <p>Track My Order</p>
-              </router-link>
-              <router-link class="nav-link" to="/">
-                <p>Shipping</p>
               </router-link>
             </div>
           </li>
@@ -243,9 +232,7 @@
               <router-link class="nav-link" to="/">
                 <p>Membership</p>
               </router-link>
-              <router-link class="nav-link" to="/">
-                <p>Promotion</p>
-              </router-link>
+
               <router-link class="nav-link" to="/contact">
                 <p>Contact</p>
               </router-link>
@@ -467,8 +454,13 @@ export default {
   background: red;
 }
 
+.footer-link {
+  text-decoration: none;
+}
+
 .nav-link:hover {
-  color: #fff;
+  color: red;
+  transition: 0.5s;
 }
 
 .footer-btn .fa-solid {

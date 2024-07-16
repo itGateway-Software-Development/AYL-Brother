@@ -883,7 +883,12 @@ export default {
 
 @media (max-width: 600px) {
   .modal-dialog {
-    max-width: 300px !important;
+    max-width: auto;
+    padding: 0px 15px 0px 0px;
+  }
+
+  .right-content {
+    padding-left: 0px;
   }
 
   .size-list {
@@ -895,18 +900,23 @@ export default {
     width: 120px;
   }
 
+  .review {
+    padding: 0px;
+  }
+
   .add-btn,
   .wish-btn {
-    width: 340px;
+    width: 290px;
   }
   .mini-photo {
     width: 100%;
     display: flex;
+    justify-content: center;
   }
 
   .mini-photo img {
-    width: 60px;
-    margin: 0px 5px 0px 0px;
+    width: 55px;
+    margin: 0px 5px 0px 5px;
   }
 
   .left-photo {
@@ -941,6 +951,16 @@ export default {
   .card-list {
     padding: 0px 0px;
     margin-right: 5px;
+  }
+
+  .size-card {
+    margin: 0px 10px 0px 0px;
+  }
+  .size-list {
+    justify-content: center !important;
+    align-content: center;
+    display: block;
+    margin: 0px auto;
   }
 }
 

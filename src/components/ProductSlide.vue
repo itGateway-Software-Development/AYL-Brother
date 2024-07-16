@@ -275,7 +275,7 @@ export default {};
 
 .btn-1 {
   margin: 0px 20px;
-  width: 200px;
+  width: 190px;
   border: 1px solid red;
   text-align: center;
   justify-content: center;
@@ -348,19 +348,19 @@ export default {};
 }
 
 .btn-1 p {
-  font-size: 18px;
+  font-size: 14px;
 }
 
 .btn-3 {
   padding: 10px 30px;
 }
 .btn-3 p {
-  font-size: 20px;
+  font-size: 14px;
 }
 
 .btn-2 {
   margin: 20px 20px 0px 0px;
-  width: 180px;
+  width: 160px;
   border: 1px solid red;
   text-align: center;
   justify-content: center;
@@ -405,15 +405,15 @@ export default {};
 }
 
 .btn-2 p {
-  font-size: 20px !important;
+  font-size: 14px !important;
 }
 
 .btn-2 .fa-solid {
-  font-size: 20px;
+  font-size: 14px;
 }
 
 .btn-1 .fa-solid {
-  font-size: 20px;
+  font-size: 14px;
 }
 
 .nav-link:hover {

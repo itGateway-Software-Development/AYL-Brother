@@ -182,5 +182,9 @@ export default {
   .p-content {
     padding: 0px;
   }
+
+  .content-about-us {
+    margin-bottom: 50px;
+  }
 }
 </style>

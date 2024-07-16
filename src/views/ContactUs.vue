@@ -183,7 +183,7 @@ iframe {
 
 @media (max-width: 600px) {
   .map {
-    width: 380px;
+    width: 360px;
   }
 
   .contact {
@@ -191,7 +191,7 @@ iframe {
   }
 
   iframe {
-    width: 380px !important;
+    width: 360px !important;
   }
 
   .text-contact {
@@ -203,8 +203,8 @@ iframe {
     height: max-content;
     margin-bottom: 10px;
   }
-  .box-content {
+  /* .box-content {
     margin: 0px -10px 0px;
-  }
+  } */
 }
 </style>
