@@ -126,9 +126,9 @@ export default {
 
 <style scoped>
 .back {
-  padding-top: 165px;
+  padding-top: 160px;
   background: var(--background-color);
-  margin-bottom: 100px;
+  margin-bottom: 95px;
 }
 .main-section {
   width: 100%;
@@ -308,13 +308,23 @@ export default {
   margin: 35px 0px;
 }
 
-@media (max-width: 1600px) {
-  /* .carousel-item img {
-    width: 750px;
-  } */
+@media (max-width: 1920px) {
+  .carousel-item img {
+    height: 600px !important;
+  }
+}
+
+@media (max-width: 1690px) {
+  .carousel-item img {
+    height: 500px !important;
+  }
+
+  .back {
+    padding-top: 160px;
+  }
 
   .v-carousel {
-    height: max-content !important;
+    height: 600px !important;
   }
 
   .content-box {
@@ -339,6 +349,20 @@ export default {
   .carousel-control-next {
     left: 5%;
   } */
+}
+
+@media (max-width: 1390px) {
+  .back {
+    padding-top: 140px;
+  }
+  .carousel-item img {
+    height: auto !important;
+    width: auto !important;
+  }
+
+  .v-carousel {
+    height: auto !important;
+  }
 }
 
 @media (max-width: 1400px) {
