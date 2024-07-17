@@ -286,13 +286,13 @@ export default {
   border: 1px solid var(--border-color);
   border-radius: 5px;
   cursor: pointer;
+  color: var(--font-color);
 }
 
 .size p {
   font-size: 14px;
   font-weight: bold;
   padding: 9px 0;
-  color: var(--font-color);
 }
 
 .size:hover {

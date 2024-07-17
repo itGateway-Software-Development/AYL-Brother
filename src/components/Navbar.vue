@@ -951,7 +951,7 @@ export default {
   display: block;
   visibility: hidden;
   position: absolute;
-  left: 8.5%;
+  left: 8%;
   top: 50%;
   background: var(--background-color);
   list-style-type: none;
@@ -960,7 +960,8 @@ export default {
   z-index: 1;
   border: 1px solid red;
   border-radius: 2px;
-  transition: 0.1s ease-out;
+  transition: 0.3s;
+  margin-left: -100px;
 }
 
 .dropdowns .dropdown-submenu {
@@ -970,7 +971,7 @@ export default {
   top: 0%;
   background: var(--background-color);
   list-style-type: none;
-  margin-top: -0.8px;
+  margin-top: -0.7px;
   padding: 0;
   border: 1px solid red;
 }
@@ -1016,6 +1017,7 @@ export default {
 .nav-link:hover > .dropdowns,
 .dropdown-items:hover > .dropdown-submenu {
   visibility: visible;
+  margin-left: 0px;
 }
 
 .dropdown-mobile {
