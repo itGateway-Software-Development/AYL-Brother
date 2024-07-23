@@ -170,7 +170,7 @@ export default {
   }
 
   .about-us-section {
-    margin: 20px 0px;
+    margin: 50px 0px;
   }
 }
 

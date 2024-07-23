@@ -3,126 +3,174 @@
     <div class="photo-list">
       <div class="photo-slider">
         <div class="photo-card">
-          <img src="../assets/product/5002/A.jpg" alt="" />
-          <p class="text-center">Spandex Series</p>
-          <p class="text-center">5002</p>
+          <router-link to="/products/spandex/5002" class="nav-link">
+            <img src="../assets/product/5002/A.jpg" alt="" />
+            <p class="text-center">Spandex Series</p>
+            <p class="text-center">5002</p></router-link
+          >
         </div>
         <div class="photo-card">
-          <img src="../assets/product/5003/1.jpg" alt="" />
-          <p class="text-center">Spandex Series</p>
-          <p class="text-center">5003</p>
+          <router-link class="nav-link" to="/products/spandex/5003">
+            <img src="../assets/product/5003/1.jpg" alt="" />
+            <p class="text-center">Spandex Series</p>
+            <p class="text-center">5003</p>
+          </router-link>
         </div>
         <div class="photo-card">
-          <img src="../assets/product/5012/1.jpg" alt="" />
-          <p class="text-center">Spandex Series</p>
-          <p class="text-center">5012</p>
+          <router-link class="nav-link" to="/products/spandex/5012">
+            <img src="../assets/product/5012/1.jpg" alt="" />
+            <p class="text-center">Spandex Series</p>
+            <p class="text-center">5012</p>
+          </router-link>
         </div>
         <div class="photo-card">
-          <img src="../assets/product/5013/1.jpg" alt="" />
-          <p class="text-center">Spandex Series</p>
-          <p class="text-center">5013</p>
+          <router-link class="nav-link" to="/products/spandex/5013">
+            <img src="../assets/product/5013/1.jpg" alt="" />
+            <p class="text-center">Spandex Series</p>
+            <p class="text-center">5013</p>
+          </router-link>
         </div>
         <div class="photo-card">
-          <img src="../assets/product/8003/1.jpg" alt="" />
-          <p class="text-center">Bamboo Series</p>
-          <p class="text-center">8003</p>
+          <router-link class="nav-link" to="/products/bamboo/8003">
+            <img src="../assets/product/8003/1.jpg" alt="" />
+            <p class="text-center">Bamboo Series</p>
+            <p class="text-center">8003</p>
+          </router-link>
         </div>
         <div class="photo-card">
-          <img src="../assets/product/8004/1.jpg" alt="" />
-          <p class="text-center">Bamboo Series</p>
-          <p class="text-center">8004</p>
+          <router-link class="nav-link" to="products/bamboo/8004">
+            <img src="../assets/product/8004/1.jpg" alt="" />
+            <p class="text-center">Bamboo Series</p>
+            <p class="text-center">8004</p></router-link
+          >
         </div>
         <div class="photo-card">
-          <img src="../assets/product/8017/1.jpg" alt="" />
-          <p class="text-center">Bamboo Series</p>
-          <p class="text-center">8017</p>
+          <router-link class="nav-link" to="/products/bamboo/8017">
+            <img src="../assets/product/8017/1.jpg" alt="" />
+            <p class="text-center">Bamboo Series</p>
+            <p class="text-center">8017</p>
+          </router-link>
         </div>
         <div class="photo-card">
-          <img src="../assets/product/8018/9.jpg" alt="" />
-          <p class="text-center">Bamboo Series</p>
-          <p class="text-center">8018</p>
+          <router-link class="nav-link" to="/products/bamboo/8018">
+            <img src="../assets/product/8018/9.jpg" alt="" />
+            <p class="text-center">Bamboo Series</p>
+            <p class="text-center">8018</p></router-link
+          >
         </div>
         <div class="photo-card">
-          <img src="../assets/product/8027/20.jpg" alt="" />
-          <p class="text-center">Bamboo Series</p>
-          <p class="text-center">8027</p>
+          <router-link class="nav-link" to="products/bamboo/8027">
+            <img src="../assets/product/8027/20.jpg" alt="" />
+            <p class="text-center">Bamboo Series</p>
+            <p class="text-center">8027</p>
+          </router-link>
         </div>
         <div class="photo-card">
-          <img src="../assets/product/8028/20.jpg" alt="" />
-          <p class="text-center">Bamboo Series</p>
-          <p class="text-center">8028</p>
+          <router-link class="nav-link" to="/products/bamboo/8028">
+            <img src="../assets/product/8028/20.jpg" alt="" />
+            <p class="text-center">Bamboo Series</p>
+            <p class="text-center">8028</p>
+          </router-link>
         </div>
         <div class="photo-card">
-          <img src="../assets/product/8076/I.jpg" alt="" />
-          <p class="text-center">Modal Series</p>
-          <p class="text-center">8076</p>
+          <router-link class="nav-link" to="/products/lycra/8076">
+            <img src="../assets/product/8076/I.jpg" alt="" />
+            <p class="text-center">Modal Series</p>
+            <p class="text-center">8076</p>
+          </router-link>
         </div>
         <div class="photo-card">
-          <img src="../assets/product/8077/7.jpg" alt="" />
-          <p class="text-center">Modal Series</p>
-          <p class="text-center">8077</p>
+          <router-link class="nav-link" to="/products/lycra/8077">
+            <img src="../assets/product/8077/7.jpg" alt="" />
+            <p class="text-center">Modal Series</p>
+            <p class="text-center">8077</p>
+          </router-link>
         </div>
       </div>
       <div class="photo-slider">
         <div class="photo-card">
-          <img src="../assets/product/5002/A.jpg" alt="" />
-          <p class="text-center">Spandex Series</p>
-          <p class="text-center">5002</p>
+          <router-link to="/products/spandex/5002" class="nav-link">
+            <img src="../assets/product/5002/A.jpg" alt="" />
+            <p class="text-center">Spandex Series</p>
+            <p class="text-center">5002</p></router-link
+          >
         </div>
         <div class="photo-card">
-          <img src="../assets/product/5003/1.jpg" alt="" />
-          <p class="text-center">Spandex Series</p>
-          <p class="text-center">5003</p>
+          <router-link class="nav-link" to="/products/spandex/5003">
+            <img src="../assets/product/5003/1.jpg" alt="" />
+            <p class="text-center">Spandex Series</p>
+            <p class="text-center">5003</p>
+          </router-link>
         </div>
         <div class="photo-card">
-          <img src="../assets/product/5012/1.jpg" alt="" />
-          <p class="text-center">Spandex Series</p>
-          <p class="text-center">5012</p>
+          <router-link class="nav-link" to="/products/spandex/5012">
+            <img src="../assets/product/5012/1.jpg" alt="" />
+            <p class="text-center">Spandex Series</p>
+            <p class="text-center">5012</p>
+          </router-link>
         </div>
         <div class="photo-card">
-          <img src="../assets/product/5013/1.jpg" alt="" />
-          <p class="text-center">Spandex Series</p>
-          <p class="text-center">5013</p>
+          <router-link class="nav-link" to="/products/spandex/5013">
+            <img src="../assets/product/5013/1.jpg" alt="" />
+            <p class="text-center">Spandex Series</p>
+            <p class="text-center">5013</p>
+          </router-link>
         </div>
         <div class="photo-card">
-          <img src="../assets/product/8003/1.jpg" alt="" />
-          <p class="text-center">Bamboo Series</p>
-          <p class="text-center">8003</p>
+          <router-link class="nav-link" to="/products/bamboo/8003">
+            <img src="../assets/product/8003/1.jpg" alt="" />
+            <p class="text-center">Bamboo Series</p>
+            <p class="text-center">8003</p>
+          </router-link>
         </div>
         <div class="photo-card">
-          <img src="../assets/product/8004/1.jpg" alt="" />
-          <p class="text-center">Bamboo Series</p>
-          <p class="text-center">8004</p>
+          <router-link class="nav-link" to="products/bamboo/8004">
+            <img src="../assets/product/8004/1.jpg" alt="" />
+            <p class="text-center">Bamboo Series</p>
+            <p class="text-center">8004</p></router-link
+          >
         </div>
         <div class="photo-card">
-          <img src="../assets/product/8017/1.jpg" alt="" />
-          <p class="text-center">Bamboo Series</p>
-          <p class="text-center">8017</p>
+          <router-link class="nav-link" to="/products/bamboo/8017">
+            <img src="../assets/product/8017/1.jpg" alt="" />
+            <p class="text-center">Bamboo Series</p>
+            <p class="text-center">8017</p>
+          </router-link>
         </div>
         <div class="photo-card">
-          <img src="../assets/product/8018/9.jpg" alt="" />
-          <p class="text-center">Bamboo Series</p>
-          <p class="text-center">8018</p>
+          <router-link class="nav-link" to="/products/bamboo/8018">
+            <img src="../assets/product/8018/9.jpg" alt="" />
+            <p class="text-center">Bamboo Series</p>
+            <p class="text-center">8018</p></router-link
+          >
         </div>
         <div class="photo-card">
-          <img src="../assets/product/8027/20.jpg" alt="" />
-          <p class="text-center">Bamboo Series</p>
-          <p class="text-center">8027</p>
+          <router-link class="nav-link" to="products/bamboo/8027">
+            <img src="../assets/product/8027/20.jpg" alt="" />
+            <p class="text-center">Bamboo Series</p>
+            <p class="text-center">8027</p>
+          </router-link>
         </div>
         <div class="photo-card">
-          <img src="../assets/product/8028/20.jpg" alt="" />
-          <p class="text-center">Bamboo Series</p>
-          <p class="text-center">8028</p>
+          <router-link class="nav-link" to="/products/bamboo/8028">
+            <img src="../assets/product/8028/20.jpg" alt="" />
+            <p class="text-center">Bamboo Series</p>
+            <p class="text-center">8028</p>
+          </router-link>
         </div>
         <div class="photo-card">
-          <img src="../assets/product/8076/I.jpg" alt="" />
-          <p class="text-center">Modal Series</p>
-          <p class="text-center">8076</p>
+          <router-link class="nav-link" to="/products/lycra/8076">
+            <img src="../assets/product/8076/I.jpg" alt="" />
+            <p class="text-center">Modal Series</p>
+            <p class="text-center">8076</p>
+          </router-link>
         </div>
         <div class="photo-card">
-          <img src="../assets/product/8077/7.jpg" alt="" />
-          <p class="text-center">Modal Series</p>
-          <p class="text-center">8077</p>
+          <router-link class="nav-link" to="/products/lycra/8077">
+            <img src="../assets/product/8077/7.jpg" alt="" />
+            <p class="text-center">Modal Series</p>
+            <p class="text-center">8077</p>
+          </router-link>
         </div>
       </div>
     </div>

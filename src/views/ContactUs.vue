@@ -158,7 +158,7 @@ iframe {
 
 @media (max-width: 860px) {
   .contact-us {
-    margin: 30px 0;
+    margin: 60px 0;
   }
   .contact-box {
     width: 100%;

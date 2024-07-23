@@ -10,6 +10,7 @@ import Bamboo from "../views/product/Bamboo.vue";
 import ContactUs from "../views/ContactUs.vue";
 import CheckOut from "../views/CheckOut.vue";
 import AboutUs from "../views/AboutUs.vue";
+import Profile from "../views/Profile.vue";
 
 const routes = [
   {
@@ -68,6 +69,11 @@ const routes = [
     path: "/about-us",
     name: "aboutus",
     component: AboutUs,
+  },
+  {
+    path: "/myprofile",
+    name: "myprofile",
+    component: Profile,
   },
 ];
 

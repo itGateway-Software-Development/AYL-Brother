@@ -245,9 +245,8 @@ export default {};
 .text-carousel-content {
   height: 400px;
   background: #f2f2f2;
-  padding: 100px;
+  padding: 80px;
   margin: 0px auto;
-  margin-left: -20px;
   border-radius: 6px;
   align-content: center;
 }

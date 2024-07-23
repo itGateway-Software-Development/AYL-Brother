@@ -197,6 +197,7 @@ export default {
 <style>
 .login-form {
   margin: 150px 0px;
+  color: var(--font-color);
 }
 
 .form-login {
@@ -212,6 +213,7 @@ export default {
   font-family: "Kanit", sans-serif;
   font-weight: 100;
   font-style: normal;
+  color: var(--font-color);
 }
 
 .check-form {
@@ -268,20 +270,43 @@ export default {
 }
 
 .login-btn {
+  position: relative;
   width: 400px;
-  height: 50px;
-  text-align: center;
-  font-family: "Kanit", sans-serif;
-  font-weight: 600;
-  font-style: normal;
-  background: #111;
-  color: #fff;
-  font-size: 20px;
+  height: 40px;
+  margin-top: 10px;
+  padding: 5px 40px;
+  border: 1px solid red;
+  border-radius: 6px;
+  color: #111;
+  background: red;
+  z-index: 1;
+  transition: 1s;
+}
+
+.login-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  border-radius: 6px;
+  z-index: -1;
+  transform-origin: left;
+  transition: transform 1s ease;
+  transform: scaleX(1);
 }
 
 .login-btn:hover {
   background: red;
   color: #fff;
+}
+
+.login-btn:hover::before {
+  transform-origin: right;
+  transition: transform 0.5s ease;
+  transform: scaleX(0);
 }
 
 .f-pass {

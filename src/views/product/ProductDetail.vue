@@ -46,22 +46,6 @@
             </div>
             <div class="modal-body">
               <form>
-                <v-text-field
-                  required
-                  clearable
-                  v-model="nickName"
-                  label="Nickname"
-                  type="text"
-                  variant="outlined"
-                ></v-text-field>
-                <v-text-field
-                  required
-                  clearable
-                  v-model="email"
-                  label="Email"
-                  type="email"
-                  variant="outlined"
-                ></v-text-field>
                 <div class="text-start mb-5">
                   <h5 class="ms-2">Rating</h5>
                   <v-rating
@@ -210,35 +194,19 @@
               <div class="size-detail">
                 <div
                   class="d-flex justify-content-between align-items-center detail-p"
-                >
-                  <p>Details</p>
-                  <span
-                    class="material-symbols-outlined"
-                    @click="detail_content = !detail_content"
-                  >
-                    keyboard_arrow_down
-                  </span>
-                </div>
-                <div class="detail-content" v-if="detail_content">
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Esse, corrupti rem nesciunt, vitae reprehenderit ea ipsa
-                    praesentium porro explicabo aut veniam? Et soluta
-                    repellendus vel sint aspernatur qui repudiandae minus ipsam
-                    expedita exercitationem nulla delectus autem doloremque
-                    consequatur quo tenetur in aliquid sequi animi veniam
-                    ratione, dolorum itaque? Quis numquam laboriosam, tenetur
-                  </p>
-                </div>
-              </div>
-              <div class="size-detail">
-                <div
-                  class="d-flex justify-content-between align-items-center size-p"
+                  @click="size_chart = !size_chart"
                 >
                   <p>Size & Fits</p>
                   <span class="material-symbols-outlined">
                     keyboard_arrow_down
                   </span>
+                </div>
+                <div class="size-fits-content" v-if="size_chart">
+                  <img
+                    src="../../assets/size_chart.png"
+                    alt=""
+                    class="img-fluid"
+                  />
                 </div>
               </div>
               <div class="review">
@@ -373,7 +341,7 @@ export default {
       }
     };
 
-    const detail_content = ref(false);
+    const size_chart = ref(false);
 
     const products = computed(() => store.getters["products"]);
     const product = computed(() => {
@@ -558,7 +526,7 @@ export default {
       showMagnifier,
       hideMagnifier,
       moveMagnifier,
-      detail_content,
+      size_chart,
       rating,
       nickName,
       email,
@@ -778,6 +746,7 @@ export default {
 }
 
 .review-border {
+  border-top: 1px solid #111;
   border-bottom: 1px solid #111;
   padding: 12px 5px;
 }
@@ -855,7 +824,7 @@ export default {
 
 @media (max-width: 860px) {
   .detail {
-    margin: 10px auto;
+    margin: 50px auto;
   }
 
   .left-photo,

@@ -469,11 +469,11 @@
                       <li>
                         <router-link
                           class="dropdown-item d-flex align-items-center icon-text nav-link"
-                          to="/"
+                          to="/myprofile"
                           ><span class="material-symbols-outlined">
                             person
                           </span>
-                          <p>My Profile</p>
+                          <p class="ps-3">My Profile</p>
                         </router-link>
                       </li>
                       <li>
@@ -483,7 +483,7 @@
                           ><span class="material-symbols-outlined">
                             settings
                           </span>
-                          <p>Settings</p></router-link
+                          <p class="ps-3">Settings</p></router-link
                         >
                       </li>
                       <li>
@@ -498,7 +498,7 @@
                           <span class="material-symbols-outlined">
                             power_settings_new
                           </span>
-                          <p>Logout</p>
+                          <p class="ps-3">Logout</p>
                         </button>
                       </li>
                     </ul>
@@ -580,7 +580,10 @@
                 ></a>
               </li>
               <li>
-                <a class="nav-link" href="/"
+                <a
+                  class="nav-link"
+                  href="https://invite.viber.com/?g2=AQAYd09n5%2BwZBVLyWr2tbl1zvdC0iLsfQJ9LHesOX8%2BM%2FUHvVhjF2jJQVaHiy5%2Fq"
+                  target="_blank"
                   ><i class="fa-brands fa-viber"></i
                 ></a>
               </li>
@@ -689,6 +692,14 @@ export default {
         header.classList.remove("scrolled");
       }
     });
+    document.addEventListener("scroll", () => {
+      const mbHeader = document.getElementById("nav1");
+      if (window.scrollY > 0) {
+        mbHeader.classList.add("scrolled");
+      } else {
+        mbHeader.classList.remove("scrolled");
+      }
+    });
 
     onMounted(() => {});
 
@@ -729,9 +740,12 @@ export default {
 }
 
 .nav1 {
-  padding: 5px;
-  height: 50px;
+  width: 100%;
   display: none;
+  position: fixed;
+  background-color: var(--background-color);
+  transition: bacground-color 0.4s ease-in-out;
+  z-index: 10;
 }
 
 .nav2 {
@@ -801,6 +815,10 @@ export default {
   background: var(--background-color);
   color: var(--font-color);
 }
+.form-control:focus {
+  box-shadow: 0px 0px;
+  border-color: red;
+}
 
 .img-padding {
   margin-right: 160px !important;
@@ -848,6 +866,11 @@ export default {
 .nav2.scrolled {
   /* background-color: #f2f2f2; */
   border-bottom: 0.5px solid #f2f2f2;
+  box-shadow: 5px 5px 5px #b7b7b7;
+}
+
+.nav1.scrolled {
+  border-bottom: 1px solid #f2f2f2;
   box-shadow: 5px 5px 5px #b7b7b7;
 }
 
@@ -1252,7 +1275,7 @@ export default {
 
   .cart-count {
     right: 0;
-    top: 5px;
+    top: 0;
     padding: 2px 8px;
   }
   .icon-group .fa-solid {

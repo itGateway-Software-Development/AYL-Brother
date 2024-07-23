@@ -139,10 +139,17 @@
             target="_blank"
             ><i class="fa-brands fa-youtube"></i
           ></a>
-          <a href="#" class="nav-link"> <i class="fa-brands fa-tiktok"></i></a>
-          <a href="#" class="nav-link"><i class="fa-brands fa-linkedin"></i></a>
-          <a href="#" class="nav-link"
-            ><i class="fa-brands fa-square-x-twitter"></i
+          <a
+            class="nav-link"
+            href="https://invite.viber.com/?g2=AQAYd09n5%2BwZBVLyWr2tbl1zvdC0iLsfQJ9LHesOX8%2BM%2FUHvVhjF2jJQVaHiy5%2Fq"
+            target="_blank"
+            ><i class="fa-brands fa-viber"></i
+          ></a>
+          <a
+            class="nav-link"
+            href="https://t.me/romanticmenunderwear"
+            target="_blank"
+            ><i class="fa-brands fa-telegram"></i
           ></a>
         </div>
       </div>
@@ -266,22 +273,27 @@
             <a
               href="https://www.facebook.com/romanticmenunderwear/?ref=embed_page"
               class="nav-link"
+              target="_blank"
             >
               <i class="fa-brands fa-square-facebook"></i
             ></a>
             <a
               class="nav-link"
+              target="_blank"
               href="https://www.youtube.com/@RomanticUnderwear"
               ><i class="fa-brands fa-youtube"></i
             ></a>
-            <a href="#" class="nav-link">
-              <i class="fa-brands fa-tiktok"></i
+            <a
+              class="nav-link"
+              href="https://invite.viber.com/?g2=AQAYd09n5%2BwZBVLyWr2tbl1zvdC0iLsfQJ9LHesOX8%2BM%2FUHvVhjF2jJQVaHiy5%2Fq"
+              target="_blank"
+              ><i class="fa-brands fa-viber"></i
             ></a>
-            <a href="#" class="nav-link"
-              ><i class="fa-brands fa-linkedin"></i
-            ></a>
-            <a href="#" class="nav-link"
-              ><i class="fa-brands fa-square-x-twitter"></i
+            <a
+              class="nav-link"
+              href="https://t.me/romanticmenunderwear"
+              target="_blank"
+              ><i class="fa-brands fa-telegram"></i
             ></a>
           </div>
         </div>

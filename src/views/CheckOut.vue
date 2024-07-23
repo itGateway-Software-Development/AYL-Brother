@@ -642,6 +642,7 @@ export default {
   border-top: 1px solid #1773b0;
   border-radius: 10px;
   background-color: rgba(240, 247, 255, 1);
+  width: 800px;
 }
 
 .cash-delivery,
@@ -805,7 +806,7 @@ export default {
   } */
   .check-out {
     margin-top: 20px;
-    padding-top: 20px;
+    padding-top: 50px;
     padding-bottom: 100px;
   }
 }

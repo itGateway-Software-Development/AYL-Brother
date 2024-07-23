@@ -107,14 +107,24 @@
                   <p class="text-center">L(31-32)</p>
                 </div>
               </div>
-              <div class="col-6">
+              <div class="col-6 mb-3">
                 <div class="size">
                   <p class="text-center">XL(33-35)</p>
                 </div>
               </div>
-              <div class="col-6">
+              <div class="col-6 mb-3">
                 <div class="size">
                   <p class="text-center">XXL(36-38)</p>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="size">
+                  <p class="text-center">3XL(39-41)</p>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="size">
+                  <p class="text-center">4XL(42-44)</p>
                 </div>
               </div>
             </div>
@@ -258,7 +268,7 @@ export default {
     let price_show = ref(false);
     let fabric_show = ref(false);
     let color_show = ref(false);
-    let size_show = ref(true);
+    let size_show = ref(false);
 
     let islow = ref(false);
     let ismedium = ref(false);

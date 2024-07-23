@@ -5,7 +5,7 @@
 }
 
 :root {
-  --background-color: #242142;
+  --background-color: #0f0d1f;
   --background-light-color: #fff;
 
   --sec-background-color: #302d58;
@@ -23,7 +23,7 @@
   --language-bg-color: #f2f2f2;
   --language-bg-light-color: #dcdcdc;
 
-  --footer-background-color: #142142;
+  --footer-background-color: #1d2436;
   --footer-light-background-color: #c8d0d8;
 
   --border-color: #ffffff;
@@ -123,29 +123,6 @@ h5 {
 .shopnow-button:hover {
   background-color: red;
   color: #fff;
-}
-
-.btn {
-  display: block;
-  width: 100%;
-  z-index: 2;
-  position: relative;
-  text-decoration: none;
-  box-sizing: border-box;
-}
-
-.btn::after {
-  content: "";
-  width: 0px;
-  background: red;
-  color: #fff;
-  transition: all 0.3s ease 0s;
-  z-index: -1;
-  position: absolute;
-}
-
-.btn:hover::after {
-  width: 100%;
 }
 
 @media (max-width: 1200px) {

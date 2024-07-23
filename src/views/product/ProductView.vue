@@ -57,6 +57,10 @@ export default {
   text-decoration: underline;
 }
 
+.f-list {
+  padding-right: 50px;
+}
+
 @media (max-width: 1400px) {
   .content-wrapper {
     padding: 0px 6%;
@@ -87,7 +91,11 @@ export default {
 @media (max-width: 500px) {
   .product {
     display: block;
-    margin: 20px auto;
+    margin: 70px auto;
+  }
+
+  .f-list {
+    padding-right: 0px;
   }
 }
 </style>

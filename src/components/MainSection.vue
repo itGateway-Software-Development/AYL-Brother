@@ -2,8 +2,25 @@
   <div class="back">
     <div class="main-section">
       <div class="content-wrapper">
-        <v-carousel show-arrows="hover" cycle hide-delimiters>
+        <v-carousel
+          show-arrows="hover"
+          cycle
+          hide-delimiters
+          class="desktop-carousel"
+        >
           <v-carousel-item v-for="image in carousel" :key="image.id">
+            <div class="carousel-item active">
+              <img :src="image.img" alt="" class="img-fluid" />
+            </div>
+          </v-carousel-item>
+        </v-carousel>
+        <v-carousel
+          show-arrows="hover"
+          cycle
+          hide-delimiters
+          class="mobile-carousel"
+        >
+          <v-carousel-item v-for="image in mbCarousel" :key="image.id">
             <div class="carousel-item active">
               <img :src="image.img" alt="" class="img-fluid" />
             </div>
@@ -101,34 +118,38 @@ export default {
       },
     ];
 
-    const brief = [
+    const mbCarousel = [
       {
         id: 1,
-        img: require("@/assets/product/5002/A.jpg"),
+        img: require("@/assets/mini-photo/2.jpg"),
       },
       {
         id: 2,
-        img: require("@/assets/product/5002/B.jpg"),
+        img: require("@/assets/mini-photo/4.jpg"),
       },
       {
         id: 3,
-        img: require("@/assets/product/5002/C.jpg"),
+        img: require("@/assets/mini-photo/5.jpg"),
       },
     ];
 
     return {
       carousel,
-      brief,
+      mbCarousel,
     };
   },
 };
 </script>
 
 <style scoped>
+.mobile-carousel {
+  display: none;
+}
+
 .back {
-  padding-top: 160px;
+  padding-top: 180px;
   background: var(--background-color);
-  margin-bottom: 95px;
+  margin-bottom: 150px;
 }
 .main-section {
   width: 100%;
@@ -137,10 +158,6 @@ export default {
   align-items: center;
   justify-content: center;
   max-width: auto;
-}
-
-.v-carousel {
-  height: 600px !important;
 }
 
 .content-wrapper {
@@ -177,18 +194,6 @@ export default {
   margin-left: 10px;
 }
 
-.main-banner img {
-  width: 1500px;
-  height: 200px;
-  object-fit: cover;
-}
-
-.main-img img {
-  height: 1000px;
-  object-fit: cover;
-  margin-left: 5px;
-}
-
 .mobile-main-product-section {
   display: none;
 }
@@ -207,8 +212,7 @@ export default {
 }
 
 .carousel-item img {
-  width: 1920px;
-  height: 600px;
+  width: 100%;
 }
 
 .content-box {
@@ -306,49 +310,6 @@ export default {
 
 .content-header {
   margin: 35px 0px;
-}
-
-@media (max-width: 1920px) {
-  .carousel-item img {
-    height: 600px !important;
-  }
-}
-
-@media (max-width: 1690px) {
-  .carousel-item img {
-    height: 500px !important;
-  }
-
-  .back {
-    padding-top: 160px;
-  }
-
-  .v-carousel {
-    height: 600px !important;
-  }
-
-  .content-box {
-    width: 750px;
-    height: 480px;
-    margin-top: 25px;
-  }
-
-  .bb-1 {
-    margin-top: 50px;
-  }
-
-  .content-buttom {
-    margin-top: 80px;
-    margin-left: 360px;
-  }
-  /* .carousel-control-next,
-  .carousel-control-prev {
-    top: 88%;
-  }
-
-  .carousel-control-next {
-    left: 5%;
-  } */
 }
 
 @media (max-width: 1390px) {
@@ -549,26 +510,25 @@ export default {
 }
 
 @media (max-width: 600px) {
-  .main-banner img {
-    width: 450px;
+  .mobile-carousel {
+    display: block;
   }
 
   .content-wrapper {
     padding: 0px;
   }
 
+  .desktop-carousel {
+    display: none;
+  }
+
   .back {
     margin-bottom: 0px;
-    padding: 0px 0px;
+    padding-top: 50px;
   }
 
   .content-box {
     display: none;
-  }
-
-  .carousel-item img {
-    width: 500px;
-    height: 250px;
   }
 
   .main-banner {

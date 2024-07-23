@@ -5,7 +5,7 @@
         <div class="fabric-heading text-center">
           <h2>Product Series</h2>
         </div>
-        <div class="row ab-row">
+        <div class="row fabric-row">
           <div class="col-4 item-col">
             <div class="product-series">
               <div class="item">
@@ -264,9 +264,6 @@ export default {
   transform: translateX(0);
 }
 
-@media (max-width: 1600px) {
-}
-
 @media (max-width: 1400px) {
   .content-wrapper {
     padding: 0px 7%;
@@ -307,7 +304,7 @@ export default {
   }
 
   .item img {
-    width: auto;
+    width: 100%;
     height: auto;
   }
 
@@ -326,12 +323,12 @@ export default {
     font-size: 20px;
   }
   .item-col {
-    width: 100%;
+    width: 50%;
     margin: 20px 0px;
   }
 
   .item img {
-    width: 400px;
+    width: 200px;
     height: auto;
   }
 
@@ -341,6 +338,16 @@ export default {
 
   .fabric-heading {
     margin: 20px 0px;
+  }
+
+  .fabric-row {
+    align-content: center;
+    justify-content: center;
+  }
+
+  .p-btn {
+    font-size: 12px !important;
+    width: 160px;
   }
 }
 

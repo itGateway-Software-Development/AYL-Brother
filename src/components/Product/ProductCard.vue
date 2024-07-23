@@ -222,6 +222,8 @@ export default {
 <style scoped>
 .card-img img {
   border-radius: 5px;
+  width: 100%;
+  object-fit: cover;
 }
 
 .p-color {
@@ -244,7 +246,7 @@ export default {
 }
 
 .add-btn {
-  width: auto;
+  width: 300px;
   background: #111;
   color: #fff;
   margin: 0px auto;
@@ -261,7 +263,7 @@ export default {
 }
 
 .wish-btn {
-  width: auto;
+  width: 300px;
   border: 1px solid var(--border-color);
   color: var(--font-color);
   margin: 0px auto;
@@ -281,55 +283,25 @@ export default {
 }
 
 .size {
-  width: 70px;
   height: 40px;
   border: 1px solid var(--border-color);
   border-radius: 5px;
   cursor: pointer;
   color: var(--font-color);
+  text-align: center;
+  align-content: center;
+  padding: 0px 10px;
+  width: 60px;
 }
 
 .size p {
   font-size: 14px;
   font-weight: bold;
-  padding: 9px 0;
 }
 
 .size:hover {
   background: red;
   color: #ffffff !important;
-}
-
-.loader {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  display: inline-block;
-  border-top: 4px solid #fff;
-  border-right: 4px solid transparent;
-  box-sizing: border-box;
-  animation: rotation 1s linear infinite;
-}
-.loader::after {
-  content: "";
-  box-sizing: border-box;
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  border-bottom: 4px solid #ff3d00;
-  border-left: 4px solid transparent;
-  animation-direction: 3s;
-}
-@keyframes rotation {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
 }
 
 @media (max-width: 1600px) {
@@ -352,7 +324,7 @@ export default {
   }
   .add-btn,
   .wish-btn {
-    width: auto !important;
+    width: 350px !important;
   }
 
   .size-col {
@@ -422,23 +394,37 @@ export default {
   }
   .add-btn,
   .wish-btn {
-    width: 150px;
+    width: 150px !important;
   }
   .p-color {
     font-size: 10px;
     font-weight: 700;
   }
 
+  .card-size {
+    flex-wrap: wrap;
+  }
+
   .card-content {
     font-size: 14px;
+    line-height: 22px;
     padding-left: 10px;
   }
   .size-col {
-    width: 40%;
+    width: 30%;
+  }
+
+  .size p {
+    font-size: 12px;
   }
 
   .content-wrapper {
     padding: 0px;
+  }
+
+  .card-list {
+    align-content: center;
+    justify-content: center;
   }
 }
 </style>

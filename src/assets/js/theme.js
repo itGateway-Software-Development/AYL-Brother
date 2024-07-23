@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
       } else {
         document.documentElement.style.setProperty(
           "--background-color",
-          "#242142"
+          "#0f0d1f"
         );
         document.documentElement.style.setProperty("--font-color", "#ededed");
         document.documentElement.style.setProperty(
@@ -105,7 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
         );
         document.documentElement.style.setProperty(
           "--footer-background-color",
-          "#142142"
+          "#1d2436"
         );
         document.documentElement.style.setProperty("--border-color", "#ffff");
       }
