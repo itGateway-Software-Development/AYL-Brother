@@ -746,6 +746,7 @@ export default {
   background-color: var(--background-color);
   transition: bacground-color 0.4s ease-in-out;
   z-index: 10;
+  color: var(--font-color);
 }
 
 .nav2 {
@@ -1142,6 +1143,22 @@ export default {
   visibility: visible;
 }
 
+.language p {
+  color: #111111;
+}
+
+.v-list-item {
+  color: var(--font-color);
+}
+
+.v-navigation-drawer {
+  background: var(--background-color);
+}
+
+.v-divider {
+  color: var(--border-color);
+}
+
 @media (max-width: 1920px) {
   .dropdowns {
     left: 8.3%;
@@ -1270,7 +1287,7 @@ export default {
   }
 
   .fav {
-    color: #111111;
+    color: var(--font-color);
   }
 
   .cart-count {

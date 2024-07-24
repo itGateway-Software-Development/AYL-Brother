@@ -18,7 +18,7 @@ export default {
   margin: 100px 0px;
   width: 100% !important;
   height: 100%;
-  background-color: #f2f2f2;
+  background-color: var(--secondary-background);
 }
 
 @media (max-width: 860px) {

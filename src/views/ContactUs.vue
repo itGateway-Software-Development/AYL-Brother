@@ -85,8 +85,8 @@ export default {
 }
 
 iframe {
-  width: 440px;
-  height: 350px;
+  width: 100%;
+  height: 100%;
 }
 
 .meet-us {
@@ -101,6 +101,12 @@ iframe {
   height: 350px;
   background: #f2f2f2;
   padding: 10px 20px;
+}
+
+.map {
+  width: 440px;
+  height: 350px;
+  background: #f2f2f2;
 }
 
 .meet-content-text {
@@ -139,7 +145,7 @@ iframe {
 }
 
 @media (max-width: 1280px) {
-  iframe,
+  .map,
   .meet-us,
   .contact {
     height: 300px;
@@ -148,7 +154,7 @@ iframe {
 }
 
 @media (max-width: 1024px) {
-  iframe,
+  .map,
   .meet-us,
   .contact {
     height: 300px;
@@ -172,9 +178,6 @@ iframe {
     width: 600px;
     margin: 10px 0px;
   }
-  iframe {
-    width: 600px !important;
-  }
 
   .text-contact {
     display: flex;
@@ -183,15 +186,11 @@ iframe {
 
 @media (max-width: 600px) {
   .map {
-    width: 360px;
+    width: 380px;
   }
 
   .contact {
     width: 380px;
-  }
-
-  iframe {
-    width: 360px !important;
   }
 
   .text-contact {
@@ -200,6 +199,7 @@ iframe {
   }
 
   .meet-us {
+    width: 380px;
     height: max-content;
     margin-bottom: 10px;
   }

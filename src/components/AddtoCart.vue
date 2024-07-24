@@ -1,5 +1,5 @@
 <template>
-  <div class="addtoCartr">
+  <div class="addtoCart">
     <div class="add-to-cart content-wrapper">
       <div class="add-back">
         <div class="heading-cart">
@@ -318,7 +318,7 @@ export default {
   padding: 0px 8%;
 }
 .addtoCart {
-  background: #f2f2f2;
+  background: var(--secondary-background);
   width: 100%;
   height: 100%;
 }

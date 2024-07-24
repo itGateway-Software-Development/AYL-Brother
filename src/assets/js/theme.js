@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
         );
         document.documentElement.style.setProperty(
           "--sec-background-color",
-          "#dfe6ee"
+          "#f2f2f2"
         );
         document.documentElement.style.setProperty(
           "--sec-background-light-color",
@@ -73,6 +73,10 @@ document.addEventListener("DOMContentLoaded", () => {
           "#c8d0d8"
         );
         document.documentElement.style.setProperty("--border-color", "#111");
+        document.documentElement.style.setProperty(
+          "--secondary-background",
+          "#f2f2f2"
+        );
       } else {
         document.documentElement.style.setProperty(
           "--background-color",
@@ -89,11 +93,11 @@ document.addEventListener("DOMContentLoaded", () => {
         );
         document.documentElement.style.setProperty(
           "--sec-background-color",
-          "#302d58"
+          "#f2f2f2"
         );
         document.documentElement.style.setProperty(
           "--sec-background-light-color",
-          "#dfe6ee"
+          "#f2f2f2"
         );
         document.documentElement.style.setProperty(
           "--background-light-color",
@@ -108,6 +112,10 @@ document.addEventListener("DOMContentLoaded", () => {
           "#1d2436"
         );
         document.documentElement.style.setProperty("--border-color", "#ffff");
+        document.documentElement.style.setProperty(
+          "--secondary-background",
+          "#0f0d1f"
+        );
       }
     });
   });

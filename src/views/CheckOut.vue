@@ -520,13 +520,13 @@ export default {
 .checkout-now {
   width: 100%;
   height: 100%;
-  background: #f2f2f2;
+  background: var(--secondary-background);
 }
 
 .check-out {
   padding-top: 150px;
   padding-bottom: 100px;
-  background: #f2f2f2;
+  background: var(--secondary-background);
 }
 
 .form-select {
@@ -626,7 +626,7 @@ export default {
 .price-list {
   width: 100%;
   padding: 10px 20px;
-
+  color: var(--font-color);
   margin-top: 100px;
 }
 

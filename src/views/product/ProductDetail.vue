@@ -365,10 +365,13 @@ export default {
     // Fetch products when component is mounted
     onMounted(() => {
       fetchRandomProducts();
+      productId.value = props.id;
     });
     // Watch for changes to productCount and re-fetch products
     watch(props, () => {
       fetchRandomProducts();
+      productId.value = props.id;
+      mainImage.value = product.value.img;
     });
 
     const miniImages = computed(() =>
