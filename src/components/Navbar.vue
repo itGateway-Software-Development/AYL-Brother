@@ -294,7 +294,7 @@
             <ul class="d-flex">
               <li class="upper-li">
                 <router-link to="/product" class="nav-link">
-                  <p class="nav-p">Product</p>
+                  <p class="nav-p">{{ $t("product") }}</p>
                   <ul class="dropdowns">
                     <li class="dropdown-items">
                       <router-link to="/products/bamboo/0" class="dropdown-link"
@@ -529,10 +529,10 @@
                   </a>
 
                   <ul class="dropdown-menus">
-                    <li class="mb-4">
+                    <li class="mb-4" @click="changeLanguage('EN')">
                       <p class="nav-link text-start">English</p>
                     </li>
-                    <li>
+                    <li @click="changeLanguage('MM')">
                       <p class="nav-link text-start">Myanmar</p>
                     </li>
                   </ul>
@@ -659,6 +659,7 @@ export default {
     const userLogin = ref();
     const user = ref();
     const check = ref(false);
+    const language = ref("EN");
 
     const logout = () => {
       localStorage.removeItem("user");
@@ -666,6 +667,11 @@ export default {
       localStorage.removeItem("totalAvailablePoints");
       localStorage.removeItem("isLogin");
       router.push("/login");
+    };
+
+    let changeLanguage = (lang) => {
+      language.value = lang;
+      store.dispatch("getLocale", lang);
     };
 
     const changeTheme = (theme) => {
@@ -724,6 +730,7 @@ export default {
       userLogin,
       changeTheme,
       currentTheme,
+      changeLanguage,
       check,
     };
   },

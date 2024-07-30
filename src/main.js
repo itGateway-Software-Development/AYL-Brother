@@ -8,6 +8,9 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Vue3Toastify, { toast } from "vue3-toastify";
 import "vue3-toastify/dist/index.css";
+import {createI18n} from "vue-i18n"
+import EN from "./locale/en.json";
+import MM from "./locale/mm.json";
 
 import "vuetify/styles";
 import { createVuetify } from "vuetify";
@@ -20,11 +23,28 @@ const vuetify = createVuetify({
   directives,
 });
 
+// Add a watcher for the 'locale' value in the Vuex store
+store.watch(
+  (state) => state.locale,
+  (newLocale) => {
+    i18n.global.locale = newLocale;
+  }
+);
+
+const i18n = createI18n({
+  locale: store.state.locale,
+  messages: {
+    EN: EN,
+    MM: MM,
+  },
+});
+
 AOS.init();
 
 createApp(App)
   .use(store)
   .use(router)
   .use(vuetify)
+  .use(i18n)
   .use(Vue3Toastify, { autoClose: 3000 })
   .mount("#app");
