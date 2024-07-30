@@ -20,7 +20,7 @@
               ></button>
             </div>
             <div class="modal-body">
-              <img src="../../assets/size.png" class="img-fluid" alt="" />
+              <img src="../../assets/size_chart.png" class="img-fluid" alt="" />
             </div>
           </div>
         </div>
