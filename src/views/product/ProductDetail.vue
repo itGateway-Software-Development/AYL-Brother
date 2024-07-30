@@ -20,7 +20,7 @@
               ></button>
             </div>
             <div class="modal-body">
-              <img src="../../assets/size.png" class="img-fluid" alt="" />
+              <img src="../../assets/size_chart.png" class="img-fluid" alt="" />
             </div>
           </div>
         </div>
@@ -83,6 +83,7 @@
           </div>
         </div>
       </div>
+
       <div class="row main-content">
         <div class="col-6 left-photo">
           <div class="d-flex photo-flex">
@@ -131,7 +132,7 @@
             <div class="max-photo p-2 mt-5">
               <img :src="product.img" class="img-fluid d-none" alt="" />
               <img
-                :src="mainImage"
+                :src="product.main_image"
                 alt=""
                 class="img-fluid"
                 @mousemove="moveMagnifier"
@@ -302,6 +303,7 @@
 import { computed, ref, watch, onMounted } from "vue";
 import { useStore } from "vuex";
 import { useRoute } from "vue-router";
+import getProducts from "@/composable/getProduct";
 export default {
   props: {
     id: {
@@ -324,6 +326,16 @@ export default {
     const nickName = ref("");
     const email = ref("");
     const comment = ref("");
+    let singleProduct = ref();
+    // let { product, error, getProduct } = getProducts();
+
+    let filterProduct = () => {
+      singleProduct.value = product.filter(
+        (product) => product.id == productId
+      );
+
+      console.log(singleProduct);
+    };
 
     const sumbitComment = () => {
       if (
@@ -453,22 +465,27 @@ export default {
       {
         id: 1,
         size: "M",
-        sizedetail: "Medium",
       },
       {
         id: 2,
         size: "L",
-        sizedetail: "Large",
       },
       {
         id: 3,
         size: "XL",
-        sizedetail: "X Large",
       },
       {
         id: 4,
         size: "XXL",
-        sizedetail: "XXL",
+      },
+
+      {
+        id: 5,
+        size: "3XL",
+      },
+      {
+        id: 6,
+        size: "4XL",
       },
     ];
 
@@ -498,9 +515,11 @@ export default {
       selectedSize.value = size;
     };
 
-    // onMounted(productId, () => {
-    //   product;
-    // });
+    onMounted(async () => {
+      window.scroll(0, 0);
+      await getProduct();
+      filterProduct();
+    });
 
     watch(route, () => {
       productId.value = route.params.id;

@@ -5,6 +5,8 @@ const api = {
   register: url + "register",
   test: url + "test",
   order: url + "order",
+  categories: url + "categories",
+  products: url + "products",
 };
 
 export default api;

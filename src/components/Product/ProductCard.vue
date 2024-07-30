@@ -4,7 +4,7 @@
       <div class="row align-content-center card-list">
         <div
           class="col-6 col-md-4 col-sm-6 mb-5 p-card-col"
-          v-for="product in filteredProducts"
+          v-for="product in products"
           :key="product.id"
         >
           <div class="p-card mb-3">
@@ -13,16 +13,16 @@
               class="product-link"
             >
               <div class="card-img mb-2">
-                <img :src="product.img" class="img-fluid" alt="" />
+                <img :src="product.main_image" class="img-fluid" alt="" />
               </div>
             </router-link>
 
             <div class="p-color text-center mb-2">
-              <p>Color: {{ product.color }}</p>
+              <p>Color: {{ product.name }}</p>
             </div>
             <div class="card-content text-start">
-              <p class="code">Product-code: {{ product.code }}</p>
-              <p>{{ product.pics }}</p>
+              <p class="code">Product-code: {{ product.series_id }}</p>
+              <p>{{ product.product_info }}</p>
               <p>Price: {{ product.price }} MMK</p>
               <p>
                 Selected Size:
@@ -31,15 +31,34 @@
             </div>
             <div class="size-button">
               <div class="row mt-3 justify-content-around px-3 card-size">
-                <div
+                <button
                   class="size col-3 mb-3 size-col"
                   id="size"
                   v-for="size in sizes"
                   :key="size.id"
-                  @click="selectSize(size.size)"
+                  :disabled="
+                    (size.size == 'M' && product.m_size_stock < 1) ||
+                    (size.size == 'L' && product.lg_size_stock < 1) ||
+                    (size.size == 'XL' && product.xl_size_stock < 1) ||
+                    (size.size == 'XXL' && product.xxl_size_stock < 1) ||
+                    (size.size == '3XL' && product.xxxl_size_stock < 1) ||
+                    (size.size == '4XL' && product.xxxxl_size_stock < 1)
+                  "
+                  :class="{
+                    'bg-grey-darken-2':
+                      (size.size == 'M' && product.m_size_stock < 1) ||
+                      (size.size == 'L' && product.lg_size_stock < 1) ||
+                      (size.size == 'XL' && product.xl_size_stock < 1) ||
+                      (size.size == 'XXL' && product.xxl_size_stock < 1) ||
+                      (size.size == '3XL' && product.xxxl_size_stock < 1) ||
+                      (size.size == '4XL' && product.xxxxl_size_stock < 1),
+                  }"
+                  @click="selectSize(size.size, product)"
                 >
-                  <p>{{ size.size }}</p>
-                </div>
+                  <p>
+                    {{ size.size }}
+                  </p>
+                </button>
               </div>
               <div class="card-button-group mt-3">
                 <div class="btn add-btn mb-3" @click="addToCart(product)">
@@ -64,70 +83,61 @@ import { computed, defineProps, inject, onMounted, ref, watch } from "vue";
 import { mapActions, useStore, mapGetters } from "vuex";
 import product from "../../store/modules/product";
 import { useRoute } from "vue-router";
+import axios from "axios";
+import getProducts from "../../composable/getProduct";
 
 export default {
-  props: ["series", "code"],
+  props: ["categories", "series"],
   setup(props) {
     const Swal = require("sweetalert2");
     const route = useRoute();
     const store = useStore();
+    const categories = ref(props.categories);
     const series = ref(props.series);
     const code = ref();
 
     // const filteredProducts = computed(() => store.getters.filteredProducts);
-    const products = computed(() => store.getters.filteredProducts);
-    const filteredProducts = ref([]);
+    // const products = computed(() => store.getters.filteredProducts);
+    // const filteredProducts = ref([]);
 
-    async function api() {
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          resolve(
-            Array.from({ length: 10 }, (k, v) => v + items.value.at(-1) + 1)
-          );
-        }, 1000);
-      });
-    }
-    async function load({ done }) {
-      // Perform API call
-      const res = await api();
+    // async function api() {
+    //   return new Promise((resolve) => {
+    //     setTimeout(() => {
+    //       resolve(
+    //         Array.from({ length: 10 }, (k, v) => v + items.value.at(-1) + 1)
+    //       );
+    //     }, 1000);
+    //   });
+    // }
+    // async function load({ done }) {
+    //   // Perform API call
+    //   const res = await api();
 
-      items.value.push(...res);
+    //   items.value.push(...res);
 
-      done("ok");
-    }
+    //   done("ok");
+    // }
 
-    const codeValue = () => {
-      if (props.code == 0) {
-        code.value = null;
-      } else {
-        code.value = props.code;
-      }
-    };
+    // const codeValue = () => {
+    //   if (props.code == 0) {
+    //     code.value = null;
+    //   } else {
+    //     code.value = props.code;
+    //   }
+    // };
 
-    const filter = () => {
-      codeValue();
-      filteredProducts.value = products.value.filter((product) => {
-        if (series.value && code.value) {
-          return product.series == series.value && product.code == code.value;
+    const filter = (id) => {
+      categories.value = id;
+      console.log(categories.value);
+      products.value = products.value.filter((product) => {
+        if (categories.value) {
+          return product.category_id == id;
         }
-        if (series.value && code.value == null) {
-          return product.series == series.value;
-        }
-        if (!series.value && !code.value) {
-          return products;
+        if (!categories.value) {
+          return product;
         }
       });
     };
-
-    watch(route, () => {
-      code.value = route.params.code;
-      series.value = route.params.series;
-      filter();
-    });
-
-    onMounted(() => {
-      filter();
-    });
 
     const items = computed(() => store.getters["product"]);
 
@@ -147,6 +157,15 @@ export default {
       {
         id: 4,
         size: "XXL",
+      },
+
+      {
+        id: 5,
+        size: "3XL",
+      },
+      {
+        id: 6,
+        size: "4XL",
       },
     ];
 
@@ -202,7 +221,16 @@ export default {
     //   });
     // });
 
-    onMounted(() => {
+    let { products, error, getProduct } = getProducts();
+
+    watch(route, () => {
+      console.log(props);
+      filter(props.categories);
+    });
+
+    onMounted(async () => {
+      await getProduct();
+      filter();
       window.scroll(0, 0);
     });
 
@@ -212,8 +240,9 @@ export default {
       selectSize,
       selectedSize,
       addToCart,
-      filteredProducts,
       scrollHeight,
+      products,
+      categories,
     };
   },
 };
@@ -228,6 +257,15 @@ export default {
 
 .p-color {
   color: var(--font-color);
+}
+
+.card-size {
+  width: 300px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  margin: 0px auto;
 }
 
 .card-content {
@@ -291,7 +329,12 @@ export default {
   text-align: center;
   align-content: center;
   padding: 0px 10px;
-  width: 60px;
+  width: 80px;
+}
+
+.diable-card {
+  border-color: #b7b7b7;
+  color: #b7b7b7;
 }
 
 .size p {

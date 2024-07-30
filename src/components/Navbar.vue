@@ -293,7 +293,7 @@
           <div class="upper-content-1">
             <ul class="d-flex">
               <li class="upper-li">
-                <router-link to="/product" class="nav-link">
+                <router-link to="/products" class="nav-link">
                   <p class="nav-p">Product</p>
                   <ul class="dropdowns">
                     <li class="dropdown-items">

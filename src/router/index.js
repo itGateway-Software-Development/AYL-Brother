@@ -19,7 +19,7 @@ const routes = [
     component: HomeView,
   },
   {
-    path: "/product",
+    path: "/products",
     name: "product",
     component: ProductView,
   },
@@ -35,7 +35,12 @@ const routes = [
     props: (route) => ({ id: Number(route.params.id) }),
   },
   {
-    path: "/products/:series/:code",
+    path: "/products/:categories",
+    component: ProductView,
+    props: true,
+  },
+  {
+    path: "/products/:categories/:series",
     component: ProductView,
     props: true,
   },

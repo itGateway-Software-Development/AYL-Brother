@@ -10,8 +10,8 @@
       <div class="col-12 col-md-9 col-sm-6 p-list">
         <ProductCard
           :price="selPrice"
+          :categories="categories"
           :series="series"
-          :code="code"
         ></ProductCard>
       </div>
     </div>
@@ -28,7 +28,7 @@ export default {
     ProductCard,
     ProductFilter,
   },
-  props: ["series", "code"],
+  props: ["categories", "series"],
   setup() {
     let selPrice = ref("");
 
