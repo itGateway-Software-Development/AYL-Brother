@@ -423,12 +423,12 @@
               </li>
               <li class="upper-li">
                 <router-link class="nav-link" to="/about-us"
-                  ><p>Our Story</p></router-link
+                  ><p>{{ $t("story") }}</p></router-link
                 >
               </li>
               <li class="upper-li">
                 <router-link class="nav-link" to="/contact"
-                  ><p>Contact Us</p></router-link
+                  ><p>{{ $t("contact") }}</p></router-link
                 >
               </li>
             </ul>

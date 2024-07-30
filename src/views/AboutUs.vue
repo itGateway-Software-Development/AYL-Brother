@@ -5,77 +5,64 @@
     </div>
     <div class="content-about-us content-wrapper">
       <div class="t-content text-start">
-        <h3>About Us</h3>
+        <h3>{{ $t("story") }}</h3>
         <div class="p-content">
-          <h5>About Romantic</h5>
+          <h5>{{ $t("about-romantic") }}</h5>
           <p>
-            Romantic Brand has been well-known since 2011 in the communal life
-            of men who have high self- Confidence.
+            {{ $t("about-ro-contnet-1") }}
           </p>
           <br />
           <p>
-            The men’s underwear brand could have been stood firmly as smart
-            men’s favorite for its high quality, great tailoring, being stylish
-            and fit for every body profile.
+            {{ $t("about-ro-contnet-2") }}
           </p>
         </div>
         <div class="p-content">
-          <h5>Our Logo</h5>
-          <p>Romantic began from Eiffel Tower on the Champ de Mars in Paris.</p>
+          <h5>{{ $t("logo") }}</h5>
+          <p>{{ $t("logo-content-1") }}</p>
           <br />
           <p>
-            The World famous wrought-iron lattice Tower, lasting for hundreds of
-            years, is the witness of sharing kindness among romantic lovers.
+            {{ $t("logo-content-2") }}
           </p>
           <br />
           <p>
-            Therefore, the logo represents Eiffel Tower with the purpose of
-            sharing everlasting compassion and love.
+            {{ $t("logo-content-3") }}
           </p>
         </div>
         <div class="p-content">
           <h5>Great Values</h5>
           <p>
-            The famous brand, Romantic is produced for men to get
-            self-confidence and attractiveness, supporting not only for beauty
-            and good look, but also for healthy life style.
+            {{ $t("value-content-1") }}
           </p>
           <br />
           <p>
-            It will probably be a place of bacteria and funguses, those can
-            cause unpleasant odors and skin problems, if the men’s underwear is
-            poor in quality.
+            {{ $t("value-content-2") }}
           </p>
           <br />
           <p>
-            So, this high-tech Romantic Men’s wear is carefully made of bamboo
-            fiber, Lycra and pure cotton as an advanced product with modern
-            technology.
+            {{ $t("value-content-3") }}
           </p>
         </div>
         <div class="p-content">
           <h5>Romantic gives differences</h5>
           <p>
-            Romantic sharing active and healthy lifestyle with self-assurance
+            {{ $t("difference") }}
           </p>
           <br />
           <ul>
-            <li>Highest sweat absorption rate</li>
-            <li>As light as a feather</li>
-            <li>Silky Softness</li>
-            <li>Protect from bacteria and fungal disease</li>
-            <li>Away from bad odors</li>
-            <li>Perfect Ventilation</li>
-            <li>Comfort in any season</li>
+            <li>{{ $t("difference-content-1") }}</li>
+            <li>{{ $t("difference-content-2") }}</li>
+            <li>{{ $t("difference-content-3") }}</li>
+            <li>{{ $t("difference-content-4") }}</li>
+            <li>{{ $t("difference-content-5") }}</li>
+            <li>{{ $t("difference-content-6") }}</li>
+            <li>{{ $t("difference-content-7") }}</li>
           </ul>
           <br />
-          <p>Make yourself attractive most</p>
+          <p>{{ $t("difference-content-8") }}</p>
         </div>
         <div class="p-content">
           <p>
-            Romantic, that is sharing the highest attractiveness and
-            self-confidence to the men who want to possess a romantic life
-            filled with warm regards and love.
+            {{ $t("about-last-content") }}
           </p>
         </div>
         <div class="author">
