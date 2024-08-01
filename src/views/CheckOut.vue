@@ -1,4 +1,7 @@
 <template>
+  <div v-if="isLoading">
+    <Loading />
+  </div>
   <div class="checkout-now">
     <div class="content-wrapper check-out">
       <router-link
@@ -335,19 +338,25 @@ import Swal from "sweetalert2";
 import axios from "axios";
 import api from "@/service/api";
 import router from "@/router";
+import Loading from "@/components/Loading.vue";
+
 export default {
+components: {Loading},
   setup() {
     const store = useStore();
     const route = useRoute();
     const selectedLocation = ref();
     const selectedSubLocation = ref();
     const name = ref("");
+    const id = ref();
     const phoneNumber = ref("");
     const address = ref("");
     const rules = {
       required: (value) => !!value || "Field is required",
     };
     const cod = ref("cash");
+
+    const isLoading = ref(false);
 
     const userLogin = ref("");
 
@@ -383,6 +392,7 @@ export default {
 
     if (LoginUser.value) {
       userLogin.value = JSON.parse(localStorage.getItem("isLogin"));
+      id.value = user.value.id;
       name.value = user.value.name;
     } else {
       userLogin.value = false;
@@ -413,6 +423,7 @@ export default {
     let order = async (e) => {
       e.preventDefault();
       const orderForm = ref({
+        id: id.value,
         userName: name.value,
         phone: phoneNumber.value,
         address: address.value,
@@ -425,10 +436,11 @@ export default {
         price_total: total.value,
       });
       let orderDataFrom = new FormData();
+      orderDataFrom.append("id", orderForm.value.id);
       orderDataFrom.append("name", orderForm.value.userName);
       orderDataFrom.append("phone", orderForm.value.phone);
       orderDataFrom.append("address", orderForm.value.address);
-      orderDataFrom.append("products", orderForm.value.products);
+      orderDataFrom.append("products", JSON.stringify(orderForm.value.products));
       orderDataFrom.append("city", orderForm.value.city);
       orderDataFrom.append("town", orderForm.value.town);
       orderDataFrom.append("deliveryPrice", orderForm.value.deliverPrice);
@@ -436,23 +448,25 @@ export default {
       orderDataFrom.append("totalPoint", orderForm.value.totalAvailablePoints);
       orderDataFrom.append("totalPrice", orderForm.value.price_total);
 
-      let response = await axios.post(api.order, orderDataFrom);
-      console.log(response.data);
-      // if (response.status == 200) {
-      //   store.dispatch("usePoints", pointsUse.value);
-      //   store.dispatch("clearCart");
-      //   store.dispatch("clearDiscount");
+      isLoading.value = true;
 
-      //   Swal.fire({
-      //     title: "Order Done",
-      //     icon: "success",
-      //     confirmButtonText: "Ok",
-      //   }).then((result) => {
-      //     if (result.isConfirmed) {
-      //       router.push("/product");
-      //     }
-      //   });
-      // }
+      let response = await axios.post(api.order, orderDataFrom);
+      
+      if (response.status == 200) {
+        store.dispatch("usePoints", pointsUse.value);
+        store.dispatch("clearCart");
+        store.dispatch("clearDiscount");
+        isLoading.value = false;
+        Swal.fire({
+          title: "Order Done",
+          icon: "success",
+          confirmButtonText: "Ok",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            router.push("/product");
+          }
+        });
+      }
     };
     onMounted(() => {
       const users = JSON.parse(localStorage.getItem("user"));
@@ -467,10 +481,12 @@ export default {
 
     watch(user, () => {
       if (user.value) {
+        id.value = user.value.id;
         name.value = user.value.name;
         phoneNumber.value = user.value.phone;
         address.value = user.value.address;
       } else if (!user.value) {
+        id.value = '';
         name.value = "";
         phoneNumber.value = "";
         address.value = "";
@@ -481,6 +497,7 @@ export default {
     });
 
     return {
+      isLoading,
       locations,
       subLocations,
       selectedLocation,
