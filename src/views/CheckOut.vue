@@ -2,7 +2,7 @@
   <div class="checkout-now">
     <div class="content-wrapper check-out">
       <router-link
-        class="nav-link text-start mb-3 d-flex align-items-center"
+        class="nav-link text-start mb-3 d-flex align-items-center heading-link"
         to="/cart"
         ><span class="material-symbols-outlined"> arrow_back </span>
         <p>Return to Cart</p>
@@ -17,7 +17,7 @@
           </div>
         </div>
         <div class="col-8 col-sm-12 col-md-8 check-1-custom">
-          <form @submit="order">
+          <form @submit="order" class="card">
             <div class="info-form text-start">
               <div
                 class="head d-flex justify-content-between align-items-center"
@@ -295,7 +295,7 @@
               <h5>{{ grandTotal }} MMK</h5>
             </div>
           </div>
-          <div class="mini-product">
+          <div class="mini-product card">
             <div
               class="product-list d-flex flex-column"
               v-for="item in cartItems"
@@ -515,6 +515,10 @@ export default {
 <style scoped>
 .summary-list {
   display: none;
+}
+
+.heading-link {
+  color: var(--font-color);
 }
 
 .checkout-now {

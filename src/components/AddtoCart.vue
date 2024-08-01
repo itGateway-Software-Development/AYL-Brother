@@ -1,7 +1,7 @@
 <template>
   <div class="addtoCart">
     <div class="add-to-cart content-wrapper">
-      <div class="add-back">
+      <div class="add-back w-100">
         <div class="heading-cart">
           <router-link
             class="nav-link text-start mb-3 d-flex align-items-center heading-link"
@@ -9,7 +9,7 @@
             ><span class="material-symbols-outlined"> arrow_back </span>
             <p>Continue Shopping</p>
           </router-link>
-          <div class="addtocart-heading align-item-center text-start">
+          <div class="addtocart-heading align-item-center text-start card">
             <h3 class="pt-8 ps-3">Shopping Bag</h3>
             <p class="ms-4" v-if="cartItemCount <= 1">
               {{ cartItemCount }} item
@@ -23,7 +23,11 @@
 
       <div class="d-flex cart-main">
         <div class="d-flex cart-item-list">
-          <div class="cart-item mb-3" v-for="item in cartItems" :key="item.id">
+          <div
+            class="cart-item mb-3 card"
+            v-for="item in cartItems"
+            :key="item.id"
+          >
             <div class="d-flex justify-content-between cart-content">
               <div class="left-item d-flex">
                 <div class="product-img me-3 p-3">
@@ -79,7 +83,7 @@
             </div>
           </div>
         </div>
-        <div class="check-out">
+        <div class="check-out card">
           <div class="checkout-heading mt-3">
             <h3>Order Summary</h3>
           </div>
@@ -337,12 +341,17 @@ export default {
   line-height: 35px;
 }
 .addtocart-heading {
+  width: 100%;
   height: 130px;
   background-color: #ffffff;
   border-radius: 5px;
 }
+
+.heading-link{
+  color: var(--font-color);
+}
 .cart-item {
-  width: 1050px;
+  width: 1200px;
   height: max-content;
   background-color: #ffffff;
   border-radius: 5px;
@@ -390,10 +399,11 @@ export default {
   margin: 0px 10px;
 }
 .checkout-btn {
-  width: 300px;
+  width: 100%;
   background: #111;
   color: #ffffff;
   margin: 0px auto;
+  padding: 10px 20px;
 }
 .total-price {
   padding: 10px 30px;
@@ -437,6 +447,12 @@ export default {
 }
 .sub-product {
   line-height: 30px;
+}
+
+@media (max-width: 1600px) {
+  .cart-item {
+    width: 1050px;
+  }
 }
 
 @media (max-width: 1400px) {
