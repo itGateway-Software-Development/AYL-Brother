@@ -170,14 +170,14 @@
             </div>
             <div class="size-content" v-if="selectedSize">
               <p>
-                Selected Size: <span>{{ selectedSize.sizedetail }}</span>
+                Selected Size: <span>{{ selectedSize.size }}</span>
               </p>
             </div>
             <div class="size-list d-flex justify-content-start mt-3">
               <div
                 class="size-card"
                 id="size"
-                v-for="size in sizes"
+                v-for="size in product.size"
                 :key="size.id"
                 @click="selectSize(size)"
               >
@@ -271,7 +271,9 @@
                 <p class="code">Product-code: {{ product.code }}</p>
                 <p>{{ product.pics }}</p>
                 <p>Price: {{ product.price }} MMK</p>
-                <p v-if="selectedSize">Selected Size: {{ selectedSize }}</p>
+                <!-- <p v-if="selectedSize">
+                  Selected Size: {{ selectedSize.size }}
+                </p> -->
               </div>
               <!-- <div class="row mt-3 justify-content-around px-3 card-size">
               <div
@@ -487,7 +489,7 @@ export default {
         pics: product.pics,
         img: product.img,
         quantity: quantity.value,
-        size: selectedSize.value,
+        size: selectedSize.value.size,
       };
 
       store.dispatch("addToCart", productToAdd);

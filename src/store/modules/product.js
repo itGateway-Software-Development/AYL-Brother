@@ -35,6 +35,21 @@ const defaultProduct = [
     id: 1,
     series: "bamboo",
     cat: "boxer",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 8028,
     color: "Grey & Dark Green",
     price: 14200,
@@ -52,6 +67,21 @@ const defaultProduct = [
     id: 2,
     series: "bamboo",
     cat: "boxer",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 8028,
     color: "Blue & Black",
     price: 14200,
@@ -69,6 +99,21 @@ const defaultProduct = [
     id: 3,
     series: "bamboo",
     cat: "boxer",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 8028,
     color: "Dark Red & Brown",
     price: 14200,
@@ -86,6 +131,21 @@ const defaultProduct = [
     id: 4,
     series: "bamboo",
     cat: "boxer",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 8028,
     color: "Light Steel Blue & Dark Green",
     price: 14200,
@@ -103,6 +163,21 @@ const defaultProduct = [
     id: 5,
     series: "bamboo",
     cat: "boxer",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 8028,
     color: "Dark Green & Dark Grey",
     price: 14200,
@@ -120,6 +195,21 @@ const defaultProduct = [
     id: 6,
     series: "bamboo",
     cat: "brief",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 8027,
     color: "Dark Green & Dark Grey",
     price: 13300,
@@ -137,6 +227,21 @@ const defaultProduct = [
     id: 7,
     series: "bamboo",
     cat: "brief",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 8027,
     color: "Light Steel Blue & Navy",
     price: 13300,
@@ -154,6 +259,21 @@ const defaultProduct = [
     id: 8,
     series: "bamboo",
     cat: "brief",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 8027,
     color: "Dark Red & Brown",
     price: 13300,
@@ -171,6 +291,21 @@ const defaultProduct = [
     id: 9,
     series: "bamboo",
     cat: "brief",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 8027,
     color: "Blue & Black",
     price: 13300,
@@ -188,6 +323,21 @@ const defaultProduct = [
     id: 10,
     series: "bamboo",
     cat: "boxer",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 8027,
     color: "Dark Green & Grey",
     price: 13300,
@@ -205,6 +355,21 @@ const defaultProduct = [
     id: 11,
     series: "bamboo",
     cat: "boxer",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 8004,
     color: "Light Steel Blue & Navy",
     price: 14200,
@@ -220,6 +385,21 @@ const defaultProduct = [
     id: 12,
     series: "bamboo",
     cat: "boxer",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 8004,
     color: "Blue & Light Grey",
     price: 14200,
@@ -235,6 +415,21 @@ const defaultProduct = [
     id: 13,
     series: "bamboo",
     cat: "boxer",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 8004,
     color: "Dark Grey & Black",
     price: 14200,
@@ -250,6 +445,21 @@ const defaultProduct = [
     id: 14,
     series: "bamboo",
     cat: "boxer",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 8004,
     color: "Dark Green & Brown",
     price: 14200,
@@ -265,6 +475,21 @@ const defaultProduct = [
     id: 15,
     series: "bamboo",
     cat: "boxer",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 8004,
     color: "Dark Red & Grey",
     price: 14200,
@@ -280,6 +505,7 @@ const defaultProduct = [
   //   id: 16,
   //   series: "bamboo",
   //   cat: "boxer",
+  // category:"normal",
   //   code: 8004,
   //   color: "Blue & Light Grey",
   //   price: 14200,
@@ -295,6 +521,21 @@ const defaultProduct = [
     id: 17,
     series: "bamboo",
     cat: "brief",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 8003,
     color: "Blue & Light Grey",
     price: 13300,
@@ -310,6 +551,21 @@ const defaultProduct = [
     id: 18,
     series: "bamboo",
     cat: "brief",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 8003,
     color: "Light Steel Blue & Navy",
     price: 13300,
@@ -325,6 +581,21 @@ const defaultProduct = [
     id: 19,
     series: "bamboo",
     cat: "brief",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 8003,
     color: "Dark Grey & Black",
     price: 13300,
@@ -340,6 +611,21 @@ const defaultProduct = [
     id: 20,
     series: "bamboo",
     cat: "brief",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 8003,
     color: "Dark Green & Brown",
     price: 13300,
@@ -355,6 +641,21 @@ const defaultProduct = [
     id: 21,
     series: "bamboo",
     cat: "brief",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 8003,
     color: "Dark Red & Grey",
     price: 13300,
@@ -370,6 +671,21 @@ const defaultProduct = [
     id: 22,
     series: "bamboo",
     cat: "brief",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 8017,
     color: "Dark Red & Grey",
     price: 14800,
@@ -385,6 +701,21 @@ const defaultProduct = [
     id: 23,
     series: "bamboo",
     cat: "brief",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 8017,
     color: "Black & Dark Grey",
     price: 14800,
@@ -400,6 +731,21 @@ const defaultProduct = [
     id: 24,
     series: "bamboo",
     cat: "brief",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 8017,
     color: "Light Steel Blue & Navy",
     price: 14800,
@@ -415,6 +761,21 @@ const defaultProduct = [
     id: 25,
     series: "bamboo",
     cat: "brief",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 8017,
     color: "Dark Green & Brown",
     price: 14800,
@@ -430,6 +791,21 @@ const defaultProduct = [
     id: 26,
     series: "bamboo",
     cat: "brief",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 8017,
     color: "Blue & Light Grey",
     price: 14800,
@@ -445,6 +821,21 @@ const defaultProduct = [
     id: 27,
     series: "bamboo",
     cat: "boxer",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 8018,
     color: "Dark Red & Grey",
     price: 15600,
@@ -460,6 +851,21 @@ const defaultProduct = [
     id: 28,
     series: "bamboo",
     cat: "boxer",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 8018,
     color: "Black & Dark Grey",
     price: 15600,
@@ -475,6 +881,21 @@ const defaultProduct = [
     id: 29,
     series: "bamboo",
     cat: "boxer",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 8018,
     color: "Light Steel Blue & Navy",
     price: 15600,
@@ -490,6 +911,21 @@ const defaultProduct = [
     id: 30,
     series: "bamboo",
     cat: "boxer",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 8018,
     color: "Dark Green & Brown",
     price: 15600,
@@ -505,6 +941,21 @@ const defaultProduct = [
     id: 31,
     series: "bamboo",
     cat: "boxer",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 8018,
     color: "Bluen & Light Grey",
     price: 15600,
@@ -520,6 +971,21 @@ const defaultProduct = [
     id: 32,
     series: "spandex",
     cat: "boxer",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 5003,
     color: "Steel Blue & Grey",
     price: 13000,
@@ -535,6 +1001,21 @@ const defaultProduct = [
     id: 33,
     series: "spandex",
     cat: "boxer",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 5003,
     color: "White Smoke & Navy",
     price: 13000,
@@ -550,6 +1031,21 @@ const defaultProduct = [
     id: 34,
     series: "spandex",
     cat: "boxer",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 5003,
     color: "Light Green & Dark Red",
     price: 13000,
@@ -565,6 +1061,21 @@ const defaultProduct = [
     id: 35,
     series: "spandex",
     cat: "boxer",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 5003,
     color: "Green & Brown",
     price: 13000,
@@ -580,6 +1091,21 @@ const defaultProduct = [
     id: 36,
     series: "spandex",
     cat: "boxer",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 5003,
     color: "Dim Grey & Black",
     price: 13000,
@@ -595,6 +1121,21 @@ const defaultProduct = [
     id: 37,
     series: "spandex",
     cat: "boxer",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 5003,
     color: "Royal Blue & Dark Grey",
     price: 13000,
@@ -610,6 +1151,21 @@ const defaultProduct = [
     id: 38,
     series: "spandex",
     cat: "brief",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 5002,
     color: "Steel Blue & Grey",
     price: 12200,
@@ -625,6 +1181,21 @@ const defaultProduct = [
     id: 39,
     series: "spandex",
     cat: "brief",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 5002,
     color: "White Smoke & Navy",
     price: 12200,
@@ -640,6 +1211,21 @@ const defaultProduct = [
     id: 40,
     series: "spandex",
     cat: "brief",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 5002,
     color: "Light Green & Dark Red",
     price: 12200,
@@ -655,6 +1241,21 @@ const defaultProduct = [
     id: 41,
     series: "spandex",
     cat: "brief",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 5002,
     color: "Green & Brown",
     price: 12200,
@@ -670,6 +1271,21 @@ const defaultProduct = [
     id: 42,
     series: "spandex",
     cat: "brief",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 5002,
     color: "Dim Grey & Black",
     price: 12200,
@@ -685,6 +1301,21 @@ const defaultProduct = [
     id: 43,
     series: "spandex",
     cat: "brief",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 5002,
     color: "Royal Blue & Dark Grey",
     price: 12200,
@@ -700,6 +1331,21 @@ const defaultProduct = [
     id: 44,
     series: "lycra",
     cat: "boxer",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 8077,
     color: "Light Gray & Navy",
     price: 14200,
@@ -715,6 +1361,21 @@ const defaultProduct = [
     id: 45,
     series: "lycra",
     cat: "boxer",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 8077,
     color: "Black & Dark Gray",
     price: 14200,
@@ -730,6 +1391,21 @@ const defaultProduct = [
     id: 46,
     series: "lycra",
     cat: "boxer",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 8077,
     color: "Brown & Dark Green",
     price: 14200,
@@ -745,6 +1421,21 @@ const defaultProduct = [
     id: 47,
     series: "lycra",
     cat: "boxer",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 8077,
     color: "Blue & Light Grey",
     price: 14200,
@@ -760,6 +1451,21 @@ const defaultProduct = [
     id: 48,
     series: "lycra",
     cat: "boxer",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 8077,
     color: "Dark Red & Grey",
     price: 14200,
@@ -775,6 +1481,21 @@ const defaultProduct = [
     id: 49,
     series: "lycra",
     cat: "brief",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 8076,
     color: "Light Gray & Navy",
     price: 13300,
@@ -790,6 +1511,21 @@ const defaultProduct = [
     id: 50,
     series: "lycra",
     cat: "brief",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 8076,
     color: "Black & Dark Grey",
     price: 13300,
@@ -805,6 +1541,21 @@ const defaultProduct = [
     id: 51,
     series: "lycra",
     cat: "brief",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 8076,
     color: "Brown & Dark Green",
     price: 13300,
@@ -820,6 +1571,21 @@ const defaultProduct = [
     id: 52,
     series: "lycra",
     cat: "brief",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 8076,
     color: "Blue & Light Grey",
     price: 13300,
@@ -835,6 +1601,21 @@ const defaultProduct = [
     id: 53,
     series: "lycra",
     cat: "brief",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 8076,
     color: "Dark Red & Grey",
     price: 13300,
@@ -850,6 +1631,16 @@ const defaultProduct = [
     id: 80,
     series: "bamboo",
     cat: "boxer",
+    size: [
+      {
+        id: 1,
+        size: "3XL",
+      },
+      {
+        id: 2,
+        size: "4XL",
+      },
+    ],
     code: 9002,
     color: "Dark Red & Grey",
     price: 19700,
@@ -865,6 +1656,16 @@ const defaultProduct = [
     id: 81,
     series: "bamboo",
     cat: "boxer",
+    size: [
+      {
+        id: 1,
+        size: "3XL",
+      },
+      {
+        id: 2,
+        size: "4XL",
+      },
+    ],
     code: 9002,
     color: "Black & Dark Grey",
     price: 19700,
@@ -880,6 +1681,16 @@ const defaultProduct = [
     id: 82,
     series: "bamboo",
     cat: "boxer",
+    size: [
+      {
+        id: 1,
+        size: "3XL",
+      },
+      {
+        id: 2,
+        size: "4XL",
+      },
+    ],
     code: 9002,
     color: "Light Steel Blue & Navy",
     price: 19700,
@@ -895,6 +1706,16 @@ const defaultProduct = [
     id: 83,
     series: "bamboo",
     cat: "boxer",
+    size: [
+      {
+        id: 1,
+        size: "3XL",
+      },
+      {
+        id: 2,
+        size: "4XL",
+      },
+    ],
     code: 9002,
     color: "Dark Green & Brown",
     price: 19700,
@@ -910,6 +1731,16 @@ const defaultProduct = [
     id: 84,
     series: "bamboo",
     cat: "boxer",
+    size: [
+      {
+        id: 1,
+        size: "3XL",
+      },
+      {
+        id: 2,
+        size: "4XL",
+      },
+    ],
     code: 9002,
     color: "Bluen & Light Grey",
     price: 19700,
@@ -925,6 +1756,16 @@ const defaultProduct = [
     id: 85,
     series: "bamboo",
     cat: "brief",
+    size: [
+      {
+        id: 1,
+        size: "3XL",
+      },
+      {
+        id: 2,
+        size: "4XL",
+      },
+    ],
     code: 9001,
     color: "Dark Red & Grey",
     price: 19700,
@@ -940,6 +1781,16 @@ const defaultProduct = [
     id: 86,
     series: "bamboo",
     cat: "brief",
+    size: [
+      {
+        id: 1,
+        size: "3XL",
+      },
+      {
+        id: 2,
+        size: "4XL",
+      },
+    ],
     code: 9001,
     color: "Black & Dark Grey",
     price: 19700,
@@ -955,6 +1806,16 @@ const defaultProduct = [
     id: 87,
     series: "bamboo",
     cat: "brief",
+    size: [
+      {
+        id: 1,
+        size: "3XL",
+      },
+      {
+        id: 2,
+        size: "4XL",
+      },
+    ],
     code: 9001,
     color: "Light Steel Blue & Navy",
     price: 19700,
@@ -970,6 +1831,16 @@ const defaultProduct = [
     id: 88,
     series: "bamboo",
     cat: "brief",
+    size: [
+      {
+        id: 1,
+        size: "3XL",
+      },
+      {
+        id: 2,
+        size: "4XL",
+      },
+    ],
     code: 9001,
     color: "Dark Green & Brown",
     price: 19700,
@@ -985,6 +1856,16 @@ const defaultProduct = [
     id: 89,
     series: "bamboo",
     cat: "brief",
+    size: [
+      {
+        id: 1,
+        size: "3XL",
+      },
+      {
+        id: 2,
+        size: "4XL",
+      },
+    ],
     code: 9001,
     color: "Bluen & Light Grey",
     price: 19700,
@@ -1000,6 +1881,7 @@ const defaultProduct = [
   //   id: 54,
   //   series: "bamboo",
   //   cat: "brief",
+  // category:"normal",
   //   code: 9001,
   //   color: "-",
   //   price: 18500,
@@ -1010,6 +1892,7 @@ const defaultProduct = [
   //   id: 55,
   //   series: "bamboo",
   //   cat: "brief",
+  // category:"normal",
   //   code: 9002,
   //   color: "-",
   //   price: 19700,
@@ -1020,6 +1903,21 @@ const defaultProduct = [
     id: 56,
     series: "spandex",
     cat: "boxer",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 5012,
     color: "Very Dark Grey",
     price: 7000,
@@ -1030,6 +1928,21 @@ const defaultProduct = [
     id: 57,
     series: "spandex",
     cat: "boxer",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 5012,
     color: "Very Dark Green",
     price: 7000,
@@ -1040,6 +1953,21 @@ const defaultProduct = [
     id: 58,
     series: "spandex",
     cat: "boxer",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 5012,
     color: "Light Green",
     price: 7000,
@@ -1050,6 +1978,21 @@ const defaultProduct = [
     id: 59,
     series: "spandex",
     cat: "boxer",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 5012,
     color: "Grey",
     price: 7000,
@@ -1060,6 +2003,21 @@ const defaultProduct = [
     id: 60,
     series: "spandex",
     cat: "boxer",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 5012,
     color: "Dark Red",
     price: 7000,
@@ -1070,6 +2028,21 @@ const defaultProduct = [
     id: 61,
     series: "spandex",
     cat: "boxer",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 5012,
     color: "Dark Green",
     price: 7000,
@@ -1080,6 +2053,21 @@ const defaultProduct = [
     id: 62,
     series: "spandex",
     cat: "boxer",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 5012,
     color: "Brown",
     price: 7000,
@@ -1090,6 +2078,21 @@ const defaultProduct = [
     id: 63,
     series: "spandex",
     cat: "boxer",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 5012,
     color: "White Smoke",
     price: 7000,
@@ -1100,6 +2103,21 @@ const defaultProduct = [
     id: 64,
     series: "spandex",
     cat: "boxer",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 5012,
     color: "Navy",
     price: 7000,
@@ -1110,6 +2128,21 @@ const defaultProduct = [
     id: 65,
     series: "spandex",
     cat: "boxer",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 5012,
     color: "Dark Grey",
     price: 7000,
@@ -1120,6 +2153,21 @@ const defaultProduct = [
     id: 66,
     series: "spandex",
     cat: "boxer",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 5012,
     color: "Blue",
     price: 7000,
@@ -1130,6 +2178,21 @@ const defaultProduct = [
     id: 67,
     series: "spandex",
     cat: "boxer",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 5012,
     color: "Black",
     price: 7000,
@@ -1140,6 +2203,21 @@ const defaultProduct = [
     id: 68,
     series: "spandex",
     cat: "brief",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 5013,
     color: "Very Dark Grey",
     price: 6500,
@@ -1150,6 +2228,21 @@ const defaultProduct = [
     id: 69,
     series: "spandex",
     cat: "brief",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 5013,
     color: "Very Dark Green",
     price: 6500,
@@ -1160,6 +2253,21 @@ const defaultProduct = [
     id: 70,
     series: "spandex",
     cat: "brief",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 5013,
     color: "Light Green",
     price: 6500,
@@ -1170,6 +2278,21 @@ const defaultProduct = [
     id: 71,
     series: "spandex",
     cat: "brief",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 5013,
     color: "Grey",
     price: 6500,
@@ -1180,6 +2303,21 @@ const defaultProduct = [
     id: 72,
     series: "spandex",
     cat: "brief",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 5013,
     color: "Dark Red",
     price: 6500,
@@ -1190,6 +2328,21 @@ const defaultProduct = [
     id: 73,
     series: "spandex",
     cat: "brief",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 5013,
     color: "Dark Green",
     price: 6500,
@@ -1200,6 +2353,21 @@ const defaultProduct = [
     id: 74,
     series: "spandex",
     cat: "brief",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 5013,
     color: "Brown",
     price: 6500,
@@ -1210,6 +2378,21 @@ const defaultProduct = [
     id: 75,
     series: "spandex",
     cat: "brief",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 5013,
     color: "White Smoke",
     price: 6500,
@@ -1220,6 +2403,21 @@ const defaultProduct = [
     id: 76,
     series: "spandex",
     cat: "brief",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 5013,
     color: "Navy",
     price: 6500,
@@ -1230,6 +2428,21 @@ const defaultProduct = [
     id: 77,
     series: "spandex",
     cat: "brief",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 5013,
     color: "Dark Grey",
     price: 6500,
@@ -1240,6 +2453,21 @@ const defaultProduct = [
     id: 78,
     series: "spandex",
     cat: "brief",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 5013,
     color: "Blue",
     price: 6500,
@@ -1250,6 +2478,21 @@ const defaultProduct = [
     id: 79,
     series: "spandex",
     cat: "brief",
+    size: [
+      {
+        id: 1,
+        size: "M",
+      },
+      { id: 2, size: "L" },
+      {
+        id: 3,
+        size: "XL",
+      },
+      {
+        id: 4,
+        size: "XXL",
+      },
+    ],
     code: 5013,
     color: "Black",
     price: 6500,
@@ -1604,6 +2847,57 @@ const defaultsubLocation = {
   ],
 };
 
+const sizeList = [
+  {
+    id: 1,
+    size: "M",
+    category: "normal",
+  },
+  {
+    id: 2,
+    size: "L",
+    category: "normal",
+  },
+  {
+    id: 3,
+    size: "XL",
+    category: "normal",
+  },
+  {
+    id: 4,
+    size: "XXL",
+    category: "normal",
+  },
+  {
+    id: 5,
+    size: "3XL",
+    size: [
+      {
+        id: 1,
+        size: "3XL",
+      },
+      {
+        id: 2,
+        size: "4XL",
+      },
+    ],
+  },
+  {
+    id: 6,
+    size: "4XL",
+    size: [
+      {
+        id: 1,
+        size: "3XL",
+      },
+      {
+        id: 2,
+        size: "4XL",
+      },
+    ],
+  },
+];
+
 export default {
   state: {
     products: defaultProduct,
@@ -1619,6 +2913,7 @@ export default {
     discountPoints: loadPointsFromLocalStorage(),
     totalAvailablePoints: loadTotalAvailablePointsFromLocalStorage(),
     isLogin: ref(),
+    sizes: sizeList,
   },
   getters: {
     products: (state) => {
@@ -1626,6 +2921,9 @@ export default {
     },
     isLogin: (state) => {
       return state.isLogin;
+    },
+    sizes: (state) => {
+      return state.sizes;
     },
     discountPoints: (state) => {
       return state.discountPoints;

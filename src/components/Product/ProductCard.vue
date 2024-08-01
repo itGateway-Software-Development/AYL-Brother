@@ -30,11 +30,11 @@
               </p>
             </div>
             <div class="size-button">
-              <div class="row mt-3 justify-content-around px-3 card-size">
+              <div class="row mt-3 px-3 card-size">
                 <div
                   class="size col-3 mb-3 size-col"
                   id="size"
-                  v-for="size in sizes"
+                  v-for="size in product.size"
                   :key="size.id"
                   @click="selectSize(size.size)"
                 >
@@ -73,6 +73,7 @@ export default {
     const store = useStore();
     const series = ref(props.series);
     const code = ref();
+    const filterSize = ref([]);
 
     // const filteredProducts = computed(() => store.getters.filteredProducts);
     const products = computed(() => store.getters.filteredProducts);
@@ -128,27 +129,32 @@ export default {
     onMounted(() => {
       filter();
     });
-
-    const items = computed(() => store.getters["product"]);
-
     const sizes = [
       {
         id: 1,
         size: "M",
+        sizedetail: "Medium",
       },
       {
         id: 2,
         size: "L",
+        sizedetail: "Large",
       },
       {
         id: 3,
         size: "XL",
+        sizedetail: "X Large",
       },
       {
         id: 4,
         size: "XXL",
+        sizedetail: "XXL",
       },
     ];
+
+    const items = computed(() => store.getters["product"]);
+
+    const size = computed(() => store.getters["sizes"]);
 
     const selectedSize = ref(null || "Please select a size");
 
@@ -292,6 +298,7 @@ export default {
   align-content: center;
   padding: 0px 10px;
   width: 60px;
+  margin: 0px 10px;
 }
 
 .size p {
