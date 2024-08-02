@@ -469,7 +469,7 @@
                       <li>
                         <router-link
                           class="dropdown-item d-flex align-items-center icon-text nav-link"
-                          to="/myprofile"
+                          to="/"
                           ><span class="material-symbols-outlined">
                             person
                           </span>

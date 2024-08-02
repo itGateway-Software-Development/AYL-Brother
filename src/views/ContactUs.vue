@@ -23,11 +23,11 @@
               <div class="meet-us-content">
                 <div class="d-flex align-items-center meet-content-text">
                   <span class="material-symbols-outlined"> call </span>
-                  <p>+959 96723912</p>
+                  <p>+95 943158648</p>
                 </div>
                 <div class="d-flex align-items-center meet-content-text">
                   <span class="material-symbols-outlined"> mail </span>
-                  <p>romantic@gmail.com</p>
+                  <p>romantic.underwear@gmail.com</p>
                 </div>
                 <div class="d-flex align-items-center meet-content-text">
                   <span class="material-symbols-outlined"> map </span>
