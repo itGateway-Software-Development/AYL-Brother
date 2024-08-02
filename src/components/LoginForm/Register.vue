@@ -187,6 +187,11 @@ export default {
         localStorage.setItem("user", JSON.stringify(user));
         localStorage.setItem("isLogin", JSON.stringify(true));
         router.push("/");
+        Swal.fire({
+          title: "Register Done",
+          text: "You have finish registration and get 500 points for new user",
+          icon: "success",
+        });
       } else {
         Swal.fire({
           icon: "error",

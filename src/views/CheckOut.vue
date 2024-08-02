@@ -341,7 +341,7 @@ import router from "@/router";
 import Loading from "@/components/Loading.vue";
 
 export default {
-components: {Loading},
+  components: { Loading },
   setup() {
     const store = useStore();
     const route = useRoute();
@@ -434,45 +434,53 @@ components: {Loading},
         pointsUse: discountPrice.value ? discountPrice.value : 0,
         totalAvailablePoints: availablePoints.value,
         price_total: total.value,
+        grand_total: grandTotal.value,
       });
       let orderDataFrom = new FormData();
       orderDataFrom.append("id", orderForm.value.id);
       orderDataFrom.append("name", orderForm.value.userName);
       orderDataFrom.append("phone", orderForm.value.phone);
       orderDataFrom.append("address", orderForm.value.address);
-      orderDataFrom.append("products", JSON.stringify(orderForm.value.products));
+      orderDataFrom.append(
+        "products",
+        JSON.stringify(orderForm.value.products)
+      );
       orderDataFrom.append("city", orderForm.value.city);
       orderDataFrom.append("town", orderForm.value.town);
       orderDataFrom.append("deliveryPrice", orderForm.value.deliverPrice);
       orderDataFrom.append("pointsUse", orderForm.value.pointsUse);
       orderDataFrom.append("totalPoint", orderForm.value.totalAvailablePoints);
       orderDataFrom.append("totalPrice", orderForm.value.price_total);
+      orderDataFrom.append("garndtotal", orderForm.value.grand_total);
 
-      isLoading.value = true;
+      console.log(orderForm.value);
+      // isLoading.value = true;
 
-      let response = await axios.post(api.order, orderDataFrom);
-      
-      if (response.status == 200) {
-        store.dispatch("usePoints", pointsUse.value);
-        store.dispatch("clearCart");
-        store.dispatch("clearDiscount");
-        isLoading.value = false;
-        Swal.fire({
-          title: "Order Done",
-          icon: "success",
-          confirmButtonText: "Ok",
-        }).then((result) => {
-          if (result.isConfirmed) {
-            router.push("/product");
-          }
-        });
-      }
+      // let response = await axios.post(api.order, orderDataFrom);
+      // console.log(response.data);
+
+      // if (response.status == 200) {
+      //   store.dispatch("usePoints", pointsUse.value);
+      //   store.dispatch("clearCart");
+      //   store.dispatch("clearDiscount");
+      //   isLoading.value = false;
+      //   Swal.fire({
+      //     title: "Order Done",
+      //     icon: "success",
+      //     confirmButtonText: "Ok",
+      //   }).then((result) => {
+      //     if (result.isConfirmed) {
+      //       router.push("/product");
+      //     }
+      //   });
+      // }
     };
     onMounted(() => {
       const users = JSON.parse(localStorage.getItem("user"));
       user.value = users;
       const availablePoint = computed(() => store.getters.totalAvailablePoints);
       availablePoints.value = availablePoint.value;
+      window.scroll(0, 0);
     });
 
     watch(availablePoint.value, () => {
@@ -486,14 +494,11 @@ components: {Loading},
         phoneNumber.value = user.value.phone;
         address.value = user.value.address;
       } else if (!user.value) {
-        id.value = '';
+        id.value = "";
         name.value = "";
         phoneNumber.value = "";
         address.value = "";
       }
-    });
-    onMounted(() => {
-      window.scroll(0, 0);
     });
 
     return {

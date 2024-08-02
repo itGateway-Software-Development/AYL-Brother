@@ -28,6 +28,7 @@
                 Selected Size:
                 {{ selectedSize }}
               </p>
+              <p v-if="!selectedSize">Selected Size: Please Select the size</p>
             </div>
             <div class="size-button">
               <div class="row mt-3 px-3 card-size">
@@ -156,7 +157,7 @@ export default {
 
     const size = computed(() => store.getters["sizes"]);
 
-    const selectedSize = ref(null || "Please select a size");
+    const selectedSize = ref(null);
 
     const quantity = ref(1);
 
