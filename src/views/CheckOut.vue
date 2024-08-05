@@ -454,26 +454,26 @@ export default {
       orderDataFrom.append("garndtotal", orderForm.value.grand_total);
 
       console.log(orderForm.value);
-      // isLoading.value = true;
+      isLoading.value = true;
 
-      // let response = await axios.post(api.order, orderDataFrom);
-      // console.log(response.data);
+      let response = await axios.post(api.order, orderDataFrom);
+      console.log(response.data);
 
-      // if (response.status == 200) {
-      //   store.dispatch("usePoints", pointsUse.value);
-      //   store.dispatch("clearCart");
-      //   store.dispatch("clearDiscount");
-      //   isLoading.value = false;
-      //   Swal.fire({
-      //     title: "Order Done",
-      //     icon: "success",
-      //     confirmButtonText: "Ok",
-      //   }).then((result) => {
-      //     if (result.isConfirmed) {
-      //       router.push("/product");
-      //     }
-      //   });
-      // }
+      if (response.status == 200) {
+        store.dispatch("usePoints", pointsUse.value);
+        store.dispatch("clearCart");
+        store.dispatch("clearDiscount");
+        isLoading.value = false;
+        Swal.fire({
+          title: "Order Done",
+          icon: "success",
+          confirmButtonText: "Ok",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            router.push("/product");
+          }
+        });
+      }
     };
     onMounted(() => {
       const users = JSON.parse(localStorage.getItem("user"));
