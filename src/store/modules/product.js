@@ -2911,7 +2911,7 @@ export default {
     selectedSubLocation: null,
     deliveryPrice: 0,
     discountPoints: loadPointsFromLocalStorage(),
-    totalAvailablePoints: loadTotalAvailablePointsFromLocalStorage(),
+    totalAvailablePoints: 0,
     isLogin: ref(),
     sizes: sizeList,
   },
@@ -3090,6 +3090,10 @@ export default {
       let usePoint = avaliablePoints - points;
       saveTotalAvailablePointsToLocalStorage(usePoint);
     },
+    savePoints(state, points) {
+      state.totalAvailablePoints = points;
+      saveTotalAvailablePointsToLocalStorage(state.totalAvailablePoints);
+    },
   },
   actions: {
     addToCart(context, product) {
@@ -3169,7 +3173,9 @@ export default {
     },
     usePoints({ commit }, points) {
       commit("usePoints", points);
-      console.log(points);
+    },
+    savePoints({ commit }, points) {
+      commit("savePoints", points);
     },
   },
   modules: {},

@@ -418,7 +418,9 @@ export default {
       store.dispatch("returnPoint", points.value);
     };
 
-    const availablePoint = computed(() => store.getters.totalAvailablePoints);
+    const availablePoint = ref();
+
+    // const availablePoint = computed(() => store.getters.totalAvailablePoints);
 
     let order = async (e) => {
       e.preventDefault();
@@ -478,12 +480,19 @@ export default {
     onMounted(() => {
       const users = JSON.parse(localStorage.getItem("user"));
       user.value = users;
-      const availablePoint = computed(() => store.getters.totalAvailablePoints);
+      availablePoint.value = JSON.parse(
+        localStorage.getItem("totalAvailablePoints")
+      );
+      store.dispatch("savePoints", availablePoint.value);
       availablePoints.value = availablePoint.value;
       window.scroll(0, 0);
     });
 
     watch(availablePoint.value, () => {
+      availablePoints.value = availablePoint.value;
+    });
+
+    watch(route, () => {
       availablePoints.value = availablePoint.value;
     });
 

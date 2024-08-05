@@ -139,15 +139,17 @@
 </template>
 
 <script>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import { useRouter } from "vue-router";
 import axios from "axios";
 import api from "@/service/api";
+import Swal from "sweetalert2";
 export default {
   setup() {
     const router = useRouter();
     const selectedRoute = ref("/");
     const TOTAL_AVAILABLE_POINTS_KEY = "totalAvailablePoints";
+    const previousRoute = ref(null);
 
     // const userName = ref("");
     // const password = ref("");
@@ -166,6 +168,16 @@ export default {
       address: "",
     });
 
+    let usePreviousRoute = () => {
+      if (previousRoute.value == "/cart") {
+        router.push("/cart");
+      } else if (previousRoute.value == "/cart/checkout") {
+        router.push("/cart/checkout");
+      } else {
+        router.push("/");
+      }
+    };
+
     const submit = async (e) => {
       e.preventDefault();
       let formDataToSend = new FormData();
@@ -176,27 +188,29 @@ export default {
       formDataToSend.append("password_confirmation", form.value.cfpassword);
       formDataToSend.append("birthday", form.value.birthday);
       formDataToSend.append("address", form.value.address);
-      let response = await axios.post(api.register, formDataToSend);
-      if (response.status == 201) {
-        let token = response.data.response.token;
-        let user = response.data.response.user;
-        let point = response.data.response.point;
-        localStorage.setItem(TOTAL_AVAILABLE_POINTS_KEY, point);
+      try {
+        let response = await axios.post(api.register, formDataToSend);
+        if (response.status == 201) {
+          let token = response.data.response.token;
+          let user = response.data.response.user;
+          let point = response.data.response.point;
+          localStorage.setItem(TOTAL_AVAILABLE_POINTS_KEY, point);
 
-        localStorage.setItem("Token", JSON.stringify(token));
-        localStorage.setItem("user", JSON.stringify(user));
-        localStorage.setItem("isLogin", JSON.stringify(true));
-        router.push("/");
-        Swal.fire({
-          title: "Register Done",
-          text: "You have finish registration and get 500 points for new user",
-          icon: "success",
-        });
-      } else {
+          localStorage.setItem("Token", JSON.stringify(token));
+          localStorage.setItem("user", JSON.stringify(user));
+          localStorage.setItem("isLogin", JSON.stringify(true));
+          usePreviousRoute();
+          Swal.fire({
+            title: "Register Done",
+            text: "You have finish registration and get 500 points for new user",
+            icon: "success",
+          });
+        }
+      } catch (err) {
         Swal.fire({
           icon: "error",
           title: "Unauthorized",
-          text: "Please check your email & password!",
+          text: err.message,
         });
       }
     };
@@ -205,6 +219,12 @@ export default {
       router.push(selectedRoute.value);
     };
 
+    onMounted(() => {
+      const history = router.options.history.state.back;
+      if (history) {
+        previousRoute.value = history;
+      }
+    });
     return {
       selectedRoute,
       changeRoute,
