@@ -326,9 +326,7 @@ export default {
   width: 100%;
   height: 100%;
 }
-.container {
-  max-width: 1400px;
-}
+
 .heading-cart {
   padding: 50px 0 10px 0px;
 }
@@ -347,7 +345,7 @@ export default {
   border-radius: 5px;
 }
 
-.heading-link{
+.heading-link {
   color: var(--font-color);
 }
 .cart-item {
@@ -451,13 +449,16 @@ export default {
 
 @media (max-width: 1600px) {
   .cart-item {
-    width: 1050px;
+    width: 950px;
   }
 }
 
 @media (max-width: 1400px) {
   .content-wrapper {
-    padding: 0px 3%;
+    padding: 0px 6%;
+  }
+  .cart-item {
+    width: 850px;
   }
 }
 
