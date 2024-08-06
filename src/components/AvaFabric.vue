@@ -120,7 +120,7 @@ export default {
 
     onMounted(() => {
       getData();
-      console.log(categories.value);
+      // console.log(categories.value);
     });
 
     return {

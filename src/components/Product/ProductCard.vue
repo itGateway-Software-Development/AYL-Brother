@@ -126,12 +126,17 @@ export default {
     //   }
     // };
 
-    const filter = (id) => {
-      categories.value = id;
+    const filter = (id, seriesID) => {
+      // categories.value = id;
+      // series.value = seriesID;
       console.log(categories.value);
+      console.log(series.value);
       products.value = products.value.filter((product) => {
         if (categories.value) {
-          return product.category_id == id;
+          return product.category_id == categories.value;
+        }
+        if (series.value) {
+          return product.series_id == series.value;
         }
         if (!categories.value) {
           return product;
@@ -231,6 +236,9 @@ export default {
     onMounted(async () => {
       await getProduct();
       filter();
+      console.log(products.value);
+      console.log(categories.value);
+      console.log(series.value);
       window.scroll(0, 0);
     });
 
