@@ -126,19 +126,25 @@ export default {
     //   }
     // };
 
-    const filter = (id, seriesID) => {
+    let { products, error, getProduct } = getProducts();
+
+    const filter = () => {
       // categories.value = id;
       // series.value = seriesID;
-      console.log(categories.value);
-      console.log(series.value);
+      // console.log(categories.value);
+      // console.log(series.value);
+
       products.value = products.value.filter((product) => {
-        if (categories.value) {
+        if (categories.value && !series.value) {
           return product.category_id == categories.value;
         }
-        if (series.value) {
-          return product.series_id == series.value;
+        if (series.value && categories.value) {
+          return (
+            product.series_id == series.value &&
+            product.category_id == categories.value
+          );
         }
-        if (!categories.value) {
+        if (!categories.value && !series.value) {
           return product;
         }
       });
@@ -226,19 +232,17 @@ export default {
     //   });
     // });
 
-    let { products, error, getProduct } = getProducts();
-
-    watch(route, () => {
-      console.log(props);
-      filter(props.categories);
+    watch(route, async () => {
+      categories.value = props.categories;
+      series.value = props.series;
+      await getProduct();
+      filter();
+      window.scroll(0, 0);
     });
 
     onMounted(async () => {
       await getProduct();
       filter();
-      console.log(products.value);
-      console.log(categories.value);
-      console.log(series.value);
       window.scroll(0, 0);
     });
 
@@ -452,8 +456,14 @@ export default {
     font-weight: 700;
   }
 
+  .size-button {
+    width: 150px;
+  }
+
   .card-size {
+    width: 150px;
     flex-wrap: wrap;
+    padding: 0px !important;
   }
 
   .card-content {

@@ -39,7 +39,7 @@
               </div>
               <ul class="dropdown-mobile" v-if="mobileDropdown">
                 <hr />
-                <li class="mobile-dropdown-item">
+                <!-- <li class="mobile-dropdown-item">
                   <div
                     class="d-flex align-items-center justify-content-between"
                   >
@@ -156,6 +156,45 @@
                     <li class="mobile-sub-item">
                       <router-link to="/products/lycra/8077" class="nav-link"
                         >RO: 8077</router-link
+                      >
+                    </li>
+                  </ul>
+                </li> -->
+                <li
+                  class="mobile-dropdown-items"
+                  v-for="item in categories"
+                  :key="item.id"
+                >
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                  >
+                    <router-link
+                      :to="`/products/${item.id}`"
+                      class="dropdown-link"
+                      ><p>{{ item.name }}</p>
+                    </router-link>
+                    <span
+                      class="material-symbols-outlined pe-10"
+                      type="button"
+                      @click="toggleDropdown(item.id)"
+                    >
+                      keyboard_arrow_down
+                    </span>
+                  </div>
+
+                  <ul
+                    class="mobile-sub-dropdown"
+                    v-if="openedDropdown === item.id"
+                  >
+                    <li
+                      class="mobile-sub-item"
+                      v-for="series in item.series"
+                      :key="series.id"
+                    >
+                      <router-link
+                        :to="`/products/${item.id}/${series.id}`"
+                        class="sub-dropdown-link"
+                        ><p>{{ series.name }}</p></router-link
                       >
                     </li>
                   </ul>
@@ -684,6 +723,15 @@ export default {
     const userLogin = ref();
     const user = ref();
     const check = ref(false);
+    const openedDropdown = ref(null);
+
+    const toggleDropdown = (id) => {
+      if (openedDropdown.value === id) {
+        openedDropdown.value = null;
+      } else {
+        openedDropdown.value = id;
+      }
+    };
 
     let { categories, err, getData } = getCategories();
 
@@ -755,6 +803,8 @@ export default {
       currentTheme,
       check,
       categories,
+      openedDropdown,
+      toggleDropdown,
     };
   },
 };

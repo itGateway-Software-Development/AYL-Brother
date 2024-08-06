@@ -67,7 +67,7 @@
               :key="item.id"
             >
               <router-link class="nav-link" :to="`/products/${item.id}`">
-                <p class="">{{ item.name }}{{ item.id }}</p></router-link
+                <p class="">{{ item.name }}</p></router-link
               >
             </label>
             <!-- <label class="filter-cat mb-2">
@@ -184,19 +184,13 @@
               data-aos-easing="linear"
               data-aos-duration="8000"
             >
-              <label class="filter-cat mb-2">
-                <router-link class="nav-link" to="/products/bamboo/0">
-                  <p class="">Bamboo Series</p></router-link
-                >
-              </label>
-              <label class="filter-cat mb-2">
-                <router-link class="nav-link" to="/products/spandex/0">
-                  <p class="">Spandex Series</p></router-link
-                >
-              </label>
-              <label class="filter-cat mb-2">
-                <router-link class="nav-link" to="/products/lycra/0">
-                  <p class="">Lycra Modal Series</p></router-link
+              <label
+                class="filter-cat mb-2"
+                v-for="item in categories"
+                :key="item.id"
+              >
+                <router-link class="nav-link" :to="`/products/${item.id}`">
+                  <p class="">{{ item.name }}</p></router-link
                 >
               </label>
             </div>
