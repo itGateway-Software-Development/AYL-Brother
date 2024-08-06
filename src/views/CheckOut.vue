@@ -258,10 +258,26 @@
                         </div>
                         <div class="upload-image mt-3">
                           <v-file-input
-                            accept="image/*"
+                            accept="image/png, image/jpeg"
                             label="File input"
+                            @change="handleFileChange"
+                            v-model="file"
                           ></v-file-input>
                           <p>Upload your transition screenshoot</p>
+                          <div
+                            v-if="imageSrc"
+                            style="height: 300px; width: 300px"
+                          >
+                            <img
+                              :src="imageSrc"
+                              alt="Uploaded Image"
+                              style="
+                                height: 100%;
+                                width: 100%;
+                                object-fit: contain;
+                              "
+                            />
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -351,6 +367,32 @@ export default {
     const id = ref();
     const phoneNumber = ref("");
     const address = ref("");
+    const file = ref(null);
+    const imageSrc = ref(null);
+    const img = ref(null);
+
+    const handleFileChange = (event) => {
+      const selectedFile = event.target.files[0];
+      if (
+        selectedFile.type == "image/png" ||
+        selectedFile.type == "image/jpeg"
+      ) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          imageSrc.value = e.target.result;
+        };
+        reader.readAsDataURL(selectedFile);
+        img.value = selectedFile;
+      } else {
+        file.value = null;
+        Swal.fire({
+          icon: "error",
+          title: "File type error",
+          text: "Your can only upload image file type like png or jpeg Please re-upload the file",
+        });
+      }
+    };
+
     const rules = {
       required: (value) => !!value || "Field is required",
     };
@@ -363,7 +405,7 @@ export default {
     const city = ref(null);
     const township = ref(null);
 
-    const qrImage = ref(require("@/assets/sample.jpg"));
+    const qrImage = ref(require("@/assets/QR.jpg"));
 
     const cartItems = computed(() => store.getters["cartItems"]);
     const total = computed(() => store.getters["totalPrice"]);
@@ -437,6 +479,7 @@ export default {
         totalAvailablePoints: availablePoints.value,
         price_total: total.value,
         grand_total: grandTotal.value,
+        image: img.value,
       });
       let orderDataFrom = new FormData();
       orderDataFrom.append("id", orderForm.value.id);
@@ -455,26 +498,40 @@ export default {
       orderDataFrom.append("totalPrice", orderForm.value.price_total);
       orderDataFrom.append("garndtotal", orderForm.value.grand_total);
 
-      console.log(orderForm.value);
-      isLoading.value = true;
+      try {
+        isLoading.value = true;
 
-      let response = await axios.post(api.order, orderDataFrom);
-      console.log(response.data);
+        let response = await axios.post(api.order, orderDataFrom);
+        console.log(response.data);
 
-      if (response.status == 200) {
-        store.dispatch("usePoints", pointsUse.value);
-        store.dispatch("clearCart");
-        store.dispatch("clearDiscount");
-        isLoading.value = false;
-        Swal.fire({
-          title: "Order Done",
-          icon: "success",
-          confirmButtonText: "Ok",
-        }).then((result) => {
-          if (result.isConfirmed) {
-            router.push("/product");
-          }
-        });
+        if (response.status == 200) {
+          store.dispatch("usePoints", pointsUse.value);
+          store.dispatch("clearCart");
+          store.dispatch("clearDiscount");
+          isLoading.value = false;
+          Swal.fire({
+            title: "Order Done",
+            icon: "success",
+            confirmButtonText: "Ok",
+          }).then((result) => {
+            if (result.isConfirmed) {
+              router.push("/product");
+            }
+          });
+        }
+      } catch (err) {
+        if (orderForm.image) {
+          Swal.fire({
+            title: "Unknown Error",
+            icon: "question",
+            text: "Please Contact this number +95 943158648",
+            confirmButtonText: "Ok",
+          }).then((result) => {
+            if (result.isConfirmed) {
+              router.push("/");
+            }
+          });
+        }
       }
     };
     onMounted(() => {
@@ -538,6 +595,9 @@ export default {
       userLogin,
       cod,
       qrImage,
+      file,
+      imageSrc,
+      handleFileChange,
     };
   },
 };
