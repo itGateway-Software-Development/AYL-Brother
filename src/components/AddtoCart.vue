@@ -447,6 +447,18 @@ export default {
   line-height: 30px;
 }
 
+@media (max-width: 1920px) {
+  .cart-item {
+    width: 1200px;
+  }
+}
+
+@media (max-width: 1820px) {
+  .cart-item {
+    width: 1050px;
+  }
+}
+
 @media (max-width: 1600px) {
   .cart-item {
     width: 950px;
