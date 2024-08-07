@@ -496,15 +496,15 @@ export default {
       orderDataFrom.append("pointsUse", orderForm.value.pointsUse);
       orderDataFrom.append("totalPoint", orderForm.value.totalAvailablePoints);
       orderDataFrom.append("totalPrice", orderForm.value.price_total);
-      orderDataFrom.append("garndtotal", orderForm.value.grand_total);
+      orderDataFrom.append("grandTotal", orderForm.value.grand_total);
+      orderDataFrom.append('slip_image', orderForm.value.image)
 
       try {
         isLoading.value = true;
 
         let response = await axios.post(api.order, orderDataFrom);
-        console.log(response.data);
 
-        if (response.status == 200) {
+        if (response.data.status == 'success') {
           store.dispatch("usePoints", pointsUse.value);
           store.dispatch("clearCart");
           store.dispatch("clearDiscount");
@@ -518,19 +518,32 @@ export default {
               router.push("/product");
             }
           });
+        } else {
+          throw new Error('error')
         }
       } catch (err) {
-        if (orderForm.image) {
+
+        err ? isLoading.value = false : true;
+        if (orderForm.value.image) {
           Swal.fire({
-            title: "Unknown Error",
+            title: "Server Error",
             icon: "question",
-            text: "Please Contact this number +95 943158648",
+            text: "Don't worry for your payment. Please Contact this number +95 943158648 for confirmation",
             confirmButtonText: "Ok",
           }).then((result) => {
             if (result.isConfirmed) {
-              router.push("/");
             }
           });
+        } else {
+            Swal.fire({
+              title: "Unknown Error",
+              icon: "question",
+              text: "Your order can't be proceed! Please try again !",
+              confirmButtonText: "Ok",
+            }).then((result) => {
+              if (result.isConfirmed) {
+              }
+            });
         }
       }
     };
