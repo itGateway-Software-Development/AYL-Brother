@@ -253,7 +253,7 @@
               >
               <v-list-item link
                 ><router-link
-                  class="d-flex align-items-center nav-link fav"
+                  class="d-flex align-items-center nav-link fav d-none"
                   to="/"
                   ><i class="fa-solid fa-heart"></i>
                   <p class="ms-2">Favouriters</p>
@@ -272,8 +272,38 @@
             <li class="ms-3">
               <i class="fa-solid fa-magnifying-glass"></i>
             </li>
-            <li class="ms-3"><i class="fa-solid fa-globe"></i></li>
-            <li class="ms-3"><i class="fa-solid fa-moon"></i></li>
+            <li class="ms-3">
+              <div class="d-flex align-items-center mt-1 language">
+                <a class="nav-link" href="#">
+                  <i class="fa-solid fa-globe"></i>
+                </a>
+
+                <ul class="dropdown-menus">
+                  <li class="mb-4" @click="changeLanguage('EN')">
+                    <p class="nav-link text-start">English</p>
+                  </li>
+                  <li @click="changeLanguage('MM')">
+                    <p class="nav-link text-start">Myanmar</p>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="ms-3">
+              <span
+                class="m-0 p-0 menu-icon material-symbols-outlined cursor-pointer prevent-select dark-icon theme-icon"
+                @click="changeTheme('light')"
+                :class="{ 'd-none': currentTheme == 'light' }"
+              >
+                dark_mode
+              </span>
+              <span
+                class="m-0 p-0 menu-icon material-symbols-outlined cursor-pointer prevent-select light-icon theme-icon"
+                @click="changeTheme('dark')"
+                :class="{ 'd-none': currentTheme == 'dark' }"
+              >
+                light_mode
+              </span>
+            </li>
             <li class="ms-3">
               <router-link to="/cart" class="nav-link">
                 <i class="fa-solid fa-cart-shopping"></i>
@@ -538,22 +568,6 @@
                   </ul>
                 </div>
               </li>
-              <li class="d-flex align-items-center">
-                <span
-                  class="m-0 p-0 menu-icon material-symbols-outlined cursor-pointer prevent-select dark-icon theme-icon"
-                  @click="changeTheme('light')"
-                  :class="{ 'd-none': currentTheme == 'light' }"
-                >
-                  dark_mode
-                </span>
-                <span
-                  class="m-0 p-0 menu-icon material-symbols-outlined cursor-pointer prevent-select light-icon theme-icon"
-                  @click="changeTheme('dark')"
-                  :class="{ 'd-none': currentTheme == 'dark' }"
-                >
-                  light_mode
-                </span>
-              </li>
             </ul>
           </div>
         </div>
@@ -613,9 +627,25 @@
           </div>
           <div class="right-group">
             <ul class="d-flex align-items-center">
+              <li class="d-flex align-items-center">
+                <span
+                  class="m-0 p-0 menu-icon material-symbols-outlined cursor-pointer prevent-select dark-icon theme-icon"
+                  @click="changeTheme('light')"
+                  :class="{ 'd-none': currentTheme == 'light' }"
+                >
+                  dark_mode
+                </span>
+                <span
+                  class="m-0 p-0 menu-icon material-symbols-outlined cursor-pointer prevent-select light-icon theme-icon"
+                  @click="changeTheme('dark')"
+                  :class="{ 'd-none': currentTheme == 'dark' }"
+                >
+                  light_mode
+                </span>
+              </li>
               <li>
                 <router-link
-                  class="nav-link d-flex align-items-center"
+                  class="nav-link d-flex align-items-center d-none"
                   to="/cart"
                   ><i class="fa-solid fa-heart"></i>
                 </router-link>
@@ -942,6 +972,7 @@ export default {
 
 .fa-heart {
   margin-right: 9px;
+  display: none;
 }
 
 .fa-cart-shopping {
@@ -1274,6 +1305,9 @@ export default {
   }
   .navigation {
     width: auto !important;
+  }
+  .dropdown-menus {
+    top: 60%;
   }
 }
 
