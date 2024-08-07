@@ -139,6 +139,10 @@ export default {
           );
           let point = response.data.response.point;
           store.dispatch("saveAvaliabePoints", point);
+          localStorage.setItem(
+            "pointHistory",
+            JSON.stringify(response.data.response.point_history)
+          );
 
           localStorage.setItem("isLogin", JSON.stringify(true));
 

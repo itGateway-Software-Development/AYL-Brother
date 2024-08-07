@@ -1,8 +1,97 @@
 <template>
   <div class="profile">
     <div class="content-wrapper">
+      <div class="mobile-toggle">
+        <div class="d-flex justify-content-between align-items-center">
+          <h5>Information</h5>
+          <div class="mobile">
+            <div class="app-bar d-flex">
+              <v-app-bar-nav-icon
+                @click.stop="drawer = !drawer"
+                variant="text"
+                class="app-bar"
+              >
+                <span class="material-symbols-outlined"> page_info </span>
+              </v-app-bar-nav-icon>
+              <v-navigation-drawer
+                v-model="drawer"
+                :location="$vuetify.display.mobile ? 'bottom' : undefined"
+                temporary
+              >
+                <!-- <v-list-item
+                  ><div class="filter-header">
+                    <div class="d-flex justify-content-between mb-5">
+                      <h4 class="fw-bold mt-3">Information</h4>
+                      <v-app-bar-nav-icon
+                        @click.stop="drawer = !drawer"
+                        variant="text"
+                      >
+                        <span class="material-symbols-outlined">
+                          close
+                        </span></v-app-bar-nav-icon
+                      >
+                    </div>
+                  </div></v-list-item
+                > -->
+                <v-list lines="one" v-if="user" class="text-start">
+                  <div class="d-flex justify-content-between mb-5">
+                    <v-list-item
+                      :title="`${user.name}`"
+                      :prepend-avatar="`https://ui-avatars.com/api/?background=ff0000&color=fff&name=${user.name}`"
+                    ></v-list-item>
+                    <v-app-bar-nav-icon
+                      @click.stop="drawer = !drawer"
+                      variant="text"
+                    >
+                      <span class="material-symbols-outlined">
+                        close
+                      </span></v-app-bar-nav-icon
+                    >
+                  </div>
+
+                  <v-divider></v-divider>
+                  <v-list-item
+                    class="acc-link"
+                    color="primary"
+                    :class="{ active: tab == 'info' }"
+                    @click="tab = 'info'"
+                    ><p>Account Information</p></v-list-item
+                  >
+                  <!-- <v-list-item
+              class="acc-link"
+              color="primary"
+              :class="{ active: tab == 'order' }"
+              @click="tab = 'order'"
+              ><p>My Orders</p></v-list-item
+            > -->
+                  <v-list-item
+                    class="acc-link"
+                    color="primary"
+                    :class="{ active: tab == 'history' }"
+                    @click="tab = 'history'"
+                    ><p>Orders History</p></v-list-item
+                  >
+                  <v-list-item
+                    class="acc-link"
+                    color="primary"
+                    :class="{ active: tab == 'points' }"
+                    @click="tab = 'points'"
+                    ><p>My Points</p></v-list-item
+                  >
+                  <v-list-item
+                    class="acc-link"
+                    color="primary"
+                    @click="logout()"
+                    ><p>Logout</p></v-list-item
+                  >
+                </v-list>
+              </v-navigation-drawer>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="d-flex justify-content-center">
-        <div class="nav-list">
+        <div class="nav-list desktop">
           <v-list lines="one" v-if="user" class="text-start">
             <v-list-item
               :title="`${user.name}`"
@@ -16,13 +105,13 @@
               @click="tab = 'info'"
               ><p>Account Information</p></v-list-item
             >
-            <v-list-item
+            <!-- <v-list-item
               class="acc-link"
               color="primary"
               :class="{ active: tab == 'order' }"
               @click="tab = 'order'"
               ><p>My Orders</p></v-list-item
-            >
+            > -->
             <v-list-item
               class="acc-link"
               color="primary"
@@ -42,6 +131,7 @@
             >
           </v-list>
         </div>
+
         <div class="detail" v-if="tab == 'info'">
           <div class="detail-header d-flex"><h3>Account Information</h3></div>
           <v-divider></v-divider>
@@ -118,22 +208,26 @@
             </div>
             <v-divider></v-divider>
           </div>
-          <div class="detail-button mt-5">
+          <div class="detail-button mt-5 d-none">
             <button class="btn detail-btn">Edit</button>
           </div>
         </div>
-        <div class="detail" v-if="tab == 'order'"><h1>Hello world 1</h1></div>
-        <div class="detail" v-if="tab == 'history'"><h1>Hello world 2</h1></div>
-        <div class="detail" v-if="tab == 'points'"><h1>Hello world 3</h1></div>
+
+        <div class="detail" v-if="tab == 'history'"></div>
+        <div class="detail" v-if="tab == 'points'">
+          <MyPoint></MyPoint>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import MyPoint from "../components/MyPoint";
 import { ref, watch, onMounted } from "vue";
 import { useRouter } from "vue-router";
 export default {
+  components: { MyPoint },
   setup() {
     const router = useRouter();
     const userLogin = ref();
@@ -144,6 +238,7 @@ export default {
     const password = ref("");
     const email = ref("");
     const address = ref("");
+    const drawer = ref(false);
 
     const logout = () => {
       localStorage.removeItem("user");
@@ -188,6 +283,7 @@ export default {
       email,
       address,
       phoneNumber,
+      drawer,
     };
   },
 };
@@ -195,7 +291,11 @@ export default {
 
 <style scoped>
 .profile {
-  margin-top: 150px;
+  margin: 150px 0px;
+}
+
+.mobile-toggle {
+  display: none;
 }
 
 .nav-list {
@@ -300,5 +400,35 @@ export default {
 .detail-btn:hover {
   color: #fff;
   background: red;
+}
+
+@media (max-width: 800px) {
+  .content-wrapper {
+    padding: 0px 1%;
+  }
+  .profile {
+    margin: 80px 0px;
+  }
+
+  .desktop {
+    display: none;
+  }
+  .v-navigation-drawer {
+    width: 1200px !important;
+    height: 1200px !important;
+    overflow: scroll;
+  }
+
+  .detail {
+    padding: 10px;
+  }
+
+  .mobile-toggle {
+    display: block;
+    padding: 10px;
+  }
+  .v-list {
+    background: none !important;
+  }
 }
 </style>

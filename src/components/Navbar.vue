@@ -469,7 +469,7 @@
                       <li>
                         <router-link
                           class="dropdown-item d-flex align-items-center icon-text nav-link"
-                          to="/"
+                          to="/myprofile"
                           ><span class="material-symbols-outlined">
                             person
                           </span>
@@ -666,6 +666,7 @@ export default {
       localStorage.removeItem("Token");
       localStorage.removeItem("totalAvailablePoints");
       localStorage.removeItem("isLogin");
+      localStorage.removeItem("pointHistory");
       router.push("/login");
     };
 
