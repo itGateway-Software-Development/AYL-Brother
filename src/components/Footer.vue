@@ -47,7 +47,7 @@
                 <router-link class="nav-link" to="/"><p>Return</p></router-link>
               </li> -->
               <li>
-                <router-link class="nav-link" to="/"
+                <router-link class="nav-link" to="/myprofile"
                   ><p>Track My Order</p></router-link
                 >
               </li>
@@ -80,11 +80,11 @@
           <div class="content-group text-start">
             <h5>Services</h5>
             <ul>
-              <li>
+              <!-- <li>
                 <router-link class="nav-link" to="/"
                   ><p>Membership</p></router-link
                 >
-              </li>
+              </li> -->
               <!-- <li>
                 <router-link class="nav-link" to="/"
                   ><p>Promotion</p></router-link
@@ -96,7 +96,7 @@
                 >
               </li>
               <li>
-                <router-link class="nav-link" to="/"
+                <router-link class="nav-link" to="/myprofile"
                   ><p>My Account</p></router-link
                 >
               </li>
@@ -236,14 +236,14 @@
               </button>
             </div>
             <div class="box-text text-start mt-3" v-if="service">
-              <router-link class="nav-link" to="/">
+              <!-- <router-link class="nav-link" to="/">
                 <p>Membership</p>
-              </router-link>
+              </router-link> -->
 
               <router-link class="nav-link" to="/contact">
                 <p>Contact</p>
               </router-link>
-              <router-link class="nav-link" to="/">
+              <router-link class="nav-link" to="/myprofile">
                 <p>My Account</p>
               </router-link>
             </div>

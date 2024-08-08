@@ -1,5 +1,5 @@
-// const url = "https://admin.romanticunderwear.com/api/v1/";
-const url = "http://192.168.1.118:8000/api/v1/";
+const url = "https://admin.romanticunderwear.com/api/v1/";
+// const url = "http://192.168.1.118:8000/api/v1/";
 
 const api = {
   login: url + "login",

@@ -5,7 +5,7 @@
         <div class="heading-cart">
           <router-link
             class="nav-link text-start mb-3 d-flex align-items-center heading-link"
-            to="/product"
+            to="/products"
             ><span class="material-symbols-outlined"> arrow_back </span>
             <p>Continue Shopping</p>
           </router-link>

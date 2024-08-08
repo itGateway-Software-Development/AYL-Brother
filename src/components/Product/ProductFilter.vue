@@ -54,13 +54,7 @@
               expand_more
             </span>
           </div>
-          <div
-            class="price mt-2 ms-2"
-            v-if="fabric_show"
-            data-aos="fade-down"
-            data-aos-easing="linear"
-            data-aos-duration="8000"
-          >
+          <div class="price mt-2 ms-2" v-if="fabric_show">
             <label class="filter-cat mb-2">
               <router-link class="nav-link" to="/products/bamboo/0">
                 <p class="">Bamboo Series</p></router-link
@@ -88,13 +82,7 @@
               expand_more
             </span>
           </div>
-          <div
-            class="size-filter"
-            v-if="size_show"
-            data-aos="fade-down"
-            data-aos-easing="linear"
-            data-aos-duration="8000"
-          >
+          <div class="size-filter" v-if="size_show">
             <p>Size of Waist(Inch)</p>
             <div class="row mt-3 justify-content-between">
               <div class="col-6 mb-3">

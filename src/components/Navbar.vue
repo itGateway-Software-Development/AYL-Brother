@@ -26,7 +26,7 @@
               ></router-link>
               <v-divider></v-divider>
               <div class="d-flex align-items-center justify-content-between">
-                <router-link to="/product" class="nav-link mb-text"
+                <router-link to="/products" class="nav-link mb-text"
                   ><v-list-item><p>Product</p> </v-list-item></router-link
                 >
                 <span
@@ -323,7 +323,7 @@
           <div class="upper-content-1">
             <ul class="d-flex">
               <li class="upper-li">
-                <router-link to="/product" class="nav-link">
+                <router-link to="/products" class="nav-link">
                   <p class="nav-p">{{ $t("product") }}</p>
                   <ul class="dropdowns">
                     <li class="dropdown-items">
@@ -509,7 +509,7 @@
                       <li>
                         <router-link
                           class="dropdown-item d-flex align-items-center icon-text nav-link"
-                          to="/"
+                          to="/myprofile"
                           ><span class="material-symbols-outlined">
                             settings
                           </span>
@@ -627,7 +627,7 @@
           </div>
           <div class="right-group">
             <ul class="d-flex align-items-center">
-              <li class="d-flex align-items-center">
+              <li class="d-flex align-items-center light-dark">
                 <span
                   class="m-0 p-0 menu-icon material-symbols-outlined cursor-pointer prevent-select dark-icon theme-icon"
                   @click="changeTheme('light')"
@@ -650,7 +650,7 @@
                   ><i class="fa-solid fa-heart"></i>
                 </router-link>
               </li>
-              <li>
+              <li class="cart-icon">
                 <router-link
                   class="nav-link d-flex align-items-center"
                   to="/cart"
@@ -697,6 +697,7 @@ export default {
       localStorage.removeItem("totalAvailablePoints");
       localStorage.removeItem("isLogin");
       localStorage.removeItem("pointHistory");
+      localStorage.removeItem("orderHistroy");
       router.push("/login");
     };
 
@@ -819,8 +820,12 @@ export default {
   margin-right: 10px;
 }
 
-.right-group ul li {
-  margin: 0px 15px;
+/* .right-group ul li {
+  margin: 0px 12.5px;
+} */
+
+.cart-icon {
+  margin: 0px 20px 0px 42px;
 }
 
 .icon-group .material-symbols-outlined {
@@ -860,7 +865,7 @@ export default {
 }
 
 .img-padding {
-  margin-right: 160px !important;
+  margin-right: 220px !important;
 }
 
 ::placeholder {
@@ -878,7 +883,7 @@ export default {
 
 .cart-count {
   position: absolute;
-  right: 5%;
+  right: 6%;
   top: 5px;
   background-color: red;
   color: #fff;
@@ -961,7 +966,7 @@ export default {
 
 .logo-img {
   width: 150px;
-  margin-right: 30px;
+  margin-right: 90px;
 }
 
 .logo-img-nav {
@@ -1204,7 +1209,7 @@ export default {
   }
 
   .cart-count {
-    right: 7.5%;
+    right: 8%;
   }
 }
 

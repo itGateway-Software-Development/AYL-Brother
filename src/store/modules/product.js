@@ -2981,15 +2981,20 @@ export default {
 
     grandTotal: (state) => {
       const total = state.cart.reduce(
-        (total, item) =>
-          total + item.price * item.quantity + state.deliveryPrice,
+        (total, item) => total + item.price * item.quantity,
         0
       );
+      // const total = state.cart.reduce(
+      //   (total) => total + state.deliveryPrice + itemTotal,
+      //   0
+      // );
+      const finalTotal = Math.max(0, total + state.deliveryPrice);
+
       if (state.discountPoints) {
         const discount = state.discountPoints * POINTS_TO_MMK_CONVERSION_RATE;
-        return Math.max(0, total - discount);
+        return Math.max(0, finalTotal - discount);
       }
-      return total;
+      return finalTotal;
     },
     totalAvailablePoints: (state) => {
       return state.totalAvailablePoints;
@@ -3094,6 +3099,9 @@ export default {
       state.totalAvailablePoints = points;
       saveTotalAvailablePointsToLocalStorage(state.totalAvailablePoints);
     },
+    assignDeliveryPrice(state, price) {
+      state.deliveryPrice = price;
+    },
   },
   actions: {
     addToCart(context, product) {
@@ -3176,6 +3184,9 @@ export default {
     },
     savePoints({ commit }, points) {
       commit("savePoints", points);
+    },
+    assignDeliveryPrice({ commit }, price) {
+      commit("assignDeliveryPrice", price);
     },
   },
   modules: {},

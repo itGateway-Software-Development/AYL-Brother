@@ -9,7 +9,7 @@
           <div class="col-4 item-col">
             <div class="product-series">
               <div class="item">
-                <router-link to="/product"
+                <router-link to="/products/bamboo/0"
                   ><img
                     src="../assets/mini-photo/3.jpg"
                     class="img-fluid"
@@ -32,7 +32,7 @@
           <div class="col-4 item-col">
             <div class="product-series">
               <div class="item">
-                <router-link to="/product"
+                <router-link to="/products/lycra/0"
                   ><img
                     src="../assets/mini-photo/1.jpg"
                     class="img-fluid"
@@ -55,7 +55,7 @@
           <div class="col-4 item-col">
             <div class="product-series">
               <div class="item">
-                <router-link to="/product">
+                <router-link to="/products/spandex/0">
                   <img
                     src="../assets/mini-photo/6.jpg"
                     class="img-fluid"
@@ -78,7 +78,7 @@
         </div>
 
         <div class="text-center mt-5 more-p">
-          <router-link class="nav-link see-more" to="/product"
+          <router-link class="nav-link see-more" to="/products"
             ><h4>See more products <i class="fa-solid fa-angles-right"></i></h4>
           </router-link>
         </div>

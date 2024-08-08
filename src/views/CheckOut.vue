@@ -409,7 +409,7 @@ export default {
 
     const cartItems = computed(() => store.getters["cartItems"]);
     const total = computed(() => store.getters["totalPrice"]);
-    const grandTotal = computed(() => store.getters["grandTotal"]);
+
     const discountPrice = computed(() => store.getters["discountPrice"]);
     const pointsUse = computed(() => store.getters["discountPoints"]);
 
@@ -461,6 +461,7 @@ export default {
     };
 
     const availablePoint = ref();
+    const grandTotal = computed(() => store.getters["grandTotal"]);
 
     // const availablePoint = computed(() => store.getters.totalAvailablePoints);
 
@@ -497,17 +498,22 @@ export default {
       orderDataFrom.append("totalPoint", orderForm.value.totalAvailablePoints);
       orderDataFrom.append("totalPrice", orderForm.value.price_total);
       orderDataFrom.append("grandTotal", orderForm.value.grand_total);
-      orderDataFrom.append('slip_image', orderForm.value.image)
+      orderDataFrom.append("slip_image", orderForm.value.image);
 
       try {
         isLoading.value = true;
 
         let response = await axios.post(api.order, orderDataFrom);
+        console.log(response);
 
-        if (response.data.status == 'success') {
+        if (response.data.status == "success") {
           store.dispatch("usePoints", pointsUse.value);
           store.dispatch("clearCart");
           store.dispatch("clearDiscount");
+          localStorage.setItem(
+            "orderHistroy",
+            JSON.stringify(response.data.order)
+          );
           isLoading.value = false;
           Swal.fire({
             title: "Order Done",
@@ -515,15 +521,14 @@ export default {
             confirmButtonText: "Ok",
           }).then((result) => {
             if (result.isConfirmed) {
-              router.push("/product");
+              router.push("/products");
             }
           });
         } else {
-          throw new Error('error')
+          throw new Error("error");
         }
       } catch (err) {
-
-        err ? isLoading.value = false : true;
+        err ? (isLoading.value = false) : true;
         if (orderForm.value.image) {
           Swal.fire({
             title: "Server Error",
@@ -535,15 +540,15 @@ export default {
             }
           });
         } else {
-            Swal.fire({
-              title: "Unknown Error",
-              icon: "question",
-              text: "Your order can't be proceed! Please try again !",
-              confirmButtonText: "Ok",
-            }).then((result) => {
-              if (result.isConfirmed) {
-              }
-            });
+          Swal.fire({
+            title: "Unknown Error",
+            icon: "question",
+            text: "Your order can't be proceed! Please try again !",
+            confirmButtonText: "Ok",
+          }).then((result) => {
+            if (result.isConfirmed) {
+            }
+          });
         }
       }
     };
@@ -556,6 +561,7 @@ export default {
       store.dispatch("savePoints", availablePoint.value);
       availablePoints.value = availablePoint.value;
       window.scroll(0, 0);
+      store.dispatch("assignDeliveryPrice", 0);
     });
 
     watch(availablePoint.value, () => {

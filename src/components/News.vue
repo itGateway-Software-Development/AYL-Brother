@@ -281,12 +281,14 @@ export default {
 }
 
 .new-btn {
-  margin-top: 20px;
-  width: 220px;
-  border: 1px solid red;
-  padding: 10px;
-  color: var(--font-color);
   position: relative;
+  margin: 20px 0px;
+  width: 220px;
+  justify-content: center;
+  color: #111;
+  background: red;
+  border: 2px solid red;
+  z-index: 1;
   transition: 1s;
 }
 
@@ -298,22 +300,22 @@ export default {
   width: 100%;
   height: 100%;
   background: #fff;
-  border-radius: 6px;
   z-index: -1;
   transform-origin: left;
-  transition: transform 1s ease;
+  transition: transform 0.5s ease-out;
   transform: scaleX(1);
+  border-radius: 4px;
 }
 
 .new-btn:hover::before {
   transform-origin: right;
-  transition: transform 0.5s ease;
+  transition: transform 0.5s ease-in;
   transform: scaleX(0);
 }
 
 .new-btn:hover {
-  background: red;
   color: #fff;
+  background: red;
 }
 
 .new-btn .fa-solid {

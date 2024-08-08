@@ -213,7 +213,9 @@
           </div>
         </div>
 
-        <div class="detail" v-if="tab == 'history'"></div>
+        <div class="detail" v-if="tab == 'history'">
+          <MyOrder></MyOrder>
+        </div>
         <div class="detail" v-if="tab == 'points'">
           <MyPoint></MyPoint>
         </div>
@@ -223,11 +225,15 @@
 </template>
 
 <script>
+import MyOrder from "../components/MyOrder";
 import MyPoint from "../components/MyPoint";
 import { ref, watch, onMounted } from "vue";
 import { useRouter } from "vue-router";
 export default {
-  components: { MyPoint },
+  components: {
+    MyOrder,
+    MyPoint,
+  },
   setup() {
     const router = useRouter();
     const userLogin = ref();
@@ -245,6 +251,8 @@ export default {
       localStorage.removeItem("Token");
       localStorage.removeItem("totalAvailablePoints");
       localStorage.removeItem("isLogin");
+      localStorage.removeItem("pointHistory");
+      localStorage.removeItem("orderHistroy");
       router.push("/login");
     };
 

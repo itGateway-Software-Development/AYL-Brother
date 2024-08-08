@@ -5,7 +5,7 @@
       remain
     </h5>
 
-    <h6 class="mt-5 text-start">Point Usage List</h6>
+    <h6 class="mt-5 text-start usage">Point Usage List</h6>
     <v-table>
       <thead>
         <tr>
@@ -129,5 +129,9 @@ export default {
 .color-text {
   color: red;
   text-decoration: none;
+}
+
+.usage {
+  text-decoration: underline;
 }
 </style>

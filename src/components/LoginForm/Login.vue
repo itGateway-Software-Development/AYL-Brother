@@ -143,6 +143,10 @@ export default {
             "pointHistory",
             JSON.stringify(response.data.response.point_history)
           );
+          localStorage.setItem(
+            "orderHistroy",
+            JSON.stringify(response.data.response.order)
+          );
 
           localStorage.setItem("isLogin", JSON.stringify(true));
 

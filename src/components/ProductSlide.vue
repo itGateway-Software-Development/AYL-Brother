@@ -178,7 +178,7 @@
                   <div class="carousel-btn btn-3">
                     <router-link
                       class="nav-link d-flex align-items-center btn btn-1"
-                      to="/product"
+                      to="/products"
                       ><p>Order Now</p>
                       <i class="fa-solid fa-arrow-right ms-4"></i
                     ></router-link>
