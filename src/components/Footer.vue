@@ -46,7 +46,7 @@
               <!-- <li>
                 <router-link class="nav-link" to="/"><p>Return</p></router-link>
               </li> -->
-              <li>
+              <li v-if="user">
                 <router-link class="nav-link" to="/myprofile"
                   ><p>Track My Order</p></router-link
                 >
@@ -95,7 +95,7 @@
                   ><p>Contact</p></router-link
                 >
               </li>
-              <li>
+              <li v-if="user">
                 <router-link class="nav-link" to="/myprofile"
                   ><p>My Account</p></router-link
                 >
@@ -317,7 +317,8 @@
 </template>
 
 <script>
-import { ref } from "vue";
+import { ref, onMounted, watch } from "vue";
+import { useRoute } from "vue-router";
 export default {
   setup() {
     const shop = ref(false);
@@ -325,6 +326,14 @@ export default {
     const about = ref(false);
     const service = ref(false);
     const register = ref(false);
+    const route = useRoute();
+    const user = ref();
+
+    onMounted(() => {});
+
+    watch(route, () => {
+      user.value = JSON.parse(localStorage.getItem("user"));
+    });
 
     return {
       shop,
@@ -332,6 +341,7 @@ export default {
       about,
       service,
       register,
+      user,
     };
   },
 };

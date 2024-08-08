@@ -189,6 +189,7 @@ export default {
       //   previousRoute.value = from;
       //   console.log(previousRoute.value);
       // });
+      window.scroll(0, 0);
     });
 
     return {

@@ -253,6 +253,7 @@ export default {
       localStorage.removeItem("isLogin");
       localStorage.removeItem("pointHistory");
       localStorage.removeItem("orderHistroy");
+      localStorage.removeItem("cart");
       router.push("/login");
     };
 
