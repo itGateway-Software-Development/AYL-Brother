@@ -263,6 +263,7 @@ export default {
 
     onMounted(() => {
       user.value = JSON.parse(localStorage.getItem("user"));
+      window.scroll(0, 0);
     });
 
     watch(user, () => {

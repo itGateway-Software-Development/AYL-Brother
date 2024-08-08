@@ -46,7 +46,7 @@
                 <div class="btn add-btn mb-3" @click="addToCart(product)">
                   Add to Bag
                 </div>
-                <div class="btn wish-btn">Add to WishList</div>
+                <div class="btn wish-btn d-none">Add to WishList</div>
               </div>
             </div>
           </div>
