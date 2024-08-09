@@ -1210,7 +1210,7 @@ export default {
   }
 
   .cart-count {
-    right: 8%;
+    right: 7.5%;
   }
 }
 

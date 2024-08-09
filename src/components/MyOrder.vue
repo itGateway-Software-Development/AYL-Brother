@@ -1,140 +1,155 @@
 <template>
   <div class="myorder">
-    <h5 class="text-center">Order History</h5>
-    <v-table>
-      <thead>
-        <tr>
-          <th class="text-center">Date</th>
-          <th class="text-center">Order No</th>
-          <th class="text-center">Customer Name</th>
-          <th class="text-center">Payment Image</th>
-          <th class="text-center">Status</th>
-          <th class="text-center">Detail</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="order in orderHistroy" :key="order.id">
-          <td>{{ order.date }}</td>
-          <td>{{ order.order_no }}</td>
-          <td>{{ order.customer }}</td>
-          <td v-if="order.img"><img :src="order.img" alt="" /></td>
-          <td v-else><span class="no_image">No Image Avaliable</span></td>
-          <td class="status">
-            <span :class="getStatus(order.order_status)">{{
-              order.order_status
-            }}</span>
-          </td>
-          <td>
-            <div class="text-center mt-1">
-              <button @click="showDialog(order.order_no)">
-                <span class="material-symbols-outlined"> info </span>
-              </button>
+    <div v-if="History">
+      <h5 class="text-center">Order History</h5>
+      <v-table>
+        <thead>
+          <tr>
+            <th class="text-center">Date</th>
+            <th class="text-center">Order No</th>
+            <th class="text-center">Customer Name</th>
+            <th class="text-center">Payment Image</th>
+            <th class="text-center">Status</th>
+            <th class="text-center">Detail</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="order in orderHistroy" :key="order.id">
+            <td>{{ order.date }}</td>
+            <td>{{ order.order_no }}</td>
+            <td>{{ order.customer }}</td>
+            <td v-if="order.img"><img :src="order.img" alt="" /></td>
+            <td v-else><span class="no_image">No Image Avaliable</span></td>
+            <td class="status">
+              <span :class="getStatus(order.order_status)">{{
+                order.order_status
+              }}</span>
+            </td>
+            <td>
+              <div class="text-center mt-1">
+                <button @click="showDialog(order.order_no)">
+                  <span class="material-symbols-outlined"> info </span>
+                </button>
 
-              <v-dialog v-model="dialog" width="800px">
-                <v-card max-width="auto">
-                  <div class="modal-content">
-                    <div
-                      class="d-flex justify-content-between align-items-center"
-                    >
-                      <h5>Order History</h5>
-
-                      <v-btn class="ms-auto" @click="dialog = false">
-                        <span class="material-symbols-outlined">
-                          close
-                        </span></v-btn
+                <v-dialog v-model="dialog" width="800px">
+                  <v-card max-width="auto">
+                    <div class="modal-content">
+                      <div
+                        class="d-flex justify-content-between align-items-center"
                       >
-                    </div>
-                    <div class="top-content">
-                      <p>Date: {{ orderDetail.date }}</p>
-                      <p>Order No: {{ orderDetail.order_no }}</p>
-                      <!-- <p>Customer: {{ order.customer }}</p>
+                        <h5>Order History</h5>
+
+                        <v-btn class="ms-auto" @click="dialog = false">
+                          <span class="material-symbols-outlined">
+                            close
+                          </span></v-btn
+                        >
+                      </div>
+                      <div class="top-content">
+                        <p>Date: {{ orderDetail.date }}</p>
+                        <p>Order No: {{ orderDetail.order_no }}</p>
+                        <!-- <p>Customer: {{ order.customer }}</p>
                       <p>Phone: {{ order.phone }}</p>
                       <p>Address: {{ order.delivery_address }}</p>
                       <p>
                         Delivery Address:{{ order.delivery_address }},
                         {{ order.delivery_town }}, {{ order.delivery_city }}
                       </p> -->
-                    </div>
-                    <div class="list">
-                      <v-table>
-                        <thead>
-                          <tr>
-                            <th class="text-start">Product Code</th>
-                            <th class="text-start">Size</th>
-                            <th class="text-start">Color</th>
-                            <th class="text-start">Qty</th>
-                            <th class="text-start">Price</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr
-                            v-for="item in orderDetail.order_items"
-                            :key="item.id"
-                          >
-                            <td>{{ item.code }}</td>
-                            <td>{{ item.size }}</td>
-                            <td>{{ item.color }}</td>
-                            <td>{{ item.quantity }}</td>
-                            <td>{{ item.price }}</td>
-                          </tr>
-                        </tbody>
-                      </v-table>
-                    </div>
-                    <div class="price-detail">
-                      <div
-                        class="d-flex justify-content-between align-items center"
-                      >
-                        <p>Sub Total:</p>
-                        <p>{{ orderDetail.sub_total }} MMK</p>
                       </div>
-                      <div
-                        class="d-flex justify-content-between align-items center"
-                      >
-                        <p>Delivery Charges:</p>
-                        <p>{{ orderDetail.delivery_charges }} MMK</p>
+                      <div class="list">
+                        <v-table>
+                          <thead>
+                            <tr>
+                              <th class="text-start">Product Code</th>
+                              <th class="text-start">Size</th>
+                              <th class="text-start">Color</th>
+                              <th class="text-start">Qty</th>
+                              <th class="text-start">Price</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr
+                              v-for="item in orderDetail.order_items"
+                              :key="item.id"
+                            >
+                              <td>{{ item.code }}</td>
+                              <td>{{ item.size }}</td>
+                              <td>{{ item.color }}</td>
+                              <td>{{ item.quantity }}</td>
+                              <td>{{ item.price }}</td>
+                            </tr>
+                          </tbody>
+                        </v-table>
                       </div>
-                      <div
-                        class="d-flex justify-content-between align-items center"
-                      >
-                        <p>Point Discount:</p>
-                        <p>{{ orderDetail.used_point }} MMK</p>
+                      <div class="price-detail">
+                        <div
+                          class="d-flex justify-content-between align-items center"
+                        >
+                          <p>Sub Total:</p>
+                          <p>{{ orderDetail.sub_total }} MMK</p>
+                        </div>
+                        <div
+                          class="d-flex justify-content-between align-items center"
+                        >
+                          <p>Delivery Charges:</p>
+                          <p>{{ orderDetail.delivery_charges }} MMK</p>
+                        </div>
+                        <div
+                          class="d-flex justify-content-between align-items center"
+                        >
+                          <p>Point Discount:</p>
+                          <p>{{ orderDetail.used_point }} MMK</p>
+                        </div>
+                        <div
+                          class="d-flex justify-content-between align-items center"
+                        >
+                          <p>Grand Total:</p>
+                          <p>{{ orderDetail.grand_total }} MMK</p>
+                        </div>
                       </div>
-                      <div
-                        class="d-flex justify-content-between align-items center"
-                      >
-                        <p>Grand Total:</p>
-                        <p>{{ orderDetail.grand_total }} MMK</p>
+                      <div class="justify-content-center detail-img">
+                        <img :src="orderDetail.img" alt="" />
                       </div>
                     </div>
-                    <div class="justify-content-center detail-img">
-                      <img :src="orderDetail.img" alt="" />
-                    </div>
-                  </div>
-                </v-card>
-              </v-dialog>
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </v-table>
+                  </v-card>
+                </v-dialog>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </v-table>
+    </div>
+    <div v-else>
+      <h4>There is no order to show please make some order</h4>
+    </div>
   </div>
 </template>
 
 <script>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, watch } from "vue";
 import { useStore } from "vuex";
+import { useRouter } from "vue-router";
 export default {
   setup() {
     const orderHistroy = ref([]);
     const store = useStore();
     const dialog = ref(false);
     const orderDetail = ref();
+    const History = ref(false);
+    const route = useRouter();
 
     const showDialog = (id) => {
       dialog.value = true;
       orderDetail.value = orderHistroy.value.find((item) => {
         return item.order_no == id;
       });
+    };
+
+    let fetchHistory = () => {
+      orderHistroy.value = JSON.parse(localStorage.getItem("orderHistroy"));
+      if (orderHistroy.value) {
+        History.value = true;
+      }
     };
 
     // const formatDate = (dateString) => {
@@ -153,7 +168,11 @@ export default {
     };
 
     onMounted(() => {
-      orderHistroy.value = JSON.parse(localStorage.getItem("orderHistroy"));
+      fetchHistory();
+    });
+
+    watch(route, () => {
+      fetchHistory();
     });
 
     return {
@@ -162,6 +181,7 @@ export default {
       dialog,
       showDialog,
       orderDetail,
+      History,
     };
   },
 };
