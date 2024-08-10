@@ -21,7 +21,7 @@
               <p>Color: {{ product.name }}</p>
             </div>
             <div class="card-content text-start">
-              <p class="code">Product-code: {{ product.series_id }}</p>
+              <p class="code">Product-code: {{ product.series }}</p>
               <p>{{ product.product_info }}</p>
               <p>Price: {{ product.price }} MMK</p>
               <p>
@@ -30,8 +30,8 @@
               </p>
             </div>
             <div class="size-button">
-              <div class="row mt-3 justify-content-around px-3 card-size">
-                <button
+              <div class="row mt-3 px-3 card-size">
+                <!-- <button
                   class="size col-3 mb-3 size-col"
                   id="size"
                   v-for="size in sizes"
@@ -52,12 +52,106 @@
                       (size.size == 'XXL' && product.xxl_size_stock < 1) ||
                       (size.size == '3XL' && product.xxxl_size_stock < 1) ||
                       (size.size == '4XL' && product.xxxxl_size_stock < 1),
+
+                    'd-none':
+                      (product.series != 'RO:9002' ||
+                        product.series != 'RO:9001') &&
+                      (size.size == '3XL' || size.size == '4XL'),
+                    'd-none':
+                      (product.series == 'RO:9002' ||
+                        product.series == 'RO:9001') &&
+                      (size.size == 'M' || size.size == 'L'),
                   }"
                   @click="selectSize(size.size, product)"
                 >
                   <p>
                     {{ size.size }}
                   </p>
+                </button> -->
+
+                <button
+                  class="size col-3 mb-3 size-col"
+                  id="size"
+                  @click="selectSize('M', product)"
+                  :disabled="product.m_size_stock < 1"
+                  :class="{
+                    'bg-grey-darken-2': product.m_size_stock < 1,
+                    'd-none':
+                      product.series == 'RO:9001' ||
+                      product.series == 'RO:9002',
+                  }"
+                >
+                  <p>M</p>
+                </button>
+                <button
+                  class="size col-3 mb-3 size-col"
+                  id="size"
+                  @click="selectSize('L', product)"
+                  :disabled="product.lg_size_stock < 1"
+                  :class="{
+                    'bg-grey-darken-2': product.lg_size_stock < 1,
+                    'd-none':
+                      product.series == 'RO:9001' ||
+                      product.series == 'RO:9002',
+                  }"
+                >
+                  <p>L</p>
+                </button>
+                <button
+                  class="size col-3 mb-3 size-col"
+                  id="size"
+                  @click="selectSize('XL', product)"
+                  :disabled="product.xl_size_stock < 1"
+                  :class="{
+                    'bg-grey-darken-2': product.xl_size_stock < 1,
+                    'd-none':
+                      product.series == 'RO:9001' ||
+                      product.series == 'RO:9002',
+                  }"
+                >
+                  <p>XL</p>
+                </button>
+                <button
+                  class="size col-3 mb-3 size-col"
+                  id="size"
+                  @click="selectSize('XXL', product)"
+                  :disabled="product.xxl_size_stock < 1"
+                  :class="{
+                    'bg-grey-darken-2': product.xxl_size_stock < 1,
+                    'd-none':
+                      product.series == 'RO:9001' ||
+                      product.series == 'RO:9002',
+                  }"
+                >
+                  <p>XXL</p>
+                </button>
+                <button
+                  class="size col-3 mb-3 size-col d-none"
+                  id="size"
+                  @click="selectSize('3XL', product)"
+                  :disabled="product.xxxl_size_stock < 1"
+                  :class="{
+                    'bg-grey-darken-2': product.xxxl_size_stock < 1,
+                    'd-block':
+                      product.series == 'RO:9001' ||
+                      product.series == 'RO:9002',
+                  }"
+                >
+                  <p>3XL</p>
+                </button>
+                <button
+                  class="size col-3 mb-3 size-col d-none"
+                  id="size"
+                  @click="selectSize('4XL', product)"
+                  :disabled="product.xxxxl_size_stock < 1"
+                  :class="{
+                    'bg-grey-darken-2': product.xxxxl_size_stock < 1,
+                    'd-block':
+                      product.series == 'RO:9001' ||
+                      product.series == 'RO:9002',
+                  }"
+                >
+                  <p>4XL</p>
                 </button>
               </div>
               <div class="card-button-group mt-3">
@@ -341,7 +435,8 @@ export default {
   text-align: center;
   align-content: center;
   padding: 0px 10px;
-  width: 80px;
+  width: 60px;
+  margin: 0px 4px;
 }
 
 .diable-card {
