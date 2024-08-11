@@ -290,13 +290,11 @@ export default {
       }
       const productToAdd = {
         id: product.id,
-        series: product.series,
-        cat: product.cat,
-        code: product.code,
-        color: product.color,
+        code: product.series,
+        color: product.name,
         price: product.price,
-        pics: product.pics,
-        img: product.img,
+        pics: product.product_info,
+        img: product.main_image,
         quantity: quantity.value,
         size: selectedSize.value,
       };

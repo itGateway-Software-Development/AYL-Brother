@@ -7,6 +7,8 @@ const api = {
   order: url + "order",
   categories: url + "categories",
   products: url + "products",
+  product: url + "products/",
+  randomproduct: url + "get-random-products",
 };
 
 export default api;

@@ -1,6 +1,7 @@
 <template>
   <div class="detail">
     <div class="content-wrapper">
+      {{ resultProduct }}
       <div
         class="modal"
         tabindex="-1"
@@ -97,42 +98,11 @@
                 alt=""
                 @click="updateTab(image.id, image.url)"
               />
-
-              <!-- <img
-                src="../../assets/product/a.jpg"
-                class="img-fluid py-5 p-img nav-link"
-                :class="{ active: tab == 'p-1' }"
-                alt=""
-                @click="tab = 'p-1'"
-              />
-
-              <img
-                src="../../assets/product/a.jpg"
-                class="img-fluid py-5 p-img nav-link"
-                alt=""
-                :class="{ active: tab == 'p-2' }"
-                @click="tab = 'p-2'"
-              />
-
-              <img
-                src="../../assets/product/a.jpg"
-                class="img-fluid py-5 p-img nav-link"
-                alt=""
-                :class="{ active: tab == 'p-3' }"
-                @click="tab = 'p-3'"
-              />
-              <img
-                src="../../assets/product/a.jpg"
-                class="img-fluid py-5 p-img nav-link"
-                alt=""
-                :class="{ active: tab == 'p-4' }"
-                @click="tab = 'p-4'"
-              /> -->
             </div>
             <div class="max-photo p-2 mt-5">
-              <img :src="product.img" class="img-fluid d-none" alt="" />
+              <img :src="mainImage" class="img-fluid d-none" alt="" />
               <img
-                :src="product.main_image"
+                :src="mainImage"
                 alt=""
                 class="img-fluid"
                 @mousemove="moveMagnifier"
@@ -155,8 +125,8 @@
         </div>
         <div class="col-6 right-content">
           <div class="content-text text-start mt-5">
-            <p class="code">Product Code: {{ product.code }}</p>
-            <p>Color: {{ product.color }}</p>
+            <p class="code">Product Code: {{ product.series }}</p>
+            <p>Color: {{ product.name }}</p>
             <p>Price: {{ product.price }} MMK</p>
             <div class="size-guide d-flex justify-content-between">
               <p>Select your size</p>
@@ -171,25 +141,102 @@
             </div>
             <div class="size-content" v-if="selectedSize">
               <p>
-                Selected Size: <span>{{ selectedSize.sizedetail }}</span>
+                Selected Size: <span>{{ selectedSize }}</span>
               </p>
             </div>
             <div class="size-list d-flex justify-content-start mt-3">
-              <div
-                class="size-card"
-                id="size"
-                v-for="size in sizes"
-                :key="size.id"
-                @click="selectSize(size)"
-              >
-                <p>{{ size.size }}</p>
+              <div class="size-card row">
+                <button
+                  class="size col-3 mb-3 size-col"
+                  id="size"
+                  @click="selectSize('M', product)"
+                  :disabled="product.m_size_stock < 1"
+                  :class="{
+                    'bg-grey-darken-2': product.m_size_stock < 1,
+                    'd-none':
+                      product.series == 'RO:9001' ||
+                      product.series == 'RO:9002',
+                  }"
+                >
+                  <p>M</p>
+                </button>
+                <button
+                  class="size col-3 mb-3 size-col"
+                  id="size"
+                  @click="selectSize('L', product)"
+                  :disabled="product.lg_size_stock < 1"
+                  :class="{
+                    'bg-grey-darken-2': product.lg_size_stock < 1,
+                    'd-none':
+                      product.series == 'RO:9001' ||
+                      product.series == 'RO:9002',
+                  }"
+                >
+                  <p>L</p>
+                </button>
+                <button
+                  class="size col-3 mb-3 size-col"
+                  id="size"
+                  @click="selectSize('XL', product)"
+                  :disabled="product.xl_size_stock < 1"
+                  :class="{
+                    'bg-grey-darken-2': product.xl_size_stock < 1,
+                    'd-none':
+                      product.series == 'RO:9001' ||
+                      product.series == 'RO:9002',
+                  }"
+                >
+                  <p>XL</p>
+                </button>
+                <button
+                  class="size col-3 mb-3 size-col"
+                  id="size"
+                  @click="selectSize('XXL', product)"
+                  :disabled="product.xxl_size_stock < 1"
+                  :class="{
+                    'bg-grey-darken-2': product.xxl_size_stock < 1,
+                    'd-none':
+                      product.series == 'RO:9001' ||
+                      product.series == 'RO:9002',
+                  }"
+                >
+                  <p>XXL</p>
+                </button>
+                <button
+                  class="size col-3 mb-3 size-col d-none"
+                  id="size"
+                  @click="selectSize('3XL', product)"
+                  :disabled="product.xxxl_size_stock < 1"
+                  :class="{
+                    'bg-grey-darken-2': product.xxxl_size_stock < 1,
+                    'd-block':
+                      product.series == 'RO:9001' ||
+                      product.series == 'RO:9002',
+                  }"
+                >
+                  <p>3XL</p>
+                </button>
+                <button
+                  class="size col-3 mb-3 size-col d-none"
+                  id="size"
+                  @click="selectSize('4XL', product)"
+                  :disabled="product.xxxxl_size_stock < 1"
+                  :class="{
+                    'bg-grey-darken-2': product.xxxxl_size_stock < 1,
+                    'd-block':
+                      product.series == 'RO:9001' ||
+                      product.series == 'RO:9002',
+                  }"
+                >
+                  <p>4XL</p>
+                </button>
               </div>
             </div>
             <div class="card-button-group mt-5">
               <div class="btn add-btn mb-3" @click="addToCart(product)">
                 Add to Bag
               </div>
-              <div class="btn wish-btn">Add to WishList</div>
+              <!-- <div class="btn wish-btn">Add to WishList</div> -->
             </div>
             <div class="detail-size">
               <div class="size-detail">
@@ -227,18 +274,6 @@
                 </div>
               </div>
             </div>
-            <!-- <div class="delivery-option mt-5">
-              <div class="delivery-heading d-flex align-items-center pt-3 px-3">
-                <span class="material-symbols-outlined"> local_shipping </span>
-                <p>Delivery & Return</p>
-              </div>
-              <div class="delivery-text px-3">
-                <p>
-                  Find out aboout our delivery options and how to exchange or
-                  return
-                </p>
-              </div>
-            </div> -->
           </div>
         </div>
         <hr class="mt-5" />
@@ -258,39 +293,21 @@
               <router-link
                 :to="{ name: 'productDetail', params: { id: product.id } }"
                 class="product-link"
-                @click="refreshProducts()"
               >
                 <div class="card-img mb-2 border-img">
-                  <img :src="product.img" class="img-fluid" alt="" />
+                  <img :src="product.main_image" class="img-fluid" alt="" />
                 </div>
               </router-link>
 
               <div class="p-color text-center mb-2">
-                <p>Color: {{ product.color }}</p>
+                <p>Color: {{ product.name }}</p>
               </div>
               <div class="card-content text-start">
-                <p class="code">Product-code: {{ product.code }}</p>
-                <p>{{ product.pics }}</p>
+                <p class="code">Product-code: {{ product.series }}</p>
+                <p>{{ product.product_info }}</p>
                 <p>Price: {{ product.price }} MMK</p>
                 <p v-if="selectedSize">Selected Size: {{ selectedSize }}</p>
               </div>
-              <!-- <div class="row mt-3 justify-content-around px-3 card-size">
-              <div
-                class="size col-3 mb-3 size-col"
-                id="size"
-                v-for="size in sizes"
-                :key="size.id"
-                @click="selectSize(size.size)"
-              >
-                <p>{{ size.size }}</p>
-              </div>
-            </div>
-            <div class="card-button-group mt-3">
-              <div class="btn add-btn mb-3" @click="addToCart(product)">
-                Add to Bag
-              </div>
-              <div class="btn wish-btn">Add to WishList</div>
-            </div> -->
             </div>
           </div>
         </div>
@@ -303,7 +320,8 @@
 import { computed, ref, watch, onMounted } from "vue";
 import { useStore } from "vuex";
 import { useRoute } from "vue-router";
-import getProducts from "@/composable/getProduct";
+import getSingleProduct from "@/composable/getSingleProduct";
+import getRandomProducts from "@/composable/getRandomProducts";
 export default {
   props: {
     id: {
@@ -326,16 +344,9 @@ export default {
     const nickName = ref("");
     const email = ref("");
     const comment = ref("");
-    let singleProduct = ref();
-    // let { product, error, getProduct } = getProducts();
 
-    let filterProduct = () => {
-      singleProduct.value = product.filter(
-        (product) => product.id == productId
-      );
-
-      console.log(singleProduct);
-    };
+    let { product, error, load } = getSingleProduct();
+    let { randomProducts, err, loadRandom } = getRandomProducts();
 
     const sumbitComment = () => {
       if (
@@ -354,42 +365,14 @@ export default {
     };
 
     const size_chart = ref(false);
-
-    const products = computed(() => store.getters["products"]);
-    const product = computed(() => {
-      return store.getters.getProductById(productId.value);
-    });
-
     const sizeGuide = ref(false);
     const selectedSize = ref(null);
-    const refreshProducts = () => {
-      fetchRandomProducts();
-      window.scrollTo(0, 0);
+    const mainImage = ref();
+    const miniImages = ref();
+    const getImage = () => {
+      miniImages.value = product.value.images;
+      mainImage.value = product.value.main_image;
     };
-
-    let randomProducts = ref([]);
-
-    const fetchRandomProducts = () => {
-      randomProducts.value = store.getters.randomProducts(productCount.value);
-      window.scroll(0, 0);
-    };
-
-    // Fetch products when component is mounted
-    onMounted(() => {
-      fetchRandomProducts();
-      productId.value = props.id;
-    });
-    // Watch for changes to productCount and re-fetch products
-    watch(props, () => {
-      fetchRandomProducts();
-      productId.value = props.id;
-      mainImage.value = product.value.img;
-    });
-
-    const miniImages = computed(() =>
-      store.getters.getMiniImagesByProductId(productId.value)
-    );
-    const mainImage = ref(product.value.img);
 
     const updateTab = (selectedTab, imgUrl) => {
       tab.value = selectedTab;
@@ -461,34 +444,6 @@ export default {
       magnifier.style.top = `${magnifierY}px`;
     };
 
-    const sizes = [
-      {
-        id: 1,
-        size: "M",
-      },
-      {
-        id: 2,
-        size: "L",
-      },
-      {
-        id: 3,
-        size: "XL",
-      },
-      {
-        id: 4,
-        size: "XXL",
-      },
-
-      {
-        id: 5,
-        size: "3XL",
-      },
-      {
-        id: 6,
-        size: "4XL",
-      },
-    ];
-
     const addToCart = (product) => {
       if (!selectedSize.value) {
         alert("Please select a size");
@@ -496,13 +451,11 @@ export default {
       }
       const productToAdd = {
         id: product.id,
-        series: product.series,
-        cat: product.cat,
-        code: product.code,
-        color: product.color,
+        code: product.series,
+        color: product.name,
         price: product.price,
-        pics: product.pics,
-        img: product.img,
+        pics: product.product_info,
+        img: product.main_image,
         quantity: quantity.value,
         size: selectedSize.value,
       };
@@ -515,27 +468,26 @@ export default {
       selectedSize.value = size;
     };
 
-    onMounted(async () => {
-      window.scroll(0, 0);
-      await getProduct();
-      filterProduct();
+    watch(props, async () => {
+      await load(props.id);
+      getImage();
+      loadRandom();
     });
 
-    watch(route, () => {
-      productId.value = route.params.id;
+    onMounted(async () => {
+      await load(productId.value);
+      loadRandom();
+      getImage();
     });
-    watch(productCount, () => {
-      sliceProduct();
-    });
+
     return {
-      product,
       sizeGuide,
-      sizes,
+      productId,
       selectSize,
       selectedSize,
-      randomProducts,
+      product,
       productId,
-      refreshProducts,
+      randomProducts,
       addToCart,
       tab,
       updateTab,
@@ -688,22 +640,12 @@ export default {
 }
 
 .size-card {
-  width: 100px;
-  border: 1px solid var(--border-color);
+  width: 100%;
   border-radius: 5px;
   cursor: pointer;
   text-align: center;
   margin: 0px 30px 0px 0px;
-}
-
-.size-card:hover {
-  background: red;
-  color: #fff;
-}
-
-.size-card.active {
-  background: red;
-  color: #fff;
+  padding: 0px 50px 0px 0px;
 }
 
 .size-content p {
@@ -831,6 +773,22 @@ export default {
   border: 5px solid red;
 }
 
+.size-col {
+  width: 80px;
+  border: 1px solid var(--border-color);
+  margin: 20px 20px 0px 0px;
+  border-radius: 6px;
+}
+
+.size-col p {
+  font-weight: bold;
+}
+
+.size-col:hover {
+  background: red;
+  color: #fff;
+}
+
 @media (max-width: 1280px) {
   .modal-dialog {
     max-width: 800px !important;
@@ -847,6 +805,10 @@ export default {
 @media (max-width: 860px) {
   .detail {
     margin: 50px auto;
+  }
+
+  .size-guide {
+    padding: 0px 80px 0px 0px;
   }
 
   .left-photo,
@@ -868,7 +830,11 @@ export default {
 
   .size-detail,
   .review {
-    padding-right: 90px;
+    padding-right: 70px;
+  }
+
+  .add-btn {
+    width: 470px;
   }
 }
 
@@ -886,18 +852,21 @@ export default {
     margin: 0px auto;
   }
 
-  .size-list .size-card {
-    font-size: 14px;
-    width: 120px;
+  .size-card {
+    padding: 0px;
   }
 
   .review {
     padding: 0px;
   }
 
+  .size-col {
+    width: 70px;
+  }
+
   .add-btn,
   .wish-btn {
-    width: 290px;
+    width: 320px;
   }
   .mini-photo {
     width: 100%;

@@ -74,7 +74,7 @@
                 >
                   delete
                 </span>
-                <span class="material-symbols-outlined p-2"> favorite </span>
+                <!-- <span class="material-symbols-outlined p-2"> favorite </span> -->
               </div>
             </div>
           </div>
