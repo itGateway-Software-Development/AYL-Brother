@@ -6,7 +6,27 @@
           <h2>Product Series</h2>
         </div>
         <div class="row fabric-row">
-          <div class="col-4 item-col">
+          <div class="col-4 item-col" v-for="item in categories" :key="item.id">
+            <div class="product-series">
+              <div class="item">
+                <router-link :to="`/products/${item.id}`"
+                  ><img :src="item.image" class="img-fluid" alt=""
+                /></router-link>
+              </div>
+              <div class="item-text text-start">
+                <router-link :to="`/products/${item.id}`" class="nav-link"
+                  ><button class="btn p-btn d-flex align-items-center">
+                    <p>{{ item.name }}</p>
+                    <i class="fa-solid fa-arrow-right"></i></button
+                ></router-link>
+                <p class="b-text">
+                  {{ item.description }}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- <div class="col-4 item-col">
             <div class="product-series">
               <div class="item">
                 <router-link to="/products/bamboo/0"
@@ -74,7 +94,7 @@
                 </p>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
 
         <div class="text-center mt-5 more-p">
@@ -88,38 +108,25 @@
 </template>
 
 <script>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
+import getCategories from "../composable/getCategories";
 export default {
   setup() {
-    let content1 = ref(true);
-    let content2 = ref(false);
-    let content3 = ref(false);
+    let category = ref([]);
 
-    let ChangeContent1 = () => {
-      content1.value = true;
-      content2.value = false;
-      content3.value = false;
-    };
+    let { categories, err, getData } = getCategories();
 
-    let ChangeContent2 = () => {
-      content1.value = false;
-      content2.value = true;
-      content3.value = false;
-    };
+    category.value = categories;
 
-    let ChangeContent3 = () => {
-      content1.value = false;
-      content2.value = false;
-      content3.value = true;
-    };
+    onMounted(() => {
+      getData();
+      // console.log(categories.value);
+    });
 
     return {
-      content1,
-      content2,
-      content3,
-      ChangeContent1,
-      ChangeContent2,
-      ChangeContent3,
+      categories,
+      err,
+      category,
     };
   },
 };

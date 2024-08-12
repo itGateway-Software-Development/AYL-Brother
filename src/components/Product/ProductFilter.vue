@@ -1,12 +1,12 @@
 <template>
   <div class="product-filter text-start">
     <div class="text-filter">
-      <p class="mb-3 route-text">Men / {{ this.$route.name }}</p>
-      <p class="mb-5 res">{{ filteredProducts.length }} Result</p>
+      <!-- <p class="mb-3 route-text">Men / {{ this.$route.name }}</p>
+      <p class="mb-5 res">{{ filteredProducts.length }} Result</p> -->
     </div>
     <div class="f-1">
-      <p class="mb-3 route-text">Men / {{ this.$route.name }}</p>
-      <p class="mb-5 res">{{ filteredProducts.length }} Result</p>
+      <!-- <p class="mb-3 route-text">Men / {{ this.$route.name }}</p>
+      <p class="mb-5 res">{{ filteredProducts.length }} Result</p> -->
       <div class="filter-header">
         <hr />
         <h4 class="fw-bold">Filter Product</h4>
@@ -60,7 +60,7 @@
                 <p class="">Bamboo Series</p></router-link
               >
             </label>
-            <label class="filter-cat mb-2">
+            <!-- <label class="filter-cat mb-2">
               <router-link class="nav-link" to="/products/spandex/0">
                 <p class="">Spandex Series</p></router-link
               >
@@ -69,7 +69,7 @@
               <router-link class="nav-link" to="/products/lycra/0">
                 <p class="">Lycra Modal Series</p></router-link
               >
-            </label>
+            </label> -->
           </div>
         </div>
         <div class="filter-size">
@@ -168,19 +168,13 @@
               data-aos-easing="linear"
               data-aos-duration="8000"
             >
-              <label class="filter-cat mb-2">
-                <router-link class="nav-link" to="/products/bamboo/0">
-                  <p class="">Bamboo Series</p></router-link
-                >
-              </label>
-              <label class="filter-cat mb-2">
-                <router-link class="nav-link" to="/products/spandex/0">
-                  <p class="">Spandex Series</p></router-link
-                >
-              </label>
-              <label class="filter-cat mb-2">
-                <router-link class="nav-link" to="/products/lycra/0">
-                  <p class="">Lycra Modal Series</p></router-link
+              <label
+                class="filter-cat mb-2"
+                v-for="item in categories"
+                :key="item.id"
+              >
+                <router-link class="nav-link" :to="`/products/${item.id}`">
+                  <p class="">{{ item.name }}</p></router-link
                 >
               </label>
             </div>
@@ -239,17 +233,20 @@
 
 <script>
 import { ref, watch, computed, onMounted } from "vue";
+
 import { useStore } from "vuex";
 import { useRoute } from "vue-router";
 import router from "@/router";
+import getCategories from "../../composable/getCategories";
+import getProducts from "../../composable/getProduct";
 
 export default {
-  props: ["series", "code"],
+  props: ["categories", "series"],
   setup(props, context) {
     const store = useStore();
-    const product = computed(() => store.getters.filteredProducts);
     const drawer = ref(false);
     const route = useRoute();
+    const category = ref();
 
     const fabric = ref([]);
 
@@ -270,65 +267,67 @@ export default {
       });
     };
 
-    const selectedSeries = ref([]);
-    const selectedCat = ref([]);
-    const availableSeries = [
-      "Bamboo Series",
-      "Lycra Modal Series",
-      "Spandex Series",
-    ]; // Example series, this could be dynamically generated
-    // const availableCode = ref([8028, 8027, 8018, 8017, 8003, 8002]); // Example categories, can be generated dynamically
+    let { categories, err, getData } = getCategories();
+    let { products, error, getProduct } = getProducts();
 
-    const products = computed(() => store.getters.filteredProducts);
-    const filteredProducts = ref([]);
-    const series = ref(props.series);
-    const code = ref();
+    // const selectedSeries = ref([]);
+    // const selectedCat = ref([]);
+    // const availableSeries = [
+    //   "Bamboo Series",
+    //   "Lycra Modal Series",
+    //   "Spandex Series",
+    // ]; // Example series, this could be dynamically generated
+    // // const availableCode = ref([8028, 8027, 8018, 8017, 8003, 8002]); // Example categories, can be generated dynamically
 
-    const codeValue = () => {
-      if (props.code == 0) {
-        code.value = null;
-      } else {
-        code.value = props.code;
-      }
-    };
+    // // const products = computed(() => store.getters.filteredProducts);
+    // // const filteredProducts = ref([]);
+    // // const series = ref(props.series);
+    // // const code = ref();
 
-    const filter = () => {
-      codeValue();
-      filteredProducts.value = products.value.filter((product) => {
-        if (series.value && code.value) {
-          return product.series == series.value && product.code == code.value;
-        }
-        if (series.value && code.value == null) {
-          return product.series == series.value;
-        }
-        if (!series.value && !code.value) {
-          return products;
-        }
-      });
-    };
+    // // const codeValue = () => {
+    // //   if (props.code == 0) {
+    // //     code.value = null;
+    // //   } else {
+    // //     code.value = props.code;
+    // //   }
+    // // };
 
-    watch(route, () => {
-      code.value = route.params.code;
-      series.value = route.params.series;
-      filter();
-    });
+    // const filter = (id) => {
+    //   // products.value = products.value.filter((product) => {
+    //   //   if (category.value) {
+    //   //     return product.category_id == category.value;
+    //   //   }
+    //   //   if (!category.value) {
+    //   //     return product;
+    //   //   }
+    //   // });
+    //   category.value = id;
+    //   console.log(category.value);
+    //   // context.emit("select-category");
+    // };
+
+    // watch(route, () => {
+    //   console.log(props);
+    //   filter();
+    // });
 
     onMounted(() => {
-      filter();
+      getData();
+      // getProduct();
       // window.scrollY(100, 100);
     });
 
-    watch(
-      selectedSeries,
-      (newSeries) => {
-        if (selectedSeries == "Bamboo") {
-          router.push("/products/bamboo");
-        } else if (selectedSeries == "Lycra Modal") {
-          router.push("/products/");
-        }
-      },
-      { immediate: true }
-    );
+    // watch(
+    //   selectedSeries,
+    //   (newSeries) => {
+    //     if (selectedSeries == "Bamboo") {
+    //       router.push("/products/bamboo");
+    //     } else if (selectedSeries == "Lycra Modal") {
+    //       router.push("/products/");
+    //     }
+    //   },
+    //   { immediate: true }
+    // );
 
     // watch(
     //   selectedCat,
@@ -346,12 +345,8 @@ export default {
       size_show,
       drawer,
       priceFilter,
-      selectedSeries,
-      availableSeries,
-      selectedCat,
-
-      product,
-      filteredProducts,
+      category,
+      categories,
     };
   },
 };

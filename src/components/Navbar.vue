@@ -39,7 +39,7 @@
               </div>
               <ul class="dropdown-mobile" v-if="mobileDropdown">
                 <hr />
-                <li class="mobile-dropdown-item">
+                <!-- <li class="mobile-dropdown-item">
                   <div
                     class="d-flex align-items-center justify-content-between"
                   >
@@ -156,6 +156,45 @@
                     <li class="mobile-sub-item">
                       <router-link to="/products/lycra/8077" class="nav-link"
                         >RO: 8077</router-link
+                      >
+                    </li>
+                  </ul>
+                </li> -->
+                <li
+                  class="mobile-dropdown-items"
+                  v-for="item in categories"
+                  :key="item.id"
+                >
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                  >
+                    <router-link
+                      :to="`/products/${item.id}`"
+                      class="dropdown-link"
+                      ><p>{{ item.name }}</p>
+                    </router-link>
+                    <span
+                      class="material-symbols-outlined pe-10"
+                      type="button"
+                      @click="toggleDropdown(item.id)"
+                    >
+                      keyboard_arrow_down
+                    </span>
+                  </div>
+
+                  <ul
+                    class="mobile-sub-dropdown"
+                    v-if="openedDropdown === item.id"
+                  >
+                    <li
+                      class="mobile-sub-item"
+                      v-for="series in item.series"
+                      :key="series.id"
+                    >
+                      <router-link
+                        :to="`/products/${item.id}/${series.id}`"
+                        class="sub-dropdown-link"
+                        ><p>{{ series.name }}</p></router-link
                       >
                     </li>
                   </ul>
@@ -326,7 +365,31 @@
                 <router-link to="/products" class="nav-link">
                   <p class="nav-p">{{ $t("product") }}</p>
                   <ul class="dropdowns">
-                    <li class="dropdown-items">
+                    <li
+                      class="dropdown-items"
+                      v-for="item in categories"
+                      :key="item.id"
+                    >
+                      <router-link
+                        :to="`/products/${item.id}`"
+                        class="dropdown-link"
+                        >{{ item.name }}</router-link
+                      >
+                      <ul class="dropdown-submenu">
+                        <li
+                          class="dropdown-submenu-item"
+                          v-for="series in item.series"
+                          :key="series.id"
+                        >
+                          <router-link
+                            :to="`/products/${item.id}/${series.id}`"
+                            class="sub-dropdown-link"
+                            >{{ series.name }}</router-link
+                          >
+                        </li>
+                      </ul>
+                    </li>
+                    <!-- <li class="dropdown-items">
                       <router-link to="/products/bamboo/0" class="dropdown-link"
                         >Bamboo Fiber</router-link
                       >
@@ -447,7 +510,7 @@
                           >
                         </li>
                       </ul>
-                    </li>
+                    </li> -->
                   </ul>
                 </router-link>
               </li>
@@ -673,6 +736,7 @@ import { computed, onMounted, ref, watch } from "vue";
 import { mapGetters, mapMutations, useStore } from "vuex";
 import router from "@/router";
 import { useRoute } from "vue-router";
+import getCategories from "../composable/getCategories";
 
 export default {
   setup(props) {
@@ -740,7 +804,9 @@ export default {
       }
     });
 
-    onMounted(() => {});
+    onMounted(() => {
+      getData();
+    });
 
     watch(route, () => {
       userLogin.value = JSON.parse(localStorage.getItem("isLogin"));
@@ -765,6 +831,9 @@ export default {
       currentTheme,
       changeLanguage,
       check,
+      categories,
+      openedDropdown,
+      toggleDropdown,
     };
   },
 };
@@ -1020,7 +1089,7 @@ export default {
   display: block;
   visibility: hidden;
   position: absolute;
-  left: 8%;
+  left: 6%;
   top: 50%;
   background: var(--background-color);
   list-style-type: none;
@@ -1206,7 +1275,7 @@ export default {
 
 @media (max-width: 1920px) {
   .dropdowns {
-    left: 8.3%;
+    left: 8%;
   }
 
   .cart-count {
@@ -1216,7 +1285,7 @@ export default {
 
 @media (max-width: 1600px) {
   .dropdowns {
-    left: 9%;
+    left: 8.3%;
   }
   .cart-count {
     right: 8%;
