@@ -754,6 +754,9 @@ export default {
     const user = ref();
     const check = ref(false);
     const language = ref("EN");
+    const openedDropdown = ref(null);
+
+    const {categories, err, getData} = getCategories();
 
     const logout = () => {
       localStorage.removeItem("user");
@@ -770,6 +773,8 @@ export default {
       language.value = lang;
       store.dispatch("getLocale", lang);
     };
+
+
 
     const changeTheme = (theme) => {
       currentTheme.value = theme;
@@ -803,6 +808,14 @@ export default {
         mbHeader.classList.remove("scrolled");
       }
     });
+
+    const toggleDropdown = (id) => {
+      if (openedDropdown.value === id) {
+        openedDropdown.value = null;
+      } else {
+        openedDropdown.value = id;
+      }
+    };
 
     onMounted(() => {
       getData();
