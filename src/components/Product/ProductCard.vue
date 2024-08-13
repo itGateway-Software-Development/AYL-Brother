@@ -247,7 +247,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style >
 .card-img img {
   border-radius: 5px;
   width: 100%;

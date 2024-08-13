@@ -389,128 +389,6 @@
                         </li>
                       </ul>
                     </li>
-                    <!-- <li class="dropdown-items">
-                      <router-link to="/products/bamboo/0" class="dropdown-link"
-                        >Bamboo Fiber</router-link
-                      >
-                      <ul class="dropdown-submenu">
-                        <li class="dropdown-submenu-item">
-                          <router-link
-                            to="/products/bamboo/8028"
-                            class="sub-dropdown-link"
-                            >RO: 8028</router-link
-                          >
-                        </li>
-                        <li class="dropdown-submenu-item">
-                          <router-link
-                            to="/products/bamboo/8027"
-                            class="sub-dropdown-link"
-                            >RO: 8027</router-link
-                          >
-                        </li>
-                        <li class="dropdown-submenu-item">
-                          <router-link
-                            to="/products/bamboo/8018"
-                            class="sub-dropdown-link"
-                            >RO: 8018</router-link
-                          >
-                        </li>
-                        <li class="dropdown-submenu-item">
-                          <router-link
-                            to="/products/bamboo/8017"
-                            class="sub-dropdown-link"
-                            >RO: 8017</router-link
-                          >
-                        </li>
-                        <li class="dropdown-submenu-item">
-                          <router-link
-                            to="/products/bamboo/8003"
-                            class="sub-dropdown-link"
-                            >RO: 8003</router-link
-                          >
-                        </li>
-                        <li class="dropdown-submenu-item">
-                          <router-link
-                            to="/products/bamboo/8004"
-                            class="sub-dropdown-link"
-                            >RO: 8004</router-link
-                          >
-                        </li>
-                        <li class="dropdown-submenu-item">
-                          <router-link
-                            to="/products/bamboo/9001"
-                            class="sub-dropdown-link"
-                            >RO: 9001</router-link
-                          >
-                        </li>
-                        <li class="dropdown-submenu-item">
-                          <router-link
-                            to="/products/bamboo/9002"
-                            class="sub-dropdown-link"
-                            >RO: 9002</router-link
-                          >
-                        </li>
-                      </ul>
-                    </li>
-                    <li class="dropdown-items">
-                      <router-link
-                        to="/products/spandex/0"
-                        class="dropdown-link"
-                      >
-                        Spandex Series</router-link
-                      >
-                      <ul class="dropdown-submenu">
-                        <li class="dropdown-submenu-item">
-                          <router-link
-                            to="/products/spandex/5002"
-                            class="sub-dropdown-link"
-                            >RO: 5002</router-link
-                          >
-                        </li>
-                        <li class="dropdown-submenu-item">
-                          <router-link
-                            to="/products/spandex/5003"
-                            class="sub-dropdown-link"
-                            >RO: 5003</router-link
-                          >
-                        </li>
-                        <li class="dropdown-submenu-item">
-                          <router-link
-                            to="/products/spandex/5012"
-                            class="sub-dropdown-link"
-                            >RO: 5012</router-link
-                          >
-                        </li>
-                        <li class="dropdown-submenu-item">
-                          <router-link
-                            to="/products/spandex/5013"
-                            class="sub-dropdown-link"
-                            >RO: 5013</router-link
-                          >
-                        </li>
-                      </ul>
-                    </li>
-                    <li class="dropdown-items">
-                      <router-link to="/products/lycra/0" class="dropdown-link"
-                        >Lycra Modal Series</router-link
-                      >
-                      <ul class="dropdown-submenu">
-                        <li class="dropdown-submenu-item">
-                          <router-link
-                            to="/products/lycra/8076"
-                            class="sub-dropdown-link"
-                            >RO: 8076</router-link
-                          >
-                        </li>
-                        <li class="dropdown-submenu-item">
-                          <router-link
-                            to="/products/lycra/8077"
-                            class="sub-dropdown-link"
-                            >RO: 8077</router-link
-                          >
-                        </li>
-                      </ul>
-                    </li> -->
                   </ul>
                 </router-link>
               </li>
@@ -682,10 +560,138 @@
                 placeholder="Search"
                 aria-label="Username"
                 aria-describedby="basic-addon1"
+                @input="searchProducts"
+                v-model="search_keyword"
               />
               <span class="material-symbols-outlined input-group-text">
                 search
               </span>
+            </div>
+          </div>
+          <div class="search-products" v-if="searchedProducts.length > 0">
+            <div class="row align-content-center card-list" >
+              <div
+                class="col-6 col-md-4 col-sm-6 mb-5 p-card-col"
+                v-for="product in searchedProducts"
+                :key="product.id"
+              >
+                <div class="p-card mb-3">
+                  <router-link
+                    :to="{ name: 'productDetail', params: { id: product.id } }"
+                    class="product-link"
+                  >
+                    <div class="card-img mb-2">
+                      <img :src="product.main_image" class="img-fluid" alt="" />
+                    </div>
+                  </router-link>
+      
+                  <div class="p-color text-center mb-2">
+                    <p>Color: {{ product.name }}</p>
+                  </div>
+                  <div class="card-content text-start">
+                    <p class="code">Product-code: {{ product.series }}</p>
+                    <p>{{ product.product_info }}</p>
+                    <p>Price: {{ product.price }} MMK</p>
+                    <p>
+                      Selected Size:
+                      {{ selectedSize }}
+                    </p>
+                  </div>
+                  <div class="size-button">
+                    <div class="row mt-3 px-3 card-size">
+                      <button
+                        class="size col-3 mb-3 size-col"
+                        id="size"
+                        @click="selectSize('M', product, $event)"
+                        :disabled="product.m_size_stock < 1"
+                        :class="{
+                          'bg-grey-darken-2': product.m_size_stock < 1,
+                          'd-none':
+                            product.series == 'RO:9001' ||
+                            product.series == 'RO:9002',
+                        }"
+                      >
+                        <p style="pointer-events: none;">M</p>
+                      </button>
+                      <button
+                        class="size col-3 mb-3 size-col"
+                        id="size"
+                        @click="selectSize('L', product, $event)"
+                        :disabled="product.lg_size_stock < 1"
+                        :class="{
+                          'bg-grey-darken-2': product.lg_size_stock < 1,
+                          'd-none':
+                            product.series == 'RO:9001' ||
+                            product.series == 'RO:9002',
+                        }"
+                      >
+                        <p style="pointer-events: none;">L</p>
+                      </button>
+                      <button
+                        class="size col-3 mb-3 size-col"
+                        id="size"
+                        @click="selectSize('XL', produc, $event)"
+                        :disabled="product.xl_size_stock < 1"
+                        :class="{
+                          'bg-grey-darken-2': product.xl_size_stock < 1,
+                          'd-none':
+                            product.series == 'RO:9001' ||
+                            product.series == 'RO:9002',
+                        }"
+                      >
+                        <p style="pointer-events: none;">XL</p>
+                      </button>
+                      <button
+                        class="size col-3 mb-3 size-col"
+                        id="size"
+                        @click="selectSize('XXL', produ, $event)"
+                        :disabled="product.xxl_size_stock < 1"
+                        :class="{
+                          'bg-grey-darken-2': product.xxl_size_stock < 1,
+                          'd-none':
+                            product.series == 'RO:9001' ||
+                            product.series == 'RO:9002',
+                        }"
+                      >
+                        <p style="pointer-events: none;">XXL</p>
+                      </button>
+                      <button
+                        class="size col-3 mb-3 size-col d-none"
+                        id="size"
+                        @click="selectSize('3XL', produ, $eventct)"
+                        :disabled="product.xxxl_size_stock < 1"
+                        :class="{
+                          'bg-grey-darken-2': product.xxxl_size_stock < 1,
+                          'd-block':
+                            product.series == 'RO:9001' ||
+                            product.series == 'RO:9002',
+                        }"
+                      >
+                        <p style="pointer-events: none;">3XL</p>
+                      </button>
+                      <button
+                        class="size col-3 mb-3 size-col d-none"
+                        id="size"
+                        @click="selectSize('4XL', produ, $eventct)"
+                        :disabled="product.xxxxl_size_stock < 1"
+                        :class="{
+                          'bg-grey-darken-2': product.xxxxl_size_stock < 1,
+                          'd-block':
+                            product.series == 'RO:9001' ||
+                            product.series == 'RO:9002',
+                        }"
+                      >
+                        <p style="pointer-events: none;">4XL</p>
+                      </button>
+                    </div>
+                    <div class="card-button-group mt-3">
+                      <div class="btn add-btn mb-3" @click="addToCart(product)">
+                        Add to Bag
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <div class="right-group">
@@ -737,6 +743,8 @@ import { mapGetters, mapMutations, useStore } from "vuex";
 import router from "@/router";
 import { useRoute } from "vue-router";
 import getCategories from "../composable/getCategories";
+import axios from "axios";
+import api from "@/service/api";
 
 export default {
   setup(props) {
@@ -755,6 +763,28 @@ export default {
     const check = ref(false);
     const language = ref("EN");
     const openedDropdown = ref(null);
+    const search_keyword = ref('');
+    const searchedProducts = ref([]);
+
+
+    const searchProducts = async () => {
+      try{
+          let response = await axios.get(api.searchProducts+'?search='+search_keyword.value);
+          if(response.status === 404) {
+              throw new Error('page not found');
+          }
+
+          // searchedHotels.value = response.data.hotels.map(hotel => {
+          //     let img = hotel.image == null ? require('@/assets/images/default.webp') : api.image_url + hotel.image;
+          //     return {...hotel, image: img };
+          // });
+            console.log(response.data.products);
+          searchedProducts.value = response.data.products;
+      }
+      catch(err) {
+          console.log(err.message);
+      }
+    }
 
     const {categories, err, getData} = getCategories();
 
@@ -847,6 +877,9 @@ export default {
       categories,
       openedDropdown,
       toggleDropdown,
+      search_keyword,
+      searchProducts,
+      searchedProducts
     };
   },
 };
@@ -1284,6 +1317,24 @@ export default {
 
 .v-divider {
   color: var(--border-color);
+}
+
+/* ======== search results ============ */
+.search-products {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: 90%;
+    transform: translateY(0) translateX(-50%);
+    z-index: 99999;
+    pointer-events: auto;
+    background-color: rgba(114, 103, 103, 0.815);
+    display: flex;
+    gap: 60px;
+    transition: 0.3s ease;
+    padding: 30px 40px;
+    max-height: 700px;
+    overflow-y: scroll;
 }
 
 @media (max-width: 1920px) {
