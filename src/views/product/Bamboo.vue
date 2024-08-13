@@ -32,35 +32,4 @@ export default {
 };
 </script>
 
-<style>
-.product {
-  margin-top: 150px;
-  z-index: 0;
-  position: relative;
-}
-.color-text {
-  color: red;
-  text-decoration: underline;
-}
-
-@media (max-width: 1200px) {
-  .col-md-3 {
-    width: 100%;
-  }
-  .col-md-9 {
-    width: 100%;
-  }
-  .product {
-    margin: 150px auto 50px;
-  }
-}
-
-@media (max-width: 800px) {
-  .product {
-    margin: 50px auto;
-  }
-}
-
-@media (max-width: 500px) {
-}
-</style>
+<style></style>

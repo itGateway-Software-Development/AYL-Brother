@@ -43,7 +43,7 @@
                       product.series == 'RO:9002',
                   }"
                 >
-                  <p style="pointer-events: none;">M</p>
+                  <p style="pointer-events: none">M</p>
                 </button>
                 <button
                   class="size col-3 mb-3 size-col"
@@ -57,7 +57,7 @@
                       product.series == 'RO:9002',
                   }"
                 >
-                  <p style="pointer-events: none;">L</p>
+                  <p style="pointer-events: none">L</p>
                 </button>
                 <button
                   class="size col-3 mb-3 size-col"
@@ -71,7 +71,7 @@
                       product.series == 'RO:9002',
                   }"
                 >
-                  <p style="pointer-events: none;">XL</p>
+                  <p style="pointer-events: none">XL</p>
                 </button>
                 <button
                   class="size col-3 mb-3 size-col"
@@ -85,7 +85,7 @@
                       product.series == 'RO:9002',
                   }"
                 >
-                  <p style="pointer-events: none;">XXL</p>
+                  <p style="pointer-events: none">XXL</p>
                 </button>
                 <button
                   class="size col-3 mb-3 size-col d-none"
@@ -99,7 +99,7 @@
                       product.series == 'RO:9002',
                   }"
                 >
-                  <p style="pointer-events: none;">3XL</p>
+                  <p style="pointer-events: none">3XL</p>
                 </button>
                 <button
                   class="size col-3 mb-3 size-col d-none"
@@ -113,7 +113,7 @@
                       product.series == 'RO:9002',
                   }"
                 >
-                  <p style="pointer-events: none;">4XL</p>
+                  <p style="pointer-events: none">4XL</p>
                 </button>
               </div>
               <div class="card-button-group mt-3">
@@ -207,18 +207,17 @@ export default {
       selectedSize.value = "please select size";
     };
 
-    const selectSize = (size,product, event) => {
-      document.querySelectorAll('.size-col').forEach((btn) => {
-        btn.classList.remove('selected-size')
-      })
+    const selectSize = (size, product, event) => {
+      document.querySelectorAll(".size-col").forEach((btn) => {
+        btn.classList.remove("selected-size");
+      });
 
-      event.target.closest('button').classList.add('selected-size')
+      event.target.closest("button").classList.add("selected-size");
       selectedSize.value = size;
     };
 
     const scrollableElement = ref(null);
     const scrollHeight = ref(0);
-
 
     watch(route, async () => {
       categories.value = props.categories;
@@ -247,7 +246,7 @@ export default {
 };
 </script>
 
-<style >
+<style scoped>
 .card-img img {
   border-radius: 5px;
   width: 100%;

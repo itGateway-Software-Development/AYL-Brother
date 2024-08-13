@@ -39,127 +39,7 @@
               </div>
               <ul class="dropdown-mobile" v-if="mobileDropdown">
                 <hr />
-                <!-- <li class="mobile-dropdown-item">
-                  <div
-                    class="d-flex align-items-center justify-content-between"
-                  >
-                    <router-link to="/products/bamboo/0" class="nav-link"
-                      ><p>Bamboo Series</p>
-                    </router-link>
-                    <span
-                      class="material-symbols-outlined pe-10"
-                      type="button"
-                      @click="bamboo = !bamboo"
-                    >
-                      keyboard_arrow_down
-                    </span>
-                  </div>
-                  <ul class="mobile-sub-dropdown" v-if="bamboo">
-                    <li class="mobile-sub-item">
-                      <router-link to="/products/bamboo/8028" class="nav-link"
-                        >RO: 8028</router-link
-                      >
-                    </li>
-                    <li class="mobile-sub-item">
-                      <router-link to="/products/bamboo/8027" class="nav-link"
-                        >RO: 8027</router-link
-                      >
-                    </li>
-                    <li class="mobile-sub-item">
-                      <router-link to="/products/bamboo/8018" class="nav-link"
-                        >RO: 8018</router-link
-                      >
-                    </li>
-                    <li class="mobile-sub-item">
-                      <router-link to="/products/bamboo/8017" class="nav-link"
-                        >RO: 8017</router-link
-                      >
-                    </li>
-                    <li class="mobile-sub-item">
-                      <router-link to="/products/bamboo/8003" class="nav-link"
-                        >RO: 8003</router-link
-                      >
-                    </li>
-                    <li class="mobile-sub-item">
-                      <router-link to="/products/bamboo/8004" class="nav-link"
-                        >RO: 8004</router-link
-                      >
-                    </li>
-                    <li class="mobile-sub-item">
-                      <router-link to="/products/bamboo/9001" class="nav-link"
-                        >RO: 9001</router-link
-                      >
-                    </li>
-                    <li class="mobile-sub-item">
-                      <router-link to="/products/bamboo/9002" class="nav-link"
-                        >RO: 9002</router-link
-                      >
-                    </li>
-                  </ul>
-                </li>
-                <hr />
-                <li class="mobile-dropdown-item">
-                  <div
-                    class="d-flex align-items-center justify-content-between"
-                  >
-                    <router-link to="/products/spandex/0" class="nav-link"
-                      ><p>Spandex Series</p>
-                    </router-link>
-                    <span
-                      class="material-symbols-outlined pe-10"
-                      type="button"
-                      @click="spandex = !spandex"
-                    >
-                      keyboard_arrow_down
-                    </span>
-                  </div>
-                  <ul class="mobile-sub-dropdown" v-if="spandex">
-                    <li class="mobile-sub-item">
-                      <router-link to="/products/spandex/5002" class="nav-link"
-                        >RO: 5002</router-link
-                      >
-                    </li>
-                    <li class="mobile-sub-item">
-                      <router-link to="/products/spandex/5003" class="nav-link"
-                        >RO: 5003</router-link
-                      >
-                    </li>
-                    <li class="mobile-sub-item">
-                      <router-link to="/products/spandex/5012" class="nav-link"
-                        >RO: 5012</router-link
-                      >
-                    </li>
-                  </ul>
-                </li>
-                <hr />
-                <li class="mobile-dropdown-item">
-                  <div
-                    class="d-flex align-items-center justify-content-between"
-                  >
-                    <router-link to="/products/lycra/0" class="nav-link"
-                      ><p>Lycra Modal Series</p>
-                    </router-link>
-                    <span
-                      class="material-symbols-outlined pe-10"
-                      type="button"
-                      @click="modal = !modal"
-                    >
-                      keyboard_arrow_down
-                    </span>
-                  </div>
-                  <ul class="mobile-sub-dropdown" v-if="modal">
-                    <li class="mobile-sub-item">
-                      <router-link to="/products/lycra/8076" class="nav-link"
-                        >RO: 8076</router-link
-                      >
-                    </li>
-                    <li class="mobile-sub-item">
-                      <router-link to="/products/lycra/8077" class="nav-link"
-                        >RO: 8077</router-link
-                      >
-                    </li>
-                  </ul>
-                </li> -->
+
                 <li
                   class="mobile-dropdown-items"
                   v-for="item in categories"
@@ -290,14 +170,6 @@
                   >
                 </div></v-list-item
               >
-              <v-list-item link
-                ><router-link
-                  class="d-flex align-items-center nav-link fav d-none"
-                  to="/"
-                  ><i class="fa-solid fa-heart"></i>
-                  <p class="ms-2">Favouriters</p>
-                </router-link></v-list-item
-              >
             </v-navigation-drawer>
           </div>
         </div>
@@ -309,7 +181,15 @@
         <div class="icon-group">
           <ul class="d-flex align-items-center">
             <li class="ms-3">
-              <i class="fa-solid fa-magnifying-glass"></i>
+              <div
+                class="cusor-pointer"
+                @click="isMobileSearch = !isMobileSearch"
+              >
+                <i
+                  class="fa-solid fa-magnifying-glass"
+                  :style="{ color: isMobileSearch ? 'red' : '' }"
+                ></i>
+              </div>
             </li>
             <li class="ms-3">
               <div class="d-flex align-items-center mt-1 language">
@@ -352,6 +232,60 @@
               >
             </li>
           </ul>
+        </div>
+      </div>
+      <!-- Search Ui for mobile  -->
+      <div
+        v-if="isMobileSearch"
+        class="w-100 h-100 position-fixed border-top"
+        style="background: #242142"
+      >
+        <div class="input-group my-2 px-1">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Search Here ..."
+            aria-describedby="basic-addon2"
+            @input="searchProducts"
+            v-model="search_keyword"
+          />
+          <span
+            class="input-group-text cursor-pointer"
+            style="background: rgba(173, 173, 173, 0.144)"
+            id="basic-addon2"
+            @click="closeSearched()"
+          >
+            <span class="material-symbols-outlined fs-1 text-white">
+              close
+            </span>
+          </span>
+        </div>
+      </div>
+      <div class="search-products" v-if="searchedProducts.length > 0">
+        <div class="row">
+          <div
+            class="col-6 col-lg-3 col-md-4 col-sm-6"
+            v-for="product in searchedProducts"
+            :key="product.id"
+          >
+            <div class="product-card card mb-5">
+              <router-link
+                :to="{ name: 'productDetail', params: { id: product.id } }"
+              >
+                <img :src="product.main_image" alt="" class="img-fluid" />
+              </router-link>
+              <div class="card-content mt-2 px-3 py-2">
+                <div class="name text-center">
+                  <p>{{ product.name }}</p>
+                </div>
+                <div class="content text-start">
+                  <p class="code">Code: {{ product.series }}</p>
+                  <p>{{ product.product_info }}</p>
+                  <p>Price: {{ product.price }}MMK</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -569,125 +503,26 @@
             </div>
           </div>
           <div class="search-products" v-if="searchedProducts.length > 0">
-            <div class="row align-content-center card-list">
+            <div class="row">
               <div
-                class="col-6 col-md-3 col-sm-6 mb-5 p-card-col"
+                class="col-12 col-lg-3 col-md-3 col-sm-12"
                 v-for="product in searchedProducts"
                 :key="product.id"
               >
-                <div class="p-card mb-3">
+                <div class="product-card card mb-5">
                   <router-link
                     :to="{ name: 'productDetail', params: { id: product.id } }"
-                    class="product-link"
                   >
-                    <div class="card-img mb-2">
-                      <img :src="product.main_image" class="img-fluid" alt="" />
-                    </div>
+                    <img :src="product.main_image" alt="" class="img-fluid" />
                   </router-link>
-
-                  <div class="p-color text-center mb-2">
-                    <p>Color: {{ product.name }}</p>
-                  </div>
-                  <div class="card-content text-start">
-                    <p class="code">Product-code: {{ product.series }}</p>
-                    <p>{{ product.product_info }}</p>
-                    <p>Price: {{ product.price }} MMK</p>
-                    <p>
-                      Selected Size:
-                      {{ selectedSize }}
-                    </p>
-                  </div>
-                  <div class="size-button">
-                    <div class="row mt-3 px-3 card-size">
-                      <button
-                        class="size col-3 mb-3 size-col"
-                        id="size"
-                        @click="selectSize('M', product, $event)"
-                        :disabled="product.m_size_stock < 1"
-                        :class="{
-                          'bg-grey-darken-2': product.m_size_stock < 1,
-                          'd-none':
-                            product.series == 'RO:9001' ||
-                            product.series == 'RO:9002',
-                        }"
-                      >
-                        <p style="pointer-events: none">M</p>
-                      </button>
-                      <button
-                        class="size col-3 mb-3 size-col"
-                        id="size"
-                        @click="selectSize('L', product, $event)"
-                        :disabled="product.lg_size_stock < 1"
-                        :class="{
-                          'bg-grey-darken-2': product.lg_size_stock < 1,
-                          'd-none':
-                            product.series == 'RO:9001' ||
-                            product.series == 'RO:9002',
-                        }"
-                      >
-                        <p style="pointer-events: none">L</p>
-                      </button>
-                      <button
-                        class="size col-3 mb-3 size-col"
-                        id="size"
-                        @click="selectSize('XL', produc, $event)"
-                        :disabled="product.xl_size_stock < 1"
-                        :class="{
-                          'bg-grey-darken-2': product.xl_size_stock < 1,
-                          'd-none':
-                            product.series == 'RO:9001' ||
-                            product.series == 'RO:9002',
-                        }"
-                      >
-                        <p style="pointer-events: none">XL</p>
-                      </button>
-                      <button
-                        class="size col-3 mb-3 size-col"
-                        id="size"
-                        @click="selectSize('XXL', produ, $event)"
-                        :disabled="product.xxl_size_stock < 1"
-                        :class="{
-                          'bg-grey-darken-2': product.xxl_size_stock < 1,
-                          'd-none':
-                            product.series == 'RO:9001' ||
-                            product.series == 'RO:9002',
-                        }"
-                      >
-                        <p style="pointer-events: none">XXL</p>
-                      </button>
-                      <button
-                        class="size col-3 mb-3 size-col d-none"
-                        id="size"
-                        @click="selectSize('3XL', produ, $eventct)"
-                        :disabled="product.xxxl_size_stock < 1"
-                        :class="{
-                          'bg-grey-darken-2': product.xxxl_size_stock < 1,
-                          'd-block':
-                            product.series == 'RO:9001' ||
-                            product.series == 'RO:9002',
-                        }"
-                      >
-                        <p style="pointer-events: none">3XL</p>
-                      </button>
-                      <button
-                        class="size col-3 mb-3 size-col d-none"
-                        id="size"
-                        @click="selectSize('4XL', produ, $eventct)"
-                        :disabled="product.xxxxl_size_stock < 1"
-                        :class="{
-                          'bg-grey-darken-2': product.xxxxl_size_stock < 1,
-                          'd-block':
-                            product.series == 'RO:9001' ||
-                            product.series == 'RO:9002',
-                        }"
-                      >
-                        <p style="pointer-events: none">4XL</p>
-                      </button>
+                  <div class="card-content mt-2 px-3 py-2">
+                    <div class="name text-center">
+                      <p>{{ product.name }}</p>
                     </div>
-                    <div class="card-button-group mt-3">
-                      <div class="btn add-btn mb-3" @click="addToCart(product)">
-                        Add to Bag
-                      </div>
+                    <div class="content text-start">
+                      <p class="code">Code: {{ product.series }}</p>
+                      <p>{{ product.product_info }}</p>
+                      <p>Price: {{ product.price }}MMK</p>
                     </div>
                   </div>
                 </div>
@@ -765,6 +600,12 @@ export default {
     const openedDropdown = ref(null);
     const search_keyword = ref("");
     const searchedProducts = ref([]);
+    const isMobileSearch = ref(false);
+
+    const closeSearched = () => {
+      isMobileSearch.value = false;
+      searchedProducts.value = [];
+    };
 
     const searchProducts = async () => {
       try {
@@ -852,6 +693,8 @@ export default {
     watch(route, () => {
       userLogin.value = JSON.parse(localStorage.getItem("isLogin"));
       user.value = JSON.parse(localStorage.getItem("user"));
+      searchedProducts.value = [];
+      isMobileSearch.value = false;
     });
 
     return {
@@ -878,6 +721,8 @@ export default {
       search_keyword,
       searchProducts,
       searchedProducts,
+      isMobileSearch,
+      closeSearched,
     };
   },
 };
@@ -1329,7 +1174,6 @@ export default {
   pointer-events: auto;
   background-color: var(--search-background);
   display: flex;
-
   gap: 60px;
   transition: 0.3s ease;
   padding: 30px 40px;
@@ -1337,16 +1181,18 @@ export default {
   overflow-y: scroll;
 }
 
-.card-list {
-  margin-top: 1600px;
+.code {
+  font-weight: 100;
 }
 
-.p-card p {
+.card img {
+  border-radius: 6px;
+}
+
+.card {
+  background: transparent;
   color: var(--search-text);
-}
-
-.size {
-  border-color: var(--search-border) !important;
+  border: 0.5px solid var(--search-border);
 }
 
 @media (max-width: 1920px) {
@@ -1459,6 +1305,11 @@ export default {
   }
   .dropdown-menus {
     top: 60%;
+  }
+  .search-products {
+    margin-top: 55px;
+    background-color: transparent;
+    max-height: 700px;
   }
 }
 
