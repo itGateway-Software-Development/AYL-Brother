@@ -25,6 +25,12 @@
       "#c8d0d8"
     );
     document.documentElement.style.setProperty("--border-color", "#111");
+    document.documentElement.style.setProperty("--search-border", "#fff");
+    document.documentElement.style.setProperty(
+      "--search-background",
+      "#0f0d1f"
+    );
+    document.documentElement.style.setProperty("--search-text", "#fff");
   }
   setLightMode();
 })();
@@ -77,6 +83,12 @@ document.addEventListener("DOMContentLoaded", () => {
           "--secondary-background",
           "#f2f2f2"
         );
+        document.documentElement.style.setProperty("--search-border", "#fff");
+        document.documentElement.style.setProperty(
+          "--search-background",
+          "#0f0d1f"
+        );
+        document.documentElement.style.setProperty("--search-text", "#fff");
       } else {
         document.documentElement.style.setProperty(
           "--background-color",
@@ -116,6 +128,12 @@ document.addEventListener("DOMContentLoaded", () => {
           "--secondary-background",
           "#0f0d1f"
         );
+        document.documentElement.style.setProperty("--search-border", "#111");
+        document.documentElement.style.setProperty(
+          "--search-background",
+          "#fff"
+        );
+        document.documentElement.style.setProperty("--search-text", "#111");
       }
     });
   });

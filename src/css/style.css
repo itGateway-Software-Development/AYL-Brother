@@ -28,6 +28,10 @@
 
   --border-color: #ffffff;
   --secondary-background: #f2f2f2;
+
+  --search-background: #0f0d1f;
+  --search-text: #fff;
+  --search-border: #fff;
 }
 
 #app {

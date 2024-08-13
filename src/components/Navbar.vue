@@ -569,9 +569,9 @@
             </div>
           </div>
           <div class="search-products" v-if="searchedProducts.length > 0">
-            <div class="row align-content-center card-list" >
+            <div class="row align-content-center card-list">
               <div
-                class="col-6 col-md-4 col-sm-6 mb-5 p-card-col"
+                class="col-6 col-md-3 col-sm-6 mb-5 p-card-col"
                 v-for="product in searchedProducts"
                 :key="product.id"
               >
@@ -584,7 +584,7 @@
                       <img :src="product.main_image" class="img-fluid" alt="" />
                     </div>
                   </router-link>
-      
+
                   <div class="p-color text-center mb-2">
                     <p>Color: {{ product.name }}</p>
                   </div>
@@ -611,7 +611,7 @@
                             product.series == 'RO:9002',
                         }"
                       >
-                        <p style="pointer-events: none;">M</p>
+                        <p style="pointer-events: none">M</p>
                       </button>
                       <button
                         class="size col-3 mb-3 size-col"
@@ -625,7 +625,7 @@
                             product.series == 'RO:9002',
                         }"
                       >
-                        <p style="pointer-events: none;">L</p>
+                        <p style="pointer-events: none">L</p>
                       </button>
                       <button
                         class="size col-3 mb-3 size-col"
@@ -639,7 +639,7 @@
                             product.series == 'RO:9002',
                         }"
                       >
-                        <p style="pointer-events: none;">XL</p>
+                        <p style="pointer-events: none">XL</p>
                       </button>
                       <button
                         class="size col-3 mb-3 size-col"
@@ -653,7 +653,7 @@
                             product.series == 'RO:9002',
                         }"
                       >
-                        <p style="pointer-events: none;">XXL</p>
+                        <p style="pointer-events: none">XXL</p>
                       </button>
                       <button
                         class="size col-3 mb-3 size-col d-none"
@@ -667,7 +667,7 @@
                             product.series == 'RO:9002',
                         }"
                       >
-                        <p style="pointer-events: none;">3XL</p>
+                        <p style="pointer-events: none">3XL</p>
                       </button>
                       <button
                         class="size col-3 mb-3 size-col d-none"
@@ -681,7 +681,7 @@
                             product.series == 'RO:9002',
                         }"
                       >
-                        <p style="pointer-events: none;">4XL</p>
+                        <p style="pointer-events: none">4XL</p>
                       </button>
                     </div>
                     <div class="card-button-group mt-3">
@@ -763,30 +763,30 @@ export default {
     const check = ref(false);
     const language = ref("EN");
     const openedDropdown = ref(null);
-    const search_keyword = ref('');
+    const search_keyword = ref("");
     const searchedProducts = ref([]);
 
-
     const searchProducts = async () => {
-      try{
-          let response = await axios.get(api.searchProducts+'?search='+search_keyword.value);
-          if(response.status === 404) {
-              throw new Error('page not found');
-          }
+      try {
+        let response = await axios.get(
+          api.searchProducts + "?search=" + search_keyword.value
+        );
+        if (response.status === 404) {
+          throw new Error("page not found");
+        }
 
-          // searchedHotels.value = response.data.hotels.map(hotel => {
-          //     let img = hotel.image == null ? require('@/assets/images/default.webp') : api.image_url + hotel.image;
-          //     return {...hotel, image: img };
-          // });
-            console.log(response.data.products);
-          searchedProducts.value = response.data.products;
+        // searchedHotels.value = response.data.hotels.map(hotel => {
+        //     let img = hotel.image == null ? require('@/assets/images/default.webp') : api.image_url + hotel.image;
+        //     return {...hotel, image: img };
+        // });
+        console.log(response.data.products);
+        searchedProducts.value = response.data.products;
+      } catch (err) {
+        console.log(err.message);
       }
-      catch(err) {
-          console.log(err.message);
-      }
-    }
+    };
 
-    const {categories, err, getData} = getCategories();
+    const { categories, err, getData } = getCategories();
 
     const logout = () => {
       localStorage.removeItem("user");
@@ -803,8 +803,6 @@ export default {
       language.value = lang;
       store.dispatch("getLocale", lang);
     };
-
-
 
     const changeTheme = (theme) => {
       currentTheme.value = theme;
@@ -879,7 +877,7 @@ export default {
       toggleDropdown,
       search_keyword,
       searchProducts,
-      searchedProducts
+      searchedProducts,
     };
   },
 };
@@ -1321,20 +1319,34 @@ export default {
 
 /* ======== search results ============ */
 .search-products {
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    width: 90%;
-    transform: translateY(0) translateX(-50%);
-    z-index: 99999;
-    pointer-events: auto;
-    background-color: rgba(114, 103, 103, 0.815);
-    display: flex;
-    gap: 60px;
-    transition: 0.3s ease;
-    padding: 30px 40px;
-    max-height: 700px;
-    overflow-y: scroll;
+  position: absolute;
+
+  top: 100%;
+  left: 50%;
+  width: 90%;
+  transform: translateY(0) translateX(-50%);
+  z-index: 99999;
+  pointer-events: auto;
+  background-color: var(--search-background);
+  display: flex;
+
+  gap: 60px;
+  transition: 0.3s ease;
+  padding: 30px 40px;
+  max-height: 700px;
+  overflow-y: scroll;
+}
+
+.card-list {
+  margin-top: 1600px;
+}
+
+.p-card p {
+  color: var(--search-text);
+}
+
+.size {
+  border-color: var(--search-border) !important;
 }
 
 @media (max-width: 1920px) {
