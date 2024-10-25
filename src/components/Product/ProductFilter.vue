@@ -64,16 +64,6 @@
                 <p class="">{{ item.name }}</p></router-link
               >
             </label>
-            <!-- <label class="filter-cat mb-2">
-              <router-link class="nav-link" to="/products/spandex/0">
-                <p class="">Spandex Series</p></router-link
-              >
-            </label>
-            <label class="filter-cat mb-2">
-              <router-link class="nav-link" to="/products/lycra/0">
-                <p class="">Lycra Modal Series</p></router-link
-              >
-            </label> -->
           </div>
         </div>
         <div class="filter-size">
