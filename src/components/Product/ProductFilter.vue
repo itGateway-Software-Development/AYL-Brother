@@ -55,9 +55,13 @@
             </span>
           </div>
           <div class="price mt-2 ms-2" v-if="fabric_show">
-            <label class="filter-cat mb-2">
-              <router-link class="nav-link" to="/products/bamboo/0">
-                <p class="">Bamboo Series</p></router-link
+            <label
+              class="filter-cat mb-2"
+              v-for="item in categories"
+              :key="item.id"
+            >
+              <router-link class="nav-link" :to="`/products/${item.id}`">
+                <p class="">{{ item.name }}</p></router-link
               >
             </label>
             <!-- <label class="filter-cat mb-2">
