@@ -60,9 +60,6 @@
               v-for="item in categories"
               :key="item.id"
             >
-              <router-link class="nav-link" :to="`/products/${item.id}`">
-                <p class="">{{ item.name }}</p></router-link
-              >
             </label>
           </div>
         </div>
