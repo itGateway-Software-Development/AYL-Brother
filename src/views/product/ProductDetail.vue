@@ -1,7 +1,6 @@
 <template>
   <div class="detail">
     <div class="content-wrapper">
-      {{ resultProduct }}
       <div
         class="modal"
         tabindex="-1"
@@ -142,10 +141,10 @@
             </div>
             <div class="size-content" v-if="selectedSize">
               <p>
-                Selected Size: <span>{{ selectedSize.size }}</span>
+                Selected Size: <span>{{ selectedSize }}</span>
               </p>
             </div>
-            <div class="size-list d-flex justify-content-start mt-3">
+            <!-- <div class="size-list d-flex justify-content-start mt-3">
               <div
                 class="size-card"
                 id="size"
@@ -155,6 +154,104 @@
               >
                 <p>{{ size.size }}</p>
               </div>
+            </div> -->
+            <div class="size-button">
+              <div class="row mt-3 px-3 card-size">
+                <button
+                  class="size col-3 mb-3 size-col"
+                  id="size"
+                  @click="selectSize('M', product, $event)"
+                  :disabled="product.m_size_stock < 1"
+                  :class="{
+                    'bg-grey-darken-2': product.m_size_stock < 1,
+                    'd-none':
+                      product.series == 'RO:9001' ||
+                      product.series == 'RO:9002',
+                  }"
+                >
+                  <p style="pointer-events: none">M</p>
+                </button>
+                <button
+                  class="size col-3 mb-3 size-col"
+                  id="size"
+                  @click="selectSize('L', product, $event)"
+                  :disabled="product.lg_size_stock < 1"
+                  :class="{
+                    'bg-grey-darken-2': product.lg_size_stock < 1,
+                    'd-none':
+                      product.series == 'RO:9001' ||
+                      product.series == 'RO:9002',
+                  }"
+                >
+                  <p style="pointer-events: none">L</p>
+                </button>
+                <button
+                  class="size col-3 mb-3 size-col"
+                  id="size"
+                  @click="selectSize('XL', product, $event)"
+                  :disabled="product.xl_size_stock < 1"
+                  :class="{
+                    'bg-grey-darken-2': product.xl_size_stock < 1,
+                    'd-none':
+                      product.series == 'RO:9001' ||
+                      product.series == 'RO:9002',
+                  }"
+                >
+                  <p style="pointer-events: none">XL</p>
+                </button>
+                <button
+                  class="size col-3 mb-3 size-col"
+                  id="size"
+                  @click="selectSize('XXL', product, $event)"
+                  :disabled="product.xxl_size_stock < 1"
+                  :class="{
+                    'bg-grey-darken-2': product.xxl_size_stock < 1,
+                    'd-none':
+                      product.series == 'RO:9001' ||
+                      product.series == 'RO:9002',
+                  }"
+                >
+                  <p style="pointer-events: none">XXL</p>
+                </button>
+                <button
+                  class="size col-3 mb-3 size-col d-none"
+                  id="size"
+                  @click="selectSize('3XL', product, $eventct)"
+                  :disabled="product.xxxl_size_stock < 1"
+                  :class="{
+                    'bg-grey-darken-2': product.xxxl_size_stock < 1,
+                    'd-block':
+                      product.series == 'RO:9001' ||
+                      product.series == 'RO:9002',
+                  }"
+                >
+                  <p style="pointer-events: none">3XL</p>
+                </button>
+                <button
+                  class="size col-3 mb-3 size-col d-none"
+                  id="size"
+                  @click="selectSize('4XL', product, $eventct)"
+                  :disabled="product.xxxxl_size_stock < 1"
+                  :class="{
+                    'bg-grey-darken-2': product.xxxxl_size_stock < 1,
+                    'd-block':
+                      product.series == 'RO:9001' ||
+                      product.series == 'RO:9002',
+                  }"
+                >
+                  <p style="pointer-events: none">4XL</p>
+                </button>
+              </div>
+              <!-- <div class="card-button-group mt-3">
+                <div
+                  class="btn add-btn mb-3"
+                  @click="addToCart(product)"
+                  :disabled="product.m_size_stock < 1"
+                >
+                  Add to Bag
+                </div>
+                <div class="btn wish-btn">Add to WishList</div>
+              </div> -->
             </div>
             <div class="card-button-group mt-5">
               <div class="btn add-btn mb-3" @click="addToCart(product)">
@@ -248,6 +345,7 @@ import { useStore } from "vuex";
 import { useRoute } from "vue-router";
 import getSingleProduct from "@/composable/getSingleProduct";
 import getRandomProducts from "@/composable/getRandomProducts";
+import Swal from "sweetalert2";
 export default {
   props: {
     id: {
@@ -270,6 +368,7 @@ export default {
     const nickName = ref("");
     const email = ref("");
     const comment = ref("");
+    const cartItems = computed(() => store.getters["cartItems"]);
 
     let { product, error, load } = getSingleProduct();
     let { randomProducts, err, loadRandom } = getRandomProducts();
@@ -292,7 +391,7 @@ export default {
 
     const size_chart = ref(false);
     const sizeGuide = ref(false);
-    const selectedSize = ref(null);
+    const selectedSize = ref(null || "Please select a size");
     const mainImage = ref();
     const miniImages = ref();
     const getImage = () => {
@@ -372,7 +471,12 @@ export default {
 
     const addToCart = (product) => {
       if (!selectedSize.value) {
-        alert("Please select a size");
+        Swal.fire({
+          title: "Warning",
+          text: "Please Select Size !!",
+          icon: "warning",
+          confirmButtonText: "Ok",
+        });
         return;
       }
       const productToAdd = {
@@ -383,14 +487,35 @@ export default {
         pics: product.product_info,
         img: product.main_image,
         quantity: quantity.value,
-        size: selectedSize.value.size,
+        size: selectedSize.value,
       };
 
-      store.dispatch("addToCart", productToAdd);
-      selectedSize.value = null;
+      const existingItem = cartItems.value.find(
+        (item) =>
+          item.code === productToAdd.code &&
+          item.size === productToAdd.size &&
+          item.color === productToAdd.color
+      );
+
+      if (existingItem) {
+        Swal.fire({
+          title: "Warning",
+          text: "Already added to the cart",
+          icon: "warning",
+          confirmButtonText: "Ok",
+        });
+        return;
+      } else {
+        store.dispatch("addToCart", productToAdd);
+      }
     };
 
-    const selectSize = (size) => {
+    const selectSize = (size, product, event) => {
+      document.querySelectorAll(".size-col").forEach((btn) => {
+        btn.classList.remove("selected-size");
+      });
+
+      event.target.closest("button").classList.add("selected-size");
       selectedSize.value = size;
     };
 
@@ -398,12 +523,14 @@ export default {
       await load(props.id);
       getImage();
       loadRandom();
+      window.scroll(0, 0);
     });
 
     onMounted(async () => {
       await load(productId.value);
       loadRandom();
       getImage();
+      window.scroll(0, 0);
     });
 
     return {
@@ -455,6 +582,11 @@ export default {
 .button-group {
   justify-content: end;
   margin: 10px 0px 20px;
+}
+
+.selected-size {
+  background-color: red !important;
+  color: #fff !important;
 }
 
 .comment-btn {

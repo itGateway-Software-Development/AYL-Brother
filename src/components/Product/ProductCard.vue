@@ -117,7 +117,11 @@
                 </button>
               </div>
               <div class="card-button-group mt-3">
-                <div class="btn add-btn mb-3" @click="addToCart(product)">
+                <div
+                  class="btn add-btn mb-3"
+                  @click="addToCart(product)"
+                  :disabled="product.m_size_stock < 1"
+                >
                   Add to Bag
                 </div>
                 <div class="btn wish-btn">Add to WishList</div>
@@ -151,6 +155,7 @@ export default {
     const categories = ref(props.categories);
     const series = ref(props.series);
     const code = ref();
+    const cartItems = computed(() => store.getters["cartItems"]);
 
     let { products, error, getProduct } = getProducts();
 
@@ -203,8 +208,24 @@ export default {
         size: selectedSize.value,
       };
 
-      store.dispatch("addToCart", productToAdd);
-      selectedSize.value = "please select size";
+      const existingItem = cartItems.value.find(
+        (item) =>
+          item.code === productToAdd.code &&
+          item.size === productToAdd.size &&
+          item.color === productToAdd.color
+      );
+
+      if (existingItem) {
+        Swal.fire({
+          title: "Warning",
+          text: "Already added to the cart",
+          icon: "warning",
+          confirmButtonText: "Ok",
+        });
+        return;
+      } else {
+        store.dispatch("addToCart", productToAdd);
+      }
     };
 
     const selectSize = (size, product, event) => {

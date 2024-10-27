@@ -209,6 +209,7 @@ import "vue3-toastify/dist/index.css";
 import { computed, onMounted, ref, watch } from "vue";
 import { mapGetters, mapMutations, useStore } from "vuex";
 import router from "@/router";
+import getProducts from "../composable/getProduct";
 export default {
   setup() {
     const store = useStore();
@@ -218,6 +219,8 @@ export default {
 
     const locations = computed(() => store.getters.locations);
     const subLocations = computed(() => store.getters.getSubLocations);
+    let { products, error, getProduct } = getProducts();
+    const itemList = ref(products);
 
     const onLocationChange = () => {
       store.dispatch("chooseLocation", selectedLocation.value);
@@ -236,8 +239,37 @@ export default {
     const total = computed(() => store.getters["totalPrice"]);
     const grandTotal = computed(() => store.getters["grandTotal"]);
     const increaseQuantity = (item) => {
-      store.dispatch("increaseQuantity", { id: item.id, size: item.size });
+      // Find the stock item matching the product code and color
+      const stockItem = products.value.find(
+        (stockProduct) =>
+          stockProduct.series === item.code && stockProduct.name === item.color
+      );
+
+      if (stockItem) {
+        const sizeMapping = {
+          M: stockItem.m_size_stock,
+          L: stockItem.lg_size_stock,
+          XL: stockItem.xl_size_stock,
+          XXL: stockItem.xxl_size_stock,
+          XXXL: stockItem.xxxl_size_stock,
+        };
+        const stockQuantity = sizeMapping[item.size];
+
+        if (item.quantity + 1 > stockQuantity) {
+          // Show a warning if stock limit is exceeded
+          Swal.fire({
+            title: "Out of Stock",
+            text: `This product ${item.code}  size ${item.size} and color ${item.color} is out of stock.`,
+            icon: "warning",
+            confirmButtonText: "Ok",
+          });
+        } else {
+          // Otherwise, dispatch an action to increase the quantity
+          store.dispatch("increaseQuantity", { id: item.id, size: item.size });
+        }
+      }
     };
+
     const decreaseQuantity = (item) => {
       store.dispatch("decreaseQuantity", { id: item.id, size: item.size });
     };
@@ -288,8 +320,10 @@ export default {
 
     const user = localStorage.getItem("user");
 
-    onMounted(() => {
+    onMounted(async () => {
+      await getProduct();
       window.scroll(0, 0);
+      console.log(products.value[1]);
     });
 
     return {
