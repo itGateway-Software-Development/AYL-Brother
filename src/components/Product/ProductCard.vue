@@ -24,10 +24,11 @@
               <p class="code">Product-code: {{ product.series }}</p>
               <p>{{ product.product_info }}</p>
               <p>Price: {{ product.price }} MMK</p>
-              <p>
+              <p v-if="selectedSize">
                 Selected Size:
                 {{ selectedSize }}
               </p>
+              <p v-else>Selected Size: Please Select a Size to Order</p>
             </div>
             <div class="size-button">
               <div class="row mt-3 px-3 card-size">
@@ -183,7 +184,7 @@ export default {
 
     const items = computed(() => store.getters["product"]);
 
-    const selectedSize = ref(null || "Please select a size");
+    const selectedSize = ref(null);
 
     const quantity = ref(1);
 
