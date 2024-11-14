@@ -225,10 +225,12 @@
 </template>
 
 <script>
+import getUpdateData from "@/composable/getUpdateData";
 import MyOrder from "../components/MyOrder";
 import MyPoint from "../components/MyPoint";
 import { ref, watch, onMounted } from "vue";
 import { useRouter } from "vue-router";
+import { useStore } from "vuex";
 export default {
   components: {
     MyOrder,
@@ -245,6 +247,8 @@ export default {
     const email = ref("");
     const address = ref("");
     const drawer = ref(false);
+    const store = useStore();
+
 
     const logout = () => {
       localStorage.removeItem("user");
@@ -262,9 +266,27 @@ export default {
     //   user.value = JSON.parse(localStorage.getItem("user"));
     // });
 
-    onMounted(() => {
+    const {data, error, getData} = getUpdateData();
+
+    const storeInLocalstorage = () => {
+      store.dispatch("saveAvaliabePoints", data.value.point);
+      localStorage.setItem(
+        "pointHistory",
+        JSON.stringify(data.value.point_history)
+      );
+      localStorage.setItem(
+        "orderHistroy",
+        JSON.stringify(data.value.order)
+      );
+    }
+
+    onMounted( async () => {
       user.value = JSON.parse(localStorage.getItem("user"));
       window.scroll(0, 0);
+      await getData(user.value.id, JSON.parse(localStorage.getItem("Token")));
+      if(data) {
+        storeInLocalstorage()
+      }
     });
 
     watch(user, () => {
@@ -294,6 +316,7 @@ export default {
       address,
       phoneNumber,
       drawer,
+      data
     };
   },
 };

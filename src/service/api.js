@@ -1,9 +1,10 @@
-// const url = "https://admin.romanticunderwear.com/api/v1/";
-const url = "http://localhost:8000/api/v1/";
+const url = "https://admin.romanticunderwear.com/api/v1/";
+// const url = "http://localhost:8000/api/v1/";
 
 const api = {
   login: url + "login",
   register: url + "register",
+  getUpdateData: url + "get-update-data",
   test: url + "test",
   order: url + "order",
   categories: url + "categories",
